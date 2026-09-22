@@ -65,7 +65,7 @@ try {
   await phone.screenshot({ path: join(PROJECT, "reports/preview-lobby-390.png") });
   assert.ok(report.phoneOverflow <= 0, `lobby overflows horizontally by ${report.phoneOverflow}px at 390px`);
   await phone.locator(".sidebar__brain").click();
-  await phone.locator(".brain-page").waitFor();
+  await phone.locator(".bp").waitFor();
   report.phoneBrainOverflow = await overflow();
   await phone.screenshot({ path: join(PROJECT, "reports/preview-brain-390.png") });
   assert.ok(report.phoneBrainOverflow <= 0, `brain page overflows horizontally by ${report.phoneBrainOverflow}px at 390px`);

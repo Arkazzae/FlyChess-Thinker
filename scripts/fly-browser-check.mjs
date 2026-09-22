@@ -107,7 +107,7 @@ try {
   await shot("5-brain-tab");
   await page.waitForFunction(() => document.querySelectorAll(".move-table__move, .thoughts__list li").length > 0, null, { timeout: 120000 });
   await page.locator(".sidebar__brain").click();
-  await page.locator(".brain-page").waitFor();
+  await page.locator(".bp").waitFor();
   await page.locator(".brain-timeline__play").click();
   await page.waitForTimeout(1500);
   assert.equal(await page.locator(".brain-cloud__empty").count(), 0, "the full-page connectome renders (WebGL)");
@@ -125,7 +125,7 @@ try {
   assert.ok(report.cloudPixels > 20, "neurons are visible in the point cloud");
   await shot("6-brain-page");
   report.checks.push("brain: tab and full page render the animated views");
-  await page.locator(".brain-page__header .btn").click();
+  await page.locator(".bp-hero__side .btn").click();
 
   // --- game review: resign, then replay with Stockfish verdicts and the brain on every position ---
   await page.locator(".panel-tabs button").nth(0).click();
@@ -154,6 +154,23 @@ try {
   await page.waitForTimeout(1500);
   await shot("8-review");
   report.checks.push("review: Stockfish rated every move and the brain replayed the shown position");
+
+  // --- the older fly-v4: pick it, start a game, and it answers with its own brain ---
+  await page.locator(".game-tab__controls .btn", { hasText: /New Game|Nowa partia/ }).click().catch(async () => {
+    await page.locator(".panel-tabs button").nth(0).click();
+    await page.locator(".game-tab__controls .btn", { hasText: /New Game|Nowa partia/ }).click();
+  });
+  await page.locator(".gen-pick button").nth(1).click();
+  await page.locator(".btn-play").click();
+  await page.locator('[data-square="e2"]').click();
+  await page.locator('[data-square="e4"]').click();
+  await page.waitForFunction(() => document.querySelectorAll(".move-table__move").length >= 2, null, { timeout: 120000 });
+  report.v4 = await page.evaluate(async () => {
+    const { getFlyEngine } = await import("/src/ai/fly/engine.ts");
+    return { model: getFlyEngine().model, sidebar: document.querySelector(".sidebar__model b")?.textContent, reply: document.querySelectorAll(".move-table__move")[1]?.textContent };
+  });
+  assert.equal(report.v4.model, "fly-v4", "the v4 fly plays with the fly-v4 brain");
+  report.checks.push(`fly-v4: loaded on demand and replied ${report.v4.reply}`);
 
   // --- numerics: WebGPU against the CPU reference on the real connectome ---
   report.gpu = await page.evaluate(async () => {

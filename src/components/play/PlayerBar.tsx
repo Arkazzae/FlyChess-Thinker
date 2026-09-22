@@ -71,7 +71,7 @@ export function PlayerBar({ side }: { side: PieceColor }) {
         <div className="player-bar__name">
           <strong>{mine ? t("player.you") : level.name}</strong>
           {!mine && <span className="player-bar__rating">({level.rating})</span>}
-          {mine ? <Flag locale={locale} title={t("player.country")} /> : <span className="bot-tag" title={t("player.tagTitle")}>{t("player.tag")}</span>}
+          {mine && <Flag locale={locale} title={t("player.country")} />}
           {thinking && <span className="player-bar__thinking">{t("player.thinking")}…</span>}
         </div>
         <div className="player-bar__material">

@@ -1,6 +1,6 @@
 # fly-v6
 
-The fly you play in FlyChess.
+The fly you play in FlyChess. Trained by Arkazzae.
 
 | | |
 | --- | --- |

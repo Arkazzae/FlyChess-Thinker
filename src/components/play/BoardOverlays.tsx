@@ -59,7 +59,7 @@ export function BoardOverlays() {
       decision.candidates.slice(0, 4).forEach((candidate) => {
         const best = candidate.uci === decision.move;
         arrows.push(<Arrow key={`t-${candidate.uci}`} from={candidate.uci.slice(0, 2)} to={candidate.uci.slice(2, 4)} flipped={flipped}
-          color={best ? "#ffaa00" : "#c792ff"} opacity={best ? 0.8 : 0.25 + 0.4 * (candidate.prior / top)} width={best ? 0.2 : 0.13} />);
+          color={best ? "#ffaa00" : "#f1e6cf"} opacity={best ? 0.8 : 0.25 + 0.4 * (candidate.prior / top)} width={best ? 0.2 : 0.13} />);
       });
     }
   }

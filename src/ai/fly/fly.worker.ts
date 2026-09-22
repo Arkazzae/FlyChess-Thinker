@@ -20,6 +20,23 @@ const CPU_STAGES: readonly Widths[] = [[3, 1], [3, 2], [4, 3], [6, 4], [8, 5]];
 
 let brain: FlyBrain | null = null;
 let gpu: GpuPropagator | null = null;
+/** Kept so another model can be loaded on the same wiring without sending it again. */
+let graph: Connectome | null = null;
+let preferGpu = false;
+
+/** A brain for these weights, on the GPU when possible. Returns why the GPU was not used, if it was not. */
+async function buildBrain(weights: FlyWeights): Promise<string | undefined> {
+  gpu?.dispose();
+  gpu = null;
+  brain = new FlyBrain(graph!, weights);
+  if (!preferGpu) return undefined;
+  try {
+    gpu = await GpuPropagator.create(brain);
+    return undefined;
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error);
+  }
+}
 // One evaluation at a time: GPU buffers and the brain's scratch arrays are shared.
 let queue: Promise<void> = Promise.resolve();
 
@@ -47,23 +64,21 @@ async function handle(command: FlyCommand): Promise<void> {
   try {
     if (command.type === "init") {
       const started = performance.now();
-      const graph = new Connectome(command.graph);
-      const weights = new FlyWeights(command.weights);
-      brain = new FlyBrain(graph, weights);
-      let reason: string | undefined;
-      if (command.preferGpu) {
-        try {
-          gpu = await GpuPropagator.create(brain);
-        } catch (error) {
-          reason = error instanceof Error ? error.message : String(error);
-        }
-      }
-      const roles = brain.roles();
+      graph = new Connectome(command.graph);
+      preferGpu = command.preferGpu;
+      const reason = await buildBrain(new FlyWeights(command.weights));
+      const roles = brain!.roles();
       scope.postMessage({ type: "ready", neurons: graph.count, connections: graph.edges, buildMs: performance.now() - started,
         backend: gpu ? "webgpu" : "cpu", adapter: gpu?.adapterName ?? "CPU", reason, roles }, [roles.buffer]);
       return;
     }
-    if (!brain) throw new Error("The fly brain is not loaded yet.");
+    if (!brain || !graph) throw new Error("The fly brain is not loaded yet.");
+    if (command.type === "weights") {
+      await buildBrain(new FlyWeights(command.weights));
+      const roles = brain.roles();
+      scope.postMessage({ type: "model", id: command.id, backend: gpu ? "webgpu" : "cpu", adapter: gpu?.adapterName ?? "CPU", roles }, [roles.buffer]);
+      return;
+    }
     const activeBrain = brain;
     if (command.type === "trace") {
       const started = performance.now();

@@ -1,8 +1,5 @@
 ![FlyChess: play chess against the brain of a fruit fly](docs/media/banner.png)
 
-<p align="center"><a href="https://fly-chess-thinker.vercel.app/"><b>▶ Play now at fly-chess-thinker.vercel.app</b></a><br>
-No account, no install. Works on phones and computers.</p>
-
 Your opponent is the real wiring diagram of a *Drosophila* nervous system:
 163,903 neurons and 6.2 million connections, mapped neuron by neuron under an
 electron microscope. We kept that wiring exactly as nature built it, taught
@@ -24,10 +21,11 @@ Safari; phones work too, they just think a little slower.
 
 ## What you get
 
-- **Three flies to play**, all the same brain:
-  - **Reflex** (~1100): moves on pure instinct.
-  - **Planner** (~1310): imagines your replies first.
-  - **Thinker** (~1340): keeps thinking deeper while it has time.
+- **Six flies to play**, on two trained brains:
+  - fly-v6, the newest: **Reflex** (~1100) moves on pure instinct, **Planner** (~1310)
+    imagines your replies first, **Thinker** (~1340) keeps thinking deeper while it has time.
+  - fly-v4, the older brain: **Rookie** (~980), **Scribe** (~1400) and **Elder** (~1320),
+    the same three ways of playing.
 - **The fly's brain, live**: a 3D cloud of its real neurons lighting up
   step by step, the signal flowing between brain regions, the moves it
   is weighing, and what the board looks like through its eyes.
@@ -47,7 +45,7 @@ Safari; phones work too, they just think a little slower.
 
 ## How good is it?
 
-It plays like a club beginner. Against Stockfish capped at 1320 Elo, the
+The shipped model, **fly-v6**, was trained by Arkazzae. It plays like a club beginner. Against Stockfish capped at 1320 Elo, the
 Thinker won about half its games. That's a fair result for something
 with a brain smaller than a poppy seed that had to learn from scratch
 what a legal move is.

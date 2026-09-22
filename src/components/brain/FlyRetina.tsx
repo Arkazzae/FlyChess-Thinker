@@ -1,5 +1,8 @@
+import { useMemo } from "react";
 import { useFlyStore } from "@/state/fly";
+import { useGameStore } from "@/state/game";
 import { useTranslation } from "@/i18n";
+import { encodeFen } from "@/ai/fly/encoding";
 
 const GLYPHS = ["♟", "♞", "♝", "♜", "♛", "♚"];
 const CHANNELS = 14;
@@ -7,9 +10,12 @@ const CHANNELS = 14;
 /** The 64 × 14 stimulus the fly receives: its pieces, the opponent's, and both attack maps (mover frame). */
 export function FlyRetina() {
   const thought = useFlyStore((s) => s.thought);
+  const fen = useGameStore((s) => s.fen);
   const { t } = useTranslation();
-  if (!thought) return <div className="retina retina--empty">{t("retina.empty")}</div>;
-  const { retina } = thought;
+  // Before the fly has thought about anything, show the board on screen encoded the same way,
+  // as the stimulus its eyes would get.
+  const preview = useMemo(() => (thought ? null : encodeFen(fen).squares), [thought, fen]);
+  const retina = thought?.retina ?? preview!;
   return (
     <div className="retina-wrap">
       <div className="retina" role="img" aria-label={t("retina.aria")}>
@@ -39,7 +45,7 @@ export function FlyRetina() {
         <li><i className="oa" />{t("retina.ownAttack")}</li>
         <li><i className="ta" />{t("retina.theirAttack")}</li>
       </ul>
-      <p className="retina__note">{t("retina.note")}</p>
+      <p className="retina__note">{thought ? t("retina.note") : t("retina.preview")}</p>
     </div>
   );
 }

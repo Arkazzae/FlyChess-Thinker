@@ -1,6 +1,6 @@
 # How the fly was trained
 
-The model shipped here is **fly-v6**: 61,465 training steps and 15,735,040
+The model shipped here is **fly-v6**, trained by Arkazzae: 61,465 training steps and 15,735,040
 position presentations (a presentation counts repeats, so it is not the number
 of unique positions). The training code lives in a separate research
 workspace. This page summarises what it did.

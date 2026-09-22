@@ -24,6 +24,10 @@ const NODES: Point[] = [
   { x: 0.27, y: 0.76 }, // other senses
 ];
 const INPUT: Point = { x: 0.07, y: 0.54 };
+/** The main pathways, drawn faintly at all times so the diagram reads even before the fly thinks. */
+const SKELETON: [number | "in", number | "out"][] = [
+  ["in", 0], ["in", 5], [0, 1], [1, 2], [5, 2], [0, 2], [2, 3], [2, 4], [3, 4], [1, "out"], [2, "out"], [3, "out"],
+];
 const OUTPUT: Point = { x: 0.93, y: 0.52 };
 const EXCITATORY_SHOWN = 7;
 const INHIBITORY_SHOWN = 3;
@@ -128,6 +132,20 @@ export class FlowView {
       ctx.beginPath();
       ctx.arc(star.x * w, star.y * h, star.r, 0, Math.PI * 2);
       ctx.fill();
+    }
+
+    // --- the anatomy at rest: faint, still pathways ---
+    ctx.lineCap = "round";
+    ctx.lineWidth = 1.2 * scale;
+    for (const [from, to] of SKELETON) {
+      const a = P(from === "in" ? INPUT : NODES[from]);
+      const b = P(to === "out" ? OUTPUT : NODES[to]);
+      const c = control(a, b, 0.1);
+      ctx.strokeStyle = "rgba(190, 185, 215, 0.14)";
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.quadraticCurveTo(c.x, c.y, b.x, b.y);
+      ctx.stroke();
     }
 
     // --- the strongest routes this step ---

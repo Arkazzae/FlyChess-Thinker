@@ -61,7 +61,7 @@ Screenshots go to `reports/`.
 | `src/components/` | App shell and preloader (`shell/`), game screen (`play/`), brain views (`brain/`), board (`Board/`), the fly mascot |
 | `src/game/session.ts` | Starting, rematching and ending games; PGN export |
 | `src/i18n/` | English and Polish strings (English is the default) |
-| `public/data/` | Connectome and trained weights |
+| `public/data/` | Connectome and trained weights (`flybrain/` is fly-v6, `flybrain-v4/` the older fly-v4, loaded on demand) |
 | `scripts/` | Browser tests, README media, the mascot SVG export |
 | `artifacts/` | Exported fly-v6 and fly-v4 brains with notes |
 

@@ -6,10 +6,41 @@
  * calm unless it is thinking. Each level of the fly has its own accessory.
  */
 
-export type FlyVariant = "plain" | "odruch" | "plan" | "mysl";
+export type FlyVariant = "plain" | "odruch" | "plan" | "mysl" | "odruch4" | "plan4" | "mysl4";
 
-/** Accessories drawn over the body: a lightning bolt for Reflex, a game plan for Planner, glasses for Thinker. */
+/**
+ * Accessories drawn over the body. fly-v6: a lightning bolt (Reflex), a game plan (Planner), glasses
+ * (Thinker). The older fly-v4: a propeller cap (Rookie), a scroll (Scribe), a monocle (Elder).
+ */
 function accessory(variant: FlyVariant): string {
+  if (variant === "odruch4") {
+    return `<g class="fly-acc">
+      <path d="M100 22 V12" stroke="#2b1d10" stroke-width="3" stroke-linecap="round"/>
+      <g class="fly-prop"><ellipse cx="88" cy="11" rx="12" ry="4" fill="#81b64c" stroke="#2b1d10" stroke-width="2"/>
+        <ellipse cx="112" cy="11" rx="12" ry="4" fill="#e0a33a" stroke="#2b1d10" stroke-width="2"/></g>
+      <circle cx="100" cy="11" r="3" fill="#2b1d10"/>
+      <path d="M78 47 Q100 14 122 47 Z" fill="#e2422f" stroke="#2b1d10" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M92 24 Q88 34 88 45 M108 24 Q112 34 112 45" stroke="#ffd23f" stroke-width="5" fill="none"/>
+      <path d="M76 47 H124" stroke="#2b1d10" stroke-width="4" stroke-linecap="round"/>
+    </g>`;
+  }
+  if (variant === "plan4") {
+    return `<g class="fly-acc">
+      <rect x="72" y="132" width="56" height="36" fill="#f3e2bf" stroke="#6b4318" stroke-width="2.5"/>
+      <path d="M80 142 H118 M80 150 H112 M80 158 H116" stroke="#6b4318" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+      <rect x="64" y="128" width="12" height="44" rx="6" fill="#d9c08e" stroke="#6b4318" stroke-width="2.5"/>
+      <rect x="124" y="128" width="12" height="44" rx="6" fill="#d9c08e" stroke="#6b4318" stroke-width="2.5"/>
+      <path d="M58 144 C62 140 66 138 70 140 M142 144 C138 140 134 138 130 140" fill="none" stroke="#4a3320" stroke-width="3.2" stroke-linecap="round"/>
+    </g>`;
+  }
+  if (variant === "mysl4") {
+    return `<g class="fly-acc">
+      <path d="M150 78 C160 96 156 118 146 132" fill="none" stroke="#d9a441" stroke-width="2.5" stroke-dasharray="2 4" stroke-linecap="round"/>
+      <circle cx="124" cy="66" r="27" fill="#fff4dc" fill-opacity=".14" stroke="#2b1d10" stroke-width="7"/>
+      <circle cx="124" cy="66" r="27" fill="none" stroke="#d9a441" stroke-width="4"/>
+      <path d="M110 52 l10 -10 M115 60 l14 -14" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+    </g>`;
+  }
   if (variant === "odruch") {
     return `<g class="fly-acc">
       <g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55">
@@ -66,6 +97,8 @@ export const FLY_CSS = `
 .is-thinking .fly-svg .fly-antenna { animation-duration: .5s; }
 .is-thinking .fly-svg .fly-hover { animation-duration: 1.1s; }
 .is-thinking .fly-svg .fly-glow { opacity: 1; animation: fly-pulse 1s ease-in-out infinite; }
+.fly-svg .fly-prop { transform-box: fill-box; transform-origin: 50% 50%; animation: fly-spin .9s linear infinite; }
+.is-thinking .fly-svg .fly-prop { animation-duration: .25s; }
 @keyframes fly-hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes fly-flutter-l {
   0%, 70%, 100% { transform: rotate(0deg); }
@@ -86,6 +119,7 @@ export const FLY_CSS = `
 }
 @keyframes fly-twitch { 0%, 60%, 100% { transform: rotate(0deg); } 68% { transform: rotate(-9deg); } 76% { transform: rotate(5deg); } 84% { transform: rotate(-3deg); } }
 @keyframes fly-pulse { 50% { opacity: .45; } }
+@keyframes fly-spin { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(-1); } }
 .fly-still:not(.is-thinking) .fly-svg * { animation: none !important; }
 @media (prefers-reduced-motion: reduce) {
   .fly-svg *, .is-thinking .fly-svg * { animation: none !important; }
@@ -111,8 +145,8 @@ export function flySvg(id: string, { style = false, title, variant = "plain" }: 
     const d = side === "l" ? blade : mirror(blade);
     const v = side === "l" ? veins : mirror(veins);
     return `<g class="fly-wing fly-wing--${side}">
-      <path class="fly-wing-blade" d="${d}" fill="url(#${u("wing")})" stroke="#9fc9d6" stroke-opacity=".7" stroke-width="1.2"/>
-      <path d="${v}" fill="none" stroke="#7fb0bf" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/>
+      <path class="fly-wing-blade" d="${d}" fill="url(#${u("wing")})" stroke="#c9b89a" stroke-opacity=".75" stroke-width="1.2"/>
+      <path d="${v}" fill="none" stroke="#b09a78" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/>
       <path d="${d}" fill="url(#${u("sheen")})" opacity=".55"/>
     </g>`;
   };
@@ -133,14 +167,13 @@ export function flySvg(id: string, { style = false, title, variant = "plain" }: 
   ${style ? `<style>${FLY_CSS}</style>` : ""}
   <defs>
     <linearGradient id="${u("wing")}" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#eaf8ff" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#b9dde8" stop-opacity=".35"/>
+      <stop offset="0" stop-color="#fffaf0" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#e8dcc4" stop-opacity=".35"/>
     </linearGradient>
     <linearGradient id="${u("sheen")}" x1="0" y1="0" x2="1" y2="1">
-      <stop offset=".2" stop-color="#ffb3f0" stop-opacity="0"/>
-      <stop offset=".45" stop-color="#ffc8f4" stop-opacity=".7"/>
-      <stop offset=".6" stop-color="#9ff0ff" stop-opacity=".6"/>
-      <stop offset=".8" stop-color="#9ff0ff" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#fff3c8" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff3c8" stop-opacity=".6"/>
+      <stop offset=".8" stop-color="#fff3c8" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="${u("eye")}" cx=".38" cy=".3" r=".8">
       <stop offset="0" stop-color="#ff8f7a"/>
@@ -165,8 +198,8 @@ export function flySvg(id: string, { style = false, title, variant = "plain" }: 
     </linearGradient>
     <clipPath id="${u("abclip")}"><ellipse cx="100" cy="150" rx="25" ry="32"/></clipPath>
     <radialGradient id="${u("glow")}" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="#c7a4ff" stop-opacity=".75"/>
-      <stop offset="1" stop-color="#c7a4ff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#f2c14e" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#f2c14e" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <g class="fly-hover">

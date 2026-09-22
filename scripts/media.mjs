@@ -80,36 +80,61 @@ try {
   }
   await mkdir(OUT, { recursive: true });
 
-  // --- banner ---
+  // --- banner: the real brain, lit by a real thought, over a board in perspective ---
   {
-    const page = await browser.newPage({ viewport: { width: 1280, height: 400 }, deviceScaleFactor: 1 });
-    const nodes = [];
-    let seed = 5;
-    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-    for (let i = 0; i < 90; i++) nodes.push([rnd() * 1280, rnd() * 400, 1 + rnd() * 2.5, ["#4fc3d9", "#6f8cff", "#b48cff", "#ffd65a"][i % 4]]);
-    const links = nodes.map(([x, y], i) => {
-      const [x2, y2] = nodes[(i * 7 + 3) % nodes.length];
-      return Math.hypot(x2 - x, y2 - y) < 260 ? `<line x1="${x}" y1="${y}" x2="${x2}" y2="${y2}" stroke="#b9a8ff" stroke-opacity=".12"/>` : "";
-    }).join("");
+    // 1. A render of the connectome right after the fly has thought about a position.
+    const app = await browser.newPage({ viewport: { width: 1400, height: 900 }, deviceScaleFactor: 2 });
+    await app.goto(origin);
+    await app.locator(".preloader").waitFor({ state: "detached", timeout: 180000 });
+    await app.locator(".btn-play").click();
+    await playerMove(app, ["e2e4"]);
+    await waitForReply(app, 2);
+    await app.locator(".sidebar__brain").click();
+    await app.locator(".bp").waitFor();
+    await app.locator(".brain-timeline__play").click();
+    await wait(4200); // the ten recorded steps have played; the brain holds its final state
+    const brainPng = await app.locator(".bp-cloud canvas").evaluate((canvas) => canvas.toDataURL("image/png"));
+    await app.close();
+
+    // 2. The banner itself.
+    const page = await browser.newPage({ viewport: { width: 1280, height: 400 }, deviceScaleFactor: 2 });
+    const pieces = [["br", 1, 1], ["bn", 3, 0], ["bk", 5, 1], ["bp", 2, 2], ["bp", 6, 2], ["wp", 4, 4], ["wn", 5, 5], ["wq", 2, 6], ["wk", 6, 7], ["wr", 0, 7]];
+    const squares = Array.from({ length: 64 }, (_, i) => `<i class="${(Math.floor(i / 8) + i) % 2 ? "d" : "l"}"></i>`).join("");
+    const pieceImgs = pieces.map(([p, x, y]) => `<img src="${origin}/pieces/${p}.png" style="left:${x * 12.5}%;top:${y * 12.5}%">`).join("");
     await page.setContent(`<!doctype html><html><head>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans:wght@500;600&display=swap" rel="stylesheet">
       <style>${FLY_CSS}
-        body{margin:0;width:1280px;height:400px;overflow:hidden;background:radial-gradient(ellipse at 30% 40%,#2a2440 0%,#15131c 55%,#0d0c11 100%);font-family:"Noto Sans",sans-serif;color:#fff}
-        .bg{position:absolute;inset:0}
-        .fly{position:absolute;left:120px;top:40px;width:320px;height:320px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+        *{box-sizing:border-box}
+        body{margin:0;width:1280px;height:400px;overflow:hidden;position:relative;color:#fff;font-family:"Noto Sans",sans-serif;
+          background:radial-gradient(ellipse 70% 120% at 78% 45%,#241c14 0%,#15110d 55%,#0c0a08 100%)}
+        .brain{position:absolute;right:20px;top:0;width:560px;height:400px;background:url(${brainPng}) center/contain no-repeat;
+          mix-blend-mode:screen;opacity:.95;
+          -webkit-mask-image:radial-gradient(ellipse 62% 66% at 50% 50%,#000 55%,transparent 82%);mask-image:radial-gradient(ellipse 62% 66% at 50% 50%,#000 55%,transparent 82%)}
+        .floor{position:absolute;left:-40px;bottom:-250px;width:760px;height:760px;perspective:900px}
+        .board{position:absolute;inset:0;transform:rotateX(64deg) rotateZ(-8deg);transform-origin:50% 60%;
+          -webkit-mask-image:linear-gradient(0deg,#000 20%,transparent 70%);mask-image:linear-gradient(0deg,#000 20%,transparent 70%)}
+        .grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);border-radius:6px;overflow:hidden;opacity:.72}
+        .grid i.l{background:#ebecd0}.grid i.d{background:#739552}
+        .board img{position:absolute;width:12.5%;height:12.5%;transform:rotateX(-64deg) translateY(-35%);transform-origin:50% 100%;opacity:1;filter:drop-shadow(0 6px 6px rgba(0,0,0,.5))}
+        .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,10,8,.2) 0%,rgba(12,10,8,.55) 40%,rgba(12,10,8,0) 70%)}
+        .fly{position:absolute;left:84px;top:78px;width:230px;height:230px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.65))}
         .fly svg{width:100%;height:100%}
-        .text{position:absolute;left:500px;top:92px}
-        h1{margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:92px;letter-spacing:-2px;line-height:1}
+        .text{position:absolute;left:340px;top:104px}
+        h1{margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:88px;letter-spacing:-2px;line-height:1;text-shadow:0 6px 30px rgba(0,0,0,.6)}
         h1 b{color:#81b64c}
-        p{margin:16px 0 26px;font-size:28px;color:#d9d6f0;font-weight:500}
-        .chips{display:flex;gap:12px}
-        .chips span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:17px;font-weight:600;color:#e8e6f5}
+        p{margin:14px 0 22px;font-size:25px;color:#efe6d6;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+        .chips{display:flex;gap:10px}
+        .chips span{padding:7px 13px;border-radius:999px;background:rgba(20,16,12,.7);border:1px solid rgba(255,236,200,.18);font-size:15.5px;font-weight:600;color:#efe6d6;backdrop-filter:blur(4px)}
+        .chips b{color:#e0a33a}
       </style></head><body>
-      <svg class="bg" viewBox="0 0 1280 400">${links}${nodes.map(([x, y, r, c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" opacity=".55"/>`).join("")}</svg>
+      <div class="brain"></div>
+      <div class="floor"><div class="board"><div class="grid">${squares}</div>${pieceImgs}</div></div>
+      <div class="shade"></div>
       <div class="fly fly-still">${flySvg("banner", { variant: "mysl" })}</div>
       <div class="text"><h1>Fly<b>Chess</b></h1><p>Play chess against the brain of a fruit fly.</p>
-      <div class="chips"><span>163,903 real neurons</span><span>6.2 M connections</span><span>Runs in your browser</span></div></div>
+      <div class="chips"><span><b>163,903</b> real neurons</span><span><b>6.2 M</b> connections</span><span>runs in your browser</span></div></div>
       </body></html>`);
+    await page.waitForLoadState("networkidle");
     await page.waitForTimeout(800);
     await page.screenshot({ path: join(OUT, "banner.png") });
     await page.close();
@@ -152,7 +177,7 @@ try {
     await playerMove(page, ["g1f3"]);
     await waitForReply(page, 4);
     await page.locator(".sidebar__brain").click();
-    await page.locator(".brain-page").waitFor();
+    await page.locator(".bp").waitFor();
     await wait(800);
     const start = mark();
     await page.locator(".brain-timeline__play").click();
@@ -160,7 +185,7 @@ try {
     const end = mark();
     await page.screenshot({ path: join(OUT, "brain-page.png") });
 
-    await page.locator(".brain-page__header .btn").click();
+    await page.locator(".bp-hero__side .btn").click();
     await page.locator(".panel-tabs button").nth(0).click();
     await page.locator('.game-tab__controls button[aria-label="Resign"]').click();
     await page.locator(".game-over__actions .btn--green").click({ timeout: 10000 });

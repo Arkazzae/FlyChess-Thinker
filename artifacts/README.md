@@ -1,13 +1,13 @@
 # Trained fly brains
 
-Browser-ready exports of two trained versions of the fly. Both run on the same
+Browser-ready exports of two trained versions of the fly, both trained by Arkazzae. Both run on the same
 connectome (`public/data/mcns/`, MaleCNS v1.0) and have the same architecture,
 so either can be dropped into the app.
 
 | Model | Trained | Presentations | Reflex / Planner / Thinker Elo | In the app |
 | --- | --- | --- | --- | --- |
 | [fly-v6](fly-v6/) | 21 Sep 2026 | 15,735,040 | 1099 / 1309 / 1342 | yes (default) |
-| [fly-v4](fly-v4/) | 19 Sep 2026 | 6,521,600 | 982 / 1397 / 1320 | no |
+| [fly-v4](fly-v4/) | 19 Sep 2026 | 6,521,600 | 982 / 1397 / 1320 | yes (Rookie, Scribe, Elder) |
 
 Elo is from 32 games per level against Stockfish limited to 1320. With so few
 games, differences under about 150 points are noise. v4's Planner score is

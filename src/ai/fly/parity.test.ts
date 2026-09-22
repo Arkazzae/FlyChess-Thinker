@@ -16,14 +16,11 @@ import { rankLegalMoves } from "./planner";
 import { FlyWeights } from "./weights";
 
 const file = (path: string) => new URL(`../../../${path}`, import.meta.url);
-const paths = {
-  connectome: file("public/data/mcns/connectome.bin.gz"),
-  manifest: file("public/data/mcns/manifest.json"),
-  weights: file("public/data/flybrain/weights.bin.gz"),
-  model: file("public/data/flybrain/model.json"),
-  fixture: new URL("./fixtures/parity.json", import.meta.url),
-};
-const available = Object.values(paths).every((url) => existsSync(url));
+/** Every model the app can play: the current fly-v6 and the older fly-v4. */
+const MODELS = [
+  { label: "fly-v6", dir: "flybrain", fixture: "parity.json" },
+  { label: "fly-v4", dir: "flybrain-v4", fixture: "parity-v4.json" },
+];
 
 function inflate(url: URL): ArrayBuffer {
   const bytes = gunzipSync(readFileSync(url));
@@ -43,8 +40,16 @@ interface FixturePosition {
   value: number[];
 }
 
-describe.skipIf(!available)("fly brain parity with the trainer", () => {
-  it("bundled files match their manifests and the trainer's numbers", () => {
+describe.each(MODELS)("fly brain parity with the trainer: $label", ({ dir, fixture: fixtureName }) => {
+  const paths = {
+    connectome: file("public/data/mcns/connectome.bin.gz"),
+    manifest: file("public/data/mcns/manifest.json"),
+    weights: file(`public/data/${dir}/weights.bin.gz`),
+    model: file(`public/data/${dir}/model.json`),
+    fixture: new URL(`./fixtures/${fixtureName}`, import.meta.url),
+  };
+  const available = Object.values(paths).every((url) => existsSync(url));
+  it.skipIf(!available)("bundled files match their manifests and the trainer's numbers", () => {
     const manifest = JSON.parse(readFileSync(paths.manifest, "utf8"));
     const model = JSON.parse(readFileSync(paths.model, "utf8"));
     const fixture: { weights: string; positions: FixturePosition[] } = JSON.parse(readFileSync(paths.fixture, "utf8"));

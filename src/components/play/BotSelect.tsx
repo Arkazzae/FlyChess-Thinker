@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { FlyMascot } from "@/components/FlyMascot";
 import { useTranslation } from "@/i18n";
-import { FLY_LEVELS, getFlyLevel } from "@/ai/bots/levels";
+import { FLY_LEVELS, getFlyLevel, type FlyLevelId } from "@/ai/bots/levels";
+import { getFlyEngine, type FlyModelId } from "@/ai/fly/engine";
 import { useFlyStore } from "@/state/fly";
 import { TIME_OPTIONS, useUiStore, type SideChoice } from "@/state/ui";
 import { startGame } from "@/game/session";
@@ -35,36 +36,50 @@ export function BotSelect() {
   const status = useFlyStore((s) => s.status);
   const level = getFlyLevel(levelId);
   const { t } = useTranslation();
+  /** Pick a fly; its brain starts loading straight away so the game can begin without waiting. */
+  const choose = (id: FlyLevelId) => {
+    setLevel(id);
+    void getFlyEngine().useModel(getFlyLevel(id).model);
+  };
+  /** Switch generation, keeping the same kind of fly (Reflex, Planner or Thinker). */
+  const pickGeneration = (model: FlyModelId) => {
+    const base = level.id.replace("4", "");
+    choose((model === "fly-v4" ? `${base}4` : base) as FlyLevelId);
+  };
   // A new line every time a different fly is picked.
   const speech = useMemo(() => Math.floor(Math.random() * 3), [level.id]);
 
   return (
     <div className="bot-select">
-      <div className="bot-hero">
+      <div className="bot-hero" title={level.description}>
         <div className="bot-hero__portrait" style={{ background: level.tint }}>
           <FlyMascot still variant={level.id} />
         </div>
-        <div className="speech">
-          <p>{t(`select.speech.${level.id}.${speech}`)}</p>
+        <div className="bot-hero__text">
+          <div className="bot-hero__name"><strong>{level.name}</strong> <span>({level.rating})</span></div>
+          <div className="speech"><p>{t(`select.speech.${level.id}.${speech}`)}</p></div>
         </div>
-      </div>
-      <div className="bot-select__title">
-        <strong>{level.name}</strong> <span>({level.rating})</span>
-        <p>{level.description}</p>
       </div>
 
       <div className="bot-select__section">
-        <h3>{t("select.model")}</h3>
+        <div className="gen-pick" role="radiogroup" aria-label={t("select.genAria")}>
+          {(["fly-v6", "fly-v4"] as FlyModelId[]).map((model) => (
+            <button key={model} type="button" role="radio" aria-checked={level.model === model} className={level.model === model ? "is-selected" : ""}
+              onClick={() => pickGeneration(model)}>
+              {t(model === "fly-v6" ? "select.gen.v6" : "select.gen.v4")}
+            </button>
+          ))}
+        </div>
         <div className="bot-grid" role="radiogroup" aria-label={t("select.levelAria")}>
-          {FLY_LEVELS.map((item) => (
+          {FLY_LEVELS.filter((item) => item.model === level.model).map((item) => (
             <button
               key={item.id}
               type="button"
               role="radio"
               aria-checked={item.id === levelId}
               className={`bot-card${item.id === levelId ? " is-selected" : ""}`}
-              onClick={() => setLevel(item.id)}
-              title={`${item.name} (${item.rating}) — ${item.short}`}
+              onClick={() => choose(item.id)}
+              title={`${item.name} (${item.rating}): ${item.description}`}
             >
               <span className="bot-card__img" style={{ background: item.tint }}><FlyMascot still variant={item.id} /></span>
               <span className="bot-card__name">{item.card}</span>

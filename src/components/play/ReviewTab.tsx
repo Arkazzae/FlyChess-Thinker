@@ -55,7 +55,7 @@ function EvalGraph({ evals, classes, current, onSelect }: {
       <rect width="100" height="100" fill="#403d39" />
       {area && <path d={area} fill="#f0f0ee" />}
       <line x1="0" x2="100" y1="50" y2="50" stroke="#8b8987" strokeWidth=".6" vectorEffect="non-scaling-stroke" />
-      <line x1={(current / n) * 100} x2={(current / n) * 100} y1="0" y2="100" stroke="#b48cff" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+      <line x1={(current / n) * 100} x2={(current / n) * 100} y1="0" y2="100" stroke="#e0a33a" strokeWidth="2" vectorEffect="non-scaling-stroke" />
       {classes.map((cls, i) => {
         const point = known[i + 1];
         if (!point || !cls || !["blunder", "mistake"].includes(cls)) return null;

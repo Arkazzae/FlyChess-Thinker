@@ -2,7 +2,7 @@ import { useUiStore } from "@/state/ui";
 import { useFlyStore } from "@/state/fly";
 import { resumeAudio } from "@/sounds";
 import { useTranslation } from "@/i18n";
-import { IconBrain, IconGear, IconPlay, Logo } from "./Icons";
+import { BrainBadge, IconGear, IconPlay, Logo } from "./Icons";
 
 export function Sidebar() {
   const view = useUiStore((s) => s.view);
@@ -23,8 +23,8 @@ export function Sidebar() {
         </li>
         <li>
           <button type="button" className={`sidebar__brain${view === "brain" ? " is-active" : ""}`} onClick={() => { resumeAudio(); setView("brain"); }}>
-            <IconBrain /><span>{t("nav.brain")}</span>
-            {status === "thinking" && <i className="sidebar__pulse" aria-label={t("nav.thinking")} />}
+            <BrainBadge size={30} live={status === "thinking"} /><span>{t("nav.brain")}</span>
+            {status === "thinking" && <span className="sr-only">{t("nav.thinking")}</span>}
           </button>
         </li>
       </ul>
@@ -32,7 +32,7 @@ export function Sidebar() {
         {anatomy && (
           <p className="sidebar__model">
             <i className={`sidebar__dot sidebar__dot--${status}`} />
-            <span>{anatomy.label}</span>
+            <span><b>{anatomy.label}</b><small>{t("model.by")}</small></span>
           </p>
         )}
         <div className="sidebar__tools">

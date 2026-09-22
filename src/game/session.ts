@@ -6,6 +6,7 @@ import { useGameStore } from "@/state/game";
 import { useFlyStore } from "@/state/fly";
 import { timeOption, useUiStore } from "@/state/ui";
 import { getFlyLevel } from "@/ai/bots/levels";
+import { getFlyEngine } from "@/ai/fly/engine";
 import { triggerChat } from "@/ai/bot-chat";
 import { getBot } from "@/ai/bots";
 import { resumeAudio } from "@/sounds";
@@ -17,6 +18,8 @@ export function startGame(sideOverride?: PieceColor): void {
   const ui = useUiStore.getState();
   const side: PieceColor = sideOverride ?? (ui.side === "random" ? (Math.random() < 0.5 ? "w" : "b") : ui.side);
   const level = getFlyLevel(ui.level);
+  // The fly's first thought waits for this brain to be in place.
+  void getFlyEngine().useModel(level.model);
   const player = { userId: "player", username: t("player.you"), avatarUrl: "avatars/player.svg" };
   const fly = { userId: "fly", username: level.name, avatarUrl: "avatars/fly.svg" };
   useFlyStore.getState().clearThought();
