@@ -131,7 +131,7 @@ try {
       <div class="brain"></div>
       <div class="floor"><div class="board"><div class="grid">${squares}</div>${pieceImgs}</div></div>
       <div class="shade"></div>
-      <div class="fly fly-still">${flySvg("banner", { variant: "mysl" })}</div>
+      <div class="fly fly-still">${flySvg("banner", { variant: "thinker" })}</div>
       <div class="text"><h1>Fly<b>Chess</b></h1><p>Play chess against the brain of a fruit fly.</p>
       <div class="chips"><span><b>163,903</b> real neurons</span><span><b>6.2 M</b> connections</span><span>runs in your browser</span></div></div>
       </body></html>`);
@@ -146,7 +146,7 @@ try {
   {
     const { context, page, mark } = await recorded();
     await page.addInitScript(() => {
-      localStorage.setItem("fly-chess-thinker:ui:v2", JSON.stringify({ level: "mysl", side: "w", timeId: "none", showThoughts: true, showEval: true }));
+      localStorage.setItem("fly-chess-thinker:ui:v2", JSON.stringify({ level: "thinker", side: "w", timeId: "none", showThoughts: true, showEval: true }));
     });
     await page.goto(origin);
     await page.locator(".preloader").waitFor({ state: "detached", timeout: 180000 });

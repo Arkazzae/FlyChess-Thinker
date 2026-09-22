@@ -1,4 +1,7 @@
 import { getLocale } from "@/i18n";
+import { useUiStore } from "@/state/ui";
+import { flyAvatarUrl } from "./avatars";
+import { getFlyLevel } from "./levels";
 import type { BotDefinition, ChatMessages } from "./types";
 
 const CHAT_EN: ChatMessages = {
@@ -151,7 +154,9 @@ export const fly: BotDefinition = {
   get chat() {
     return getLocale() === "pl" ? CHAT_PL : CHAT_EN;
   },
-  avatarUrl: "avatars/fly.svg",
+  get avatarUrl() {
+    return flyAvatarUrl(getFlyLevel(useUiStore.getState().level).id);
+  },
   description:
     "A real fruit-fly wiring diagram playing chess. It sees the board through its optic lobes, imagines continuations and judges them with its own value heads. Taught by Stockfish.",
   traits: ["Real connectome", "Plans ahead", "Trained by Stockfish"],

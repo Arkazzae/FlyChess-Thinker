@@ -5,7 +5,7 @@
  */
 
 import { create } from "zustand";
-import type { FlyLevelId } from "@/ai/bots/levels";
+import { getFlyLevel, type FlyLevelId } from "@/ai/bots/levels";
 import type { Square, TimeControl } from "@/engine/types";
 
 export type View = "play" | "brain";
@@ -19,7 +19,7 @@ export interface TimeOption {
 }
 
 export const TIME_OPTIONS: TimeOption[] = [
-  { id: "none", label: "Bez limitu", tc: { initial: 0, increment: 0 } },
+  { id: "none", label: "No limit", tc: { initial: 0, increment: 0 } },
   { id: "1+0", label: "1 min", tc: { initial: 60_000, increment: 0 } },
   { id: "3+2", label: "3 | 2", tc: { initial: 180_000, increment: 2000 } },
   { id: "5+0", label: "5 min", tc: { initial: 300_000, increment: 0 } },
@@ -38,7 +38,8 @@ interface Saved {
 const KEY = "fly-chess-thinker:ui:v2";
 function load(): Partial<Saved> {
   try {
-    return JSON.parse(localStorage.getItem(KEY) ?? "{}") as Partial<Saved>;
+    const saved = JSON.parse(localStorage.getItem(KEY) ?? "{}") as Partial<Saved> | null;
+    return { ...saved, level: getFlyLevel(saved?.level).id };
   } catch {
     return {};
   }
@@ -81,7 +82,7 @@ export const useUiStore = create<UiState>((set, get) => {
   return {
     view: "play",
     panelTab: "game",
-    level: initial.level ?? "mysl",
+    level: initial.level ?? "thinker",
     side: initial.side ?? "w",
     timeId: initial.timeId ?? "none",
     showThoughts: initial.showThoughts ?? false,

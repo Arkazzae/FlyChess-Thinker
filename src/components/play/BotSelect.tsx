@@ -43,8 +43,8 @@ export function BotSelect() {
   };
   /** Switch generation, keeping the same kind of fly (Reflex, Planner or Thinker). */
   const pickGeneration = (model: FlyModelId) => {
-    const base = level.id.replace("4", "");
-    choose((model === "fly-v4" ? `${base}4` : base) as FlyLevelId);
+    const counterpart = FLY_LEVELS.find((item) => item.model === model && item.mode === level.mode);
+    if (counterpart) choose(counterpart.id);
   };
   // A new line every time a different fly is picked.
   const speech = useMemo(() => Math.floor(Math.random() * 3), [level.id]);

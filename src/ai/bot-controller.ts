@@ -28,7 +28,7 @@ export function getFlyThinkingBudget(remainingMs: number | null, halfMoves: numb
 export class BotController {
   private bot: BotDefinition | null = null;
   private initialized = false;
-  private level: FlyLevelId = "mysl";
+  private level: FlyLevelId = "thinker";
 
   setLevel(level: FlyLevelId): void {
     this.level = level;

@@ -2,7 +2,7 @@ import type { PlanOptions } from "@/ai/fly/planner";
 import type { FlyModelId } from "@/ai/fly/engine";
 import { t } from "@/i18n";
 
-export type FlyLevelId = "odruch" | "plan" | "mysl" | "odruch4" | "plan4" | "mysl4";
+export type FlyLevelId = "reflex" | "planner" | "thinker" | "rookie" | "scribe" | "elder";
 
 /**
  * Three ways each brain can play: instinct, plan (3, 2) and think (6, 4); the browser's thinking
@@ -18,6 +18,8 @@ export interface FlyLevel {
   id: FlyLevelId;
   /** Which trained brain plays. */
   model: FlyModelId;
+  /** Shared play style for matching characters across brain generations. */
+  mode: "instinct" | "planning" | "thinking";
   /** Texts are translated on read, so the current language is always used. */
   readonly name: string;
   /** Name on the small bot card. */
@@ -34,79 +36,96 @@ export interface FlyLevel {
 
 export const FLY_LEVELS: FlyLevel[] = [
   {
-    id: "odruch",
+    id: "reflex",
     model: "fly-v6",
-    get name() { return t("level.odruch.name"); },
-    get card() { return t("level.odruch.card"); },
+    mode: "instinct",
+    get name() { return t("level.reflex.name"); },
+    get card() { return t("level.reflex.card"); },
     rating: 1110,
-    get short() { return t("level.odruch.short"); },
-    get description() { return t("level.odruch.description"); },
+    get short() { return t("level.reflex.short"); },
+    get description() { return t("level.reflex.description"); },
     tint: "#5d9948",
     plan: { candidates: 1, replies: 0 },
     budget: false,
   },
   {
-    id: "plan",
+    id: "planner",
     model: "fly-v6",
-    get name() { return t("level.plan.name"); },
-    get card() { return t("level.plan.card"); },
+    mode: "planning",
+    get name() { return t("level.planner.name"); },
+    get card() { return t("level.planner.card"); },
     rating: 1270,
-    get short() { return t("level.plan.short"); },
-    get description() { return t("level.plan.description"); },
+    get short() { return t("level.planner.short"); },
+    get description() { return t("level.planner.description"); },
     tint: "#c98a2e",
     plan: { candidates: 3, replies: 2 },
     budget: false,
   },
   {
-    id: "mysl",
+    id: "thinker",
     model: "fly-v6",
-    get name() { return t("level.mysl.name"); },
-    get card() { return t("level.mysl.card"); },
+    mode: "thinking",
+    get name() { return t("level.thinker.name"); },
+    get card() { return t("level.thinker.card"); },
     rating: 1310,
-    get short() { return t("level.mysl.short"); },
-    get description() { return t("level.mysl.description"); },
+    get short() { return t("level.thinker.short"); },
+    get description() { return t("level.thinker.description"); },
     tint: "#b8573a",
     plan: {},
     budget: true,
   },
   {
-    id: "odruch4",
+    id: "rookie",
     model: "fly-v4",
-    get name() { return t("level.odruch4.name"); },
-    get card() { return t("level.odruch4.card"); },
+    mode: "instinct",
+    get name() { return t("level.rookie.name"); },
+    get card() { return t("level.rookie.card"); },
     rating: 1030,
-    get short() { return t("level.odruch4.short"); },
-    get description() { return t("level.odruch4.description"); },
+    get short() { return t("level.rookie.short"); },
+    get description() { return t("level.rookie.description"); },
     tint: "#6f7d44",
     plan: { candidates: 1, replies: 0 },
     budget: false,
   },
   {
-    id: "plan4",
+    id: "scribe",
     model: "fly-v4",
-    get name() { return t("level.plan4.name"); },
-    get card() { return t("level.plan4.card"); },
+    mode: "planning",
+    get name() { return t("level.scribe.name"); },
+    get card() { return t("level.scribe.card"); },
     rating: 1330,
-    get short() { return t("level.plan4.short"); },
-    get description() { return t("level.plan4.description"); },
+    get short() { return t("level.scribe.short"); },
+    get description() { return t("level.scribe.description"); },
     tint: "#9a7433",
     plan: { candidates: 3, replies: 2 },
     budget: false,
   },
   {
-    id: "mysl4",
+    id: "elder",
     model: "fly-v4",
-    get name() { return t("level.mysl4.name"); },
-    get card() { return t("level.mysl4.card"); },
+    mode: "thinking",
+    get name() { return t("level.elder.name"); },
+    get card() { return t("level.elder.card"); },
     rating: 1340,
-    get short() { return t("level.mysl4.short"); },
-    get description() { return t("level.mysl4.description"); },
+    get short() { return t("level.elder.short"); },
+    get description() { return t("level.elder.description"); },
     tint: "#8f4a35",
     plan: {},
     budget: true,
   },
 ];
 
+/** Previous releases stored Polish identifiers in browser settings. */
+const LEGACY_LEVEL_IDS = new Map<string, FlyLevelId>([
+  ["odruch", "reflex"],
+  ["plan", "planner"],
+  ["mysl", "thinker"],
+  ["odruch4", "rookie"],
+  ["plan4", "scribe"],
+  ["mysl4", "elder"],
+]);
+
 export function getFlyLevel(id: string | null | undefined): FlyLevel {
-  return FLY_LEVELS.find((level) => level.id === id) ?? FLY_LEVELS[2];
+  const currentId = id ? LEGACY_LEVEL_IDS.get(id) ?? id : id;
+  return FLY_LEVELS.find((level) => level.id === currentId) ?? FLY_LEVELS[2];
 }

@@ -1,4 +1,4 @@
-![FlyChess: play chess against the brain of a fruit fly](docs/media/banner.png)
+![FlyChess: play chess against the brain of a fruit fly](docs/media/banner-illustrated.png)
 
 Your opponent is the real wiring diagram of a *Drosophila* nervous system:
 163,903 neurons and 6.2 million connections, mapped neuron by neuron under an

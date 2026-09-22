@@ -85,8 +85,8 @@ architecture (as fly-v4 through fly-v6 have) drops in without code changes.
 
 ## README media
 
-`docs/media/` is recorded from a real session: a game against the Thinker,
-the brain view, and a game review. To regenerate it:
+The gameplay, brain view and game review in `docs/media/` are recorded from
+a real session. To regenerate these recordings:
 
 ```bash
 CHROMIUM_PATH=/usr/bin/chromium pnpm media   # needs ffmpeg
@@ -95,10 +95,24 @@ CHROMIUM_PATH=/usr/bin/chromium pnpm media   # needs ffmpeg
 Both GIFs are 800 × 450 (16:9) at 12 fps and a few MB each, so GitHub shows
 them quickly and at the same size.
 
+The README uses `docs/media/banner-illustrated.png`, generated separately
+with imagegen from the original banner and the Thinker avatar. The exact
+prompt is saved in `output/imagegen/banner/prompt.md`. The media script's
+legacy `banner.png` output is independent of this illustrated banner.
+
 ## Mascot
 
-The fly is drawn in `src/components/flySvg.ts`. The React avatar and
-`public/avatars/fly.svg` both come from it. After editing, run:
+The six opponent portraits are generated 2D illustrations in
+`public/avatars/flies/`, selected by `src/ai/bots/avatars.ts`. `FlyMascot`
+uses them in the preloader, picker, player bar, chat and game result. Full-resolution
+PNGs and the exact imagegen prompts live in `output/imagegen/fly-avatars/`.
+Character identifiers and asset filenames use English: `reflex`, `planner`,
+`thinker`, `rookie`, `scribe` and `elder`. Older saved selections are migrated
+when browser settings load.
+
+The legacy plain animated mascot used by the favicon and README media is drawn
+in `src/components/flySvg.ts`. It also supplies `public/avatars/fly.svg`.
+After editing that SVG source, run:
 
 ```bash
 pnpm avatar

@@ -6,14 +6,14 @@
  * calm unless it is thinking. Each level of the fly has its own accessory.
  */
 
-export type FlyVariant = "plain" | "odruch" | "plan" | "mysl" | "odruch4" | "plan4" | "mysl4";
+export type FlyVariant = "plain" | "reflex" | "planner" | "thinker" | "rookie" | "scribe" | "elder";
 
 /**
  * Accessories drawn over the body. fly-v6: a lightning bolt (Reflex), a game plan (Planner), glasses
  * (Thinker). The older fly-v4: a propeller cap (Rookie), a scroll (Scribe), a monocle (Elder).
  */
 function accessory(variant: FlyVariant): string {
-  if (variant === "odruch4") {
+  if (variant === "rookie") {
     return `<g class="fly-acc">
       <path d="M100 22 V12" stroke="#2b1d10" stroke-width="3" stroke-linecap="round"/>
       <g class="fly-prop"><ellipse cx="88" cy="11" rx="12" ry="4" fill="#81b64c" stroke="#2b1d10" stroke-width="2"/>
@@ -24,7 +24,7 @@ function accessory(variant: FlyVariant): string {
       <path d="M76 47 H124" stroke="#2b1d10" stroke-width="4" stroke-linecap="round"/>
     </g>`;
   }
-  if (variant === "plan4") {
+  if (variant === "scribe") {
     return `<g class="fly-acc">
       <rect x="72" y="132" width="56" height="36" fill="#f3e2bf" stroke="#6b4318" stroke-width="2.5"/>
       <path d="M80 142 H118 M80 150 H112 M80 158 H116" stroke="#6b4318" stroke-width="2" stroke-linecap="round" opacity=".75"/>
@@ -33,7 +33,7 @@ function accessory(variant: FlyVariant): string {
       <path d="M58 144 C62 140 66 138 70 140 M142 144 C138 140 134 138 130 140" fill="none" stroke="#4a3320" stroke-width="3.2" stroke-linecap="round"/>
     </g>`;
   }
-  if (variant === "mysl4") {
+  if (variant === "elder") {
     return `<g class="fly-acc">
       <path d="M150 78 C160 96 156 118 146 132" fill="none" stroke="#d9a441" stroke-width="2.5" stroke-dasharray="2 4" stroke-linecap="round"/>
       <circle cx="124" cy="66" r="27" fill="#fff4dc" fill-opacity=".14" stroke="#2b1d10" stroke-width="7"/>
@@ -41,7 +41,7 @@ function accessory(variant: FlyVariant): string {
       <path d="M110 52 l10 -10 M115 60 l14 -14" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
     </g>`;
   }
-  if (variant === "odruch") {
+  if (variant === "reflex") {
     return `<g class="fly-acc">
       <g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55">
         <path d="M22 96 L6 96"/><path d="M26 112 L4 112"/><path d="M22 128 L10 128"/>
@@ -50,7 +50,7 @@ function accessory(variant: FlyVariant): string {
       <path d="M158 7 L151 18" stroke="#fff6c8" stroke-width="2" stroke-linecap="round" opacity=".8"/>
     </g>`;
   }
-  if (variant === "plan") {
+  if (variant === "planner") {
     const cells = [];
     for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
       if ((r + c) % 2) cells.push(`<rect x="${82 + c * 9}" y="${144 + r * 9}" width="9" height="9" fill="#7a9a58"/>`);
@@ -66,7 +66,7 @@ function accessory(variant: FlyVariant): string {
       <path d="M66 150 C70 146 74 142 76 138 M134 150 C130 146 126 142 124 138" fill="none" stroke="#4a3320" stroke-width="3.2" stroke-linecap="round"/>
     </g>`;
   }
-  if (variant === "mysl") {
+  if (variant === "thinker") {
     return `<g class="fly-acc">
       <circle cx="76" cy="66" r="27" fill="#dff4ff" fill-opacity=".12" stroke="#23180f" stroke-width="4.5"/>
       <circle cx="124" cy="66" r="27" fill="#dff4ff" fill-opacity=".12" stroke="#23180f" stroke-width="4.5"/>
