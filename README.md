@@ -38,11 +38,6 @@ Safari; phones work too, they just think a little slower.
 
   <img src="docs/media/review.png" alt="Game review with accuracy, evaluation graph and move classes" width="640">
 
-- **A proper chess site feel**: drag or click to move, premoves, arrows,
-  clocks, move history, takebacks, a hint from the fly, a Stockfish
-  evaluation bar you can turn off, and PGN export. The site is in English
-  and Polish.
-
 ## How good is it?
 
 The shipped model, **fly-v6**, was trained by Arkazzae. It plays like a club beginner. Against Stockfish capped at 1320 Elo, the

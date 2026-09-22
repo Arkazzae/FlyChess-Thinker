@@ -30,9 +30,10 @@ const browser = await chromium.launch({
 });
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-function toGif(input, output, { start, duration, width = 800, fps = 12, colors = 160 }) {
+function toGif(input, output, { start, duration, width = 800, fps = 12, colors = 160, crop = null }) {
+  const cut = crop ? `crop=${crop.width}:${crop.height}:${crop.x}:${crop.y},` : "";
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(start), "-t", String(duration), "-i", input,
-    "-vf", `fps=${fps},scale=${width}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=${colors}:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle`,
+    "-vf", `${cut}fps=${fps},scale=${width}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=${colors}:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle`,
     "-loop", "0", output]);
 }
 
@@ -178,9 +179,19 @@ try {
     await waitForReply(page, 4);
     await page.locator(".sidebar__brain").click();
     await page.locator(".bp").waitFor();
+    // Bring the stage (brain, timeline, board, regions) to the top of the window and record only it.
+    const crop = await page.evaluate(() => {
+      const main = document.querySelector(".app__main");
+      const stage = document.querySelector(".bp-stage");
+      main.scrollTop += stage.getBoundingClientRect().top - 12;
+      const r = stage.getBoundingClientRect();
+      const even = (v) => Math.floor(v / 2) * 2;
+      return { x: even(r.left - 12), y: even(Math.max(0, r.top - 12)), width: even(Math.min(r.width + 24, innerWidth - r.left + 12)), height: even(Math.min(r.height + 24, innerHeight - r.top + 12)) };
+    });
     await wait(800);
     const start = mark();
-    await page.locator(".brain-timeline__play").click();
+    // Click without letting the browser scroll the button into view.
+    await page.evaluate(() => document.querySelector(".brain-timeline__play").click());
     await wait(4200);
     const end = mark();
     await page.screenshot({ path: join(OUT, "brain-page.png") });
@@ -198,7 +209,7 @@ try {
     console.log("review.png");
     // The video is only complete once the context is closed.
     await context.close();
-    toGif(await videoFile(), join(OUT, "brain.gif"), { start, duration: end - start, colors: 192 });
+    toGif(await videoFile(), join(OUT, "brain.gif"), { start, duration: end - start, colors: 192, crop });
     console.log("brain.gif");
   }
 } finally {
