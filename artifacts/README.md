@@ -6,13 +6,13 @@ so either can be dropped into the app.
 
 | Model | Trained | Presentations | Reflex / Planner / Thinker Elo | In the app |
 | --- | --- | --- | --- | --- |
-| [fly-v6](fly-v6/) | 21 Sep 2026 | 15,735,040 | 1099 / 1309 / 1342 | yes (default) |
-| [fly-v4](fly-v4/) | 19 Sep 2026 | 6,521,600 | 982 / 1397 / 1320 | yes (Rookie, Scribe, Elder) |
+| [fly-v6](fly-v6/) | 21 Sep 2026 | 15,735,040 | 1114 / 1273 / 1309 | yes (default) |
+| [fly-v4](fly-v4/) | 19 Sep 2026 | 6,521,600 | 1027 / 1334 / 1342 | yes (Rookie, Scribe, Elder) |
 
-Elo is from 32 games per level against Stockfish limited to 1320. With so few
-games, differences under about 150 points are noise. v4's Planner score is
-higher than v6's, but v6 is the stronger fly overall: the longer training shows
-in instinct, and v6 beat the later v9 experiment 16–0.
+Elo is from 96 games per level against Stockfish limited to 1320 (about ±65).
+With search, the two brains are about equally strong. v6's longer training
+shows on pure instinct, where it is clearly better. v6 is the default: it has
+the better instinct, and it beat the later v9 experiment 16–0.
 
 ## Files in each folder
 

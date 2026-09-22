@@ -23,11 +23,11 @@ The data mix it saw:
 
 ## Measured
 
-| Level | vs Stockfish 1320 (32 games) | Elo |
+| Level | vs Stockfish 1320 (96 games) | Elo (±65) |
 | --- | --- | --- |
-| Reflex (policy only) | 4 W · 6 D · 22 L | 1099 |
-| Planner (3 × 2 search) | 12 W · 7 D · 13 L | 1309 |
-| Thinker (6 × 4 search) | 17 W · 0 D · 15 L | 1342 |
+| Reflex (policy only) | 13 W · 19 D · 64 L | 1114 |
+| Planner (3 × 2 search) | 33 W · 17 D · 46 L | 1273 |
+| Thinker (6 × 4 search) | 42 W · 9 D · 45 L | 1309 |
 
 On held-out positions, its first choice is Stockfish's best move 28.6% of the
 time. The best move is among its top 3 in 52.3% of positions. Its raw top

@@ -5,13 +5,14 @@ import { t } from "@/i18n";
 export type FlyLevelId = "odruch" | "plan" | "mysl" | "odruch4" | "plan4" | "mysl4";
 
 /**
- * Three ways the same v6 brain can play. Ratings are the fly-v6 Elo probe
- * (flybrain/elo_probe.py, 32 games per mode against Stockfish limited to 1320):
- * instinct 1099, plan (3, 2) 1309, think (6, 4) 1342. The browser's thinking
+ * Three ways each brain can play: instinct, plan (3, 2) and think (6, 4); the browser's thinking
  * level searches at least as wide as (6, 4) when time allows.
  *
- * The older fly-v4 is playable too, with its own flies; its probe (same method) measured
- * instinct 982, plan 1397, think 1320.
+ * Ratings come from flybrain/elo_probe.py, 96 games per mode against Stockfish limited to 1320
+ * (a 32-game probe after training plus a 64-game re-run on 23 Sep 2026, pooled), about ±65:
+ *   fly-v6: instinct 1114, plan 1273, think 1309
+ *   fly-v4: instinct 1027, plan 1334, think 1342
+ * The flies show these rounded to tens.
  */
 export interface FlyLevel {
   id: FlyLevelId;
@@ -37,7 +38,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v6",
     get name() { return t("level.odruch.name"); },
     get card() { return t("level.odruch.card"); },
-    rating: 1100,
+    rating: 1110,
     get short() { return t("level.odruch.short"); },
     get description() { return t("level.odruch.description"); },
     tint: "#5d9948",
@@ -49,7 +50,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v6",
     get name() { return t("level.plan.name"); },
     get card() { return t("level.plan.card"); },
-    rating: 1310,
+    rating: 1270,
     get short() { return t("level.plan.short"); },
     get description() { return t("level.plan.description"); },
     tint: "#c98a2e",
@@ -61,7 +62,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v6",
     get name() { return t("level.mysl.name"); },
     get card() { return t("level.mysl.card"); },
-    rating: 1340,
+    rating: 1310,
     get short() { return t("level.mysl.short"); },
     get description() { return t("level.mysl.description"); },
     tint: "#b8573a",
@@ -73,7 +74,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v4",
     get name() { return t("level.odruch4.name"); },
     get card() { return t("level.odruch4.card"); },
-    rating: 982,
+    rating: 1030,
     get short() { return t("level.odruch4.short"); },
     get description() { return t("level.odruch4.description"); },
     tint: "#6f7d44",
@@ -85,7 +86,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v4",
     get name() { return t("level.plan4.name"); },
     get card() { return t("level.plan4.card"); },
-    rating: 1397,
+    rating: 1330,
     get short() { return t("level.plan4.short"); },
     get description() { return t("level.plan4.description"); },
     tint: "#9a7433",
@@ -97,7 +98,7 @@ export const FLY_LEVELS: FlyLevel[] = [
     model: "fly-v4",
     get name() { return t("level.mysl4.name"); },
     get card() { return t("level.mysl4.card"); },
-    rating: 1320,
+    rating: 1340,
     get short() { return t("level.mysl4.short"); },
     get description() { return t("level.mysl4.description"); },
     tint: "#8f4a35",

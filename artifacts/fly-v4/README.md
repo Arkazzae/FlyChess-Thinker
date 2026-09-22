@@ -25,13 +25,14 @@ It learned from:
 
 ## Measured
 
-Elo from 32 games per level against Stockfish 1320:
+96 games per level against Stockfish 1320 (about ±65):
 
-| Level | Elo |
-| --- | --- |
-| Reflex | 982 |
-| Planner | 1397 |
-| Thinker | 1320 |
+| Level | Win / draw / loss | Elo |
+| --- | --- | --- |
+| Reflex | 9 / 12 / 75 | 1027 |
+| Planner | 44 / 12 / 40 | 1334 |
+| Thinker | 45 / 12 / 39 | 1342 |
 
-With 32 games per level, the gap to v6 is within the noise, except for
-instinct: v6 plays about 120 points better without search.
+The first probe (32 games) had the Planner at 1397. The larger sample puts it
+near 1330. With search, v4 is level with v6. Without search, v6 is about 90
+points better.

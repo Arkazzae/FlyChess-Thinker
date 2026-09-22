@@ -4,8 +4,8 @@
  *
  *   CHROMIUM_PATH=/usr/bin/chromium pnpm media
  *
- * Needs ffmpeg on PATH. GIFs are 800 px wide at 12 fps with an optimised palette, to stay a few
- * megabytes so GitHub shows them quickly.
+ * Needs ffmpeg on PATH. Both GIFs are 800 × 450 (16:9) at 12 fps with an optimised palette, a few
+ * megabytes each, so GitHub shows them quickly and at the same size.
  */
 import { spawn, execFileSync } from "node:child_process";
 import { mkdir, readdir, rm } from "node:fs/promises";
@@ -33,7 +33,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 function toGif(input, output, { start, duration, width = 800, fps = 12, colors = 160, crop = null }) {
   const cut = crop ? `crop=${crop.width}:${crop.height}:${crop.x}:${crop.y},` : "";
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(start), "-t", String(duration), "-i", input,
-    "-vf", `${cut}fps=${fps},scale=${width}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=${colors}:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle`,
+    "-vf", `${cut}fps=${fps},scale=${width}:${Math.round((width * 9) / 16)}:flags=lanczos,split[a][b];[a]palettegen=max_colors=${colors}:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle`,
     "-loop", "0", output]);
 }
 
@@ -186,7 +186,13 @@ try {
       main.scrollTop += stage.getBoundingClientRect().top - 12;
       const r = stage.getBoundingClientRect();
       const even = (v) => Math.floor(v / 2) * 2;
-      return { x: even(r.left - 12), y: even(Math.max(0, r.top - 12)), width: even(Math.min(r.width + 24, innerWidth - r.left + 12)), height: even(Math.min(r.height + 24, innerHeight - r.top + 12)) };
+      // 16:9, like the gameplay GIF, so both show at the same size on GitHub.
+      const x = even(r.left - 12);
+      const y = even(Math.max(0, r.top - 12));
+      let width = even(Math.min(r.width + 24, innerWidth - x));
+      let height = even((width * 9) / 16);
+      if (y + height > innerHeight) { height = even(innerHeight - y); width = even((height * 16) / 9); }
+      return { x, y, width, height };
     });
     await wait(800);
     const start = mark();

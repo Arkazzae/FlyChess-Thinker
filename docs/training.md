@@ -60,15 +60,15 @@ consistency 0.25.
 | v1 | Trained from scratch | 1.7 M | ~650–800 |
 | v2 | 11 material features added to the game-state input | 3.8 M | ~800–940 |
 | v3 | Its own mistakes (DAgger) and the pain term | 4.9 M | up to ~1320 |
-| v4 | More Lichess data, stronger legal-move training, consistency | 6.5 M | 982 / 1397 / 1320 |
+| v4 | More Lichess data, stronger legal-move training, consistency | 6.5 M | 1027 / 1334 / 1342 |
 | v5 | Stronger consistency | 8.8 M | not measured |
-| **v6** | **Longer training at a low, constant learning rate** | **15.7 M** | **1099 / 1309 / 1342** |
+| **v6** | **Longer training at a low, constant learning rate** | **15.7 M** | **1114 / 1273 / 1309** |
 
 Strength is shown as reflex / planner / thinker Elo, where measured.
 
 Later experiments (v8, v9) trained from scratch with smaller datasets and
 different value targets. Neither beat v6. In a direct match v9 lost all 16
-games to v6, so v6 stayed.
+games to v6, so v6 stayed the default.
 
 Training v1 through v6 took about 7 hours of active training. v6 ran on an
 RTX 4070 SUPER for about 3 hours, at roughly 650 positions per second;
@@ -76,17 +76,23 @@ earlier versions ran on the same workstation.
 
 ## Measurements
 
-Each level played 32 games against Stockfish limited to 1320 Elo, alternating
-colours. Stockfish had 30 ms per move, and games unfinished after 200 plies
-were decided by a Stockfish evaluation.
+Each level played 96 games against Stockfish limited to 1320 Elo, alternating
+colours: 32 right after training and 64 more on 23 Sep 2026, pooled. Stockfish
+had 30 ms per move, and games unfinished after 200 plies were decided by a
+Stockfish evaluation.
 
-| Level | Win / draw / loss | Score | Elo estimate |
+| Brain | Level | Win / draw / loss | Elo estimate (95% ≈ ±65) |
 | --- | --- | --- | --- |
-| Reflex | 4 / 6 / 22 | 22% | 1099 |
-| Planner | 12 / 7 / 13 | 48% | 1309 |
-| Thinker | 17 / 0 / 15 | 53% | 1342 |
+| fly-v6 | Reflex | 13 / 19 / 64 | 1114 |
+| fly-v6 | Planner | 33 / 17 / 46 | 1273 |
+| fly-v6 | Thinker | 42 / 9 / 45 | 1309 |
+| fly-v4 | Reflex | 9 / 12 / 75 | 1027 |
+| fly-v4 | Planner | 44 / 12 / 40 | 1334 |
+| fly-v4 | Thinker | 45 / 12 / 39 | 1342 |
 
-With 32 games the uncertainty is large: treat these as ±150.
+The first 32-game probe had put v4's Planner at 1397. With three times the
+games it settles near 1330. With search, v4 and v6 are about equally strong.
+v6 is clearly better only on pure instinct.
 
 Other checks:
 - **Teacher's move.** On held-out positions, the fly's first choice is

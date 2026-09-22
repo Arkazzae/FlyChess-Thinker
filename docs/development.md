@@ -92,8 +92,8 @@ the brain view, and a game review. To regenerate it:
 CHROMIUM_PATH=/usr/bin/chromium pnpm media   # needs ffmpeg
 ```
 
-The GIFs are 800 px wide, 12 fps and a few MB each, so GitHub shows them
-quickly.
+Both GIFs are 800 × 450 (16:9) at 12 fps and a few MB each, so GitHub shows
+them quickly and at the same size.
 
 ## Mascot
 

@@ -8,7 +8,7 @@ only the strength of its synapses to play chess, and put it in your browser.
 While you play, you can watch the fly think: every move sends a wave of
 activity from its eyes through its brain, and you see it happen.
 
-![A game against the Thinker fly: it weighs its candidate moves (arrows) while Stockfish's bar keeps score](docs/media/gameplay.gif)
+<img src="docs/media/gameplay.gif" width="800" alt="A game against the Thinker fly: it weighs its candidate moves (arrows) while Stockfish's bar keeps score">
 
 ## Play
 
@@ -22,15 +22,15 @@ Safari; phones work too, they just think a little slower.
 ## What you get
 
 - **Six flies to play**, on two trained brains:
-  - fly-v6, the newest: **Reflex** (~1100) moves on pure instinct, **Planner** (~1310)
-    imagines your replies first, **Thinker** (~1340) keeps thinking deeper while it has time.
-  - fly-v4, the older brain: **Rookie** (~980), **Scribe** (~1400) and **Elder** (~1320),
+  - fly-v6, the newest: **Reflex** (~1110) moves on pure instinct, **Planner** (~1270)
+    imagines your replies first, **Thinker** (~1310) keeps thinking deeper while it has time.
+  - fly-v4, the older brain: **Rookie** (~1030), **Scribe** (~1330) and **Elder** (~1340),
     the same three ways of playing.
 - **The fly's brain, live**: a 3D cloud of its real neurons lighting up
   step by step, the signal flowing between brain regions, the moves it
   is weighing, and what the board looks like through its eyes.
 
-  ![The brain view: activity spreading through 163,903 neurons, and the signal flowing between regions](docs/media/brain.gif)
+  <img src="docs/media/brain.gif" width="800" alt="The brain view: activity spreading through 163,903 neurons, step by step">
 
 - **Game review**: after the game, Stockfish rates every move and gives
   both players an accuracy score. You can replay the game with the fly's
@@ -41,7 +41,8 @@ Safari; phones work too, they just think a little slower.
 ## How good is it?
 
 The shipped model, **fly-v6**, was trained by Arkazzae. It plays like a club beginner. Against Stockfish capped at 1320 Elo, the
-Thinker won about half its games. That's a fair result for something
+Thinker won about half its games (96 games per level, so treat the ratings
+as ±65). That's a fair result for something
 with a brain smaller than a poppy seed that had to learn from scratch
 what a legal move is.
 
