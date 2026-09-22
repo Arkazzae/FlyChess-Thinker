@@ -1,0 +1,36 @@
+{
+  "name": "fly-chess-thinker",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "check": "pnpm test && pnpm build",
+    "test:fly:browser": "node scripts/fly-browser-check.mjs",
+    "test:preview": "node scripts/preview-check.mjs",
+    "avatar": "node scripts/build-fly-avatar.ts",
+    "media": "node scripts/media.mjs"
+  },
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "^20.17.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@webgpu/types": "^0.1.72",
+    "typescript": "~5.9.3",
+    "vite": "^6.0.1",
+    "vitest": "^4.1.0"
+  },
+  "packageManager": "pnpm@10.14.0"
+}
