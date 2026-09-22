@@ -89,9 +89,13 @@ function NeuronField({ progress }: { progress: number }) {
       if (canvas.width !== Math.round(w * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
-      const scale = Math.min(w / 2.2, h / 2.1);
+      // Portrait screens: the brain sits in the upper part, the text below it.
+      const portrait = h > w * 1.15;
+      const scale = portrait ? Math.min(w / 2.2, h * 0.21) : Math.min(w / 2.2, h / 2.1);
+      const centerY = portrait ? h * 0.25 : h / 2 - scale * 0.1;
+      const dot = Math.max(0.6, Math.min(1, scale / 280));
       const X = (x: number) => w / 2 + x * scale;
-      const Y = (y: number) => h / 2 + y * scale - scale * 0.1;
+      const Y = (y: number) => centerY + y * scale;
       const lit = (node: Node) => Math.max(0, Math.min(1, (shown - node.order) * 12 + 0.02));
       ctx.lineWidth = 1;
       for (const node of nodes) {
@@ -120,7 +124,7 @@ function NeuronField({ progress }: { progress: number }) {
         const b = nodes[pulse.to];
         ctx.fillStyle = `rgba(255, 236, 170, ${1 - pulse.t})`;
         ctx.beginPath();
-        ctx.arc(X(a.x + (b.x - a.x) * pulse.t), Y(a.y + (b.y - a.y) * pulse.t), 2.2, 0, Math.PI * 2);
+        ctx.arc(X(a.x + (b.x - a.x) * pulse.t), Y(a.y + (b.y - a.y) * pulse.t), 2.2 * dot, 0, Math.PI * 2);
         ctx.fill();
       }
       for (const node of nodes) {
@@ -129,9 +133,9 @@ function NeuronField({ progress }: { progress: number }) {
         ctx.globalAlpha = 0.18 + level * 0.82 * flicker;
         ctx.fillStyle = node.color;
         ctx.shadowColor = node.color;
-        ctx.shadowBlur = level * 12;
+        ctx.shadowBlur = level * 12 * dot;
         ctx.beginPath();
-        ctx.arc(X(node.x), Y(node.y), 2 + level * 2.4, 0, Math.PI * 2);
+        ctx.arc(X(node.x), Y(node.y), (2 + level * 2.4) * dot, 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.globalAlpha = 1;

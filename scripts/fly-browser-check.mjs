@@ -90,11 +90,11 @@ try {
   await shot("3-game");
 
   // --- hint from the same brain, then take the move back ---
-  await page.locator('button[aria-label="Hint"]').click();
+  await page.locator('.game-tab__controls button[aria-label="Hint"]').click();
   await page.locator(".board-overlay").waitFor({ timeout: 60000 });
   report.checks.push("hint: the fly drew a suggestion for the player");
   await shot("4-hint");
-  await page.locator('button[aria-label="Take back"]').click();
+  await page.locator('.game-tab__controls button[aria-label="Take back"]').click();
   assert.equal(await moveCount(), 0, "takeback returns to the start");
   report.checks.push("takeback: one full move undone");
 
@@ -130,7 +130,7 @@ try {
   // --- game review: resign, then replay with Stockfish verdicts and the brain on every position ---
   await page.locator(".panel-tabs button").nth(0).click();
   await page.waitForFunction(() => document.querySelectorAll(".move-table__move").length >= 2, null, { timeout: 120000 });
-  await page.locator('button[aria-label="Resign"]').click();
+  await page.locator('.game-tab__controls button[aria-label="Resign"]').click();
   await page.locator(".game-over").waitFor({ timeout: 10000 });
   await shot("7-game-over");
   await page.locator(".game-over__actions .btn--green").click();

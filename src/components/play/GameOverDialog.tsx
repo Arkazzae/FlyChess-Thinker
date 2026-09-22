@@ -56,7 +56,12 @@ export function GameOverDialog() {
           </figure>
         </div>
         <div className="game-over__actions">
-          <button type="button" className="btn btn--green btn--big" onClick={() => { setOpen(false); setPanelTab("review"); setViewPly(0); }}>{t("review.open")}</button>
+          <button type="button" className="btn btn--green btn--big" onClick={() => {
+            setOpen(false);
+            setPanelTab("review");
+            setViewPly(0);
+            document.querySelector(".app__main")?.scrollTo({ top: 0, behavior: "smooth" });
+          }}>{t("review.open")}</button>
           <button type="button" className="btn btn--big" onClick={rematch}>{t("game.rematch")}</button>
           <div className="game-over__row">
             <button type="button" className="btn" onClick={backToLobby}>{t("game.newGame")}</button>

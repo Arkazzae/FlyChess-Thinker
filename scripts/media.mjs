@@ -162,7 +162,7 @@ try {
 
     await page.locator(".brain-page__header .btn").click();
     await page.locator(".panel-tabs button").nth(0).click();
-    await page.locator('button[aria-label="Resign"]').click();
+    await page.locator('.game-tab__controls button[aria-label="Resign"]').click();
     await page.locator(".game-over__actions .btn--green").click({ timeout: 10000 });
     await page.waitForFunction(() => [...document.querySelectorAll(".review-summary strong")].every((e) => /\d/.test(e.textContent ?? "")), null, { timeout: 90000 });
     await page.locator(".review-controls .btn").nth(3).click();

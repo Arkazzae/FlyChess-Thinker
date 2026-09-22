@@ -30,9 +30,15 @@ export function MoveTable({ classes }: { classes?: (MoveClass | null | undefined
   useEffect(() => {
     const list = listRef.current;
     if (!list) return;
+    // Scroll the list itself: scrollIntoView would also scroll the page and push the board away on phones.
     const active = list.querySelector<HTMLElement>(".is-current");
-    if (active) active.scrollIntoView({ block: "nearest" });
-    else list.scrollTop = list.scrollHeight;
+    if (!active) {
+      list.scrollTop = list.scrollHeight;
+      return;
+    }
+    const top = active.offsetTop - list.offsetTop;
+    if (top < list.scrollTop) list.scrollTop = top;
+    else if (top + active.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = top + active.offsetHeight - list.clientHeight;
   }, [moves.length, current]);
 
   const rows = [];

@@ -1,5 +1,10 @@
 # Development
 
+To play, use the hosted version at https://fly-chess-thinker.vercel.app/.
+This page is for running and changing the code.
+
+## Run locally
+
 Requires Node.js 23.6+ (the media and avatar scripts import TypeScript directly) and pnpm 10+.
 
 ```bash
@@ -7,6 +12,22 @@ pnpm install
 pnpm dev          # http://localhost:5180
 pnpm check        # unit tests + typecheck + production build
 ```
+
+There is no backend. The brain (about 31 MB) is served from `public/data/`,
+checked against SHA-256 and run in a Web Worker: on the GPU (WebGPU) when there
+is one, otherwise on the CPU.
+
+## Deploy
+
+The app is static. Vite builds it into `dist/`. The hosted copy runs on Vercel:
+
+```bash
+vercel deploy --prod
+```
+
+`vercel.json` lets browsers keep `/data/**` for a year. The app always
+revalidates those files before use and checks them against SHA-256, so a
+replaced model reaches players on their next visit.
 
 ## Browser tests
 

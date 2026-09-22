@@ -1,5 +1,8 @@
 ![FlyChess: play chess against the brain of a fruit fly](docs/media/banner.png)
 
+<p align="center"><a href="https://fly-chess-thinker.vercel.app/"><b>▶ Play now at fly-chess-thinker.vercel.app</b></a><br>
+No account, no install. Works on phones and computers.</p>
+
 Your opponent is the real wiring diagram of a *Drosophila* nervous system:
 163,903 neurons and 6.2 million connections, mapped neuron by neuron under an
 electron microscope. We kept that wiring exactly as nature built it, taught
@@ -10,15 +13,14 @@ activity from its eyes through its brain, and you see it happen.
 
 ![A game against the Thinker fly: it weighs its candidate moves (arrows) while Stockfish's bar keeps score](docs/media/gameplay.gif)
 
-## Try it
+## Play
 
-```bash
-pnpm install
-pnpm dev        # → http://localhost:5180
-```
+Open **[fly-chess-thinker.vercel.app](https://fly-chess-thinker.vercel.app/)**,
+pick a fly and press **Play**.
 
-Nothing runs on a server. The brain (about 31 MB) downloads once and then
-thinks on your GPU (WebGPU), or on the CPU if no GPU is available.
+The first visit downloads the fly's brain (about 31 MB), and then everything
+runs in your browser. It works best on a computer with a recent Chrome, Edge or
+Safari; phones work too, they just think a little slower.
 
 ## What you get
 
@@ -56,8 +58,8 @@ what a legal move is.
   the board, and how it decides.
 - [How it was trained](docs/training.md): the data, the losses, versions
   v1–v6, measurements and limitations.
-- [Development](docs/development.md): project layout, tests, and swapping
-  in a new model.
+- [Development](docs/development.md): running it locally, project layout,
+  tests, and swapping in a new model.
 - [Data and licences](docs/data.md)
 - [Trained brains](artifacts/): the exported fly-v6 and fly-v4 models, with notes.
 

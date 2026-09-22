@@ -71,6 +71,21 @@ try {
   assert.ok(report.phoneBrainOverflow <= 0, `brain page overflows horizontally by ${report.phoneBrainOverflow}px at 390px`);
   report.checks.push("phone: bot screen and brain page fit without horizontal scroll");
 
+  // Phone game: after a move and the fly's reply the whole board is still on screen, above the action bar.
+  await phone.locator(".sidebar__nav button").first().click();
+  await phone.locator(".btn-play").click();
+  await phone.locator('[data-square="e2"]').click();
+  await phone.locator('[data-square="e4"]').click();
+  await phone.waitForFunction(() => document.querySelectorAll(".move-strip button").length >= 2, null, { timeout: 120000 });
+  report.phoneBoard = await phone.evaluate(() => {
+    const board = document.querySelector(".board").getBoundingClientRect();
+    const bar = document.querySelector(".mobile-bar").getBoundingClientRect();
+    return { top: Math.round(board.top), bottom: Math.round(board.bottom), barTop: Math.round(bar.top) };
+  });
+  assert.ok(report.phoneBoard.top >= 0 && report.phoneBoard.bottom <= report.phoneBoard.barTop, `board hidden on phone: ${JSON.stringify(report.phoneBoard)}`);
+  await phone.screenshot({ path: join(PROJECT, "reports/preview-game-390.png") });
+  report.checks.push("phone: the board stays fully visible above the action bar after moves");
+
   assert.deepEqual(errors, [], "no uncaught page errors");
   assert.deepEqual(phoneErrors, [], "no uncaught page errors on phone");
   report.ok = true;

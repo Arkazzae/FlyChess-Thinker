@@ -2,7 +2,7 @@
  * FlyChess: a chess site shell around one opponent, a fruit-fly connectome.
  */
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSettingsStore } from "@/state/settings";
 import { useUiStore } from "@/state/ui";
 import { useBotMove } from "@/hooks/useBotMove";
@@ -37,6 +37,11 @@ export function App() {
   useEffect(() => setSoundsEnabled(sound), [sound]);
   useEffect(() => setVolume(volume), [volume]);
 
+  const mainRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    mainRef.current?.scrollTo({ top: 0 });
+  }, [view]);
+
   // The preloader downloads the brain, pieces, sounds and fonts before the game appears.
   const [loading, setLoading] = useState(true);
   const finishLoading = useCallback(() => setLoading(false), []);
@@ -45,7 +50,7 @@ export function App() {
     <div className="app" onPointerDown={resumeAudio}>
       {loading && <Preloader onDone={finishLoading} />}
       <Sidebar />
-      <main className="app__main">{view === "brain" ? <BrainPage /> : <PlayPage />}</main>
+      <main className="app__main" ref={mainRef}>{view === "brain" ? <BrainPage /> : <PlayPage />}</main>
       <SettingsDialog />
       <Toast />
     </div>

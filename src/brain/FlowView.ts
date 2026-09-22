@@ -2,7 +2,7 @@
  * Signal flow between the six anatomical groups of the connectome, drawn from the recorded
  * thought. Every step only the strongest routes are shown: glowing ribbons coloured from the
  * sending to the receiving region, with comets travelling along them as fast and as often as the
- * drive is strong (inhibition in red). Regions are orbs lit by their mean activity. The board
+ * drive is strong (inhibition in red). Regions are plain discs that fill with their mean activity. The board
  * enters on the left through the eyes and the other senses; the decision leaves on the right
  * through the read-out neurons.
  */
@@ -155,7 +155,7 @@ export class FlowView {
       gradient.addColorStop(1, rgba(to, 0.12 + strength * 0.4));
       ctx.strokeStyle = gradient;
       if (dashed) ctx.setLineDash([2 * scale, 6 * scale]);
-      for (const [width, alpha] of [[10, 0.16], [4, 0.4], [1.4, 1]] as const) {
+      for (const [width, alpha] of [[4.5, 0.22], [1.4, 1]] as const) {
         ctx.globalAlpha = alpha;
         ctx.lineWidth = (0.6 + strength * width) * scale;
         ctx.beginPath();
@@ -212,44 +212,39 @@ export class FlowView {
       comets(a, c, outputPoint, GOLD, level, 2, 0.4 + level * 0.3, g * 3);
     }
 
-    // --- region orbs ---
+    ctx.globalCompositeOperation = "source-over";
+
+    // --- regions: a dark disc with a coloured ring, filling up with the group's activity ---
     for (let g = 0; g < GROUP_COUNT; g++) {
       const { x, y } = P(NODES[g]);
       const r = radius(g);
-      const level = live ? Math.min(1, Math.sqrt(this.mean[g] / meanMax)) : 0.12;
+      const level = live ? Math.min(1, Math.sqrt(this.mean[g] / meanMax)) : 0;
       const color = GROUP_COLORS[g];
-      const reach = r * (2.2 + level * 1.6);
-      const halo = ctx.createRadialGradient(x, y, 0, x, y, reach);
-      halo.addColorStop(0, rgba(color, 0.3 + level * 0.45));
-      halo.addColorStop(0.35, rgba(color, 0.1 + level * 0.22));
-      halo.addColorStop(1, rgba(color, 0));
-      ctx.fillStyle = halo;
+      ctx.fillStyle = "#16151c";
       ctx.beginPath();
-      ctx.arc(x, y, reach, 0, Math.PI * 2);
+      ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
-      const core = ctx.createRadialGradient(x - r * 0.3, y - r * 0.35, r * 0.1, x, y, r);
-      core.addColorStop(0, rgba("#ffffff", 0.4 + level * 0.5));
-      core.addColorStop(0.4, rgba(color, 0.5 + level * 0.45));
-      core.addColorStop(1, rgba(color, 0.16 + level * 0.3));
-      ctx.fillStyle = core;
+      if (level > 0.01) {
+        ctx.fillStyle = rgba(color, 0.35 + level * 0.55);
+        ctx.beginPath();
+        ctx.arc(x, y, r * (0.2 + level * 0.8), 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.strokeStyle = rgba(color, 0.95);
+      ctx.lineWidth = 2 * scale;
       ctx.beginPath();
-      ctx.arc(x, y, r * (0.75 + level * 0.25), 0, Math.PI * 2);
-      ctx.fill();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.stroke();
     }
 
-    // --- the move star ---
-    const pulse = 0.88 + 0.12 * Math.sin(time * 4);
-    const starR = (11 + out * 9) * scale * pulse;
-    const glow = ctx.createRadialGradient(outputPoint.x, outputPoint.y, 0, outputPoint.x, outputPoint.y, starR * 3);
-    glow.addColorStop(0, rgba(GOLD, 0.25 + out * 0.6));
-    glow.addColorStop(1, rgba(GOLD, 0));
-    ctx.fillStyle = glow;
+    // --- the move: a gold disc with a knight, brighter as the read-out fills ---
+    const starR = 13 * scale;
+    ctx.fillStyle = rgba(GOLD, 0.35 + out * 0.65);
     ctx.beginPath();
-    ctx.arc(outputPoint.x, outputPoint.y, starR * 3, 0, Math.PI * 2);
+    ctx.arc(outputPoint.x, outputPoint.y, starR, 0, Math.PI * 2);
     ctx.fill();
-    ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "#fff8dc";
-    ctx.font = `700 ${Math.round(18 * scale * pulse)}px system-ui, sans-serif`;
+    ctx.fillStyle = "#2a2110";
+    ctx.font = `700 ${Math.round(16 * scale)}px system-ui, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("♞", outputPoint.x, outputPoint.y + 1);
@@ -258,13 +253,13 @@ export class FlowView {
     const size = 28 * scale;
     const bx = inputPoint.x - size / 2;
     const by = inputPoint.y - size / 2;
-    ctx.shadowColor = rgba(INPUT_BLUE, 0.4 + input * 0.5);
-    ctx.shadowBlur = 16 * input;
     for (let i = 0; i < 16; i++) {
       ctx.fillStyle = (i + Math.floor(i / 4)) % 2 ? "#739552" : "#ebecd0";
       ctx.fillRect(bx + (i % 4) * size / 4, by + Math.floor(i / 4) * size / 4, size / 4, size / 4);
     }
-    ctx.shadowBlur = 0;
+    ctx.strokeStyle = rgba(INPUT_BLUE, 0.35 + input * 0.6);
+    ctx.lineWidth = 1.5 * scale;
+    ctx.strokeRect(bx - 2, by - 2, size + 4, size + 4);
 
     // --- labels ---
     this.label(this.text.board, inputPoint.x, by + size + 13 * scale, "#c9c7c3", 10.5 * scale);
