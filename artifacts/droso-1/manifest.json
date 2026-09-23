@@ -47,7 +47,7 @@
   },
   "files": {
     "LICENSE": "cc799bb3deaf7ec8329f12db2727585e4ee65de6129978cdd7efd018734343c8",
-    "README.md": "cb1236efb4472ec0d5215feec97903fa9b88eaf1d675bdfecce71b70c83ce48e",
+    "README.md": "684ef0c5cabfab770c75321652846924c6a73cc00f10160e9cd314a746a0e719",
     "core/__init__.py": "b91db7022301c97b544567c46f717c11d70f1d4d1b85fef4f6326724684f7ae4",
     "core/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
     "core/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d",

@@ -12,7 +12,6 @@
     "check": "pnpm test && pnpm build",
     "test:fly:browser": "node scripts/fly-browser-check.mjs",
     "test:preview": "node scripts/preview-check.mjs",
-    "avatar": "node scripts/build-fly-avatar.ts",
     "media": "node scripts/media.mjs"
   },
   "dependencies": {

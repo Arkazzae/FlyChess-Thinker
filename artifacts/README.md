@@ -16,7 +16,7 @@ DROSO-1 uses 4,168 actions. The browser game runs it from `public/data/droso-1/`
 > **Legacy.** fly-v6 and fly-v4 were the first prototypes. They are kept for
 > reference only; the game now runs DROSO-1.
 
-Both were trained by Arkazzae on the **MaleCNS v1.0** connectome
+Both used the **MaleCNS v1.0** connectome
 ([`legacy/mcns/`](legacy/mcns/)), a different fly brain from DROSO-1's
 FlyWire v783, and share the same architecture.
 

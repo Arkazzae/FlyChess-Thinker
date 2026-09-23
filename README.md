@@ -2,8 +2,8 @@
 
 Your opponent is the real wiring diagram of a *Drosophila* brain:
 134,181 neurons and 2.7 million connections from FlyWire, mapped neuron by
-neuron under an electron microscope. We kept that wiring exactly as nature built it, taught
-only the strength of its synapses to play chess, and put it in your browser.
+neuron under an electron microscope. We kept the measured graph fixed after filtering connections below five
+synapses, trained its gains, biases, inputs and readout, and put it in your browser.
 
 While you play, you can watch the fly think: every move sends a wave of
 activity from its eyes through its brain, and you see it happen.
@@ -78,8 +78,7 @@ connectome (MaleCNS v1.0) and are kept for reference in
 
 - [How the fly plays](docs/how-it-works.md): the neuron model, how it sees
   the board, and how it decides.
-- [How it was trained](docs/training.md): the data, the losses, versions
-  v1–v6, measurements and limitations.
+- [How it was trained](docs/training.md): the recipe, data, losses, measurements and limitations.
 - [Development](docs/development.md): running it locally, project layout,
   tests, and swapping in a new model.
 - [Data and licences](docs/data.md)

@@ -41,8 +41,16 @@ try {
   // --- preloader: the brain and assets load before the bot screen appears ---
   await page.locator(".btn-play").waitFor({ timeout: 15000 });
   await page.locator(".preloader").waitFor({ state: "detached", timeout: 180000 });
-  report.brainStatus = await page.locator(".sidebar__model").textContent();
-  assert.match(report.brainStatus ?? "", /fly-v6/, "the v6 model is loaded");
+  await mkdir(join(PROJECT, "reports"), { recursive: true });
+  report.brainStatus = await page.evaluate(async () => {
+    const { getFlyEngine } = await import("/src/ai/fly/engine.ts");
+    return getFlyEngine().model;
+  });
+  assert.equal(report.brainStatus, "droso-1");
+  assert.equal(await page.locator(".gen-pick").count(), 0);
+  assert.equal(await page.locator(".bot-card").count(), 3);
+  assert.ok(await page.locator(".bot-card img").evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)));
+  assert.ok(!/fly-v[46]|trained by Arkazzae/.test(await page.locator("body").innerText()));
   assert.equal((await page.locator(".right-panel__header h2").textContent())?.trim(), "Play the Fly", "English by default");
   await shot("1-lobby");
   await page.locator(".sidebar__lang").click();
@@ -53,7 +61,7 @@ try {
   report.checks.push("i18n: English by default, EN ↔ PL switch works");
   await page.locator(".side-pick button").first().click(); // white
   await page.locator(".btn-play").click();
-  report.checks.push("preloader: brain (fly-v6) and assets loaded, game started as White");
+  report.checks.push("preloader: brain (DROSO-1) and assets loaded, game started as White");
 
   // --- the player moves, the fly thinks (recorded propagation) and replies ---
   await page.locator('[data-square="e2"]').click();
@@ -155,22 +163,22 @@ try {
   await shot("8-review");
   report.checks.push("review: Stockfish rated every move and the brain replayed the shown position");
 
-  // --- the older fly-v4: pick it, start a game, and it answers with its own brain ---
-  await page.locator(".game-tab__controls .btn", { hasText: /New Game|Nowa partia/ }).click().catch(async () => {
-    await page.locator(".panel-tabs button").nth(0).click();
-    await page.locator(".game-tab__controls .btn", { hasText: /New Game|Nowa partia/ }).click();
-  });
-  await page.locator(".gen-pick button").nth(1).click();
-  await page.locator(".btn-play").click();
-  await page.locator('[data-square="e2"]').click();
-  await page.locator('[data-square="e4"]').click();
-  await page.waitForFunction(() => document.querySelectorAll(".move-table__move").length >= 2, null, { timeout: 120000 });
-  report.v4 = await page.evaluate(async () => {
+  // Each persona uses the same model with a different bounded search budget.
+  report.styles = await page.evaluate(async () => {
     const { getFlyEngine } = await import("/src/ai/fly/engine.ts");
-    return { model: getFlyEngine().model, sidebar: document.querySelector(".sidebar__model b")?.textContent, reply: document.querySelectorAll(".move-table__move")[1]?.textContent };
+    const { FLY_LEVELS } = await import("/src/ai/bots/levels.ts");
+    const results = [];
+    for (const level of FLY_LEVELS) {
+      const { decision } = await getFlyEngine().think("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", level.plan, false, true);
+      results.push({id:level.id, model:getFlyEngine().model, visits:decision.simulations, budget:level.plan.simulations, move:decision.move});
+    }
+    return results;
   });
-  assert.equal(report.v4.model, "fly-v4", "the v4 fly plays with the fly-v4 brain");
-  report.checks.push(`fly-v4: loaded on demand and replied ${report.v4.reply}`);
+  for (const style of report.styles) {
+    assert.equal(style.model, "droso-1");
+    assert.equal(style.visits, style.budget);
+  }
+  report.checks.push("DROSO-1: Scout 8, Tactician 32 and Thinker 64 complete their search budgets");
 
   // --- numerics: WebGPU against the CPU reference on the real connectome ---
   report.gpu = await page.evaluate(async () => {
@@ -179,10 +187,10 @@ try {
     const { FlyWeights } = await import("/src/ai/fly/weights.ts");
     const { GpuPropagator } = await import("/src/ai/fly/gpu.ts");
     const { encodeFen } = await import("/src/ai/fly/encoding.ts");
-    const manifest = await (await fetch("./data/mcns/manifest.json")).json();
-    const model = await (await fetch("./data/flybrain/model.json")).json();
-    const graph = new Connectome(await fetchVerified("./data/mcns/connectome.bin.gz", manifest.sha256, 150e6));
-    const weights = new FlyWeights(await fetchVerified("./data/flybrain/weights.bin.gz", model.sha256, 150e6));
+    const manifest = await (await fetch("./data/flywire/manifest.json")).json();
+    const model = await (await fetch("./data/droso-1/model.json")).json();
+    const graph = new Connectome(await fetchVerified("./data/flywire/connectome.bin.gz", manifest.sha256, 150e6));
+    const weights = new FlyWeights(await fetchVerified("./data/droso-1/weights.bin.gz", model.sha256, 150e6));
     const brain = new FlyBrain(graph, weights);
     let gpu;
     try { gpu = await GpuPropagator.create(brain); } catch (error) { return { skipped: true, reason: String(error?.message ?? error) }; }

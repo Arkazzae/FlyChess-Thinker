@@ -1,7 +1,7 @@
 # DROSO-1
 
 A pretrained chess model built on the FlyWire v783 connectome, trained from
-scratch by Arkazzae. This is the original v10 arm B after **26,000,128 position
+scratch. This is the original v10 arm B after **26,000,128 position
 presentations**, released here as DROSO-1 with unchanged learned tensors.
 
 | Property | Value |
@@ -63,9 +63,10 @@ and [training code](../../training/README.md).
 
 ## Browser compatibility and data
 
-DROSO-1's FlyWire graph, input features and 4,168-action policy differ from
-the browser's MaleCNS fly-v6/fly-v4 models. This bundle runs in Python;
-copying its weights into `public/data/flybrain/` will not update the browser.
+The browser uses this checkpoint through a matching FP32 export in
+`public/data/droso-1/` and the FlyWire graph in `public/data/flywire/`.
+Its encoder and PUCT search implement the same input/action contract.
+See [browser export instructions](../../docs/development.md#updating-the-model).
 
 The graph is derived from the FlyWire Consortium's
 [release 783](https://zenodo.org/records/10676866), under

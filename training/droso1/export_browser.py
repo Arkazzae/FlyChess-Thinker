@@ -29,7 +29,12 @@ def write_asset(directory, filename, data):
 def export(bundle, annotations, public, fixture):
     torch.set_num_threads(2)
     model, manifest = load_bundle(bundle, 'cpu')
-    provenance = json.loads((bundle / 'graph-provenance.json').read_text())
+    provenance_path = bundle / 'graph-provenance.json'
+    if not provenance_path.exists():
+        provenance_path = Path(__file__).resolve().parents[2] / 'artifacts/droso-1/graph-provenance.json'
+    provenance = json.loads(provenance_path.read_text())
+    if manifest['files']['graph.npz'] != provenance['graph_sha256']:
+        raise ValueError('Bundle graph does not match the coordinate provenance')
     source = provenance['sources'][0]
     if annotations is None:
         annotations = Path('training/data/annotations-v2.1.0.tsv')
@@ -88,11 +93,14 @@ def export(bundle, annotations, public, fixture):
     model_meta = dict(version=2,label='DROSO-1',connectome=graph_meta['sha256'],neurons=n,connections=m,
                       visualInputs=len(w['vis_index']), globalInputs=len(w['glob_index']),readout=p,hidden=h,steps=model.steps,
                       squareFeatures=15,globalFeatures=22,moveSpace=4168,precision='float32',
-                      sourceWeights=manifest['files']['weights.npz'],training=dict(positions=26000128,step=101563),
+                      sourceWeights=manifest['files']['weights.npz'],training=dict(positions=manifest['provenance']['seen'],step=manifest['provenance']['step']),
                       search=dict(algorithm='PUCT',simulations=64,cPuct=1.5,valueHead='current_cp_tanh'),
                       **write_asset(public/'droso-1','weights.bin.gz',data))
     (public/'droso-1/model.json').write_text(json.dumps(model_meta,indent=2)+'\n')
-    cases=json.loads((bundle/'parity.json').read_text())
+    fixture_source = bundle / 'parity.json'
+    if not fixture_source.exists():
+        fixture_source = bundle / 'verification.json'
+    cases=json.loads(fixture_source.read_text())
     rows=[]
     for case in cases['fixtures']:
         board=Board(case['fen'],halfmove_known=case.get('halfmove_known',True))
@@ -105,7 +113,8 @@ def export(bundle, annotations, public, fixture):
         full=np.exp(logits-logits.max())
         rows.append(dict(fen=board.fen(),halfmoveKnown=board.halfmove_known,flip=board.turn==chess.BLACK,
                          squares=squares.ravel().tolist(),globals=globals_.tolist(),topMoves=top,
-                         topLogits=logits[top].tolist(),value=value[0].tolist(),reply=int(reply[0].argmax()),
+                         topLogits=logits[top].tolist(),policy=logits.tolist(),replyLogits=reply[0].tolist(),
+                         value=value[0].tolist(),reply=int(reply[0].argmax()),
                          legalMass=float(full[legal].sum()/full.sum())))
     fixture.parent.mkdir(parents=True,exist_ok=True)
     fixture.write_text(json.dumps(dict(weights=model_meta['sha256'],positions=rows),separators=(',',':'))+'\n')

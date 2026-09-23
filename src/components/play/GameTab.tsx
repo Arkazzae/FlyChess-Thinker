@@ -24,8 +24,8 @@ function BrainStrip() {
       <IconBrain size={22} />
       <span>
         {status === "thinking"
-          ? decision ? <>{t("strip.considering")} <b>{best?.san}</b> {t("strip.positions", { count: decision.evaluations })}</> : t("strip.flowing")
-          : decision ? <>{t("strip.played")} <b>{best?.san}</b> {t("strip.after", { count: decision.evaluations })}</> : t("strip.see")}
+          ? decision ? <>{t("strip.considering")} <b>{best?.san}</b> {t("strip.positions", { count: decision.simulations })}</> : t("strip.flowing")
+          : decision ? <>{t("strip.played")} <b>{best?.san}</b> {t("strip.after", { count: decision.simulations })}</> : t("strip.see")}
       </span>
       <em>{t("strip.brain")}</em>
     </button>

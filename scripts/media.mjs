@@ -15,7 +15,6 @@ import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
-import { flySvg, FLY_CSS } from "../src/components/flySvg.ts";
 
 const require = createRequire(import.meta.url);
 const PROJECT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -114,7 +113,7 @@ try {
     const pieceImgs = pieces.map(([p, x, y]) => `<img src="${origin}/pieces/${p}.png" style="left:${x * 12.5}%;top:${y * 12.5}%">`).join("");
     await page.setContent(`<!doctype html><html><head>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans:wght@500;600&display=swap" rel="stylesheet">
-      <style>${FLY_CSS}
+      <style>
         *{box-sizing:border-box}
         body{margin:0;width:1280px;height:400px;overflow:hidden;position:relative;color:#fff;font-family:"Noto Sans",sans-serif;
           background:radial-gradient(ellipse 70% 120% at 78% 45%,#241c14 0%,#15110d 55%,#0c0a08 100%)}
@@ -129,7 +128,7 @@ try {
         .board img{position:absolute;width:12.5%;height:12.5%;transform:rotateX(-64deg) translateY(-35%);transform-origin:50% 100%;opacity:1;filter:drop-shadow(0 6px 6px rgba(0,0,0,.5))}
         .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,10,8,.2) 0%,rgba(12,10,8,.55) 40%,rgba(12,10,8,0) 70%)}
         .fly{position:absolute;left:84px;top:78px;width:230px;height:230px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.65))}
-        .fly svg{width:100%;height:100%}
+        .fly img{width:100%;height:100%;object-fit:contain;border-radius:24px}
         .text{position:absolute;left:340px;top:104px}
         h1{margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:88px;letter-spacing:-2px;line-height:1;text-shadow:0 6px 30px rgba(0,0,0,.6)}
         h1 b{color:#81b64c}
@@ -141,9 +140,9 @@ try {
       <div class="brain"></div>
       <div class="floor"><div class="board"><div class="grid">${squares}</div>${pieceImgs}</div></div>
       <div class="shade"></div>
-      <div class="fly fly-still">${flySvg("banner", { variant: "thinker" })}</div>
+      <div class="fly fly-still"><img src="${origin}/avatars/flies/thinker.webp" alt=""></div>
       <div class="text"><h1>Fly<b>Chess</b></h1><p>Play chess against the brain of a fruit fly.</p>
-      <div class="chips"><span><b>163,903</b> real neurons</span><span><b>6.2 M</b> connections</span><span>runs in your browser</span></div></div>
+      <div class="chips"><span><b>134,181</b> real neurons</span><span><b>2.7 M</b> connections</span><span>runs in your browser</span></div></div>
       </body></html>`);
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(800);
@@ -204,7 +203,7 @@ try {
       CloudView.director = () => ({
         yaw: -0.5 + (2 * Math.PI * window.__spinTime) / spin.seconds,
         pitch: 0.16,
-        zoom: 0.52,
+        zoom: 0.95,
         // The thought spreads for ~3 s, then holds until the next one starts.
         t: Math.min(brainClock.steps, (window.__spinTime % cycle) * 3.2),
       });

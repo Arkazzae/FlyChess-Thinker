@@ -1,59 +1,51 @@
 # Data and licences
 
-The code in this repository is under the [MIT licence](../LICENSE).
+Application code and model weights use the repository [MIT licence](../LICENSE).
+Imported training and inference source retains its [original MIT notice](../training/LICENSE).
 
-## Connectome
+## FlyWire anatomy
 
-The game uses `public/data/flywire/connectome.bin.gz`, the **FlyWire v783**
-graph DROSO-1 was trained on (see Trained weights below);
-`public/data/flywire/manifest.json` records its sources and checksums.
+The standalone model includes `artifacts/droso-1/graph.npz`. Its browser export
+is `public/data/flywire/connectome.bin.gz`. Both use the FlyWire Consortium's
+[FAFB v783 connectivity release](https://zenodo.org/records/10676866), under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-### Legacy: MaleCNS
+The graph retains connections with at least five synapses and their incident
+neurons. Transmitter signs, six neuron groups and the mapping from visual
+columns to chess squares are modelling choices. The trained input map covers
+all 64 squares. Root IDs retain their full 64-bit precision.
 
-`artifacts/legacy/mcns/connectome.bin.gz`, used only by the legacy fly-v6/fly-v4
-prototypes, is derived from **MaleCNS v1.0**, the
-male *Drosophila* central nervous system connectome. It is published under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by FlyEM (HHMI
-Janelia), the University of Cambridge, the MRC Laboratory of Molecular Biology
-and Google Research.
+[Graph provenance](../artifacts/droso-1/graph-provenance.json) records pinned
+source URLs, hashes, scientific citations and transformations. Its visual
+coverage statistics describe the initial map, before DROSO-1's complete-square
+remapping.
 
-- Source: https://male-cns.janelia.org/download
-- Explorer: https://codex.flywire.ai/?dataset=mcns
+The 3D view uses `soma_x/y/z` from the pinned
+[FlyWire annotations v2.1.0](https://github.com/flyconnectome/flywire_annotations/tree/v2.1.0).
+These are [4 × 4 × 40 nm voxel coordinates](https://fafbseg-py.readthedocs.io/en/stable/_modules/fafbseg/flywire/annotations.html).
+The exporter converts them to physical coordinates, centres and uniformly
+scales them, then swaps the last two axes for the viewer. Missing somata are
+hidden, not invented. The [browser manifest](../public/data/flywire/manifest.json)
+records the exact source, transformation and 117,708 positioned neurons.
 
-Changes made to the data:
+## Training and evaluation data
 
-- Kept only traced neurons and directed connections with at least 5 synapses.
-- Assigned each neuron a sign from its predicted neurotransmitter.
-- Grouped neurons into six regions.
-- Normalised cell-body coordinates.
-- Packed everything into a binary format.
-
-`artifacts/legacy/mcns/manifest.json` records the exact source files and their
-checksums.
-
-## Trained weights
-
-`artifacts/droso-1/` contains the DROSO-1 weights and its FlyWire v783 graph.
-The graph comes from the FlyWire Consortium's
-[connectivity release](https://zenodo.org/records/10676866), under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its upstream files,
-citations, threshold and transformations are recorded in
-[graph provenance](../artifacts/droso-1/graph-provenance.json).
-The model remaps visual neurons to cover all 64 chessboard squares.
-The weights use the repository MIT license; imported Python source preserves
-the original [MIT notice](../training/LICENSE).
-
-Training uses generated Stockfish labels, recorded model mistakes and the
-[Lichess evaluation database](https://database.lichess.org/#evals), published
+Training uses Stockfish labels, recorded model mistakes and the
+[Lichess evaluation database](https://database.lichess.org/#evals), released
 under CC0. The historical training corpus is not bundled. Evaluation subsets,
-PGNs and results are included in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
-
-`public/data/droso-1/` holds the browser export of DROSO-1. The legacy
-fly-v6/fly-v4 weights in `artifacts/legacy/` are covered by the repository licence.
+PGNs and results are in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
 
 ## Stockfish
 
-`public/stockfish.js` is Stockfish compiled to WebAssembly (by Niklas Fiekas,
-multi-variant fork), under the GNU GPL v3. It keeps its own licence header.
-The app loads it as a separate worker for the evaluation bar and the game
-review. It never plays moves.
+`public/stockfish.js` is the WebAssembly build by Niklas Fiekas (multi-variant
+fork), under GPL v3. It retains its licence header and runs as a separate
+worker for the evaluation bar and post-game review. It does not choose the
+fly's moves.
+
+## Illustrations
+
+The DROSO-1 avatars and favicon were generated with the built-in imagegen tool,
+using the earlier approved FlyChess portraits as references. The exact
+[prompts](droso-1/avatar-prompts.json) are committed; application assets live
+in `public/avatars/flies/` and `public/`. Full-resolution working images are
+kept locally in `output/imagegen/droso-1/`.

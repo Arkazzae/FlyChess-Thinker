@@ -1,6 +1,6 @@
 /**
  * Main-thread facade for the Fly brain worker. One instance is shared for the
- * whole session: the connectome (21 MB) and weights are downloaded and
+ * whole session: the compressed graph and weights (51.3 MB) are downloaded and
  * verified once, then every game reuses the same worker.
  */
 

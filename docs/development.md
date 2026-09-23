@@ -13,7 +13,7 @@ pnpm dev          # http://localhost:5180
 pnpm check        # unit tests + typecheck + production build
 ```
 
-There is no backend. The brain (about 31 MB) is served from `public/data/`,
+There is no backend. The brain (about 51 MB) is served from `public/data/`,
 checked against SHA-256 and run in a Web Worker: on the GPU (WebGPU) when there
 is one, otherwise on the CPU.
 
@@ -62,32 +62,31 @@ Screenshots go to `reports/`.
 | `src/game/session.ts` | Starting, rematching and ending games; PGN export |
 | `src/i18n/` | English and Polish strings (English is the default) |
 | `public/data/` | FlyWire connectome (`flywire/`) and DROSO-1 browser weights (`droso-1/`) |
-| `scripts/` | Browser tests, README media, the mascot SVG export |
+| `scripts/` | Browser tests, README media, avatar and favicon processing |
 | `artifacts/` | Standalone DROSO-1 Python bundle; legacy fly-v6/fly-v4 exports and MaleCNS in `legacy/` |
 | `training/` | DROSO-1 data preparation, training, evaluation and export pipeline |
 | `benchmarks/droso-1/` | Published model results, evaluation positions, JSON and PGN |
 
 ## Updating the model
 
-Follow the [training and export recipe](droso-1/recipe.md).
-The steps below are from the legacy 4,096-action prototypes (fly-v4 to fly-v6)
-and are kept for reference.
-
-The browser weights are exported from a PyTorch checkpoint by the trainer's
-`export_weights.py`. It writes three files:
-
-- `public/data/flybrain/weights.bin.gz` and `model.json`;
-- `src/ai/fly/fixtures/parity.json`: reference outputs on fixed positions.
-
-Then run:
+Follow the [training and export recipe](droso-1/recipe.md). From the repository
+root, export a verified standalone bundle to the browser:
 
 ```bash
-npx vitest run src/ai/fly/parity.test.ts
+PYTHONPATH=training python -m droso1.export_browser --bundle artifacts/droso-1
+pnpm check
+CHROMIUM_PATH=/usr/bin/chromium pnpm test:fly:browser
 ```
 
-This test is the gate. It checks that TypeScript inference reproduces the
-trainer's numbers with the new weights. Any checkpoint with the same
-architecture (as fly-v4 through fly-v6 have) drops in without code changes.
+The exporter downloads pinned FlyWire annotations if needed; `--annotations`
+accepts a local copy with the same SHA-256. It writes the graph, FP32 weights,
+manifests and PyTorch reference fixtures. It preserves the complete action
+space, input mapping and original root IDs. Batch normalisation is folded
+into scale/shift.
+
+The binary formats are version 2. Graph IDs are uint64; layers and gains are
+FP32. The parity test fails if required assets are missing. Changes to model
+architecture also require matching TypeScript encoder, loader and inference.
 
 ## README media
 
@@ -107,18 +106,11 @@ legacy `banner.png` output is independent of this illustrated banner.
 
 ## Mascot
 
-The six opponent portraits are generated 2D illustrations in
-`public/avatars/flies/`, selected by `src/ai/bots/avatars.ts`. `FlyMascot`
-uses them in the preloader, picker, player bar, chat and game result. Full-resolution
-PNGs and the exact imagegen prompts live in `output/imagegen/fly-avatars/`.
-Character identifiers and asset filenames use English: `reflex`, `planner`,
-`thinker`, `rookie`, `scribe` and `elder`. Older saved selections are migrated
-when browser settings load.
+The three generated portraits in `public/avatars/flies/` are `scout`, `tactician`
+and `thinker`. They share the same DROSO-1 checkpoint. Old saved selections
+migrate to the corresponding new style.
 
-The legacy plain animated mascot used by the favicon and README media is drawn
-in `src/components/flySvg.ts`. It also supplies `public/avatars/fly.svg`.
-After editing that SVG source, run:
-
-```bash
-pnpm avatar
-```
+The favicon uses the same character and illustration style. Exact generation
+prompts and reference names are saved in [avatar-prompts.json](droso-1/avatar-prompts.json).
+Local full-resolution sources live in `output/imagegen/droso-1/`; the app only
+ships optimised assets. Old portraits and the obsolete SVG mascot are removed.

@@ -2,8 +2,8 @@
 
 DROSO-1 is a chess model trained from scratch on the fixed FlyWire v783
 connectome. This directory contains its data preparation, training, evaluation
-and export code. The released model is the former **v10, arm B**, trained by
-Arkazzae on 23 September 2026.
+and export code. The released model is the former **v10, arm B**, completed
+on 23 September 2026.
 
 - [Training recipe](../docs/droso-1/recipe.md): setup, data, losses and commands.
 - [Research](../docs/droso-1/research.md): design decisions and the A/B experiment.

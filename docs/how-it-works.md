@@ -1,136 +1,84 @@
-# How the fly plays (legacy prototypes)
+# How DROSO-1 plays
 
-> **Legacy.** This page describes the fly-v6/fly-v4 prototypes on the MaleCNS
-> connectome, kept in [artifacts/legacy](../artifacts/legacy/). The game now runs
-> DROSO-1 on FlyWire v783; see the [DROSO-1 research notes](droso-1/research.md).
+DROSO-1 uses the fixed FlyWire v783 graph of a female fruit fly's brain. Every
+retained directed connection has at least five measured synapses. Training
+changes gains, biases, sensory inputs and readout weights; it does not add or
+remove connections.
 
-## The brain
+| Anatomy | Count |
+| --- | ---: |
+| Neurons | 134,181 |
+| Directed connections | 2,700,513 |
+| Measured synapses | 34,153,566 |
+| Neurons with a measured cell-body position | 117,708 |
+| Visual input neurons | 22,586 |
+| Global input neurons | 4,885 |
+| Readout neurons | 7,526 |
 
-The opponent runs on **MaleCNS v1.0**, the complete connectome of a male
-fruit fly's central nervous system. We keep every directed connection with at
-least 5 synapses:
+The graph groups neurons into optic circuits, visual projections, central
+brain, descending pathways, ascending pathways and other senses. Predicted
+GABA and glutamate neurons are modelled as inhibitory; other or unknown
+transmitters are excitatory. This is a modelling assumption, not a simulation
+of individual receptors or a living animal.
 
-| | |
-| --- | --- |
-| Neurons | 163,903 (140,598 with a measured cell-body position) |
-| Connections | 6,235,682 |
-| Synapses behind them | 89,731,551 |
+## From board to activity
 
-Each neuron is excitatory or inhibitory according to its main
-neurotransmitter: GABA and glutamate count as inhibitory, everything else as
-excitatory. That gives 51,320 inhibitory neurons. It is a common modelling
-assumption, not receptor-level biology.
+The encoder always faces the side to move. Black positions are mirrored
+vertically with colours swapped. All 64 squares have visual inputs.
 
-The neurons are sorted into six regions, which are the colours you see in
-the brain view:
+Each square has **15 channels**: six own piece types, six opposing types,
+both attack maps and the legal en passant target. **22 global features**
+represent castling rights, check, legal en passant, material, phase, halfmove
+clock and knowledge flags. Unknown clocks are masked until a pawn move or
+capture establishes the count. The history input is always false, matching
+the trained search adapter; repetition history is handled by the chess rules.
 
-| Region | Neurons |
-| --- | --- |
-| Visual circuits (optic lobes) | 93,392 |
-| Visual projections | 9,763 |
-| Central brain | 32,342 |
-| Motor output (descending and motor neurons) | 2,122 |
-| Ventral nerve cord | 21,729 |
-| Other senses | 4,555 |
+Every evaluation starts from rest and runs ten steps:
 
-## The neuron model
-
-Each neuron has a firing rate `a`. Every step, it sums the input from all its
-presynaptic partners and updates:
-
-```
-drive_i = relu( κ · Σ a_src · sign_src · synapses_e · exp(gain_e) / total_synapses_i
-                + bias_i + board_input_i )
-a_i    ← (1 − α) · a_i + α · drive_i / (1 + drive_i)
+```text
+drive_i = relu(κ · Σ activity_src · sign_src · synapses_e · exp(gain_e)
+               / total_synapses_i + bias_i + board_input_i)
+activity_i ← (1 − α) · activity_i + α · drive_i / (1 + drive_i)
+α = 0.65; κ = 0.95
 ```
 
-- α = 0.65 and κ = 0.95.
-- The network starts at rest and runs **10 steps** per position.
+A readout of 7,526 neurons feeds two 512-unit layers with a residual connection.
+The **4,168-action policy** represents normal moves and queen promotions with
+from/to indices, plus 72 dedicated knight, bishop and rook promotion actions.
+Legal-move masking prevents illegal moves. Search uses only the current
+position value, `tanh(centipawns / 600)`. The checkpoint's reply and auxiliary
+value heads are preserved but were not supervised by the released recipe and
+are not used to choose moves or presented as predictions.
 
-**Fixed:** which neuron connects to which, how many synapses each connection
-has, and each neuron's sign. That is the anatomy.
+## Search
 
-**Learned:**
-- A gain for every connection. Gains start at 1× and training nudges them.
-- A bias for every neuron.
-- A small input layer that turns the board into drive.
-- A readout that turns the brain's final state into a move.
+All three opponents use the same checkpoint and PUCT algorithm with exploration
+constant 1.5. Scout gets **8 simulations**, Tactician **32**, and Thinker **64**,
+including the root evaluation. Untimed games finish that budget; timed games
+may stop earlier. Policy priors guide exploration, and values from visited
+positions determine which continuations deserve more visits.
 
-## How it sees the board
+All legal moves enter the tree, including underpromotions. Proved mates take
+precedence over neural scores. Checkmate, stalemate, insufficient material,
+threefold claims and fifty-move claims use exact rules. A second occurrence
+alone is not scored as a draw. The final choice favours visit count, then prior;
+there is no opening-book or Stockfish move fallback.
 
-The board is always shown from the side to move. When the fly plays Black,
-the board is mirrored for it.
+## Browser and brain view
 
-- **Eyes.** 23,720 optic-lobe neurons have a known column position in the
-  fly's eye. Each column is mapped onto a board square, and those neurons
-  receive 14 channels per square: 6 of its own piece types, 6 of the
-  opponent's, the squares it attacks, and the squares attacked by the
-  opponent.
-- **Other senses.** The 4,555 "other senses" neurons receive 20 facts about
-  the game: castling rights, check, en passant, game phase, the 50-move
-  counter, and a sense of material (piece counts and balance).
+The browser downloads about **51.3 MB** of compressed graph and FP32 weights,
+verifies SHA-256 and transfers them to a worker. FP32 weights avoid int8/float16
+quantisation of this release. Batch normalisation is folded into scale/shift.
+WebGPU runs the ten propagation steps when available, with CPU fallback.
+Tests compare browser inference with the original PyTorch outputs and WebGPU
+with the CPU path.
 
-## How it decides
+Before search, a separate recording captures the current board's activity at
+rest and after each of ten steps, plus excitatory and inhibitory flow between
+regions. The cloud and flow diagram replay this recording. The dots use measured
+soma coordinates from the pinned FlyWire annotation release; neurons with no
+recorded soma are hidden, but remain part of the model. The view is a simulation
+of activity on measured anatomy, not a recording from a fly.
 
-After 10 steps, the activity of **8,266 readout neurons** is read out. These
-are all 2,122 motor and descending neurons, plus 2,048 each from the central
-brain, the visual projections and the deep optic lobe. A small two-layer
-network (8,266 → 512 → 512) turns that activity into:
-
-- **Policy:** how much it likes each of the 4,096 from-to moves. This is its
-  instinct.
-- **Reply:** which answer it expects from you.
-- **Three value heads:** how good the position is now, in 8 half-moves, and
-  at the end of the game.
-
-The policy is not restricted to legal moves during training, so the fly has to
-learn the rules too.
-
-On held-out positions:
-- its raw first choice is a legal move 89% of the time;
-- about 64% of its instinct lands on legal moves.
-
-The planner only ever plays legal moves.
-
-## Thinking
-
-The three levels use the same brain, only the search differs:
-
-- **Reflex** plays the policy's top legal move.
-- **Planner** imagines its 3 best candidates and your 2 best replies to each.
-  It judges every imagined position with its own value heads and picks the
-  move with the best outcome (minimax).
-- **Thinker** repeats that search in stages: 3×2, then 4×3, 6×4, 8×5, and
-  deeper, until its time is up.
-
-Search also uses two habits:
-- Winning captures and queen promotions are always considered, even when
-  instinct ranks them low.
-- A position that has already appeared in the game counts as a draw.
-
-Checkmate and stalemate are recognised by the rules, not guessed.
-
-## Running in the browser
-
-- The connectome and weights are checked against SHA-256 and handed to a
-  Web Worker.
-- The 10 propagation steps run as a WebGPU compute shader when available,
-  and on the CPU otherwise. A browser test checks that both give the same
-  numbers.
-- Weights are stored as int8 or float16. A test checks that the TypeScript
-  inference matches the PyTorch trainer on fixed positions.
-
-## The brain view
-
-Before each move, the worker also records the propagation for the position
-on the board: activity after every one of the 10 steps, and the total signal
-each region sends to each other region per step. This is computed on the CPU
-and not counted against thinking time.
-
-- **The 3D cloud** plays those frames back. Neurons that are switching on
-  flash, and gold marks the readout neurons.
-- **The flow diagram** shows the same recording as particles moving between
-  regions: green for excitation, red for inhibition.
-
-Everything you see comes from that recording. Nothing is generated just for
-effect.
+See the [recipe](droso-1/recipe.md), [research](droso-1/research.md),
+[benchmarks](../benchmarks/droso-1/README.md) and [data provenance](data.md).

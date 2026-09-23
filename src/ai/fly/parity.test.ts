@@ -32,6 +32,8 @@ interface FixturePosition {
   globals: number[];
   topMoves: number[];
   topLogits: number[];
+  policy: number[];
+  replyLogits: number[];
   legalMass: number;
   reply: number;
   value: number[];
@@ -73,6 +75,8 @@ describe.each(MODELS)("fly brain parity with the trainer: $label", ({ dir, fixtu
 
       const output = brain.evaluate(board);
       expect(Array.from(output.policy).every(Number.isFinite)).toBe(true);
+      expect(Math.max(...output.policy.map((v,i)=>Math.abs(v-position.policy[i])))).toBeLessThan(1e-3);
+      expect(Math.max(...output.reply.map((v,i)=>Math.abs(v-position.replyLogits[i])))).toBeLessThan(1e-3);
       const ranked = rankLegalMoves(output, board);
       // Same best move; logits and values within float32 accumulation noise.
       expect(ranked.ranked[0].index, position.fen).toBe(position.topMoves[0]);

@@ -62,8 +62,8 @@ All legal queen/rook/bishop/knight promotions have separate policy actions.
 Weights are lossless NumPy arrays, with anatomy and inference source included.
 The manifest pins each file and records the original training checkpoint.
 Keep that checkpoint for resuming training: this inference bundle has no AdamW
-state. This is the 4168-action DROSO-1 contract, not a drop-in file for the old
-4096-action browser importer. CUDA PyTorch must match the local driver;
+state. Export this bundle for the browser with `droso1.export_browser` from
+the repository root (see the training recipe). CUDA PyTorch must match the local driver;
 `requirements.txt` records the tested versions, not a CUDA wheel repository.
 ''')
     shutil.copy2(BASE/'LICENSE', destination/'LICENSE')

@@ -50,7 +50,7 @@
   "cuda_puct64_moves_exact": true,
   "standalone_cpu_runtime_verified": true,
   "standalone_cpu_move": "g1f3",
-  "manifest_sha256": "de36cc0feba5720e7cb26e20d66925a613032f97d9cc44401ab356b7d2ada0ba",
+  "manifest_sha256": "2add767e1cb996ea5d7e46040d8f109b88c83e60d2b8d173a88f2ab9fbef0cb7",
   "tested_environment": {
     "python": "3.12.13",
     "torch": "2.11.0+cu128",

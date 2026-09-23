@@ -265,10 +265,6 @@ button:focus-visible, select:focus-visible, input:focus-visible, canvas:focus-vi
 .bot-select__section { padding: 12px 20px 4px; }
 .bot-select__section h3 { margin: 0 0 9px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); font-weight: 700; }
 .bot-select__note { margin: 7px 0 0; font-size: 11px; line-height: 1.35; color: var(--muted); }
-.gen-pick { display: flex; gap: 4px; padding: 3px; margin-bottom: 10px; background: #1b1a18; border-radius: 8px; }
-.gen-pick button { flex: 1; border: 0; border-radius: 6px; padding: 6px 8px; background: none; color: var(--muted); font-weight: 700; font-size: 12.5px; cursor: pointer; }
-.gen-pick button:hover { color: var(--text); }
-.gen-pick button.is-selected { background: var(--btn); color: #fff; box-shadow: 0 2px 0 var(--btn-shadow); }
 .bot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .bot-card {
   display: flex;
@@ -866,3 +862,5 @@ details.panel-section[open] summary { margin-bottom: 10px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+.model-subtitle { margin-left: 8px; font-weight: 500; text-transform: none; letter-spacing: normal; }

@@ -1,5 +1,5 @@
 /**
- * Rotatable point cloud of the measured MaleCNS cell bodies (163,903 neurons, 140,598 with a
+ * Rotatable point cloud of the FlyWire v783 cell bodies (134,181 neurons, 117,708 with a
  * measured position), lit by the recorded activity of the fly's current thought. Between two
  * recorded steps the colours blend smoothly, and neurons that are switching on flash white,
  * so the wave of activity can be followed from the optic lobes to the read-out.

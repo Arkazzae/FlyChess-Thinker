@@ -20,10 +20,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-The fly connectome in public/data/mcns/ is MaleCNS v1.0 data, licensed under
-CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); see docs/data.md.
+The connectomes in public/data/flywire/ and artifacts/droso-1/graph.npz are
+derived from FlyWire v783, licensed under CC BY 4.0
+(https://creativecommons.org/licenses/by/4.0/); see docs/data.md and the
+bundled graph provenance.
 
-The connectome in artifacts/droso-1/graph.npz is derived from FlyWire v783,
-also licensed under CC BY 4.0; see docs/data.md and the bundled graph provenance.
+The legacy connectome in artifacts/legacy/mcns/ is MaleCNS v1.0 data, also
+licensed under CC BY 4.0; see docs/data.md.
 Imported Python source retains the Stellar contributors' MIT notice in
 training/LICENSE and artifacts/droso-1/LICENSE.

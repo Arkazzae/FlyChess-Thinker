@@ -215,6 +215,16 @@ Export creates a standalone Python runtime, compressed lossless NumPy weights,
 graph, checksums and verification report. It verifies tensors, FP32 outputs,
 CUDA outputs, promotions, chosen moves and a separate-process launch.
 
-This model's 15 square features, 22 global features, 4,168 actions and PUCT
-player differ from the browser's fly-v6/fly-v4 format. Browser integration
-requires a matching encoder, loader and search implementation.
+The browser supports this model's 15 square features, 22 global features,
+4,168 actions and PUCT search. From the repository root, export the bundle:
+
+```bash
+PYTHONPATH=training python -m droso1.export_browser --bundle artifacts/droso-1
+pnpm check
+CHROMIUM_PATH=/usr/bin/chromium pnpm test:fly:browser
+```
+
+For a newly trained bundle, replace `artifacts/droso-1` with its export path.
+The browser exporter preserves FP32 weights and creates checksum manifests
+and PyTorch reference fixtures. It downloads and verifies the pinned soma
+annotations, or accepts `--annotations /path/to/annotations-v2.1.0.tsv`.
