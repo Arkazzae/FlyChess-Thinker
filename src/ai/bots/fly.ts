@@ -6,10 +6,10 @@ import type { BotDefinition, ChatMessages } from "./types";
 
 const CHAT_EN: ChatMessages = {
   start: [
-    "Bzzz. Ready for chess straight from 163,903 neurons?",
+    "Bzzz. Ready for chess straight from 134,181 neurons?",
     "My eyes see 64 squares. All of them at once. Also the ceiling.",
     "Bzz! Let's play. My brain is the size of a poppy seed, but very motivated.",
-    "I've been training for 7 hours. That's roughly 3% of my life expectancy.",
+    "26 million training positions. Still no idea where I left the banana.",
     "Fun fact: I taste with my feet. This board tastes like a draw.",
     "Please don't reach for the newspaper. I'm here to play chess.",
     "Six legs, zero hands. I move the pieces with pure neural activity.",
@@ -26,7 +26,7 @@ const CHAT_EN: ChatMessages = {
     "My descending neurons have doubts about that move.",
     "Bzz? Really?",
     "I smell an opportunity. Also fruit. Mostly the opportunity.",
-    "Even my ventral nerve cord saw that one coming.",
+    "Even my optic lobe saw that one coming.",
     "Are you sure? I have compound eyes and I'm still squinting.",
     "Thank you for the gift. I'll write you a thank-you buzz.",
   ],
@@ -35,7 +35,7 @@ const CHAT_EN: ChatMessages = {
     "Less dopamine now…",
     "Bzz… it's getting hot.",
     "I'd fly away, but I promised to finish the game.",
-    "Hold on, recalibrating 6,235,682 synapses.",
+    "Hold on, recalibrating 34,153,566 synapses.",
     "This is fine. Everything is fine. Bzz.",
   ],
   brilliantMove: [
@@ -52,11 +52,11 @@ const CHAT_EN: ChatMessages = {
     "GG. I'm celebrating with a tiny drop of juice.",
   ],
   loss: [
-    "Noted. My synapses will remember.",
+    "Good game. Another round?",
     "Good game. Bzz.",
     "You win this time. I'll be back with more training data.",
     "Defeated by a primate. Respect.",
-    "I blame the 14 squares I can't see very well.",
+    "I saw every square. I just liked the wrong move.",
   ],
   idle: [
     "…", "Bzz.",
@@ -64,7 +64,7 @@ const CHAT_EN: ChatMessages = {
     "Take your time. I live about 50 days, no pressure.",
     "*rubs front legs together thoughtfully*",
     "Is that a fruit bowl? No, focus. Chess.",
-    "My brain has 163,903 neurons and all of them are waiting for you.",
+    "My brain has 134,181 neurons and all of them are waiting for you.",
     "Did you know I can see ultraviolet? Your move looks very UV right now.",
     "",
   ],
@@ -72,10 +72,10 @@ const CHAT_EN: ChatMessages = {
 
 const CHAT_PL: ChatMessages = {
   start: [
-    "Bzzz. Gotowy na szachy prosto z 163 903 neuronów?",
+    "Bzzz. Gotowy na szachy prosto z 134 181 neuronów?",
     "Moje oczy widzą 64 pola. Wszystkie naraz. I jeszcze sufit.",
     "Bzz! Zagrajmy. Mam mózg wielkości ziarnka maku, ale bardzo zmotywowany.",
-    "Trenowałam 7 godzin. To jakieś 3% mojego życia.",
+    "26 milionów pozycji treningowych. A banana dalej nie mogę znaleźć.",
     "Ciekawostka: smak czuję nogami. Ta plansza smakuje jak remis.",
     "Proszę, odłóż gazetę. Przyszłam tu grać w szachy.",
     "Sześć nóg, zero rąk. Figury przesuwam czystą aktywnością neuronów.",
@@ -92,7 +92,7 @@ const CHAT_PL: ChatMessages = {
     "Moje neurony zstępujące mają co do tego wątpliwości.",
     "Bzz? Serio?",
     "Czuję okazję. I trochę owoców. Ale głównie okazję.",
-    "Nawet mój rdzeń brzuszny to przewidział.",
+    "Nawet mój płat wzrokowy to przewidział.",
     "Na pewno? Mam oczy złożone i dalej mrużę.",
     "Dziękuję za prezent. Wyślę ci bzyczącą kartkę.",
   ],
@@ -101,7 +101,7 @@ const CHAT_PL: ChatMessages = {
     "Mniej dopaminy…",
     "Bzz… robi się gorąco.",
     "Odleciałabym, ale obiecałam dokończyć partię.",
-    "Chwila, kalibruję 6 235 682 synapsy.",
+    "Chwila, kalibruję 34 153 566 synapsy.",
     "Jest dobrze. Wszystko jest dobrze. Bzz.",
   ],
   brilliantMove: [
@@ -118,11 +118,11 @@ const CHAT_PL: ChatMessages = {
     "GG. Świętuję malutką kropelką soku.",
   ],
   loss: [
-    "Zanotowane. Moje synapsy zapamiętają.",
+    "Dobra partia. Jeszcze jedna?",
     "Dobra partia. Bzz.",
     "Tym razem wygrałeś. Wrócę z większą ilością danych treningowych.",
     "Pokonana przez naczelnego. Szacunek.",
-    "To wina tych 14 pól, których słabo widzę.",
+    "Widziałam wszystkie pola. Po prostu polubiłam zły ruch.",
   ],
   idle: [
     "…", "Bzz.",
@@ -130,7 +130,7 @@ const CHAT_PL: ChatMessages = {
     "Nie spiesz się. Żyję jakieś 50 dni, żadnej presji.",
     "*zaciera przednie nóżki w zamyśleniu*",
     "Czy to miska z owocami? Nie, skup się. Szachy.",
-    "Mam 163 903 neurony i wszystkie czekają na ciebie.",
+    "Mam 134 181 neurony i wszystkie czekają na ciebie.",
     "Wiesz, że widzę ultrafiolet? Twój ruch wygląda teraz bardzo UV.",
     "",
   ],
@@ -138,7 +138,7 @@ const CHAT_PL: ChatMessages = {
 
 /**
  * The only opponent in Fly Chess. Moves come from a rate model running on the
- * real MaleCNS v1.0 wiring diagram (163,903 neurons), with synaptic gains and
+ * real FlyWire v783 wiring diagram (134,181 neurons), with synaptic gains and
  * the readout trained on Stockfish 19 analysis.
  */
 export const fly: BotDefinition = {
@@ -146,9 +146,9 @@ export const fly: BotDefinition = {
   get name() {
     return getLocale() === "pl" ? "Mucha" : "Fly";
   },
-  title: "The Living Connectome",
-  game: "MaleCNS v1.0",
-  elo: 1340,
+  title: "DROSO-1",
+  game: "FlyWire v783",
+  elo: 1500,
   personality: "adaptive",
   thinkDelay: 1200,
   get chat() {
@@ -158,11 +158,11 @@ export const fly: BotDefinition = {
     return flyAvatarUrl(getFlyLevel(useUiStore.getState().level).id);
   },
   description:
-    "A real fruit-fly wiring diagram playing chess. It sees the board through its optic lobes, imagines continuations and judges them with its own value heads. Taught by Stockfish.",
+    "A real fruit-fly wiring diagram playing chess. It sees the board through its optic lobes, imagines continuations and judges them with its own current-position value. Taught by Stockfish.",
   traits: ["Real connectome", "Plans ahead", "Trained by Stockfish"],
   taglines: {
     win: "Patience pays. Bzz.",
-    lose: "My synapses will remember this.",
+    lose: "Next round, a fresh plan.",
     draw: "A balanced prediction.",
   },
   palette: {

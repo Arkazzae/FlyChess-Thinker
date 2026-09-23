@@ -4,7 +4,14 @@ The code in this repository is under the [MIT licence](../LICENSE).
 
 ## Connectome
 
-`public/data/mcns/connectome.bin.gz` is derived from **MaleCNS v1.0**, the
+The game uses `public/data/flywire/connectome.bin.gz`, the **FlyWire v783**
+graph DROSO-1 was trained on (see Trained weights below);
+`public/data/flywire/manifest.json` records its sources and checksums.
+
+### Legacy: MaleCNS
+
+`artifacts/legacy/mcns/connectome.bin.gz`, used only by the legacy fly-v6/fly-v4
+prototypes, is derived from **MaleCNS v1.0**, the
 male *Drosophila* central nervous system connectome. It is published under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by FlyEM (HHMI
 Janelia), the University of Cambridge, the MRC Laboratory of Molecular Biology
@@ -21,7 +28,7 @@ Changes made to the data:
 - Normalised cell-body coordinates.
 - Packed everything into a binary format.
 
-`public/data/mcns/manifest.json` records the exact source files and their
+`artifacts/legacy/mcns/manifest.json` records the exact source files and their
 checksums.
 
 ## Trained weights
@@ -41,8 +48,8 @@ Training uses generated Stockfish labels, recorded model mistakes and the
 under CC0. The historical training corpus is not bundled. Evaluation subsets,
 PGNs and results are included in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
 
-`public/data/flybrain/` holds the trained fly-v6 synapse gains, input layer
-and readout. They are covered by the repository licence.
+`public/data/droso-1/` holds the browser export of DROSO-1. The legacy
+fly-v6/fly-v4 weights in `artifacts/legacy/` are covered by the repository licence.
 
 ## Stockfish
 

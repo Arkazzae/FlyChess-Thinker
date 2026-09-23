@@ -1,6 +1,9 @@
-# fly-v6
+# fly-v6 (legacy)
 
-The fly you play in FlyChess. Trained by Arkazzae.
+> **Legacy prototype.** The game now runs [DROSO-1](../../droso-1/README.md); fly-v6 is kept for reference.
+> It was trained on the MaleCNS v1.0 connectome in [`../mcns/`](../mcns/).
+
+The last prototype fly, formerly the one you played in FlyChess. Trained by Arkazzae.
 
 | | |
 | --- | --- |

@@ -1,6 +1,9 @@
-# fly-v4
+# fly-v4 (legacy)
 
-The previous public fly, kept for comparison.
+> **Legacy prototype.** The game now runs [DROSO-1](../../droso-1/README.md); fly-v4 is kept for reference.
+> It was trained on the MaleCNS v1.0 connectome in [`../mcns/`](../mcns/).
+
+The prototype before fly-v6.
 
 | | |
 | --- | --- |

@@ -21,7 +21,7 @@ function circuit(inhibitorySign = -1) {
     neurons: 5, edges: 3, steps: 4, hidden: 2,
     visIndex: [0], visSquare: [squareIndex("e2")], visWeight,
     globIndex: [4], globWeight,
-    bias: [0, 0, 0, 0.8, 0], gain: [128, 128, 128], gainMax: 2, readout: [2, 1],
+    bias: [0, 0, 0, 0.8, 0], gain: [0, 0, 0], readout: [2, 1],
   }));
   return { graph, weights };
 }
@@ -86,7 +86,7 @@ describe("fly brain inference", () => {
   it("scales a connection by its trained gain", () => {
     const base = circuit();
     const boosted = circuit();
-    boosted.weights.gain[0] = 255; // exp(+gainMax) on the 0 → 1 edge
+    boosted.weights.gain[0] = 2; // exp(2) on the 0 → 1 edge
     // Normalisation uses measured counts only, so a larger gain is a genuinely stronger synapse.
     const board = encodeBoard(new Chess());
     const a = new FlyBrain(base.graph, base.weights);
@@ -102,7 +102,7 @@ describe("fly brain inference", () => {
     weights.valueWeight[0] = 50;
     const brain = new FlyBrain(graph, weights);
     const output = brain.evaluate(encodeBoard(new Chess()));
-    expect(output.policy.length).toBe(4096);
+    expect(output.policy.length).toBe(4168);
     expect(output.policy[7]).toBeGreaterThan(output.policy[8]);
     expect(output.value[0]).toBeGreaterThan(0);
     expect(output.value[0]).toBeLessThanOrEqual(1);

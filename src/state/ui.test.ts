@@ -16,12 +16,13 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe("saved fly selection", () => {
   it.each([
-    ["odruch", "reflex"],
-    ["plan", "planner"],
+    ["odruch", "scout"],
+    ["plan", "tactician"],
     ["mysl", "thinker"],
-    ["odruch4", "rookie"],
-    ["plan4", "scribe"],
-    ["mysl4", "elder"],
+    ["odruch4", "scout"],
+    ["plan4", "tactician"],
+    ["mysl4", "thinker"],
+    ["reflex", "scout"], ["rookie", "scout"], ["planner", "tactician"], ["scribe", "tactician"], ["elder", "thinker"],
   ])("restores %s as %s and persists the English identifier", async (previous, current) => {
     const settings = { level: previous, side: "b", timeId: "3+2", showThoughts: true, showEval: true };
     const storage = mockStorage(JSON.stringify(settings));

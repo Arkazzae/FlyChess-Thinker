@@ -1,4 +1,8 @@
-# How the fly plays
+# How the fly plays (legacy prototypes)
+
+> **Legacy.** This page describes the fly-v6/fly-v4 prototypes on the MaleCNS
+> connectome, kept in [artifacts/legacy](../artifacts/legacy/). The game now runs
+> DROSO-1 on FlyWire v783; see the [DROSO-1 research notes](droso-1/research.md).
 
 ## The brain
 

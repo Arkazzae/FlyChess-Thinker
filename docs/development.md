@@ -61,17 +61,17 @@ Screenshots go to `reports/`.
 | `src/components/` | App shell and preloader (`shell/`), game screen (`play/`), brain views (`brain/`), board (`Board/`), the fly mascot |
 | `src/game/session.ts` | Starting, rematching and ending games; PGN export |
 | `src/i18n/` | English and Polish strings (English is the default) |
-| `public/data/` | Connectome and trained weights (`flybrain/` is fly-v6, `flybrain-v4/` the older fly-v4, loaded on demand) |
+| `public/data/` | FlyWire connectome (`flywire/`) and DROSO-1 browser weights (`droso-1/`) |
 | `scripts/` | Browser tests, README media, the mascot SVG export |
-| `artifacts/` | Standalone DROSO-1 Python bundle and fly-v6/fly-v4 browser exports |
+| `artifacts/` | Standalone DROSO-1 Python bundle; legacy fly-v6/fly-v4 exports and MaleCNS in `legacy/` |
 | `training/` | DROSO-1 data preparation, training, evaluation and export pipeline |
 | `benchmarks/droso-1/` | Published model results, evaluation positions, JSON and PGN |
 
 ## Updating the model
 
-For DROSO-1, follow the [training and export recipe](droso-1/recipe.md).
-The steps below apply to the existing 4,096-action browser models. DROSO-1's
-FlyWire graph and 4,168-action interface need a matching browser implementation.
+Follow the [training and export recipe](droso-1/recipe.md).
+The steps below are from the legacy 4,096-action prototypes (fly-v4 to fly-v6)
+and are kept for reference.
 
 The browser weights are exported from a PyTorch checkpoint by the trainer's
 `export_weights.py`. It writes three files:
@@ -91,8 +91,7 @@ architecture (as fly-v4 through fly-v6 have) drops in without code changes.
 
 ## README media
 
-The gameplay, brain view and game review in `docs/media/` are recorded from
-a real session. To regenerate these recordings:
+The gameplay and brain renders in `docs/media/` come from a real session. To regenerate these recordings:
 
 ```bash
 CHROMIUM_PATH=/usr/bin/chromium pnpm media   # needs ffmpeg

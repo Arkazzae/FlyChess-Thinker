@@ -1,11 +1,13 @@
-# How the browser fly was trained
+# How the legacy prototypes were trained
+
+> **Legacy.** This page covers fly-v1 to fly-v6, which the game no longer uses.
 
 For **DROSO-1**, the newer FlyWire research model, see the
 [training recipe](droso-1/recipe.md), [research](droso-1/research.md),
 [benchmarks](../benchmarks/droso-1/README.md) and
 [pretrained model](../artifacts/droso-1/README.md).
 
-The model shipped here is **fly-v6**, trained by Arkazzae: 61,465 training steps and 15,735,040
+The last prototype was **fly-v6**, trained by Arkazzae: 61,465 training steps and 15,735,040
 position presentations (a presentation counts repeats, so it is not the number
 of unique positions). The training code lives in a separate research
 workspace for these historical versions. This page summarises what it did;

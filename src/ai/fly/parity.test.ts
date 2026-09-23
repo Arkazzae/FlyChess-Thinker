@@ -5,7 +5,7 @@
  */
 
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { describe, expect, it } from "vitest";
 import { Chess } from "chess.js";
@@ -16,11 +16,7 @@ import { rankLegalMoves } from "./planner";
 import { FlyWeights } from "./weights";
 
 const file = (path: string) => new URL(`../../../${path}`, import.meta.url);
-/** Every model the app can play: the current fly-v6 and the older fly-v4. */
-const MODELS = [
-  { label: "fly-v6", dir: "flybrain", fixture: "parity.json" },
-  { label: "fly-v4", dir: "flybrain-v4", fixture: "parity-v4.json" },
-];
+const MODELS = [{ label: "DROSO-1", dir: "droso-1", fixture: "parity.json" }];
 
 function inflate(url: URL): ArrayBuffer {
   const bytes = gunzipSync(readFileSync(url));
@@ -31,6 +27,7 @@ const sha256 = (buffer: ArrayBuffer) => createHash("sha256").update(new Uint8Arr
 interface FixturePosition {
   fen: string;
   flip: boolean;
+  halfmoveKnown: boolean;
   squares: number[];
   globals: number[];
   topMoves: number[];
@@ -42,14 +39,13 @@ interface FixturePosition {
 
 describe.each(MODELS)("fly brain parity with the trainer: $label", ({ dir, fixture: fixtureName }) => {
   const paths = {
-    connectome: file("public/data/mcns/connectome.bin.gz"),
-    manifest: file("public/data/mcns/manifest.json"),
+    connectome: file("public/data/flywire/connectome.bin.gz"),
+    manifest: file("public/data/flywire/manifest.json"),
     weights: file(`public/data/${dir}/weights.bin.gz`),
     model: file(`public/data/${dir}/model.json`),
     fixture: new URL(`./fixtures/${fixtureName}`, import.meta.url),
   };
-  const available = Object.values(paths).every((url) => existsSync(url));
-  it.skipIf(!available)("bundled files match their manifests and the trainer's numbers", () => {
+  it("bundled files match their manifests and the trainer's numbers", () => {
     const manifest = JSON.parse(readFileSync(paths.manifest, "utf8"));
     const model = JSON.parse(readFileSync(paths.model, "utf8"));
     const fixture: { weights: string; positions: FixturePosition[] } = JSON.parse(readFileSync(paths.fixture, "utf8"));
@@ -61,15 +57,15 @@ describe.each(MODELS)("fly brain parity with the trainer: $label", ({ dir, fixtu
     expect(fixture.weights).toBe(model.sha256);
 
     const graph = new Connectome(graphBuffer);
-    expect(graph.count).toBe(163903);
-    expect(graph.edges).toBe(6235682);
+    expect(graph.count).toBe(134181);
+    expect(graph.edges).toBe(2700513);
     const weights = new FlyWeights(weightsBuffer);
     expect(weights.steps).toBe(model.steps);
-    expect(weights.visIndex.length).toBe(23720);
+    expect(weights.visIndex.length).toBe(22586);
     const brain = new FlyBrain(graph, weights);
 
     for (const position of fixture.positions) {
-      const board = encodeBoard(new Chess(position.fen));
+      const board = encodeBoard(new Chess(position.fen), position.halfmoveKnown);
       // The Python and TypeScript encoders must agree bit for bit (pieces, attack maps, rights).
       expect(board.flip, position.fen).toBe(position.flip);
       expect(Array.from(board.squares), position.fen).toEqual(position.squares);

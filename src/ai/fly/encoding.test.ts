@@ -27,7 +27,7 @@ describe("fly board encoding", () => {
     expect(feature(board, "e3", 13)).toBe(0);
     expect(feature(board, "e6", 13)).toBe(1);
     // rights ×4, check, en passant, phase, fifty-move clock, constant, own material ×5, opponent material ×5, balance
-    expect(Array.from(board.globals)).toEqual([1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]);
+    expect(Array.from(board.globals)).toEqual([1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0]);
     const pieces = board.squares.reduce((sum, value, index) => sum + (index % SQUARE_FEATURES < 12 ? value : 0), 0);
     expect(pieces).toBe(32);
   });
@@ -60,11 +60,17 @@ describe("fly board encoding", () => {
     expect(black.globals[19]).toBeCloseTo(-9 / 39, 5);
   });
 
-  it("collapses promotions onto the queen and flags en passant and check", () => {
+  it("keeps every promotion distinct and flags en passant and check", () => {
     const promotion = encodeBoard(new Chess("8/P7/8/8/8/8/8/k6K w - - 0 1"));
     expect(promotion.legal.get(squareIndex("a7") * 64 + squareIndex("a8"))).toBe("a7a8q");
+    for (const kind of ["n", "b", "r"]) {
+      const index = moverMoveIndex(squareIndex("a7"), squareIndex("a8"), false, kind);
+      expect(promotion.legal.get(index)).toBe(`a7a8${kind}`);
+      expect(decodeMoveIndex(index, false)).toEqual({from:"a7",to:"a8",promotion:kind});
+    }
     const enPassant = encodeBoard(new Chess("rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq f6 0 3"));
     expect(enPassant.globals[5]).toBe(1);
+    expect(feature(enPassant,"f6",14)).toBe(1);
     const check = encodeBoard(new Chess("rnb1kbnr/pppp1ppp/8/4p3/6Pq/5P2/PPPPP2P/RNBQKBNR w KQkq - 1 3"));
     expect(check.globals[4]).toBe(1);
     expect(check.legal.size).toBe(0);

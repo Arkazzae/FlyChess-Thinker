@@ -1,6 +1,6 @@
 /**
  * Regenerates the README media in docs/media/ from a real session in a real browser:
- * banner.png, gameplay.gif, brain.gif, brain-page.png, review.png. The brain is also rendered
+ * banner.png, gameplay.gif, brain.gif, brain-page.png. The brain is also rendered
  * as a full-HD video for presentations, reports/media/brain.mp4 (not committed).
  *
  *   CHROMIUM_PATH=/usr/bin/chromium pnpm media
@@ -177,7 +177,7 @@ try {
     console.log("gameplay.gif");
   }
 
-  // --- brain: the connectome spinning full screen, then the brain page and the review ---
+  // --- brain: the connectome spinning full screen, then the brain page ---
   if (want("brain")) {
     const page = await browser.newPage({ viewport: VIEW });
     await page.goto(origin);
@@ -238,17 +238,6 @@ try {
     await wait(4200);
     await page.screenshot({ path: join(OUT, "brain-page.png") });
 
-    await page.locator(".bp-hero__side .btn").click();
-    await page.locator(".panel-tabs button").nth(0).click();
-    await page.locator('.game-tab__controls button[aria-label="Resign"]').click();
-    await page.locator(".game-over__actions .btn--green").click({ timeout: 10000 });
-    await page.waitForFunction(() => [...document.querySelectorAll(".review-summary strong")].every((e) => /\d/.test(e.textContent ?? "")), null, { timeout: 90000 });
-    await page.locator(".review-controls .btn").nth(3).click();
-    await page.locator(".review-controls .btn").nth(3).click();
-    await page.locator(".review-controls .btn").nth(3).click();
-    await wait(2500);
-    await page.screenshot({ path: join(OUT, "review.png") });
-    console.log("review.png");
     await page.close();
   }
 } finally {

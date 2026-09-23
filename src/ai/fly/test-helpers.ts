@@ -1,6 +1,6 @@
 /** Builders for tiny synthetic connectomes and weight files, used only by tests. */
 
-import { GLOBAL_FEATURES, SQUARE_FEATURES } from "./encoding";
+import { GLOBAL_FEATURES, MOVE_SPACE, SQUARE_FEATURES } from "./encoding";
 
 export interface TinyGraphSpec {
   signs: number[];
@@ -13,15 +13,16 @@ export function buildConnectome(spec: TinyGraphSpec): ArrayBuffer {
   const n = spec.signs.length;
   const edges = [...spec.edges].sort((a, b) => a[1] - b[1]);
   const m = edges.length;
-  const buffer = new ArrayBuffer(20 + n * 32 + m * 6);
+  const buffer = new ArrayBuffer(20 + n * 36 + m * 6);
   let offset = 0;
   const put = (values: number[], float = false) => {
     const view = float ? new Float32Array(buffer, offset, values.length) : new Uint32Array(buffer, offset, values.length);
     view.set(values);
     offset += values.length * 4;
   };
-  put([0x534e434d, 1, n, m]);
-  put(Array.from({ length: n }, (_, i) => 1000 + i));
+  put([0x534e434d, 2, n, m]);
+  new BigUint64Array(buffer, offset, n).set(Array.from({ length: n }, (_, i) => 720575940000000000n + BigInt(i)));
+  offset += n * 8;
   put(spec.groups);
   put(spec.signs, true);
   put(new Array(n).fill(1));
@@ -35,17 +36,6 @@ export function buildConnectome(spec: TinyGraphSpec): ArrayBuffer {
   return buffer;
 }
 
-function floatToHalf(value: number): number {
-  const floatView = new Float32Array([value]);
-  const bits = new Uint32Array(floatView.buffer)[0];
-  const sign = (bits >> 16) & 0x8000;
-  const exponent = ((bits >> 23) & 0xff) - 127 + 15;
-  const mantissa = bits & 0x7fffff;
-  if (exponent <= 0) return sign;
-  if (exponent >= 31) return sign | 0x7c00;
-  return sign | (exponent << 10) | (mantissa >> 13);
-}
-
 export interface TinyWeightsSpec {
   neurons: number;
   edges: number;
@@ -53,15 +43,14 @@ export interface TinyWeightsSpec {
   hidden: number;
   visIndex: number[];
   visSquare: number[];
-  /** visIndex.length × 14 */
+  /** visIndex.length × 15 */
   visWeight: number[];
   globIndex: number[];
-  /** globIndex.length × 9 */
+  /** globIndex.length × 22 */
   globWeight: number[];
   bias: number[];
-  /** Quantised log gains, 128 ≈ neutral. */
+  /** FP32 log gains, zero is neutral. */
   gain: number[];
-  gainMax: number;
   readout: number[];
   alpha?: number;
   kappa?: number;
@@ -77,16 +66,15 @@ export function buildWeights(spec: TinyWeightsSpec): ArrayBuffer {
   };
   const u32 = (values: number[]) => new Uint8Array(new Uint32Array(values).buffer);
   const f32 = (values: number[]) => new Uint8Array(new Float32Array(values).buffer);
-  const f16 = (values: number[]) => pad4(new Uint8Array(new Uint16Array(values.map(floatToHalf)).buffer));
   const p = spec.readout.length;
   const h = spec.hidden;
-  parts.push(u32([0x594c4643, 1, spec.neurons, spec.edges, spec.visIndex.length, spec.globIndex.length, p, h, SQUARE_FEATURES, GLOBAL_FEATURES, spec.steps, 0]));
-  parts.push(f32([spec.alpha ?? 0.65, spec.kappa ?? 0.95, spec.gainMax, 0]));
-  parts.push(u32(spec.visIndex), pad4(new Uint8Array(spec.visSquare)), f16(spec.visWeight));
-  parts.push(u32(spec.globIndex), f16(spec.globWeight), f16(spec.bias), pad4(new Uint8Array(spec.gain)), u32(spec.readout));
+  parts.push(u32([0x594c4643, 2, spec.neurons, spec.edges, spec.visIndex.length, spec.globIndex.length, p, h, SQUARE_FEATURES, GLOBAL_FEATURES, spec.steps, MOVE_SPACE]));
+  parts.push(f32([spec.alpha ?? 0.65, spec.kappa ?? 0.95, 0, 0]));
+  parts.push(u32(spec.visIndex), pad4(new Uint8Array(spec.visSquare)), f32(spec.visWeight));
+  parts.push(u32(spec.globIndex), f32(spec.globWeight), f32(spec.bias), f32(spec.gain), u32(spec.readout));
   parts.push(f32(new Array(p).fill(1)), f32(new Array(p).fill(0)));
-  const linear = (rows: number, inputs: number) => [pad4(new Uint8Array(rows * inputs)), f32(new Array(rows).fill(1)), f32(new Array(rows).fill(0))];
-  parts.push(...linear(h, p), ...linear(h, h), ...linear(4096, h), ...linear(4096, h));
+  const linear = (rows: number, inputs: number) => [f32(new Array(rows * inputs).fill(0)), f32(new Array(rows).fill(0))];
+  parts.push(...linear(h, p), ...linear(h, h), ...linear(MOVE_SPACE, h), ...linear(MOVE_SPACE, h));
   parts.push(f32(new Array(3 * h).fill(0)), f32([0, 0, 0]));
   const total = parts.reduce((sum, part) => sum + part.length, 0);
   const out = new Uint8Array(total);
