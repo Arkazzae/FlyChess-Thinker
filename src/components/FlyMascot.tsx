@@ -1,6 +1,6 @@
 import { useId, useMemo } from "react";
 import { flyAvatarUrl } from "@/ai/bots/avatars";
-import { FLY_CSS, flySvg, type FlyVariant } from "./flySvg";
+import { FLY_CSS, flySvg } from "./flySvg";
 
 let styled = false;
 function ensureStyle(): void {
@@ -19,7 +19,7 @@ function ensureStyle(): void {
 export function FlyMascot({ thinking = false, still = false, variant = "thinker", className = "" }: {
   thinking?: boolean;
   still?: boolean;
-  variant?: FlyVariant;
+  variant?: import("@/ai/bots/levels").FlyLevelId | "plain";
   className?: string;
 }) {
   ensureStyle();

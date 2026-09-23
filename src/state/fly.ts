@@ -12,7 +12,7 @@ export interface FlyThought {
   fen: string;
   decision: FlyDecision;
   thinkMs: number;
-  /** 64 × 14 stimulus in the mover frame: 6 own piece channels, 6 opponent piece channels, attacked-by-own, attacked-by-opponent. */
+  /** 64 × 15 stimulus in the mover frame: 6 own piece channels, 6 opponent piece channels, attacked-by-own, attacked-by-opponent. */
   retina: Float32Array;
   flipped: boolean;
 }

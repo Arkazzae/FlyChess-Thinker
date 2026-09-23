@@ -1,6 +1,6 @@
 /**
  * Bot controller. There is one opponent and one move source: the trained
- * MaleCNS connectome model in src/ai/fly. If the brain cannot be loaded there
+ * DROSO-1 FlyWire connectome model in src/ai/fly. If the brain cannot be loaded there
  * is no fallback engine — the caller surfaces the failure instead.
  */
 
@@ -49,8 +49,7 @@ export class BotController {
   }
 
   /**
-   * Move from the connectome model. The brain gets real thinking time: it keeps imagining deeper
-   * and wider continuations until the budget is spent, then plays the last completed thought.
+   * Complete the selected PUCT budget in untimed games; respect the clock in timed games.
    */
   async getMove(
     fen: string,
@@ -72,8 +71,8 @@ export class BotController {
     // A little variety in the first moves, deterministic afterwards.
     const { decision } = await getFlyEngine().think(fen, {
       ...level.plan,
-      temperature: halfMoves < 8 ? 0.06 : 0,
-      budgetMs: level.budget ? budgetMs : undefined,
+      temperature: 0,
+      budgetMs: remainingMs === null ? undefined : budgetMs,
       seen,
     });
     const elapsed = performance.now() - startedAt;

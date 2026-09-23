@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "id": "flywire-v783",
+  "dataset": "FlyWire FAFB v783",
+  "neurons": 134181,
+  "connections": 2700513,
+  "synapses": 34153566,
+  "positioned": 117708,
+  "groups": [
+    "optic",
+    "visual projection",
+    "central",
+    "descending",
+    "ascending",
+    "sensory"
+  ],
+  "groupCounts": [
+    84993,
+    8565,
+    32367,
+    1382,
+    1989,
+    4885
+  ],
+  "sourceGraph": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+  "anatomySource": {
+    "url": "https://raw.githubusercontent.com/flyconnectome/flywire_annotations/ebd66db2596fcc39c6950fb54ea3efa00f7fe8a0/supplemental_files/Supplemental_file1_neuron_annotations.tsv",
+    "sha256": "30be6c73975a70c56d930e27911f36455d3886e15abf383b78edd2a5d679e0b6",
+    "size": 27015208,
+    "commit": "ebd66db2596fcc39c6950fb54ea3efa00f7fe8a0",
+    "release": "v2.1.0",
+    "local_file": "annotations-v2.1.0.tsv"
+  },
+  "coordinates": {
+    "source": "soma_x/y/z",
+    "voxelSizeNm": [
+      4,
+      4,
+      40
+    ],
+    "axes": [
+      "x",
+      "z",
+      "y"
+    ],
+    "centerNm": [
+      493814.0,
+      261254.0,
+      139820.0
+    ],
+    "scaleNm": 408554.0
+  },
+  "bytes": 21033614,
+  "compressedBytes": 10906351,
+  "sha256": "3a53978908037d85239611aea0282b173fcc7af391b1422d5a6978fcb8b522a7"
+}

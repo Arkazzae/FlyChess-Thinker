@@ -10,14 +10,14 @@
 
 import type { Connectome } from "./connectome";
 import { GLOBAL_FEATURES, MOVE_SPACE, SQUARE_FEATURES, type EncodedBoard } from "./encoding.ts";
-import type { FlyWeights, QuantisedLinear } from "./weights";
+import type { FlyWeights, Linear } from "./weights";
 
 export interface BrainOutput {
-  /** Unmasked policy logits over 4096 mover-frame from-to pairs. */
+  /** Unmasked policy logits over 4168 mover-frame actions. */
   policy: Float32Array;
   /** Expected opponent reply logits (mover frame of the *current* side). */
   reply: Float32Array;
-  /** tanh values: [now, eight half-moves ahead, final outcome], side to move perspective. */
+  /** Current CP tanh in slot 0; auxiliary slots are unused by DROSO-1 search. */
   value: Float32Array;
   /** Mean activity per anatomical group after the last step. */
   groups: Float32Array;
@@ -77,7 +77,7 @@ export class FlyBrain {
       for (let e = graph.offsets[i]; e < graph.offsets[i + 1]; e++) total += graph.weights[e];
       const norm = total ? weights.kappa / total : 0;
       for (let e = graph.offsets[i]; e < graph.offsets[i + 1]; e++) {
-        const gain = Math.exp(((weights.gain[e] / 255) * 2 - 1) * weights.gainMax);
+        const gain = Math.exp(weights.gain[e]);
         this.edgeValues[e] = Math.fround(graph.signs[graph.sources[e]] * graph.weights[e] * gain * norm);
       }
     }
@@ -210,18 +210,18 @@ function quickGelu(x: number): number {
   return x / (1 + Math.exp(-1.702 * x));
 }
 
-function linear(layer: QuantisedLinear, input: Float32Array, out: Float32Array): Float32Array {
-  const { weights, scale, bias, rows, inputs } = layer;
+function linear(layer: Linear, input: Float32Array, out: Float32Array): Float32Array {
+  const { weights, bias, rows, inputs } = layer;
   for (let r = 0; r < rows; r++) {
     let sum = 0;
     const base = r * inputs;
     for (let i = 0; i < inputs; i++) sum += weights[base + i] * input[i];
-    out[r] = sum * scale[r] + bias[r];
+    out[r] = sum + bias[r];
   }
   return out;
 }
 
-/** Combined scalar value in [-1, 1] used for planning: now, future and outcome heads. */
+/** Current-position value in [-1, 1]; auxiliary heads were not supervised by this recipe. */
 export function combinedValue(value: Float32Array): number {
-  return 0.4 * value[0] + 0.35 * value[1] + 0.25 * value[2];
+  return value[0];
 }

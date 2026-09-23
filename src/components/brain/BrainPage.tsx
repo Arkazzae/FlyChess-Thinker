@@ -29,7 +29,7 @@ export function BrainPage() {
   const setView = useUiStore((s) => s.setView);
   const n = (value: number) => value.toLocaleString(formatLocale());
   const readoutCount = useMemo(() => {
-    if (!roles) return 8266;
+    if (!roles) return 7526;
     let count = 0;
     for (const role of roles) if (role === ROLE_READOUT) count++;
     return count;
@@ -45,12 +45,12 @@ export function BrainPage() {
     <div className="bp">
       <header className="bp-hero">
         <div className="bp-hero__text">
-          <p className="bp-eyebrow">MaleCNS v1.0 · {anatomy?.label ?? "fly-v6"} · {t("model.by")}</p>
+          <p className="bp-eyebrow">FlyWire v783 · {anatomy?.label ?? "DROSO-1"}</p>
           <h1>{t("bp.title")}</h1>
           <p className="bp-lead">{t("bp.lead")}</p>
           <ul className="bp-stats">
-            <li><strong>{n(anatomy?.neurons ?? 163903)}</strong><span>{t("bp.stat.neurons")}</span></li>
-            <li><strong>{n(anatomy?.connections ?? 6235682)}</strong><span>{t("bp.stat.connections")}</span></li>
+            <li><strong>{n(anatomy?.neurons ?? 134181)}</strong><span>{t("bp.stat.neurons")}</span></li>
+            <li><strong>{n(anatomy?.connections ?? 2700513)}</strong><span>{t("bp.stat.connections")}</span></li>
             <li><strong>10</strong><span>{t("bp.stat.steps")}</span></li>
             <li><strong>{n(readoutCount)}</strong><span>{t("bp.stat.readout")}</span></li>
           </ul>

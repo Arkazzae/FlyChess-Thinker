@@ -25,23 +25,15 @@ interface Pending {
 
 const dataUrl = (path: string) => new URL(`./data/${path}`, document.baseURI).href;
 
-/** Trained models the app can play, all on the same MaleCNS connectome. */
-export type FlyModelId = "fly-v6" | "fly-v4";
-const MODEL_DIRS: Record<FlyModelId, string> = { "fly-v6": "flybrain", "fly-v4": "flybrain-v4" };
-const DEFAULT_MODEL: FlyModelId = "fly-v6";
+/** Trained models the app can play, all on the same FlyWire v783 connectome. */
+export type FlyModelId = "droso-1";
+const DEFAULT_MODEL: FlyModelId = "droso-1";
 
 export class FlyEngine {
   private worker: Worker | null = null;
   private ready: Promise<void> | null = null;
   private pending = new Map<number, Pending>();
   private traces = new Map<number, string>();
-  /** Verified weights per model, kept so switching back needs no second download. */
-  private weightCache = new Map<FlyModelId, ArrayBuffer>();
-  private active: FlyModelId = DEFAULT_MODEL;
-  /** A model switch in progress; thinking waits for it. */
-  private switching: Promise<void> = Promise.resolve();
-  private modelReplies = new Map<number, () => void>();
-  private connectomeSha = "";
   private nextId = 1;
 
   init(): Promise<void> {
@@ -60,30 +52,28 @@ export class FlyEngine {
     const store = useFlyStore.getState();
     store.setStatus("loading", "model");
     const fresh: RequestInit = { cache: "no-cache" };
-    const [modelResponse, manifestResponse] = await Promise.all([fetch(dataUrl("flybrain/model.json"), fresh), fetch(dataUrl("mcns/manifest.json"), fresh)]);
+    const [modelResponse, manifestResponse] = await Promise.all([fetch(dataUrl("droso-1/model.json"), fresh), fetch(dataUrl("flywire/manifest.json"), fresh)]);
     if (!modelResponse.ok) throw new Error("The trained fly brain is missing from this build.");
-    if (!manifestResponse.ok) throw new Error("The MaleCNS manifest is missing from this build.");
+    if (!manifestResponse.ok) throw new Error("The FlyWire v783 manifest is missing from this build.");
     const model: FlyModelManifest = await modelResponse.json();
     const manifest: ConnectomeManifest = await manifestResponse.json();
-    this.connectomeSha = manifest.sha256;
-    if (model.version !== 1 || !/^[a-f0-9]{64}$/.test(model.sha256) || !/^[a-f0-9]{64}$/.test(manifest.sha256)) throw new Error("The fly brain manifest is invalid.");
+    if (model.version !== 2 || !/^[a-f0-9]{64}$/.test(model.sha256) || !/^[a-f0-9]{64}$/.test(manifest.sha256)) throw new Error("The fly brain manifest is invalid.");
     if (model.connectome !== manifest.sha256) throw new Error("The weights were trained on a different connectome.");
 
     const mb = (bytes: number) => (bytes / 1e6).toFixed(1);
     const total = manifest.compressedBytes + model.compressedBytes;
     const { setDownload } = useFlyStore.getState();
     setDownload({ stage: "connectome", loaded: 0, total });
-    const graphBuffer = await fetchVerified(dataUrl("mcns/connectome.bin.gz"), manifest.sha256, 150_000_000, (bytes) => {
+    const graphBuffer = await fetchVerified(dataUrl("flywire/connectome.bin.gz"), manifest.sha256, 150_000_000, (bytes) => {
       useFlyStore.getState().setStatus("loading", `connectome ${mb(bytes)} / ${mb(manifest.compressedBytes)} MB`);
       setDownload({ stage: "connectome", loaded: Math.min(bytes, manifest.compressedBytes), total });
     });
     setDownload({ stage: "weights", loaded: manifest.compressedBytes, total });
-    const weightsBuffer = await fetchVerified(dataUrl("flybrain/weights.bin.gz"), model.sha256, 150_000_000, (bytes) => {
+    const weightsBuffer = await fetchVerified(dataUrl("droso-1/weights.bin.gz"), model.sha256, 150_000_000, (bytes) => {
       useFlyStore.getState().setStatus("loading", `weights ${mb(bytes)} / ${mb(model.compressedBytes)} MB`);
       setDownload({ stage: "weights", loaded: manifest.compressedBytes + Math.min(bytes, model.compressedBytes), total });
     });
 
-    this.weightCache.set(DEFAULT_MODEL, weightsBuffer.slice(0));
     // Anatomy for the brain view is copied before the buffers move to the worker.
     const graph = new Connectome(graphBuffer);
     useFlyStore.getState().setAnatomy({
@@ -115,12 +105,7 @@ export class FlyEngine {
   }
 
   private handle(reply: FlyReply): void {
-    if (reply.type === "model") {
-      useFlyStore.getState().setRoles(reply.roles);
-      useFlyStore.getState().setBackend({ backend: reply.backend, adapter: reply.adapter });
-      this.modelReplies.get(reply.id)?.();
-      this.modelReplies.delete(reply.id);
-    } else if (reply.type === "trace" && this.traces.has(reply.id)) {
+    if (reply.type === "trace" && this.traces.has(reply.id)) {
       const fen = this.traces.get(reply.id)!;
       this.traces.delete(reply.id);
       useFlyStore.getState().setTrace({ id: reply.id, fen, frames: reply.frames, flows: reply.flows, steps: reply.steps, traceMs: reply.traceMs });
@@ -162,64 +147,20 @@ export class FlyEngine {
     useFlyStore.getState().setError(error.message);
   }
 
-  /** The model currently loaded in the worker. */
-  get model(): FlyModelId {
-    return this.active;
-  }
+  get model(): FlyModelId { return DEFAULT_MODEL; }
 
-  /**
-   * Play with another trained model. Its weights are downloaded once (checked against SHA-256 and
-   * against the connectome they were trained on), then the worker rebuilds the brain on the same wiring.
-   */
-  useModel(id: FlyModelId): Promise<void> {
-    this.switching = this.switching.then(() => this.switchTo(id)).catch((error) => {
-      useFlyStore.getState().setError(error instanceof Error ? error.message : String(error));
-    });
-    return this.switching;
-  }
-
-  private async switchTo(id: FlyModelId): Promise<void> {
-    await this.init();
-    if (id === this.active || !this.worker) return;
-    const store = useFlyStore.getState();
-    store.setStatus("loading", id);
-    let weights = this.weightCache.get(id);
-    let label: string = id;
-    if (!weights) {
-      const dir = MODEL_DIRS[id];
-      const response = await fetch(dataUrl(`${dir}/model.json`), { cache: "no-cache" });
-      if (!response.ok) throw new Error(`The ${id} brain is missing from this build.`);
-      const model: FlyModelManifest = await response.json();
-      if (model.connectome !== this.connectomeSha) throw new Error(`${id} was trained on a different connectome.`);
-      label = model.label;
-      weights = await fetchVerified(dataUrl(`${dir}/weights.bin.gz`), model.sha256, 150_000_000);
-      this.weightCache.set(id, weights.slice(0));
-    }
-    const requestId = this.nextId++;
-    const copy = weights.slice(0);
-    await new Promise<void>((resolve) => {
-      this.modelReplies.set(requestId, resolve);
-      const command: FlyCommand = { type: "weights", id: requestId, weights: copy };
-      this.worker!.postMessage(command, [copy]);
-    });
-    this.active = id;
-    const anatomy = useFlyStore.getState().anatomy;
-    if (anatomy) useFlyStore.getState().setAnatomy({ ...anatomy, label });
-    useFlyStore.getState().clearThought();
-    useFlyStore.getState().setStatus("ready");
-  }
+  useModel(_id: FlyModelId): Promise<void> { return this.init(); }
 
   async think(fen: string, options: Partial<PlanOptions> = {}, wantActivity = true, silent = false): Promise<FlyThinkResult> {
     await this.init();
-    await this.switching;
     const worker = this.worker;
     if (!worker) throw new Error("The fly brain is not available.");
     const id = this.nextId++;
     if (!silent) useFlyStore.getState().setStatus("thinking");
     return new Promise<FlyThinkResult>((resolve, reject) => {
       this.pending.set(id, { resolve, reject, fen, silent });
-      // Functions cannot cross the worker boundary; the worker uses its own random source and stage list.
-      const { random: _random, onStage: _onStage, now: _now, stages: _stages, ...plain } = { ...DEFAULT_PLAN, ...options };
+      // Functions cannot cross the worker boundary; the worker uses its own random source.
+      const { random: _random, onStage: _onStage, now: _now, ...plain } = { ...DEFAULT_PLAN, ...options };
       if (!silent) useFlyStore.getState().setThinking(null);
       const command: FlyCommand = { type: "think", id, fen, options: plain, wantActivity: wantActivity && !silent };
       worker.postMessage(command);
@@ -229,7 +170,6 @@ export class FlyEngine {
   /** Replay: record how a position spreads through the brain, without thinking about it. */
   async trace(fen: string): Promise<void> {
     await this.init();
-    await this.switching;
     if (!this.worker) return;
     const id = this.nextId++;
     this.traces.set(id, fen);

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { FlyMascot } from "@/components/FlyMascot";
 import { useTranslation } from "@/i18n";
 import { FLY_LEVELS, getFlyLevel, type FlyLevelId } from "@/ai/bots/levels";
-import { getFlyEngine, type FlyModelId } from "@/ai/fly/engine";
+import { getFlyEngine } from "@/ai/fly/engine";
 import { useFlyStore } from "@/state/fly";
 import { TIME_OPTIONS, useUiStore, type SideChoice } from "@/state/ui";
 import { startGame } from "@/game/session";
@@ -41,11 +41,6 @@ export function BotSelect() {
     setLevel(id);
     void getFlyEngine().useModel(getFlyLevel(id).model);
   };
-  /** Switch generation, keeping the same kind of fly (Reflex, Planner or Thinker). */
-  const pickGeneration = (model: FlyModelId) => {
-    const counterpart = FLY_LEVELS.find((item) => item.model === model && item.mode === level.mode);
-    if (counterpart) choose(counterpart.id);
-  };
   // A new line every time a different fly is picked.
   const speech = useMemo(() => Math.floor(Math.random() * 3), [level.id]);
 
@@ -56,7 +51,7 @@ export function BotSelect() {
           <FlyMascot still variant={level.id} />
         </div>
         <div className="bot-hero__text">
-          <div className="bot-hero__name"><strong>{level.name}</strong> <span>({level.rating})</span></div>
+          <div className="bot-hero__name"><strong>{level.name}</strong> <span>{level.short}</span></div>
           {/* Every line sits invisibly in the same cell, so the bubble keeps the height of the longest one. */}
           <div className="speech speech--stack">
             <p>{t(`select.speech.${level.id}.${speech}`)}</p>
@@ -68,16 +63,9 @@ export function BotSelect() {
       </div>
 
       <div className="bot-select__section">
-        <div className="gen-pick" role="radiogroup" aria-label={t("select.genAria")}>
-          {(["fly-v6", "fly-v4"] as FlyModelId[]).map((model) => (
-            <button key={model} type="button" role="radio" aria-checked={level.model === model} className={level.model === model ? "is-selected" : ""}
-              onClick={() => pickGeneration(model)}>
-              {t(model === "fly-v6" ? "select.gen.v6" : "select.gen.v4")}
-            </button>
-          ))}
-        </div>
+        <h3>DROSO-1 <span className="model-subtitle">{t("select.modelStyles")}</span></h3>
         <div className="bot-grid" role="radiogroup" aria-label={t("select.levelAria")}>
-          {FLY_LEVELS.filter((item) => item.model === level.model).map((item) => (
+          {FLY_LEVELS.map((item) => (
             <button
               key={item.id}
               type="button"
@@ -85,11 +73,11 @@ export function BotSelect() {
               aria-checked={item.id === levelId}
               className={`bot-card${item.id === levelId ? " is-selected" : ""}`}
               onClick={() => choose(item.id)}
-              title={`${item.name} (${item.rating}): ${item.description}`}
+              title={`${item.name} — ${item.description}`}
             >
               <span className="bot-card__img" style={{ background: item.tint }}><FlyMascot still variant={item.id} /></span>
               <span className="bot-card__name">{item.card}</span>
-              <span className="bot-card__rating">{item.rating}</span>
+              <span className="bot-card__rating">{item.short}</span>
             </button>
           ))}
         </div>

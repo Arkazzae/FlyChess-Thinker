@@ -80,7 +80,12 @@ export interface CloudOptions {
   autoRotate: boolean;
 }
 
+/** A scripted camera and moment, used by scripts/media.mjs to render frame-exact presentation clips. */
+export interface CloudShot { yaw: number; pitch: number; zoom: number; t: number }
+
 export class CloudView {
+  /** When set, every view draws this shot instead of following the user and the playback clock. */
+  static director: (() => CloudShot) | null = null;
   private gl: WebGLRenderingContext;
   private program: WebGLProgram;
   private attributes: Record<string, number> = {};
@@ -191,6 +196,8 @@ export class CloudView {
     const dt = this.lastNow ? Math.min(0.1, (now - this.lastNow) / 1000) : 0;
     this.lastNow = now;
     if (this.options.autoRotate && !this.reduced.matches && !this.pointer && now - this.touchedAt > 2500) this.yaw += dt * 0.16;
+    const shot = CloudView.director?.();
+    if (shot) ({ yaw: this.yaw, pitch: this.pitch, zoom: this.zoom, t } = shot);
 
     const trace = brainClock.trace;
     const n = this.count;

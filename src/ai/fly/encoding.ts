@@ -7,9 +7,9 @@
 
 import { Chess, type Color, type PieceSymbol, type Square } from "chess.js";
 
-export const SQUARE_FEATURES = 14;
-export const GLOBAL_FEATURES = 20;
-export const MOVE_SPACE = 4096;
+export const SQUARE_FEATURES = 15;
+export const GLOBAL_FEATURES = 22;
+export const MOVE_SPACE = 4168;
 const PIECE_ORDER: PieceSymbol[] = ["p", "n", "b", "r", "q", "k"];
 const PIECE_VALUES: Record<PieceSymbol, number> = { p: 1, n: 3, b: 3, r: 5, q: 9, k: 0 };
 const PHASE_MATERIAL = 62;
@@ -32,20 +32,23 @@ export function moverSquare(index: number, flip: boolean): number {
 }
 
 /** Absolute from*64+to → mover frame (and back; the mirror is an involution). */
-export function moverMoveIndex(from: number, to: number, flip: boolean): number {
-  return moverSquare(from, flip) * 64 + moverSquare(to, flip);
+export function moverMoveIndex(from: number, to: number, flip: boolean, promotion?: string): number {
+  const source = moverSquare(from, flip), target = moverSquare(to, flip);
+  const kind = ["n", "b", "r"].indexOf(promotion ?? "");
+  if (kind >= 0) return 4096 + ((source % 8) * 3 + (target % 8) - (source % 8) + 1) * 3 + kind;
+  return source * 64 + target;
 }
 
 export interface EncodedBoard {
-  /** 64 × 14, square-major, in the mover frame. */
+  /** 64 × 15, square-major, in the mover frame. */
   squares: Float32Array;
   globals: Float32Array;
   flip: boolean;
-  /** Legal moves as mover-frame indices → UCI string (promotions collapse onto queen). */
+  /** Legal moves as mover-frame indices → UCI string (all promotions). */
   legal: Map<number, string>;
 }
 
-export function encodeBoard(chess: Chess): EncodedBoard {
+export function encodeBoard(chess: Chess, halfmoveKnown = true): EncodedBoard {
   const mover: Color = chess.turn();
   const opponent: Color = mover === "w" ? "b" : "w";
   const flip = mover === "b";
@@ -72,15 +75,15 @@ export function encodeBoard(chess: Chess): EncodedBoard {
   const legal = new Map<number, string>();
   let enPassant = false;
   for (const move of chess.moves({ verbose: true })) {
-    const index = moverMoveIndex(squareIndex(move.from), squareIndex(move.to), flip);
+    const index = moverMoveIndex(squareIndex(move.from), squareIndex(move.to), flip, move.promotion);
     const uci = `${move.from}${move.to}${move.promotion ?? ""}`;
-    // Under-promotions share the from-to pair with the queen promotion; keep the queen.
-    if (!legal.has(index) || move.promotion === "q") legal.set(index, uci);
+    legal.set(index, uci);
     if (move.flags.includes("e")) enPassant = true;
   }
   const rights = chess.getCastlingRights(mover);
   const theirRights = chess.getCastlingRights(opponent);
   const fen = chess.fen().split(" ");
+  if (enPassant) squares[moverSquare(squareIndex(fen[3] as Square), flip) * SQUARE_FEATURES + 14] = 1;
   const halfmove = Number(fen[4] ?? 0);
   // Interoception rather than vision: what each side still owns and the signed balance.
   const mine = owned[mover];
@@ -90,10 +93,11 @@ export function encodeBoard(chess: Chess): EncodedBoard {
   const globals = Float32Array.from([
     Number(rights.k), Number(rights.q), Number(theirRights.k), Number(theirRights.q),
     Number(chess.inCheck()), Number(enPassant), Math.min(1, material / PHASE_MATERIAL),
-    Math.min(1, halfmove / 100), 1,
+    halfmoveKnown ? Math.min(1, halfmove / 100) : 0, 1,
     ...mine.map((count, k) => Math.min(1.5, count / MATERIAL_SCALE[k])),
     ...theirs.map((count, k) => Math.min(1.5, count / MATERIAL_SCALE[k])),
     Math.max(-1, Math.min(1, balance / MATERIAL_TOTAL)),
+    Number(halfmoveKnown), 0, // Matches encode_search: repetition history is not a neural input.
   ]);
   return { squares, globals, flip, legal };
 }
@@ -103,7 +107,12 @@ export function encodeFen(fen: string): EncodedBoard {
 }
 
 /** Decode a mover-frame move index into board squares (absolute). */
-export function decodeMoveIndex(index: number, flip: boolean): { from: Square; to: Square } {
+export function decodeMoveIndex(index: number, flip: boolean): { from: Square; to: Square; promotion?: string } {
+  if (index >= 4096) {
+    const action = index - 4096, geometry = Math.floor(action / 3);
+    const file = Math.floor(geometry / 3), direction = geometry % 3 - 1;
+    return { from: squareName(moverSquare(48 + file, flip)), to: squareName(moverSquare(56 + file + direction, flip)), promotion: ["n", "b", "r"][action % 3] };
+  }
   const from = moverSquare(Math.floor(index / 64), flip);
   const to = moverSquare(index % 64, flip);
   return { from: squareName(from), to: squareName(to) };

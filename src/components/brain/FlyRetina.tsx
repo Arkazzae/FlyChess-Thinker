@@ -2,12 +2,12 @@ import { useMemo } from "react";
 import { useFlyStore } from "@/state/fly";
 import { useGameStore } from "@/state/game";
 import { useTranslation } from "@/i18n";
-import { encodeFen } from "@/ai/fly/encoding";
+import { encodeFen, SQUARE_FEATURES } from "@/ai/fly/encoding";
 
 const GLYPHS = ["♟", "♞", "♝", "♜", "♛", "♚"];
-const CHANNELS = 14;
+const CHANNELS = SQUARE_FEATURES;
 
-/** The 64 × 14 stimulus the fly receives: its pieces, the opponent's, and both attack maps (mover frame). */
+/** The 64 × 15 stimulus the fly receives: its pieces, the opponent's, and both attack maps (mover frame). */
 export function FlyRetina() {
   const thought = useFlyStore((s) => s.thought);
   const fen = useGameStore((s) => s.fen);
@@ -34,7 +34,7 @@ export function FlyRetina() {
           const dark = (Math.floor(cell / 8) + cell) % 2 === 1;
           return (
             <i key={cell} className={[dark ? "d" : "l", ownAttack && "oa", theirAttack && "ta", own >= 0 && "own", theirs >= 0 && "theirs"].filter(Boolean).join(" ")}>
-              {own >= 0 ? GLYPHS[own] : theirs >= 0 ? GLYPHS[theirs] : ""}
+              {own >= 0 ? GLYPHS[own] : theirs >= 0 ? GLYPHS[theirs] : retina[base + 14] ? "·" : ""}
             </i>
           );
         })}

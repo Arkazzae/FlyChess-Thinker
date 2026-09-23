@@ -1,6 +1,6 @@
 /**
  * Hint for the player: the same connectome thinks about the player's position
- * (one planning stage, 3 candidates × 2 replies) without touching the brain view.
+ * (32 PUCT simulations) without touching the brain view.
  */
 
 import { getFlyEngine } from "./fly/engine";
@@ -18,8 +18,7 @@ export async function requestHint(): Promise<void> {
   ui.setHintLoading(true);
   try {
     const { decision } = await getFlyEngine().think(fen, {
-      candidates: 3,
-      replies: 2,
+      simulations: 32,
       temperature: 0,
       seen: seenPositions(game.chess.history({ verbose: true }), fen),
     }, false, true);

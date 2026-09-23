@@ -1,8 +1,4 @@
-/**
- * MaleCNS v1.0 connectome loader. The binary format is produced by
- * flybrain/export_connectome.py and is byte-identical to the Super Mario
- * Flywire experiment (incoming CSR, uint16 synapse counts, modelled signs).
- */
+/** FlyWire v783: incoming CSR, uint64 root IDs, measured somata. */
 
 export interface ConnectomeManifest {
   version: number;
@@ -22,7 +18,7 @@ export interface ConnectomeManifest {
 export class Connectome {
   readonly count: number;
   readonly edges: number;
-  readonly ids: Uint32Array;
+  readonly ids: BigUint64Array;
   readonly groups: Uint32Array;
   readonly signs: Float32Array;
   readonly positioned: Uint32Array;
@@ -37,12 +33,12 @@ export class Connectome {
     this.buffer = buffer;
     if (buffer.byteLength < 16) throw new Error("Connectome file is truncated.");
     const header = new Uint32Array(buffer, 0, 4);
-    if (header[0] !== 0x534e434d || header[1] !== 1) throw new Error("Unknown connectome format.");
+    if (header[0] !== 0x534e434d || header[1] !== 2) throw new Error("Unknown connectome format.");
     this.count = header[2];
     this.edges = header[3];
     const n = this.count;
     const m = this.edges;
-    if (!n || buffer.byteLength !== 20 + n * 32 + m * 6) throw new Error("Connectome size does not match its header.");
+    if (!n || buffer.byteLength !== 20 + n * 36 + m * 6) throw new Error("Connectome size does not match its header.");
     let cursor = 16;
     const uints = (length: number) => {
       const view = new Uint32Array(buffer, cursor, length);
@@ -54,7 +50,8 @@ export class Connectome {
       cursor += length * 4;
       return view;
     };
-    this.ids = uints(n);
+    this.ids = new BigUint64Array(buffer, cursor, n);
+    cursor += n * 8;
     this.groups = uints(n);
     this.signs = floats(n);
     this.positioned = uints(n);
@@ -119,10 +116,10 @@ export async function fetchVerified(url: string, expectedSha: string, limit: num
 
 export async function loadConnectome(base: string, progress?: (label: string) => void): Promise<{ graph: Connectome; manifest: ConnectomeManifest }> {
   const response = await fetch(`${base}manifest.json`);
-  if (!response.ok) throw new Error("Could not load the MaleCNS manifest.");
+  if (!response.ok) throw new Error("Could not load the FlyWire manifest.");
   const manifest: ConnectomeManifest = await response.json();
-  if (manifest.version !== 1 || !Number.isSafeInteger(manifest.bytes) || manifest.bytes > 150_000_000 || !/^[a-f0-9]{64}$/.test(manifest.sha256)) {
-    throw new Error("The MaleCNS manifest is invalid.");
+  if (manifest.version !== 2 || !Number.isSafeInteger(manifest.bytes) || manifest.bytes > 150_000_000 || !/^[a-f0-9]{64}$/.test(manifest.sha256)) {
+    throw new Error("The FlyWire manifest is invalid.");
   }
   const buffer = await fetchVerified(`${base}connectome.bin.gz`, manifest.sha256, 150_000_000, (bytes) =>
     progress?.(`Connectome · ${(bytes / 1e6).toFixed(1)} / ${(manifest.compressedBytes / 1e6).toFixed(1)} MB`),

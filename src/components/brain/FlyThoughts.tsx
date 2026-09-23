@@ -30,8 +30,8 @@ export function FlyThoughts({ limit = 6, recorded }: { limit?: number; recorded?
     <div className="thoughts">
       <p className="thoughts__status" role="status">
         {status === "thinking" && !recorded
-          ? t("thoughts.live", { depth: decision.depth, count: decision.evaluations })
-          : t("thoughts.done", { count: decision.evaluations, depth: decision.depth, ms: Math.round((recorded ?? thought)?.thinkMs ?? 0) })}
+          ? t("thoughts.live", { depth: decision.depth, count: decision.simulations })
+          : t("thoughts.done", { count: decision.simulations, depth: decision.depth, ms: Math.round((recorded ?? thought)?.thinkMs ?? 0) })}
       </p>
       {decision.line.length > 1 && (
         <p className="thoughts__line"><span>{t("thoughts.line")}</span>{decision.line.map((san, i) => <b key={i} className={i % 2 ? "is-reply" : ""}>{san}</b>)}</p>
@@ -49,7 +49,7 @@ export function FlyThoughts({ limit = 6, recorded }: { limit?: number; recorded?
         ))}
       </ol>
       <div className="thoughts__heads">
-        {[t("thoughts.now"), t("thoughts.future"), t("thoughts.outcome")].map((label, index) => {
+        {[t("thoughts.now")].map((label, index) => {
           const v = decision.value[index];
           return (
             <div key={label} className="head">

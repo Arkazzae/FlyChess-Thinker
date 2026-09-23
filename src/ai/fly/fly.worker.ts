@@ -7,7 +7,7 @@ import { FlyBrain, type BrainOutput } from "./brain.ts";
 import { Connectome } from "./connectome.ts";
 import { encodeBoard, type EncodedBoard } from "./encoding.ts";
 import { GpuPropagator } from "./gpu.ts";
-import { plan, THINKING_STAGES, type Widths } from "./planner.ts";
+import { plan } from "./planner.ts";
 import type { FlyCommand, FlyReply } from "./protocol";
 import { FlyWeights } from "./weights.ts";
 
@@ -16,7 +16,6 @@ const scope = globalThis as unknown as {
   onmessage: ((event: MessageEvent<FlyCommand>) => void) | null;
 };
 
-const CPU_STAGES: readonly Widths[] = [[3, 1], [3, 2], [4, 3], [6, 4], [8, 5]];
 
 let brain: FlyBrain | null = null;
 let gpu: GpuPropagator | null = null;
@@ -40,7 +39,7 @@ async function buildBrain(weights: FlyWeights): Promise<string | undefined> {
 // One evaluation at a time: GPU buffers and the brain's scratch arrays are shared.
 let queue: Promise<void> = Promise.resolve();
 
-/** What the fly sees: the 64 × 14 board stimulus (piece channels + attack maps), mover frame. */
+/** What the fly sees: the 64 × 15 board stimulus (piece channels + attack maps), mover frame. */
 function retinaOf(chess: Chess): Float32Array {
   return encodeBoard(chess).squares.slice();
 }
@@ -73,12 +72,6 @@ async function handle(command: FlyCommand): Promise<void> {
       return;
     }
     if (!brain || !graph) throw new Error("The fly brain is not loaded yet.");
-    if (command.type === "weights") {
-      await buildBrain(new FlyWeights(command.weights));
-      const roles = brain.roles();
-      scope.postMessage({ type: "model", id: command.id, backend: gpu ? "webgpu" : "cpu", adapter: gpu?.adapterName ?? "CPU", roles }, [roles.buffer]);
-      return;
-    }
     const activeBrain = brain;
     if (command.type === "trace") {
       const started = performance.now();
@@ -99,15 +92,13 @@ async function handle(command: FlyCommand): Promise<void> {
     const started = performance.now();
     // The first evaluation is the root position: keep its activity for the brain view.
     let activity: Float32Array | undefined;
-    // Thinking: deeper and wider stages until the budget is spent. An evaluation costs ~5x more on
-    // the CPU, so its first stage is lighter; each completed stage is reported to the panel.
+    // Report bounded PUCT visits; both backends use the same search settings.
     const decision = await plan(chess, async (board) => {
       const output = await evaluate(activeBrain, board);
       if (command.wantActivity && !activity) activity = activeBrain.activity.slice();
       return output;
     }, {
       ...command.options,
-      stages: gpu ? THINKING_STAGES : CPU_STAGES,
       onStage: (soFar) => scope.postMessage({ type: "progress", id: command.id, decision: soFar, elapsedMs: performance.now() - started }),
     });
     const retina = retinaOf(chess);

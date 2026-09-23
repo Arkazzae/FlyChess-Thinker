@@ -1,8 +1,8 @@
 /**
- * Trained weights of the Fly brain. Layout produced by flybrain/export_weights.py.
+ * Trained weights of the Fly brain. Layout produced by training/droso1/export_browser.py.
  */
 
-import { GLOBAL_FEATURES, SQUARE_FEATURES } from "./encoding.ts";
+import { GLOBAL_FEATURES, MOVE_SPACE, SQUARE_FEATURES } from "./encoding.ts";
 
 export interface FlyModelManifest {
   version: number;
@@ -24,10 +24,9 @@ export interface FlyModelManifest {
   training?: { step?: number; positions?: number };
 }
 
-export interface QuantisedLinear {
-  /** int8 weights, output-major (rows × inputs). */
-  weights: Int8Array;
-  scale: Float32Array;
+export interface Linear {
+  /** FP32 weights, output-major (rows × inputs). */
+  weights: Float32Array;
   bias: Float32Array;
   rows: number;
   inputs: number;
@@ -42,22 +41,21 @@ export class FlyWeights {
   readonly globalFeatures: number;
   readonly alpha: number;
   readonly kappa: number;
-  readonly gainMax: number;
-  readonly visIndex: Uint32Array;
+    readonly visIndex: Uint32Array;
   readonly visSquare: Uint8Array;
   readonly visWeight: Float32Array;
   readonly globIndex: Uint32Array;
   readonly globWeight: Float32Array;
   readonly bias: Float32Array;
-  readonly gain: Uint8Array;
+  readonly gain: Float32Array;
   readonly readout: Uint32Array;
   /** Folded batch norm: feature = activity * scale + shift. */
   readonly featureScale: Float32Array;
   readonly featureShift: Float32Array;
-  readonly hiddenLayer: QuantisedLinear;
-  readonly hiddenLayer2: QuantisedLinear;
-  readonly policy: QuantisedLinear;
-  readonly reply: QuantisedLinear;
+  readonly hiddenLayer: Linear;
+  readonly hiddenLayer2: Linear;
+  readonly policy: Linear;
+  readonly reply: Linear;
   readonly valueWeight: Float32Array;
   readonly valueBias: Float32Array;
 
@@ -67,7 +65,7 @@ export class FlyWeights {
     this.buffer = buffer;
     if (buffer.byteLength < 64) throw new Error("Weights file is truncated.");
     const header = new Uint32Array(buffer, 0, 12);
-    if (header[0] !== 0x594c4643 || header[1] !== 1) throw new Error("Unknown weights format.");
+    if (header[0] !== 0x594c4643 || header[1] !== 2) throw new Error("Unknown weights format.");
     const [, , n, m, nVis, nGlob, p, h, f, g, t] = header;
     const constants = new Float32Array(buffer, 48, 4);
     this.neurons = n;
@@ -78,31 +76,28 @@ export class FlyWeights {
     this.globalFeatures = g;
     this.alpha = constants[0];
     this.kappa = constants[1];
-    this.gainMax = constants[2];
-    if (!n || !m || !nVis || !p || !h || !t || t > 64 || f !== SQUARE_FEATURES || g !== GLOBAL_FEATURES) throw new Error("Weights header is invalid.");
+    if (!n || !m || !nVis || !p || !h || !t || t > 64 || header[11] !== MOVE_SPACE || f !== SQUARE_FEATURES || g !== GLOBAL_FEATURES) throw new Error("Weights header is invalid.");
     let cursor = 64;
     const pad = () => { cursor = Math.ceil(cursor / 4) * 4; };
     const need = (bytes: number) => { if (cursor + bytes > buffer.byteLength) throw new Error("Weights file is truncated."); };
     const u32 = (length: number) => { need(length * 4); const view = new Uint32Array(buffer, cursor, length); cursor += length * 4; return view; };
     const u8 = (length: number) => { need(length); const view = new Uint8Array(buffer, cursor, length); cursor += length; pad(); return view; };
-    const i8 = (length: number) => { need(length); const view = new Int8Array(buffer, cursor, length); cursor += length; pad(); return view; };
     const f32 = (length: number) => { need(length * 4); const view = new Float32Array(buffer, cursor, length); cursor += length * 4; return view; };
-    const f16 = (length: number) => { need(length * 2); const view = new Uint16Array(buffer, cursor, length); cursor += length * 2; pad(); return halfToFloat(view); };
     this.visIndex = u32(nVis);
     this.visSquare = u8(nVis);
-    this.visWeight = f16(nVis * f);
+    this.visWeight = f32(nVis * f);
     this.globIndex = u32(nGlob);
-    this.globWeight = f16(nGlob * g);
-    this.bias = f16(n);
-    this.gain = u8(m);
+    this.globWeight = f32(nGlob * g);
+    this.bias = f32(n);
+    this.gain = f32(m);
     this.readout = u32(p);
-    const linear = (rows: number, inputs: number): QuantisedLinear => ({ weights: i8(rows * inputs), scale: f32(rows), bias: f32(rows), rows, inputs });
+    const linear = (rows: number, inputs: number): Linear => ({ weights: f32(rows * inputs), bias: f32(rows), rows, inputs });
     this.featureScale = f32(p);
     this.featureShift = f32(p);
     this.hiddenLayer = linear(h, p);
     this.hiddenLayer2 = linear(h, h);
-    this.policy = linear(4096, h);
-    this.reply = linear(4096, h);
+    this.policy = linear(MOVE_SPACE, h);
+    this.reply = linear(MOVE_SPACE, h);
     this.valueWeight = f32(3 * h);
     this.valueBias = f32(3);
     if (cursor !== buffer.byteLength) throw new Error("Weights file has trailing data.");

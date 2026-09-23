@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "label": "DROSO-1",
+  "connectome": "3a53978908037d85239611aea0282b173fcc7af391b1422d5a6978fcb8b522a7",
+  "neurons": 134181,
+  "connections": 2700513,
+  "visualInputs": 22586,
+  "globalInputs": 4885,
+  "readout": 7526,
+  "hidden": 512,
+  "steps": 10,
+  "squareFeatures": 15,
+  "globalFeatures": 22,
+  "moveSpace": 4168,
+  "precision": "float32",
+  "sourceWeights": "941e97e4010d7db4da42a69f83a8cc1bc5bf6e65d7ff430f992c6859d197e7cb",
+  "training": {
+    "positions": 26000128,
+    "step": 101563
+  },
+  "search": {
+    "algorithm": "PUCT",
+    "simulations": 64,
+    "cPuct": 1.5,
+    "valueHead": "current_cp_tanh"
+  },
+  "bytes": 46924212,
+  "compressedBytes": 40377899,
+  "sha256": "f7fc3bf1749e18c5274ec06c339e4e425e59001cae107fda66f30a087fc2dd84"
+}

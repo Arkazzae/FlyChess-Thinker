@@ -1,14 +1,16 @@
 /**
  * Regenerates the README media in docs/media/ from a real session in a real browser:
- * banner.png, gameplay.gif, brain.gif, brain-page.png, review.png.
+ * banner.png, gameplay.gif, brain.gif, brain-page.png, review.png. The brain is also rendered
+ * as a full-HD video for presentations, reports/media/brain.mp4 (not committed).
  *
  *   CHROMIUM_PATH=/usr/bin/chromium pnpm media
+ *   MEDIA_ONLY=brain CHROMIUM_PATH=/usr/bin/chromium pnpm media    # banner, gameplay or brain
  *
  * Needs ffmpeg on PATH. Both GIFs are 800 × 450 (16:9) at 12 fps with an optimised palette, a few
  * megabytes each, so GitHub shows them quickly and at the same size.
  */
 import { spawn, execFileSync } from "node:child_process";
-import { mkdir, readdir, rm } from "node:fs/promises";
+import { mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,8 +21,15 @@ const require = createRequire(import.meta.url);
 const PROJECT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(PROJECT, "docs/media");
 const VIDEO = join(PROJECT, "reports/video");
+const FRAMES = join(PROJECT, "reports/frames");
+const PRESENT = join(PROJECT, "reports/media");
 const origin = "http://127.0.0.1:5299";
 const VIEW = { width: 1280, height: 720 };
+const only = process.env.MEDIA_ONLY?.split(",").map((name) => name.trim());
+const want = (name) => !only || only.includes(name);
+
+/** The spinning brain: one full turn, during which the recorded thought plays three times. */
+const SPIN = { seconds: 12.6, thoughts: 3, fps: 30, width: 1920, height: 1080 };
 
 const server = spawn(process.execPath, [join(dirname(require.resolve("vite/package.json")), "bin/vite.js"), "--host", "127.0.0.1", "--port", "5299", "--strictPort"], { cwd: PROJECT, stdio: "pipe" });
 const browser = await chromium.launch({
@@ -30,9 +39,10 @@ const browser = await chromium.launch({
 });
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-function toGif(input, output, { start, duration, width = 800, fps = 12, colors = 160, crop = null }) {
+/** `input` is ffmpeg's input arguments, e.g. ["-ss", "2", "-t", "8", "-i", "clip.webm"]. */
+function toGif(input, output, { width = 800, fps = 12, colors = 160, crop = null } = {}) {
   const cut = crop ? `crop=${crop.width}:${crop.height}:${crop.x}:${crop.y},` : "";
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(start), "-t", String(duration), "-i", input,
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...input,
     "-vf", `${cut}fps=${fps},scale=${width}:${Math.round((width * 9) / 16)}:flags=lanczos,split[a][b];[a]palettegen=max_colors=${colors}:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle`,
     "-loop", "0", output]);
 }
@@ -82,7 +92,7 @@ try {
   await mkdir(OUT, { recursive: true });
 
   // --- banner: the real brain, lit by a real thought, over a board in perspective ---
-  {
+  if (want("banner")) {
     // 1. A render of the connectome right after the fly has thought about a position.
     const app = await browser.newPage({ viewport: { width: 1400, height: 900 }, deviceScaleFactor: 2 });
     await app.goto(origin);
@@ -143,7 +153,7 @@ try {
   }
 
   // --- gameplay: a real game against the Thinker, with its thoughts on the board ---
-  {
+  if (want("gameplay")) {
     const { context, page, mark } = await recorded();
     await page.addInitScript(() => {
       localStorage.setItem("fly-chess-thinker:ui:v2", JSON.stringify({ level: "thinker", side: "w", timeId: "none", showThoughts: true, showEval: true }));
@@ -163,13 +173,13 @@ try {
     const end = mark();
     await page.screenshot({ path: join(OUT, "game.png") });
     await context.close();
-    toGif(await videoFile(), join(OUT, "gameplay.gif"), { start, duration: Math.min(16, end - start) });
+    toGif(["-ss", String(start), "-t", String(Math.min(16, end - start)), "-i", await videoFile()], join(OUT, "gameplay.gif"));
     console.log("gameplay.gif");
   }
 
-  // --- brain: the recorded propagation on the full page, then the review ---
-  {
-    const { context, page, mark } = await recorded();
+  // --- brain: the connectome spinning full screen, then the brain page and the review ---
+  if (want("brain")) {
+    const page = await browser.newPage({ viewport: VIEW });
     await page.goto(origin);
     await page.locator(".preloader").waitFor({ state: "detached", timeout: 180000 });
     await page.locator(".btn-play").click();
@@ -179,27 +189,53 @@ try {
     await waitForReply(page, 4);
     await page.locator(".sidebar__brain").click();
     await page.locator(".bp").waitFor();
-    // Bring the stage (brain, timeline, board, regions) to the top of the window and record only it.
-    const crop = await page.evaluate(() => {
-      const main = document.querySelector(".app__main");
-      const stage = document.querySelector(".bp-stage");
-      main.scrollTop += stage.getBoundingClientRect().top - 12;
-      const r = stage.getBoundingClientRect();
-      const even = (v) => Math.floor(v / 2) * 2;
-      // 16:9, like the gameplay GIF, so both show at the same size on GitHub.
-      const x = even(r.left - 12);
-      const y = even(Math.max(0, r.top - 12));
-      let width = even(Math.min(r.width + 24, innerWidth - x));
-      let height = even((width * 9) / 16);
-      if (y + height > innerHeight) { height = even(innerHeight - y); width = even((height * 16) / 9); }
-      return { x, y, width, height };
+
+    // The cloud alone fills the window; a scripted camera turns it once while the fly's last
+    // thought plays, so every frame is exact and the clip loops without a seam.
+    await page.setViewportSize({ width: SPIN.width, height: SPIN.height });
+    const stage = await page.addStyleTag({ content: `
+      .bp-cloud .brain-cloud { position: fixed; inset: 0; height: auto; z-index: 1000; }
+      .brain-cloud__legend, .brain-cloud__reset { display: none; }` });
+    await page.evaluate(async (spin) => {
+      const { CloudView } = await import("/src/brain/CloudView.ts");
+      const { brainClock } = await import("/src/brain/clock.ts");
+      const cycle = spin.seconds / spin.thoughts;
+      window.__spinTime = 0;
+      CloudView.director = () => ({
+        yaw: -0.5 + (2 * Math.PI * window.__spinTime) / spin.seconds,
+        pitch: 0.16,
+        zoom: 0.52,
+        // The thought spreads for ~3 s, then holds until the next one starts.
+        t: Math.min(brainClock.steps, (window.__spinTime % cycle) * 3.2),
+      });
+    }, SPIN);
+    await rm(FRAMES, { recursive: true, force: true });
+    await mkdir(FRAMES, { recursive: true });
+    const frames = Math.round(SPIN.seconds * SPIN.fps);
+    for (let i = 0; i < frames; i++) {
+      const png = await page.evaluate(async (time) => {
+        window.__spinTime = time;
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        return document.querySelector(".bp-cloud canvas").toDataURL("image/png");
+      }, i / SPIN.fps);
+      await writeFile(join(FRAMES, `${String(i).padStart(4, "0")}.png`), Buffer.from(png.split(",")[1], "base64"));
+    }
+    const sequence = ["-framerate", String(SPIN.fps), "-i", join(FRAMES, "%04d.png")];
+    await mkdir(PRESENT, { recursive: true });
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...sequence, "-c:v", "libx264", "-preset", "slow", "-crf", "16",
+      "-pix_fmt", "yuv420p", "-movflags", "+faststart", join(PRESENT, "brain.mp4")]);
+    console.log("reports/media/brain.mp4");
+    toGif(sequence, join(OUT, "brain.gif"), { colors: 192 });
+    console.log("brain.gif");
+    await page.evaluate(async () => {
+      const { CloudView } = await import("/src/brain/CloudView.ts");
+      CloudView.director = null;
     });
-    await wait(800);
-    const start = mark();
-    // Click without letting the browser scroll the button into view.
+    await stage.evaluate((node) => node.remove());
+    await page.setViewportSize(VIEW);
+
     await page.evaluate(() => document.querySelector(".brain-timeline__play").click());
     await wait(4200);
-    const end = mark();
     await page.screenshot({ path: join(OUT, "brain-page.png") });
 
     await page.locator(".bp-hero__side .btn").click();
@@ -213,13 +249,11 @@ try {
     await wait(2500);
     await page.screenshot({ path: join(OUT, "review.png") });
     console.log("review.png");
-    // The video is only complete once the context is closed.
-    await context.close();
-    toGif(await videoFile(), join(OUT, "brain.gif"), { start, duration: end - start, colors: 192, crop });
-    console.log("brain.gif");
+    await page.close();
   }
 } finally {
   await browser.close();
   server.kill();
   await rm(VIDEO, { recursive: true, force: true });
+  await rm(FRAMES, { recursive: true, force: true });
 }
