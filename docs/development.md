@@ -5,17 +5,22 @@ This page is for running and changing the code.
 
 ## Run locally
 
-Requires Node.js 23.6+ (the media and avatar scripts import TypeScript directly) and pnpm 10+.
+Use Node.js 24.12+ and pnpm 10.14.0 (pinned in `package.json`). The locked
+dependencies also support Node.js 22.20+ on the 22.x line; Node.js 23 is outside
+Vitest's supported range. The scripts run JavaScript in Node and load the
+application's TypeScript through Vite in the browser.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev          # http://localhost:5180
 pnpm check        # unit tests + typecheck + production build
 ```
 
 There is no backend. The brain (about 51 MB) is served from `public/data/`,
 checked against SHA-256 and run in a Web Worker: on the GPU (WebGPU) when there
-is one, otherwise on the CPU.
+is a usable adapter, otherwise on the CPU. Serve the app over HTTPS or
+localhost: model verification uses `crypto.subtle`, and WebGPU also requires
+a secure context. Opening `index.html` directly is not supported.
 
 ## Deploy
 
@@ -31,21 +36,31 @@ replaced model reaches players on their next visit.
 
 ## Browser tests
 
-Two Playwright scripts drive a real Chromium. On Linux, point them at a
-system browser:
+Two Playwright scripts drive a real Chromium and start their own servers
+(`test:fly:browser` on port 5297, `test:preview` on 4173). Build the current
+production bundle before `test:preview`; that script serves the existing
+`dist/` and does not rebuild it. With a system Chromium on Linux:
 
 ```bash
+pnpm build
 CHROMIUM_PATH=/usr/bin/chromium pnpm test:fly:browser
 CHROMIUM_PATH=/usr/bin/chromium pnpm test:preview
 ```
 
+Alternatively, install Playwright's Chromium with
+`pnpm exec playwright install chromium` and omit `CHROMIUM_PATH`.
+
 **`test:fly:browser`** loads the brain through the preloader and checks:
+
 - the EN/PL switch;
 - a full move against the fly;
 - the recorded propagation: 11 frames, activity spreading, group flows;
 - the hint and takeback;
 - the brain views render;
-- WebGPU gives the same numbers as the CPU on the full connectome.
+- post-game review and replay, all three search budgets, and draw claims;
+- WebGPU agrees with the CPU on the full connectome within numeric tolerances,
+  when a usable hardware adapter is available. The report marks this check as
+  skipped if WebGPU cannot start.
 
 **`test:preview`** plays a move against the production bundle and checks for
 horizontal scrolling at laptop and phone widths.
@@ -62,7 +77,7 @@ Screenshots go to `reports/`.
 | `src/game/session.ts` | Starting, rematching and ending games; PGN export |
 | `src/i18n/` | English and Polish strings (English is the default) |
 | `public/data/` | FlyWire connectome (`flywire/`) and DROSO-1 browser weights (`droso-1/`) |
-| `scripts/` | Browser tests, README media, avatar and favicon processing |
+| `scripts/` | Browser tests and README media capture |
 | `artifacts/` | Standalone DROSO-1 Python bundle; legacy fly-v6/fly-v4 exports and MaleCNS in `legacy/` |
 | `training/` | DROSO-1 data preparation, training, evaluation and export pipeline |
 | `benchmarks/droso-1/` | Published model results, evaluation positions, JSON and PGN |
@@ -70,7 +85,8 @@ Screenshots go to `reports/`.
 ## Updating the model
 
 Follow the [training and export recipe](droso-1/recipe.md). From the repository
-root, export a verified standalone bundle to the browser:
+root, with the Python dependencies installed and the virtual environment
+active, export a verified standalone bundle to the browser:
 
 ```bash
 PYTHONPATH=training python -m droso1.export_browser --bundle artifacts/droso-1
@@ -85,7 +101,9 @@ space, input mapping and original root IDs. Batch normalisation is folded
 into scale/shift.
 
 The binary formats are version 2. Graph IDs are uint64; layers and gains are
-FP32. The parity test fails if required assets are missing. Changes to model
+FP32. Browser manifest hashes cover the decompressed binary payloads; the
+standalone bundle's manifest hashes cover the files as stored. The parity
+test fails if required assets are missing. Changes to model
 architecture also require matching TypeScript encoder, loader and inference.
 
 ## README media

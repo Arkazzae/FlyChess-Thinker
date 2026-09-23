@@ -38,4 +38,6 @@ choice is a legal move 89.4% of the time.
 
 Later experiments (v8, v9) did not beat it; v9 lost 16 of 16 games to v6.
 
-See [docs/training.md](../../docs/training.md) for the full recipe.
+See the [artifact overview](../../README.md#legacy-prototypes) for the archived
+export format. The current [training documentation](../../../docs/training.md)
+describes DROSO-1, not the historical fly-v6 training run.

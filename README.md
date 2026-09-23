@@ -19,28 +19,20 @@ The first visit downloads the fly's brain (about 51 MB), and then everything
 runs in your browser. It works best on a computer with a recent Chrome, Edge or
 Safari; phones work too, they just think a little slower.
 
-## What you get
-
-- **Three flies to play**, all on the DROSO-1 brain: **Scout**, **Tactician**
-  and **Thinker** run 8, 32 and 64 search visits before each move.
-- **Game review**: after the game, Stockfish rates every move and gives
-  both players an accuracy score. You can replay the game with the fly's
-  brain activity and its thoughts at every move.
-
 ## The fly's brain, live
 
 A 3D cloud of its real neurons lighting up step by step, the signal flowing
 between brain regions, the moves it is weighing, and what the board looks like
 through its eyes.
 
-<img src="docs/media/brain.gif" width="800" alt="The fly's brain spinning while a thought spreads through its 134,181 neurons">
+<img src="docs/media/brain.gif" width="800" alt="Simulated activity in the fly's brain; the cloud shows 117,708 neurons with measured cell-body positions">
 
 ## How good is it?
 
 The Thinker (64 search visits) scored about **1500 Elo** against Stockfish in
 our test (95% interval 1410–1603); Scout and Tactician have not been rated
-yet. That's a fair result for something with a brain smaller than a poppy seed
-that had to learn from scratch what a legal move is.
+yet. The model learned move preferences and position values from scratch;
+the chess rules and legal-move filter are supplied by the software.
 
 ## Train your own model: DROSO-1
 
@@ -57,10 +49,12 @@ the **[training recipe](docs/droso-1/recipe.md)** and the
 [research notes](docs/droso-1/research.md) and benchmark JSON/PGN files.
 Use the recipe to prepare your own data, train, evaluate and export a model.
 
-To run the pretrained model with Python 3.12 in a virtual environment:
+To run the pretrained model with Python 3.12, from the repository root:
 
 ```bash
-pip install -r artifacts/droso-1/requirements.txt
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r artifacts/droso-1/requirements.txt
 cd artifacts/droso-1
 python -m droso1.bundle --device cpu --moves e2e4 c7c5
 ```

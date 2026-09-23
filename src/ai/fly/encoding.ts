@@ -1,8 +1,10 @@
 /**
- * Board encoding for the Fly brain. Mirrors flybrain/flychess.py exactly:
+ * Board encoding for DROSO-1. Mirrors training/core/encoding.py and the
+ * training/droso1/player.py search adapter:
  * the position is always seen from the side to move (Black's positions are
  * mirrored vertically with colours swapped), squares are numbered a1 = 0 …
- * h8 = 63, and moves are indexed as from * 64 + to in that frame.
+ * h8 = 63. Normal moves and queen promotions use from * 64 + to; knight,
+ * bishop and rook promotions have 72 dedicated action slots.
  */
 
 import { Chess, type Color, type PieceSymbol, type Square } from "chess.js";

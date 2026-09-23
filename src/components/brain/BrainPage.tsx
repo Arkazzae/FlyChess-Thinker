@@ -1,12 +1,9 @@
 import { useMemo } from "react";
 import { ROLE_READOUT } from "@/ai/fly/brain";
 import { useFlyStore } from "@/state/fly";
-import { useGameStore } from "@/state/game";
 import { useUiStore } from "@/state/ui";
 import { formatLocale, useTranslation } from "@/i18n";
 import { GROUP_COLORS } from "@/brain/CloudView";
-import { Board } from "@/components/Board/Board";
-import { BoardOverlays } from "@/components/play/BoardOverlays";
 import { BrainCloud } from "./BrainCloud";
 import { BrainFlow } from "./BrainFlow";
 import { BrainTimeline } from "./BrainTimeline";
@@ -25,7 +22,6 @@ export function BrainPage() {
   const anatomy = useFlyStore((s) => s.anatomy);
   const status = useFlyStore((s) => s.status);
   const roles = useFlyStore((s) => s.roles);
-  const phase = useGameStore((s) => s.phase);
   const setView = useUiStore((s) => s.setView);
   const n = (value: number) => value.toLocaleString(formatLocale());
   const readoutCount = useMemo(() => {
@@ -69,7 +65,6 @@ export function BrainPage() {
         <aside className="bp-stage__side">
           <h2 id="bp-stage-title">{t("bp.stage.title")}</h2>
           <p className="bp-text">{t("bp.stage.body")}</p>
-          <div className="bp-board"><Board interactive={phase !== "lobby"}><BoardOverlays /></Board></div>
           <ul className="bp-regions">
             {regionCounts.map((count, g) => (
               <li key={g}>

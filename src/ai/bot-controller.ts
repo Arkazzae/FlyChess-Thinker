@@ -68,7 +68,7 @@ export class BotController {
     const startedAt = performance.now();
     const level = getFlyLevel(this.level);
     const budgetMs = getFlyThinkingBudget(remainingMs, halfMoves);
-    // A little variety in the first moves, deterministic afterwards.
+    // Zero temperature selects by visit count and prior throughout the game.
     const { decision } = await getFlyEngine().think(fen, {
       ...level.plan,
       temperature: 0,

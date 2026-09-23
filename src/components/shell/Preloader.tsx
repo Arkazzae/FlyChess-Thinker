@@ -1,5 +1,5 @@
 /**
- * Full-screen loading screen: downloads the brain (~31 MB), the piece images, the sounds and the
+ * Full-screen loading screen: downloads the brain (~51.3 MB), the piece images, the sounds and the
  * fonts before the game appears.
  */
 

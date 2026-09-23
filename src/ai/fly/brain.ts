@@ -1,11 +1,13 @@
 /**
- * Fly brain inference (CPU). The same rate model as flybrain/model.py:
+ * Fly brain inference (CPU). Dynamics mirror training/model.py; the DROSO-1
+ * interface and readout mirror training/droso1/model.py:
  *
  *   drive_i = relu( sum_e a_src(e) · sign_src · count_e · exp(g_e) · kappa / sum counts_i + bias_i + input_i )
  *   a_i    ← (1 − alpha) · a_i + alpha · drive_i / (1 + drive_i)
  *
- * Anatomy (edges, synapse counts, transmitter signs) is measured; gains, biases,
- * the sensory interface and the readout were trained against Stockfish.
+ * Edges and synapse counts are measured; signs are assigned from predicted
+ * transmitters. Gains, biases, the sensory interface and the readout were
+ * trained against Stockfish labels.
  */
 
 import type { Connectome } from "./connectome";
@@ -221,7 +223,7 @@ function linear(layer: Linear, input: Float32Array, out: Float32Array): Float32A
   return out;
 }
 
-/** Current-position value in [-1, 1]; auxiliary heads were not supervised by this recipe. */
+/** Current-position value in [-1, 1]; future-value and outcome slots were not supervised in arm B. */
 export function combinedValue(value: Float32Array): number {
   return value[0];
 }

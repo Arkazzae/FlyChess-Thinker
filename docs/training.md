@@ -15,10 +15,12 @@ trained model:
 - [Pretrained artifact](../artifacts/droso-1/README.md): standalone inference
   bundle with weights, graph and verification fixtures.
 
-The recipe teaches legal-move policy and the current CP value using Stockfish
-labels, Lichess evaluations and positions from model games. Its auxiliary
-reply, future-value and outcome heads are not supervised and are not used by
-the browser's search. The graph stays fixed throughout training.
+The released B recipe trains the move policy, reply prediction and current CP
+value using Stockfish labels, Lichess evaluations and positions from model
+games, with an additional loss for recorded costly moves. Its future-value
+and outcome heads are not supervised; those losses belong to experimental
+arm A. Search uses the policy and current value, without the reply, future-value
+or outcome outputs. The graph stays fixed throughout training.
 
 Use Python 3.12 and a compatible CUDA PyTorch installation for training.
 The original full training corpus and optimizer state are not included; the

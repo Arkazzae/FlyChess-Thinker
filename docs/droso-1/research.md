@@ -20,8 +20,10 @@ examples from each 256-example batch to reduce memory use.
 
 The sensory interface covers all 64 squares, using 15 features per square
 and 22 global features. It encodes en passant and explicitly marks unknown
-halfmove clocks and repetition history. The complete-square mapping replaces
-the older mapping, which left 14 squares without direct visual input. The
+halfmove clocks and whether repetition history is known. The history-known
+flag stays false in the training records and search encoder; chess-rule
+checks use the available game history separately. The complete-square mapping
+replaces the older mapping, which left 14 squares without direct visual input. The
 published graph provenance describes that older mapping; the model constructs
 the corrected mapping at initialization.
 
@@ -63,9 +65,10 @@ that auxiliary tasks cannot help with more training.
 
 B continued to 4, 8, 16 and 26 million presentations. At final selection,
 validation severe-error counts were 68, 56 and 53 for the 8M, 16M and 26M
-checkpoints. The rule selected the lowest count, then common-subset mean CP
-cost in a tie, then the earlier checkpoint. The 26M candidate was frozen
-before the final test was opened.
+checkpoints. The final selection compared 16M with 26M; 8M was included only
+as a historical reference. The rule selected the lowest count among those
+two candidates, then common-subset mean CP cost in a tie, then the earlier
+checkpoint. The 26M candidate was frozen before the final test was opened.
 
 ## Findings
 
@@ -96,6 +99,8 @@ for development and selection; only the final test was reserved until the
 candidate was frozen. That test is now public and should be treated as a
 regression set for future work. Imported source-game identities and some
 teacher metadata were lost, limiting leakage and label-quality checks.
+The holdout was reserved for the fresh DROSO-1 experiment; the legacy fly-v6
+baseline may have encountered some corpus positions during its earlier training.
 
 The model uses rate dynamics and backpropagation, not biological learning.
 Treating GABA/glutamate as inhibitory is a modeling assumption. Stockfish

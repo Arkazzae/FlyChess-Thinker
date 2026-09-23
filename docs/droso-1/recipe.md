@@ -25,7 +25,7 @@ From the repository root:
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-pip install -r training/requirements.txt
+python -m pip install -r training/requirements.txt
 cd training
 export STOCKFISH_EXECUTABLE=/absolute/path/to/stockfish
 python -m unittest discover -s droso1 -t . -p 'test_*.py'
@@ -38,9 +38,14 @@ the matching CUDA build of PyTorch for your driver; verify
 The importer also needs `curl` and `zstd`. Stockfish is used for data labels
 and evaluation, and does not choose the model's moves during inference.
 
-The exact graph is included at `artifacts/droso-1/graph.npz`. The trainer
-checks its SHA-256 before starting. It initializes fresh learned parameters;
-it does not load the released weights when starting a new run.
+The exact graph is included at `../artifacts/droso-1/graph.npz` when running
+from `training/`. The trainer checks its SHA-256 before starting. It initializes
+fresh learned parameters; it does not load the released weights when starting
+a new run.
+
+CUDA is also required by the current collection, model-evaluation, rating-match
+and standalone-export commands. Standalone inference and browser export can
+run on CPU, as can data preparation and recomputing archived rating statistics.
 
 ## 2. Build or supply the corpus
 

@@ -28,6 +28,19 @@ scales them, then swaps the last two axes for the viewer. Missing somata are
 hidden, not invented. The [browser manifest](../public/data/flywire/manifest.json)
 records the exact source, transformation and 117,708 positioned neurons.
 
+## Legacy MaleCNS anatomy
+
+The fly-v6 and fly-v4 prototypes use a different connectome:
+`artifacts/legacy/mcns/connectome.bin.gz`, derived from
+[MaleCNS v1.0](https://male-cns.janelia.org/download/) under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The [legacy manifest](../artifacts/legacy/mcns/manifest.json) records attribution
+to FlyEM (HHMI Janelia), the University of Cambridge, the MRC Laboratory of
+Molecular Biology and Google Research, together with source URLs and hashes.
+Its traced-only, minimum-five-synapse graph has 163,903 neurons and 6,235,682
+directed connections. It is retained for the legacy exports and is not loaded
+by the current game.
+
 ## Training and evaluation data
 
 Training uses Stockfish labels, recorded model mistakes and the
@@ -40,7 +53,10 @@ PGNs and results are in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
 `public/stockfish.js` is the WebAssembly build by Niklas Fiekas (multi-variant
 fork), under GPL v3. It retains its licence header and runs as a separate
 worker for the evaluation bar and post-game review. It does not choose the
-fly's moves.
+fly's moves. This bundled [stockfish.js runtime](https://github.com/niklasf/stockfish.js)
+is separate from the native Stockfish 19 executable used by the Python data
+collection and benchmark commands; configure that executable through
+`STOCKFISH_EXECUTABLE`.
 
 ## Illustrations
 

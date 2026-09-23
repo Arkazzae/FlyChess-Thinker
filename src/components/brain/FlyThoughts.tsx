@@ -8,6 +8,8 @@ const pawns = (value: number) => {
   return `${cp >= 0 ? "+" : "−"}${Math.abs(cp).toFixed(1)}`;
 };
 
+const GHOST = [78, 52, 34, 22, 14];
+
 /** What the fly is considering: instinct (policy), imagined value, and the line it expects. */
 export function FlyThoughts({ limit = 6, recorded }: { limit?: number; recorded?: FlyThought }) {
   const status = useFlyStore((s) => s.status);
@@ -19,9 +21,19 @@ export function FlyThoughts({ limit = 6, recorded }: { limit?: number; recorded?
   const decision = recorded ? recorded.decision : (status === "thinking" ? thinking?.decision : undefined) ?? thought?.decision;
 
   if (!decision) {
+    // A ghost of the list it will become: the same rows, with instinct bars fading down the list.
     return (
-      <div className="thoughts thoughts--empty">
-        {status === "thinking" ? t("thoughts.looking") : t("thoughts.empty")}
+      <div className={`thoughts thoughts--empty${status === "thinking" ? " is-thinking" : ""}`}>
+        <ol className="thoughts__list" aria-hidden="true">
+          {GHOST.map((width, index) => (
+            <li key={index} style={{ animationDelay: `${index * 0.12}s` }}>
+              <strong />
+              <span className="thoughts__bar"><i style={{ width: `${width}%` }} /></span>
+              <span className="thoughts__value" />
+            </li>
+          ))}
+        </ol>
+        <p className="thoughts__hint" role="status">{status === "thinking" ? t("thoughts.looking") : t("thoughts.empty")}</p>
       </div>
     );
   }

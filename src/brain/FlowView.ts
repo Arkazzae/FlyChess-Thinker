@@ -1,10 +1,10 @@
 /**
  * Signal flow between the six anatomical groups of the connectome, drawn from the recorded
- * thought. Every step only the strongest routes are shown: glowing ribbons coloured from the
- * sending to the receiving region, with comets travelling along them as fast and as often as the
- * drive is strong (inhibition in red). Regions are plain discs that fill with their mean activity. The board
- * enters on the left through the eyes and the other senses; the decision leaves on the right
- * through the read-out neurons.
+ * thought as a layered network diagram: the board enters on the left, passes the sensory,
+ * projection, integration and output layers, and the decision leaves on the right through the
+ * read-out neurons. Every step only the strongest routes are drawn, as smooth curves whose width
+ * and pulses follow the drive (inhibition dashed in red). Each region is a block that fills
+ * from the bottom with its mean activity.
  */
 
 import { GROUP_COUNT } from "@/ai/fly/brain";
@@ -14,40 +14,70 @@ import { sampleRow } from "./stats";
 
 type Point = { x: number; y: number };
 
-/** Left to right, roughly the path a board takes through the fly: eyes → brain → motor output. */
+/** Layer columns, left to right: input, sensory, projection, integration, output, read-out. */
+const COLUMNS = [0.065, 0.245, 0.425, 0.6, 0.775, 0.935];
+const TOP = 0.34;
+const MIDDLE = 0.5;
+const BOTTOM = 0.7;
+/** Region → [column, row]. */
 const NODES: Point[] = [
-  { x: 0.25, y: 0.36 }, // visual circuits
-  { x: 0.45, y: 0.24 }, // visual projections
-  { x: 0.6, y: 0.54 }, // central brain
-  { x: 0.79, y: 0.32 }, // motor output
-  { x: 0.77, y: 0.8 }, // ventral nerve cord
-  { x: 0.27, y: 0.76 }, // other senses
+  { x: COLUMNS[1], y: TOP }, // visual circuits
+  { x: COLUMNS[2], y: TOP }, // visual projections
+  { x: COLUMNS[3], y: MIDDLE }, // central brain
+  { x: COLUMNS[4], y: TOP }, // motor output
+  { x: COLUMNS[4], y: BOTTOM }, // ascending pathways
+  { x: COLUMNS[1], y: BOTTOM }, // other senses
 ];
-const INPUT: Point = { x: 0.07, y: 0.54 };
+const INPUT: Point = { x: COLUMNS[0], y: MIDDLE };
+const OUTPUT: Point = { x: COLUMNS[5], y: MIDDLE };
 /** The main pathways, drawn faintly at all times so the diagram reads even before the fly thinks. */
 const SKELETON: [number | "in", number | "out"][] = [
   ["in", 0], ["in", 5], [0, 1], [1, 2], [5, 2], [0, 2], [2, 3], [2, 4], [3, 4], [1, "out"], [2, "out"], [3, "out"],
 ];
-const OUTPUT: Point = { x: 0.93, y: 0.52 };
 const EXCITATORY_SHOWN = 7;
 const INHIBITORY_SHOWN = 3;
 const GOLD = "#ffd65a";
 const INPUT_BLUE = "#8ce2ff";
-const INHIBIT = "#ff5a6e";
+const INHIBIT = "#f05668";
+const SURFACE = "#1b1a17";
+const MONO = 'ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace';
 
 function rgba(hex: string, alpha: number): string {
   const v = parseInt(hex.slice(1), 16);
   return `rgba(${(v >> 16) & 255},${(v >> 8) & 255},${v & 255},${Math.max(0, Math.min(1, alpha)).toFixed(3)})`;
 }
 
-function control(a: Point, b: Point, bend: number): Point {
-  // Perpendicular bow: A→B and B→A curve to opposite sides, so both directions stay readable.
-  return { x: (a.x + b.x) / 2 - (b.y - a.y) * bend, y: (a.y + b.y) / 2 + (b.x - a.x) * bend };
+type Curve = [Point, Point, Point, Point];
+
+/**
+ * Forward links leave a block on the right and enter the next on the left with horizontal
+ * tangents, like the edges of a network diagram. Links inside a column or back against the flow
+ * arc around to one side, so both directions of a pair stay apart.
+ */
+function curve(a: Point, b: Point, ha: number, hb: number, lane = 0): Curve {
+  const dx = b.x - a.x;
+  if (dx > ha + hb) {
+    const p0 = { x: a.x + ha, y: a.y + lane };
+    const p3 = { x: b.x - hb, y: b.y + lane };
+    const k = (p3.x - p0.x) * 0.5;
+    return [p0, { x: p0.x + k, y: p0.y }, { x: p3.x - k, y: p3.y }, p3];
+  }
+  const side = dx < -1 ? -1 : Math.sign(b.y - a.y) || 1;
+  const bow = Math.max(28, Math.abs(dx) * 0.25 + Math.abs(b.y - a.y) * 0.35);
+  if (Math.abs(dx) <= 1) {
+    // Same column: bow out to the right, lane decides how far.
+    const out = bow * 0.8 + lane * 3;
+    return [{ x: a.x + ha, y: a.y }, { x: a.x + ha + out, y: a.y }, { x: b.x + hb + out, y: b.y }, { x: b.x + hb, y: b.y }];
+  }
+  // Backwards: leave from the top or bottom and arc over (or under) the forward links.
+  const sy = side * (bow + lane * 4);
+  return [{ x: a.x, y: a.y + side * ha }, { x: a.x, y: a.y + sy }, { x: b.x, y: b.y + sy }, { x: b.x, y: b.y + side * hb }];
 }
 
-function along(a: Point, c: Point, b: Point, u: number): Point {
+function along([p0, p1, p2, p3]: Curve, u: number): Point {
   const v = 1 - u;
-  return { x: v * v * a.x + 2 * v * u * c.x + u * u * b.x, y: v * v * a.y + 2 * v * u * c.y + u * u * b.y };
+  const a = v * v * v, b = 3 * v * v * u, c = 3 * v * u * u, d = u * u * u;
+  return { x: a * p0.x + b * p1.x + c * p2.x + d * p3.x, y: a * p0.y + b * p1.y + c * p2.y + d * p3.y };
 }
 
 export class FlowView {
@@ -57,22 +87,18 @@ export class FlowView {
   private readonly mean = new Float32Array(GROUP_COUNT);
   private readonly readout = new Float32Array(GROUP_COUNT);
   private readonly maxCount: number;
-  private readonly stars: { x: number; y: number; r: number; phase: number }[] = [];
   compact = false;
 
   constructor(
     readonly canvas: HTMLCanvasElement,
     private readonly groupNames: string[],
     private readonly groupCounts: number[],
-    private readonly text: { board: string; readout: string; move: string },
+    private readonly text: { board: string; readout: string; move: string; layers: string[] },
   ) {
     const ctx = canvas.getContext("2d");
     if (!ctx) throw new Error("Canvas 2D is not available.");
     this.ctx = ctx;
     this.maxCount = Math.max(1, ...groupCounts);
-    let seed = 11;
-    const random = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-    for (let i = 0; i < 70; i++) this.stars.push({ x: random(), y: random(), r: 0.4 + random() * 0.9, phase: random() * 6.28 });
     this.unsubscribe = brainClock.subscribe((t, now) => this.draw(t, now));
   }
 
@@ -108,7 +134,6 @@ export class FlowView {
       canvas.height = Math.round(h * dpr);
     }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.globalCompositeOperation = "source-over";
     ctx.clearRect(0, 0, w, h);
     this.sample(t);
 
@@ -118,35 +143,40 @@ export class FlowView {
     const meanMax = stats?.meanMax ?? 1;
     const readoutMax = stats?.readoutMax ?? 1;
     const time = now / 1000;
-    const scale = Math.max(0.7, Math.min(w / 520, h / 300));
+    const scale = Math.max(0.72, Math.min(w / 520, h / 300));
     const P = (p: Point): Point => ({ x: p.x * w, y: p.y * h });
-    const radius = (g: number) => (9 + 17 * Math.sqrt(this.groupCounts[g] / this.maxCount)) * scale;
+    const half = (g: number) => (9 + 6 * Math.sqrt(this.groupCounts[g] / this.maxCount)) * scale;
+    const ioHalf = 12 * scale;
+    const halfOf = (end: number | "in" | "out") => (typeof end === "number" ? half(end) : ioHalf);
+    const pointOf = (end: number | "in" | "out") => P(end === "in" ? INPUT : end === "out" ? OUTPUT : NODES[end]);
 
-    // --- backdrop: faint stars that twinkle with the overall activity ---
-    let total = 0;
-    for (const v of this.mean) total += v;
-    const energy = live ? Math.min(1, total / Math.max(1e-6, meanMax * 2.5)) : 0.15;
-    for (const star of this.stars) {
-      const alpha = (0.08 + 0.14 * energy) * (0.6 + 0.4 * Math.sin(time * 1.3 + star.phase));
-      ctx.fillStyle = `rgba(200,210,255,${alpha.toFixed(3)})`;
+    const stroke = ([p0, p1, p2, p3]: Curve) => {
       ctx.beginPath();
-      ctx.arc(star.x * w, star.y * h, star.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.moveTo(p0.x, p0.y);
+      ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+      ctx.stroke();
+    };
+
+    // --- layer guides: a hairline per column, named at the bottom ---
+    ctx.lineWidth = 1;
+    ctx.setLineDash([1, 4]);
+    ctx.strokeStyle = "rgba(255,255,255,0.05)";
+    for (const x of COLUMNS) {
+      ctx.beginPath();
+      ctx.moveTo(Math.round(x * w) + 0.5, 22 * scale);
+      ctx.lineTo(Math.round(x * w) + 0.5, h - (this.compact ? 8 : 24) * scale);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    if (!this.compact) {
+      COLUMNS.forEach((x, i) => this.label((this.text.layers[i] ?? "").toUpperCase(), x * w, h - 12 * scale, "rgba(255,255,255,0.3)", 8.5 * scale, 500, MONO, 0.8));
     }
 
     // --- the anatomy at rest: faint, still pathways ---
     ctx.lineCap = "round";
-    ctx.lineWidth = 1.2 * scale;
-    for (const [from, to] of SKELETON) {
-      const a = P(from === "in" ? INPUT : NODES[from]);
-      const b = P(to === "out" ? OUTPUT : NODES[to]);
-      const c = control(a, b, 0.1);
-      ctx.strokeStyle = "rgba(190, 185, 215, 0.14)";
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.quadraticCurveTo(c.x, c.y, b.x, b.y);
-      ctx.stroke();
-    }
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(255,255,255,0.07)";
+    for (const [from, to] of SKELETON) stroke(curve(pointOf(from), pointOf(to), halfOf(from), halfOf(to)));
 
     // --- the strongest routes this step ---
     const routes: { s: number; d: number; strength: number; inhibitory: boolean }[] = [];
@@ -164,60 +194,42 @@ export class FlowView {
       routes.push(...list.slice(0, inhibitory ? INHIBITORY_SHOWN : EXCITATORY_SHOWN));
     }
 
-    ctx.globalCompositeOperation = "lighter";
-    ctx.lineCap = "round";
-    const ribbon = (a: Point, b: Point, bend: number, from: string, to: string, strength: number, dashed = false): Point => {
-      const c = control(a, b, bend);
-      const gradient = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-      gradient.addColorStop(0, rgba(from, 0.12 + strength * 0.4));
-      gradient.addColorStop(1, rgba(to, 0.12 + strength * 0.4));
+    const link = (c: Curve, from: string, to: string, strength: number, dashed = false) => {
+      const gradient = ctx.createLinearGradient(c[0].x, c[0].y, c[3].x, c[3].y);
+      gradient.addColorStop(0, rgba(from, 0.2 + strength * 0.5));
+      gradient.addColorStop(1, rgba(to, 0.2 + strength * 0.5));
       ctx.strokeStyle = gradient;
-      if (dashed) ctx.setLineDash([2 * scale, 6 * scale]);
-      for (const [width, alpha] of [[4.5, 0.22], [1.4, 1]] as const) {
-        ctx.globalAlpha = alpha;
-        ctx.lineWidth = (0.6 + strength * width) * scale;
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.quadraticCurveTo(c.x, c.y, b.x, b.y);
-        ctx.stroke();
-      }
+      ctx.lineWidth = (0.8 + strength * 2.6) * scale;
+      if (dashed) ctx.setLineDash([3 * scale, 4 * scale]);
+      stroke(c);
       ctx.setLineDash([]);
-      ctx.globalAlpha = 1;
-      return c;
     };
-    const comets = (a: Point, c: Point, b: Point, color: string, strength: number, count: number, speed: number, seed: number) => {
+    const pulses = (c: Curve, color: string, strength: number, count: number, speed: number, seed: number) => {
+      ctx.fillStyle = rgba(color, 0.45 + strength * 0.55);
       for (let i = 0; i < count; i++) {
-        const head = (time * speed + i / count + seed * 0.137) % 1;
-        for (let tail = 0; tail < 7; tail++) {
-          const u = head - tail * 0.018;
-          if (u < 0) break;
-          const p = along(a, c, b, u);
-          const fade = 1 - tail / 7;
-          ctx.fillStyle = rgba(tail === 0 ? "#ffffff" : color, (0.25 + strength * 0.75) * fade);
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, (tail === 0 ? 2.2 : 1.6) * scale * (0.6 + strength * 0.6) * fade + 0.4, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        const p = along(c, (time * speed + i / count + seed * 0.137) % 1);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, (1 + strength * 1.3) * scale, 0, Math.PI * 2);
+        ctx.fill();
       }
     };
 
     for (const route of routes) {
-      const a = P(NODES[route.s]);
-      const b = P(NODES[route.d]);
+      const c = curve(P(NODES[route.s]), P(NODES[route.d]), half(route.s), half(route.d), route.inhibitory ? 3 * scale : 0);
       const from = route.inhibitory ? INHIBIT : GROUP_COLORS[route.s];
       const to = route.inhibitory ? INHIBIT : GROUP_COLORS[route.d];
-      const c = ribbon(a, b, route.inhibitory ? 0.32 : 0.16, from, to, route.strength, route.inhibitory);
-      comets(a, c, b, to, route.strength, 1 + Math.round(route.strength * 3), 0.18 + route.strength * 0.45, route.s * 7 + route.d);
+      link(c, from, to, route.strength, route.inhibitory);
+      pulses(c, to, route.strength, 1 + Math.round(route.strength * 2), 0.16 + route.strength * 0.4, route.s * 7 + route.d);
     }
 
     // --- input from the board, output to the move ---
     const input = live ? Math.min(1, t * 2) : 0;
     const inputPoint = P(INPUT);
-    for (const [target, level] of [[NODES[0], input], [NODES[5], input * 0.7]] as const) {
+    for (const [target, level] of [[0, input], [5, input * 0.7]] as const) {
       if (level <= 0.02) continue;
-      const b = P(target);
-      const c = ribbon(inputPoint, b, 0.05, INPUT_BLUE, INPUT_BLUE, level * 0.8);
-      comets(inputPoint, c, b, INPUT_BLUE, level, 3, 0.55, target.y * 10);
+      const c = curve(inputPoint, P(NODES[target]), ioHalf, half(target));
+      link(c, INPUT_BLUE, INPUT_BLUE, level * 0.7);
+      pulses(c, INPUT_BLUE, level, 2, 0.5, target);
     }
     const outputPoint = P(OUTPUT);
     let out = 0;
@@ -225,81 +237,111 @@ export class FlowView {
       const level = Math.sqrt(this.readout[g] / readoutMax);
       out = Math.max(out, level);
       if (level < 0.12) continue;
-      const a = P(NODES[g]);
-      const c = ribbon(a, outputPoint, 0.06, GROUP_COLORS[g], GOLD, level * 0.7);
-      comets(a, c, outputPoint, GOLD, level, 2, 0.4 + level * 0.3, g * 3);
+      const c = curve(P(NODES[g]), outputPoint, half(g), ioHalf);
+      link(c, GROUP_COLORS[g], GOLD, level * 0.7);
+      pulses(c, GOLD, level, 2, 0.35 + level * 0.3, g * 3);
     }
 
-    ctx.globalCompositeOperation = "source-over";
-
-    // --- regions: a dark disc with a coloured ring, filling up with the group's activity ---
-    for (let g = 0; g < GROUP_COUNT; g++) {
-      const { x, y } = P(NODES[g]);
-      const r = radius(g);
-      const level = live ? Math.min(1, Math.sqrt(this.mean[g] / meanMax)) : 0;
-      const color = GROUP_COLORS[g];
-      ctx.fillStyle = "#16151c";
+    // --- regions: square blocks that fill from the bottom with the group's activity ---
+    const block = (x: number, y: number, r: number, color: string, level: number) => {
+      const size = r * 2;
+      ctx.fillStyle = SURFACE;
       ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.roundRect(x - r, y - r, size, size, 4 * scale);
       ctx.fill();
       if (level > 0.01) {
-        ctx.fillStyle = rgba(color, 0.35 + level * 0.55);
-        ctx.beginPath();
-        ctx.arc(x, y, r * (0.2 + level * 0.8), 0, Math.PI * 2);
-        ctx.fill();
+        ctx.save();
+        ctx.clip();
+        const top = y + r - size * level;
+        const fill = ctx.createLinearGradient(0, top, 0, y + r);
+        fill.addColorStop(0, rgba(color, 0.85));
+        fill.addColorStop(1, rgba(color, 0.35));
+        ctx.fillStyle = fill;
+        ctx.fillRect(x - r, top, size, size * level);
+        ctx.restore();
       }
-      ctx.strokeStyle = rgba(color, 0.95);
-      ctx.lineWidth = 2 * scale;
+      ctx.strokeStyle = rgba(color, 0.55 + level * 0.45);
+      ctx.lineWidth = 1.25 * scale;
       ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.roundRect(x - r, y - r, size, size, 4 * scale);
       ctx.stroke();
+    };
+    for (let g = 0; g < GROUP_COUNT; g++) {
+      const { x, y } = P(NODES[g]);
+      block(x, y, half(g), GROUP_COLORS[g], live ? Math.min(1, Math.sqrt(this.mean[g] / meanMax)) : 0);
     }
 
-    // --- the move: a gold disc with a knight, brighter as the read-out fills ---
-    const starR = 13 * scale;
-    ctx.fillStyle = rgba(GOLD, 0.35 + out * 0.65);
-    ctx.beginPath();
-    ctx.arc(outputPoint.x, outputPoint.y, starR, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "#2a2110";
-    ctx.font = `700 ${Math.round(16 * scale)}px system-ui, sans-serif`;
+    // --- the move: a gold block with a knight, filling as the read-out does ---
+    block(outputPoint.x, outputPoint.y, ioHalf, GOLD, live ? out : 0);
+    ctx.fillStyle = out > 0.5 ? "#2a2110" : rgba(GOLD, 0.95);
+    ctx.font = `600 ${Math.round(14 * scale)}px system-ui, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("♞", outputPoint.x, outputPoint.y + 1);
 
     // --- the board ---
-    const size = 28 * scale;
-    const bx = inputPoint.x - size / 2;
-    const by = inputPoint.y - size / 2;
+    const size = ioHalf * 2;
+    const bx = inputPoint.x - ioHalf;
+    const by = inputPoint.y - ioHalf;
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(bx, by, size, size, 4 * scale);
+    ctx.clip();
     for (let i = 0; i < 16; i++) {
       ctx.fillStyle = (i + Math.floor(i / 4)) % 2 ? "#739552" : "#ebecd0";
       ctx.fillRect(bx + (i % 4) * size / 4, by + Math.floor(i / 4) * size / 4, size / 4, size / 4);
     }
-    ctx.strokeStyle = rgba(INPUT_BLUE, 0.35 + input * 0.6);
-    ctx.lineWidth = 1.5 * scale;
-    ctx.strokeRect(bx - 2, by - 2, size + 4, size + 4);
+    ctx.restore();
+    ctx.strokeStyle = rgba(INPUT_BLUE, 0.3 + input * 0.6);
+    ctx.lineWidth = 1.25 * scale;
+    ctx.beginPath();
+    ctx.roundRect(bx - 2, by - 2, size + 4, size + 4, 5 * scale);
+    ctx.stroke();
 
     // --- labels ---
-    this.label(this.text.board, inputPoint.x, by + size + 13 * scale, "#c9c7c3", 10.5 * scale);
-    this.label(this.text.readout, outputPoint.x, outputPoint.y + starR + 12 * scale, GOLD, 10.5 * scale);
+    const name = 10 * scale;
+    this.label(this.text.board, inputPoint.x, by + size + 12 * scale, "#c3c2c1", name);
+    this.label(this.text.readout, outputPoint.x, outputPoint.y + ioHalf + 12 * scale, GOLD, name);
     for (let g = 0; g < GROUP_COUNT; g++) {
       const { x, y } = P(NODES[g]);
-      const r = radius(g);
-      this.label(this.groupNames[g] ?? "", x, y + r + 12 * scale, "#ecebea", 11 * scale);
-      if (!this.compact && live) this.label(`${(this.mean[g] * 100).toFixed(1)}%`, x, y + r + 25 * scale, rgba(GROUP_COLORS[g], 0.95), 10 * scale, 500);
+      const r = half(g);
+      const lines = this.wrap(this.groupNames[g] ?? "", (COLUMNS[2] - COLUMNS[1]) * w - 8, name);
+      lines.forEach((line, i) => this.label(line, x, y + r + (11 + i * 11.5) * scale, "#e4e2de", name));
+      if (!this.compact && live) {
+        const value = `${(this.mean[g] * 100).toFixed(1)}%`;
+        this.label(value, x, y + r + (11 + lines.length * 11.5) * scale, rgba(GROUP_COLORS[g], 0.9), 9 * scale, 500, MONO);
+      }
     }
   }
 
-  private label(text: string, x: number, y: number, color: string, size: number, weight = 650): void {
+  /** Splits a region name into lines that fit between two columns. */
+  private wrap(text: string, width: number, size: number): string[] {
+    this.ctx.font = `500 ${Math.max(9, size).toFixed(1)}px "Noto Sans", system-ui, sans-serif`;
+    if (this.ctx.measureText(text).width <= width) return [text];
+    const words = text.split(" ");
+    const lines = [words.shift() ?? ""];
+    for (const word of words) {
+      const joined = `${lines[lines.length - 1]} ${word}`;
+      if (this.ctx.measureText(joined).width <= width) lines[lines.length - 1] = joined;
+      else lines.push(word);
+    }
+    return lines;
+  }
+
+  private label(text: string, x: number, y: number, color: string, size: number, weight = 500, family = '"Noto Sans", system-ui, sans-serif', spacing = 0): void {
     const ctx = this.ctx;
-    ctx.font = `${weight} ${Math.max(9, size).toFixed(1)}px "Noto Sans", system-ui, sans-serif`;
+    ctx.font = `${weight} ${Math.max(8, size).toFixed(1)}px ${family}`;
+    ctx.letterSpacing = `${spacing}px`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.shadowColor = "rgba(0,0,0,.85)";
-    ctx.shadowBlur = 6;
+    // A knockout in the panel colour keeps labels legible where links pass underneath.
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "rgba(31,30,27,0.9)";
+    ctx.strokeText(text, x, y);
     ctx.fillStyle = color;
     ctx.fillText(text, x, y);
-    ctx.shadowBlur = 0;
+    ctx.letterSpacing = "0px";
   }
 
   dispose(): void {

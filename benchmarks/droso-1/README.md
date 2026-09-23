@@ -39,7 +39,9 @@ python -m droso1.rating_summary \
   --out /tmp/droso-1-rating.json
 ```
 
-To run new games against Stockfish, configure `STOCKFISH_EXECUTABLE` and use
+To run new games, install the [training dependencies](../../training/README.md),
+use a compatible CUDA GPU, configure `STOCKFISH_EXECUTABLE` to point to native
+Stockfish 19, and run from `training/`:
 `python -m droso1.rating_match --bundle ../artifacts/droso-1 --elo 1500 --out runs/rating-1500`.
 New results may differ because Stockfish's handicap randomness is not seeded
 through UCI. No published games need to be rerun to inspect the archived results.
@@ -55,6 +57,8 @@ Both players used PUCT 64; fly-v6 used its native value-head mixture.
 This differs from fly-v6's browser planner, so this comparison should not be
 combined with the browser's level ratings. The candidate was selected on
 validation before opening this final test.
+The split was held out for DROSO-1; fly-v6's earlier exposure to corpus
+positions is not fully known, so the same isolation cannot be claimed for it.
 
 Evidence: [64 games](final-test/games.pgn), [full report](final-test/report.json)
 and [source-game audit](final-test/source-game-audit.json).
@@ -82,6 +86,12 @@ per-position node budget and root analysis. Mate scores remain separate from
 CP; the 64 positions without a common CP score are retained in the severe-error
 metric. Bootstrap groups are known source games or imported source shards.
 
+The top-level `final-test/report.json` retains the earlier adaptive-budget
+move scores (57/55 severe errors). The table above uses the subsequent
+common-teacher analysis (61/56); the paired mean CP values use only the 448
+positions with CP scores for both models, rather than each model's separate
+CP subset.
+
 Evidence: [common-teacher summaries](final-test/common-teacher/report.json),
 [DROSO-1 moves and scores](final-test/common-teacher/fresh_B-regret.json),
 [fly-v6 moves and scores](final-test/common-teacher/historical_v6-regret.json)
@@ -103,7 +113,8 @@ matches each included one adjudicated game. All games at 16M and 26M ended
 naturally. Dev was repeatedly inspected and is not an independent test.
 
 The final validation comparison had 68/56/53 severe errors for B at 8M/16M/26M.
-The predefined rule chose 26M for its lowest validation count. Its difference
+The predefined final selection compared 16M with 26M and chose 26M for its
+lower validation count; 8M was a historical reference. Its difference
 from 16M was −0.59 percentage points, with interval −2.60 to +1.28. Candidate
 selection preceded the first final-test access; the test did not change it.
 

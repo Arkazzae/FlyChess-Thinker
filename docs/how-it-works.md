@@ -46,17 +46,21 @@ A readout of 7,526 neurons feeds two 512-unit layers with a residual connection.
 The **4,168-action policy** represents normal moves and queen promotions with
 from/to indices, plus 72 dedicated knight, bishop and rook promotion actions.
 Legal-move masking prevents illegal moves. Search uses only the current
-position value, `tanh(centipawns / 600)`. The checkpoint's reply and auxiliary
-value heads are preserved but were not supervised by the released recipe and
-are not used to choose moves or presented as predictions.
+position value, `tanh(centipawns / 600)`. The reply head was supervised in both
+training arms, including the released B checkpoint. The future-value and
+outcome heads were supervised only in arm A. All three auxiliary outputs are
+preserved for checkpoint parity but are unused by search and the interface;
+the replies shown in the interface come from the search tree.
 
 ## Search
 
 All three opponents use the same checkpoint and PUCT algorithm with exploration
 constant 1.5. Scout gets **8 simulations**, Tactician **32**, and Thinker **64**,
-including the root evaluation. Untimed games finish that budget; timed games
-may stop earlier. Policy priors guide exploration, and values from visited
-positions determine which continuations deserve more visits.
+including the root evaluation and visits to terminal positions. Search stops
+early if it proves the root's result; otherwise untimed games finish that
+budget, while timed games may stop earlier. Policy priors guide exploration,
+and values from visited positions determine which continuations deserve more
+visits.
 
 All legal moves enter the tree, including underpromotions. Proved mates take
 precedence over neural scores. Checkmate, stalemate, insufficient material,
@@ -73,12 +77,16 @@ WebGPU runs the ten propagation steps when available, with CPU fallback.
 Tests compare browser inference with the original PyTorch outputs and WebGPU
 with the CPU path.
 
-Before search, a separate recording captures the current board's activity at
+Before search, a separate CPU recording captures the current board's activity at
 rest and after each of ten steps, plus excitatory and inhibitory flow between
 regions. The cloud and flow diagram replay this recording. The dots use measured
 soma coordinates from the pinned FlyWire annotation release; neurons with no
 recorded soma are hidden, but remain part of the model. The view is a simulation
 of activity on measured anatomy, not a recording from a fly.
+
+Game review recomputes this propagation for each displayed position. Saved
+search thoughts are available for positions where the fly chose a move during
+the game; reviewing a human move does not create a new search record.
 
 See the [recipe](droso-1/recipe.md), [research](droso-1/research.md),
 [benchmarks](../benchmarks/droso-1/README.md) and [data provenance](data.md).

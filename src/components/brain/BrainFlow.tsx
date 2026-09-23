@@ -16,6 +16,7 @@ export function BrainFlow({ compact = false }: { compact?: boolean }) {
     for (const g of anatomy.groups) counts[g]++;
     const view = new FlowView(canvas, anatomy.groupNames.map((_, index) => t(`group.${index}`)), counts, {
       board: t("flow.board"), readout: t("flow.readout"), move: t("flow.move"),
+      layers: ["input", "sensory", "projection", "integration", "output", "readout"].map((layer) => t(`flow.layer.${layer}`)),
     });
     view.compact = compact;
     return () => view.dispose();
