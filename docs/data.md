@@ -44,8 +44,5 @@ fly's moves.
 
 ## Illustrations
 
-The DROSO-1 avatars and favicon were generated with the built-in imagegen tool,
-using the earlier approved FlyChess portraits as references. The exact
-[prompts](droso-1/avatar-prompts.json) are committed; application assets live
-in `public/avatars/flies/` and `public/`. Full-resolution working images are
-kept locally in `output/imagegen/droso-1/`.
+The fly portraits live in `public/avatars/flies/`, the favicon in `public/`
+and the README banner in `docs/media/`.

@@ -31,12 +31,28 @@ try {
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  await mkdir(join(PROJECT, "reports"), { recursive: true });
   await page.goto(origin);
 
   await page.locator(".btn-play").waitFor({ timeout: 15000 });
   await page.locator(".preloader").waitFor({ state: "detached", timeout: 180000 });
   await page.locator(".side-pick button").nth(2).click(); // Black: the fly moves first
   report.checks.push("production bundle: connectome downloaded and verified");
+
+  assert.equal(await page.locator(".bot-card").count(), 3);
+  assert.equal(await page.locator(".gen-pick").count(), 0);
+  const icon = await page.evaluate(async () => {
+    const link = document.querySelector('link[rel="icon"][type="image/png"]');
+    const img = new Image(); img.src = link.href; await img.decode();
+    return {width:img.naturalWidth,height:img.naturalHeight};
+  });
+  assert.deepEqual(icon, {width:32,height:32});
+  for (const filename of ["favicon.ico", "apple-touch-icon.png"]) {
+    const response=await page.request.get(`${origin}/${filename}`);
+    assert.equal(response.status(),200);
+    assert.ok((await response.body()).length>0);
+  }
+  report.checks.push("DROSO-1: three portraits and new PNG/ICO/Apple favicons load");
 
   // No horizontal scroll on a normal laptop viewport.
   report.laptopOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

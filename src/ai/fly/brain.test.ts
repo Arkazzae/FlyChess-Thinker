@@ -4,7 +4,7 @@ import { FLOW_SIZE, FlyBrain, GROUP_COUNT, ROLE_GLOBAL, ROLE_READOUT, ROLE_VISUA
 import { Connectome } from "./connectome";
 import { encodeBoard, GLOBAL_FEATURES, SQUARE_FEATURES, squareIndex } from "./encoding";
 import { buildConnectome, buildWeights } from "./test-helpers";
-import { FlyWeights, halfToFloat } from "./weights";
+import { FlyWeights } from "./weights";
 
 /** 0 (visual, sees e2) → 1 → 2 ; 3 (inhibitory) → 2 ; 4 senses the constant global feature. */
 function circuit(inhibitorySign = -1) {
@@ -27,12 +27,9 @@ function circuit(inhibitorySign = -1) {
 }
 
 describe("fly brain inference", () => {
-  it("decodes IEEE half floats", () => {
-    expect(Array.from(halfToFloat(new Uint16Array([0x0000, 0x3c00, 0xc000, 0x3555, 0x7c00])))).toEqual([0, 1, -2, expect.closeTo(0.33325, 4), Infinity]);
-  });
-
   it("rejects malformed weight files", () => {
-    const { weights } = circuit();
+    const { graph, weights } = circuit();
+    expect(graph.ids[0]).toBe(720575940000000000n);
     expect(() => new FlyWeights(weights.buffer.slice(0, -4))).toThrow();
     const wrongMagic = weights.buffer.slice(0);
     new Uint32Array(wrongMagic, 0, 1)[0] = 1;

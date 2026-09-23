@@ -99,18 +99,14 @@ CHROMIUM_PATH=/usr/bin/chromium pnpm media   # needs ffmpeg
 Both GIFs are 800 × 450 (16:9) at 12 fps and a few MB each, so GitHub shows
 them quickly and at the same size.
 
-The README uses `docs/media/banner-illustrated.png`, generated separately
-with imagegen from the original banner and the Thinker avatar. The exact
-prompt is saved in `output/imagegen/banner/prompt.md`. The media script's
-legacy `banner.png` output is independent of this illustrated banner.
+The media script records only the application views; it does not touch the
+illustrated README banner, `docs/media/banner-illustrated.png`.
 
 ## Mascot
 
-The three generated portraits in `public/avatars/flies/` are `scout`, `tactician`
+The three portraits in `public/avatars/flies/` are `scout`, `tactician`
 and `thinker`. They share the same DROSO-1 checkpoint. Old saved selections
 migrate to the corresponding new style.
 
-The favicon uses the same character and illustration style. Exact generation
-prompts and reference names are saved in [avatar-prompts.json](droso-1/avatar-prompts.json).
-Local full-resolution sources live in `output/imagegen/droso-1/`; the app only
-ships optimised assets. Old portraits and the obsolete SVG mascot are removed.
+The favicon uses the same character and illustration style. The app ships
+optimised assets only. Old portraits and the obsolete SVG mascot are removed.

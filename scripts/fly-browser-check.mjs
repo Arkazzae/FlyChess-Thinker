@@ -221,6 +221,19 @@ try {
   } else {
     report.checks.push(`numerics: skipped, no hardware WebGPU (${report.gpu.reason})`);
   }
+  // A claim with the intended next move must finish the UI game, not stall its worker.
+  report.drawClaim = await page.evaluate(async () => {
+    const { useGameStore } = await import("/src/state/game.ts");
+    const chess = useGameStore.getState().chess;
+    chess.reset();
+    for (const san of ["Nf3","Nf6","Ng1","Ng8","Nf3","Nf6","Ng1"]) chess.move(san);
+    useGameStore.setState({chess,fen:chess.fen(),phase:"playing",botId:"fly",result:null,moves:chess.history()});
+    await new Promise(resolve=>setTimeout(resolve,100));
+    return useGameStore.getState().result;
+  });
+  assert.equal(report.drawClaim?.reason,"threefold");
+  report.checks.push("draw: intended-move threefold claim ends the game before another search");
+
   assert.deepEqual(errors, [], "no uncaught page errors");
   report.ok = true;
 } catch (error) {

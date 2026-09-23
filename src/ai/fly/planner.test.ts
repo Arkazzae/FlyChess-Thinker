@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Chess } from "chess.js";
 import type { BrainOutput } from "./brain";
 import { encodeBoard, MOVE_SPACE, SQUARE_FEATURES, type EncodedBoard } from "./encoding";
-import { plan, rankLegalMoves, seenPositions } from "./planner";
+import { drawClaim, plan, rankLegalMoves, seenPositions } from "./planner";
 
 function output(board: EncodedBoard, favorite = "e2e4", value = 0): BrainOutput {
   const policy=new Float32Array(MOVE_SPACE).fill(-20);
@@ -58,6 +58,15 @@ describe("DROSO-1 PUCT",()=> {
   it("respects fifty-move claims, but mate takes precedence",async()=> {
     for(const fen of ["8/8/8/8/8/3k4/8/K6R w - - 100 70","7k/6Q1/6K1/8/8/8/8/8 b - - 100 70"])
       await expect(plan(new Chess(fen),b=>output(b))).rejects.toThrow("terminal");
+  });
+  it("shares intended-move draw claims without modifying the live game",()=> {
+    const chess=new Chess();
+    for(const san of ["Nf3","Nf6","Ng1","Ng8","Nf3","Nf6","Ng1"])chess.move(san);
+    const history=chess.history(), fen=chess.fen();
+    expect(drawClaim(chess,seenPositions(chess.history({verbose:true}),fen))).toBe("threefold");
+    expect(chess.fen()).toBe(fen); expect(chess.history()).toEqual(history);
+    const clock=new Chess("8/8/8/8/8/3k4/8/K6R w - - 99 70");
+    expect(drawClaim(clock,{})).toBe("fifty_moves");
   });
   it("finishes the root even when the deadline expires",async()=> {
     let time=0;

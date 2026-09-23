@@ -64,22 +64,29 @@ interface Node {
 function node(board: Chess, seen: Record<string,number>, halfmoveKnown: boolean): Node {
   return { board, seen, halfmoveKnown, uci: "", san: "", prior: 1, children: null, visits: 0, total: 0, initial: 0, proof: null, distance: 0 };
 }
-function terminal(n: Node): number | null {
-  const b = n.board;
-  if (b.isCheckmate()) return -1;
-  if (b.isStalemate() || b.isInsufficientMaterial()) return 0;
-  const clock = Number(b.fen().split(" ")[4]);
-  if (n.seen[positionKey(b.fen())] >= 3 || (n.halfmoveKnown && clock >= 100)) return 0;
-  // python-chess can_claim_draw also accepts a claim with the intended next move.
-  if ((n.halfmoveKnown && clock >= 99) || Object.values(n.seen).some(count => count >= 2)) {
-    for (const move of b.moves({ verbose: true })) {
+/** Same draw-claim rule as the Python player, shared with the game lifecycle.
+ * Inspect a copy: the live game's history and position must remain unchanged.
+ */
+export function drawClaim(position: Chess, seen: Record<string, number>, halfmoveKnown = true): "threefold" | "fifty_moves" | null {
+  if (position.isCheckmate()) return null;
+  const fen=position.fen(), clock=Number(fen.split(" ")[4]);
+  if ((seen[positionKey(fen)] ?? 0)>=3) return "threefold";
+  if (halfmoveKnown && clock>=100) return "fifty_moves";
+  if ((halfmoveKnown && clock>=99) || Object.values(seen).some(count=>count>=2)) {
+    const b=new Chess(fen);
+    for(const move of b.moves({verbose:true})) {
       b.move(move);
-      const claim = (n.seen[positionKey(b.fen())] ?? 0) >= 2 ||
-        (n.halfmoveKnown && Number(b.fen().split(" ")[4]) >= 100 && !b.isCheckmate());
+      const reason=(seen[positionKey(b.fen())] ?? 0)>=2 ? "threefold" :
+        halfmoveKnown && Number(b.fen().split(" ")[4])>=100 && !b.isCheckmate() ? "fifty_moves" : null;
       b.undo();
-      if (claim) return 0;
+      if(reason) return reason;
     }
   }
+  return null;
+}
+function terminal(n: Node): number | null {
+  if(n.board.isCheckmate()) return -1;
+  if(n.board.isStalemate() || n.board.isInsufficientMaterial() || drawClaim(n.board,n.seen,n.halfmoveKnown)) return 0;
   return null;
 }
 function solve(n: Node) {

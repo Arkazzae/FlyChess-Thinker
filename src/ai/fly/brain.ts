@@ -15,7 +15,7 @@ import type { FlyWeights, Linear } from "./weights";
 export interface BrainOutput {
   /** Unmasked policy logits over 4168 mover-frame actions. */
   policy: Float32Array;
-  /** Expected opponent reply logits (mover frame of the *current* side). */
+  /** Unused auxiliary reply logits, retained for checkpoint parity. */
   reply: Float32Array;
   /** Current CP tanh in slot 0; auxiliary slots are unused by DROSO-1 search. */
   value: Float32Array;

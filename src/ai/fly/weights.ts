@@ -41,7 +41,7 @@ export class FlyWeights {
   readonly globalFeatures: number;
   readonly alpha: number;
   readonly kappa: number;
-    readonly visIndex: Uint32Array;
+  readonly visIndex: Uint32Array;
   readonly visSquare: Uint8Array;
   readonly visWeight: Float32Array;
   readonly globIndex: Uint32Array;
@@ -106,19 +106,4 @@ export class FlyWeights {
     for (const index of this.readout) if (index >= n) throw new Error("Readout index out of range.");
     for (const square of this.visSquare) if (square > 63) throw new Error("Visual square out of range.");
   }
-}
-
-/** IEEE 754 binary16 → binary32, without relying on Float16Array support. */
-export function halfToFloat(halves: Uint16Array): Float32Array {
-  const out = new Float32Array(halves.length);
-  for (let i = 0; i < halves.length; i++) {
-    const h = halves[i];
-    const sign = h & 0x8000 ? -1 : 1;
-    const exponent = (h >> 10) & 0x1f;
-    const mantissa = h & 0x3ff;
-    if (exponent === 0) out[i] = sign * mantissa * 2 ** -24;
-    else if (exponent === 31) out[i] = mantissa ? NaN : sign * Infinity;
-    else out[i] = sign * (1 + mantissa / 1024) * 2 ** (exponent - 15);
-  }
-  return out;
 }
