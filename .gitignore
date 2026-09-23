@@ -42,3 +42,6 @@ __pycache__/
 training/data/
 training/runs/
 training/exports/
+
+# Local image-generation output
+output/
