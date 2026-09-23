@@ -131,3 +131,9 @@ Workstation-specific path prefixes have been replaced with `source/` or
 Hashes embedded inside old reports refer to the original files. The current
 bundle has its own [manifest](../../artifacts/droso-1/manifest.json) and
 [verification](../../artifacts/droso-1/verification.json).
+
+The [port verification](port-training-verification.json) records a disposable
+full-graph training check: paired A/B initialization, B-only resume with A and
+its AdamW state unchanged, the exact next sampler batch, updated B gains and
+a verified standalone export. This validates the imported pipeline; it is not
+additional training of the released model or a new strength measurement.
