@@ -19,8 +19,10 @@ pnpm check        # unit tests + typecheck + production build
 There is no backend. The brain (about 51 MB) is served from `public/data/`,
 checked against SHA-256 and run in a Web Worker: on the GPU (WebGPU) when there
 is a usable adapter, otherwise on the CPU. Serve the app over HTTPS or
-localhost: model verification uses `crypto.subtle`, and WebGPU also requires
-a secure context. Opening `index.html` directly is not supported.
+localhost: model verification uses
+[`crypto.subtle`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/subtle),
+and [WebGPU](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/gpu) also
+requires a secure context. Opening `index.html` directly is not supported.
 
 ## Deploy
 

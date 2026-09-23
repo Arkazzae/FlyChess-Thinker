@@ -2,7 +2,9 @@ import { useUiStore } from "@/state/ui";
 import { useFlyStore } from "@/state/fly";
 import { resumeAudio } from "@/sounds";
 import { useTranslation } from "@/i18n";
-import { BrainBadge, IconGear, IconPlay, Logo } from "./Icons";
+import { BrainBadge, IconGear, IconGithub, IconPlay, Logo } from "./Icons";
+
+const REPOSITORY = "https://github.com/Arkazzae/FlyChess-Thinker";
 
 export function Sidebar() {
   const view = useUiStore((s) => s.view);
@@ -35,6 +37,9 @@ export function Sidebar() {
           <button type="button" className="sidebar__tool" aria-label={t("nav.settings")} title={t("nav.settings")} onClick={() => setSettingsOpen(true)}>
             <IconGear size={20} />
           </button>
+          <a className="sidebar__tool" href={REPOSITORY} target="_blank" rel="noopener noreferrer" aria-label={t("nav.github")} title={t("nav.github")}>
+            <IconGithub />
+          </a>
         </div>
       </div>
     </nav>

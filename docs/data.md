@@ -53,7 +53,7 @@ PGNs and results are in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
 `public/stockfish.js` is the WebAssembly build by Niklas Fiekas (multi-variant
 fork), under GPL v3. It retains its licence header and runs as a separate
 worker for the evaluation bar and post-game review. It does not choose the
-fly's moves. This bundled [stockfish.js runtime](https://github.com/niklasf/stockfish.js)
+fly's moves. This bundled [stockfish.js runtime](https://github.com/lichess-org/stockfish.js)
 is separate from the native Stockfish 19 executable used by the Python data
 collection and benchmark commands; configure that executable through
 `STOCKFISH_EXECUTABLE`.

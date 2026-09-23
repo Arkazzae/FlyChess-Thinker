@@ -30,7 +30,7 @@ export function PlayPage() {
   const top = flipped ? "w" : "b";
   const bottom = flipped ? "b" : "w";
   return (
-    <div className={`play-page${showEval ? " has-eval" : ""}`}>
+    <div className={`play-page${showEval ? " has-eval" : ""}${phase === "lobby" ? " is-lobby" : ""}`}>
       <div className="board-column">
         <MoveStrip />
         <PlayerBar side={top} />

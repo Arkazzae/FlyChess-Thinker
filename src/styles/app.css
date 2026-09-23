@@ -115,8 +115,8 @@ button:focus-visible, select:focus-visible, input:focus-visible, canvas:focus-vi
 @keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(163, 209, 96, 0); } 100% { box-shadow: 0 0 0 0 rgba(163, 209, 96, 0); } }
 .sidebar__bottom { margin-top: auto; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #1b1a18; }
 .sidebar__tools { display: flex; align-items: center; gap: 8px; }
-.sidebar__tools button { height: 32px; display: grid; place-items: center; border-radius: 6px !important; color: var(--text-2); background: #1b1a18 !important; transition: background 0.12s, color 0.12s; }
-.sidebar__tools button:hover { background: #3c3a37 !important; color: #fff; }
+.sidebar__tools :is(button, a) { height: 32px; display: grid; place-items: center; border-radius: 6px !important; color: var(--text-2); background: #1b1a18 !important; transition: background 0.12s, color 0.12s; }
+.sidebar__tools :is(button, a):hover { background: #3c3a37 !important; color: #fff; }
 .sidebar__lang { min-width: 44px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-align: center !important; }
 .sidebar__tool { width: 32px; }
 .lang-pick { display: flex; gap: 8px; }
@@ -777,6 +777,9 @@ details.panel-section[open] summary { margin-bottom: 10px; }
     gap: 14px;
     padding: 0 0 calc(76px + env(safe-area-inset-bottom));
   }
+  /* The bot screen has no action bar underneath: the Play footer sits on the bottom edge. */
+  .play-page.is-lobby { padding-bottom: 0; }
+  .play-page.is-lobby .bot-select__footer { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
   .play-page.has-eval { --board: min(calc(100vw - 32px), calc(100dvh - 292px)); }
   .board-column, .has-eval .board-column { width: calc(var(--board) + 16px); }
   .play-page:not(.has-eval) .board-column { width: var(--board); }
