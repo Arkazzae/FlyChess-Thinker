@@ -1,0 +1,79 @@
+{
+  "format": "flywire-fresh-10-numpy",
+  "created_at": "2026-09-23T07:14:26.561613+00:00",
+  "provenance": {
+    "checkpoint": "v10-fresh-20260923/snapshots/B26000128.pt",
+    "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+    "arm": "B",
+    "seen": 26000128,
+    "step": 101563,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3"
+  },
+  "model_config": {
+    "steps": 10,
+    "hidden": 512,
+    "central_sample": 2048,
+    "seed": 2026092301
+  },
+  "training_code_sha256": {
+    "v10/train.py": "70f6e6726fc44e106a0672dfd08c3b10a4cae55a2ae3668683a09a40463596cf",
+    "v10/model.py": "1cfcd715830506cc856926dcdadce0a12dfb42a1c3e6f83bd718b9b07ebcc5ce",
+    "v10/loss.py": "b8957cb94442e0e7ea1fa1d8eb961c3e5a2823f63763ad9165df78dbf73274b1",
+    "v10/data.py": "3a566522086f2af4b4c47bb791753990f1aec859673187bcec3594f89fe2af10",
+    "v10/common.py": "64f94e66f758a7de961674227a5b340b4437d3a5ca4e347436df4c53b258e93b",
+    "model.py": "3be64ffb6ebee101618dfc5349ffa002aed8fca5dacf43ffd561e68f665d7d09",
+    "flychess.py": "0fbc2adddbe839d4575cd912b0bcb89449bb887b44c21ce34c5472ab47f4dfef",
+    "training_state.py": "86c230eb9ab3f38634b88758adb8f1ff678be6007f32ff85b091c8dd9c9b47d5",
+    "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+    "v6_replay/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d"
+  },
+  "contract": {
+    "square_features": 15,
+    "global_features": 22,
+    "move_space": 4168,
+    "value": "tanh(current_CP/600), side to move",
+    "auxiliary_outputs_used_for_search": false,
+    "promotions": [
+      "queen",
+      "rook",
+      "bishop",
+      "knight"
+    ],
+    "search": "PUCT",
+    "simulations": 64,
+    "c_puct": 1.5
+  },
+  "files": {
+    "LICENSE": "cc799bb3deaf7ec8329f12db2727585e4ee65de6129978cdd7efd018734343c8",
+    "README.md": "cb1236efb4472ec0d5215feec97903fa9b88eaf1d675bdfecce71b70c83ce48e",
+    "core/__init__.py": "b91db7022301c97b544567c46f717c11d70f1d4d1b85fef4f6326724684f7ae4",
+    "core/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+    "core/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d",
+    "core/player.py": "ca9be6481432a97c53d8f38e1d8139e36e0f7135bc85acbb69999207b7be8e77",
+    "core/puct.py": "31dc561596f51cf641ebd82bd7f7030b2821839d610cef2353e9741c65e157c2",
+    "droso1/__init__.py": "e62bb87296f9d9e93f88eef0ed76e920d759dcb85cab26e6eb2f9bb6da5d967e",
+    "droso1/bundle.py": "45599229a82aba4cfb1ba721656264024657d3bc8536c97ff0d64f29683bd01b",
+    "droso1/model.py": "beaf2878c9e970da943a72975b11578e969f2fed2e2d344d7ed90d9701264316",
+    "droso1/player.py": "dbf00f068cf92d2fd281a46caba83b4f1211cf7c10e0748bf0d2c5303ad09dfd",
+    "droso1/verify.py": "e6ad4ac616d46f5ed52515d4b8f58bfd2055487a7ca412da60d7ecd14bfa3ff0",
+    "flychess.py": "0fbc2adddbe839d4575cd912b0bcb89449bb887b44c21ce34c5472ab47f4dfef",
+    "graph-provenance.json": "abc85b508a680ba2fe7db494e9e337fd776a38169715868637874ad76e554138",
+    "graph.npz": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "model.py": "505496361f0454c5640a49e311ae3926e07046278d714a6793e04da9a38485f5",
+    "parity.json": "42fde064c895cb7a88de381fc47a9f5092396f1f0ad9719569d602c663c2def1",
+    "parity.npz": "c55e20855f8e7708df44f0707d4a3041549fa39a2ac36420b07a5373a09afba1",
+    "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+    "requirements.txt": "13455f8bc275674f9ade482fdf0b4e173cf821380168d8acc0c6dec0b65c05f3",
+    "weights.npz": "941e97e4010d7db4da42a69f83a8cc1bc5bf6e65d7ff430f992c6859d197e7cb"
+  },
+  "model_name": "DROSO-1",
+  "packaging": {
+    "source_experiment": "v10 fresh B",
+    "weights_recompressed_losslessly": true,
+    "original_weights_sha256": "a781f6c75446b8e5ae56196b239299e8bc26bfbe19a9f8a29899132a00766fad",
+    "original_manifest_sha256": "c9e72d8de3a1efd04dcd640f8f68e78611269368e1def64173a29f0b5a70bd04",
+    "runtime_changes": "Module names v10 -> droso1; shared modules -> core; documentation and portable paths. Learned tensors and search equations unchanged."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "stage": "passed",
+  "scope": "Disposable training-only 768-record smoke pool, full FlyWire graph; no released weights updated.",
+  "paired_fresh_initialization": true,
+  "steps_before": {
+    "A": 1,
+    "B": 1
+  },
+  "steps_after": {
+    "A": 1,
+    "B": 2
+  },
+  "frozen_A_parameters_and_adam_exact": true,
+  "resumed_B_adam_step": 2,
+  "next_sampled_batch_exact": true,
+  "B_gains_updated": true,
+  "export": {
+    "stage": "passed",
+    "tensor_roundtrip_exact": true,
+    "forward_max_absolute_errors": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "auxiliary_reply_rounding": {
+      "differing_logits": 0,
+      "maximum_absolute_difference": 0.0,
+      "maximum_bfloat16_steps": 0.0,
+      "tolerance": "One BF16 representable step for the auxiliary reply head only; policy/value retain strict tolerance."
+    },
+    "fp32_cpu_forward_exact": true,
+    "fp32_cpu_max_absolute_errors": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fixtures": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "halfmove_known": true,
+        "move": "b2b4"
+      },
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+        "halfmove_known": true,
+        "move": "a7a6"
+      },
+      {
+        "fen": "4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 20",
+        "halfmove_known": true,
+        "move": "e5d6"
+      },
+      {
+        "fen": "4k3/8/8/8/3Pp3/8/8/4K3 b - d3 0 20",
+        "halfmove_known": true,
+        "move": "e4d3"
+      },
+      {
+        "fen": "7k/4P3/8/8/8/8/8/K7 w - - 0 40",
+        "halfmove_known": true,
+        "move": "e7e8q"
+      },
+      {
+        "fen": "k7/8/8/8/8/8/4p3/7K b - - 0 40",
+        "halfmove_known": true,
+        "move": "e2e1q"
+      },
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+        "halfmove_known": false,
+        "move": "g7g5"
+      }
+    ],
+    "standalone_runtime_verified": true,
+    "all_promotions_both_colors": true,
+    "finished_at": "2026-09-23T08:04:39.909098+00:00"
+  }
+}

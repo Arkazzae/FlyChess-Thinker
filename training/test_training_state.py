@@ -91,7 +91,17 @@ class TrainingStateTests(unittest.TestCase):
     def test_other_process_observes_run_lock_and_pause_file(self):
         with tempfile.TemporaryDirectory() as directory:
             with RunControl(directory) as control:
-                script = 'from pathlib import Path; from training_control import active; import sys; sys.exit(0 if active(Path(sys.argv[1])) else 1)'
+                script = '''
+import fcntl
+import sys
+from pathlib import Path
+with (Path(sys.argv[1]) / 'train.lock').open('a+') as lock:
+    try:
+        fcntl.lockf(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        sys.exit(0)
+sys.exit(1)
+'''
                 result = subprocess.run([sys.executable, '-c', script, directory], cwd=Path(__file__).parent)
                 self.assertEqual(result.returncode, 0)
                 control.pause_path.touch()
