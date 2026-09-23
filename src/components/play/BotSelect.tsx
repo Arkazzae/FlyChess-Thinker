@@ -57,7 +57,13 @@ export function BotSelect() {
         </div>
         <div className="bot-hero__text">
           <div className="bot-hero__name"><strong>{level.name}</strong> <span>({level.rating})</span></div>
-          <div className="speech"><p>{t(`select.speech.${level.id}.${speech}`)}</p></div>
+          {/* Every line sits invisibly in the same cell, so the bubble keeps the height of the longest one. */}
+          <div className="speech speech--stack">
+            <p>{t(`select.speech.${level.id}.${speech}`)}</p>
+            {FLY_LEVELS.flatMap((fly) => [0, 1, 2].map((i) => (
+              <p key={`${fly.id}.${i}`} className="speech__ghost" aria-hidden="true">{t(`select.speech.${fly.id}.${i}`)}</p>
+            )))}
+          </div>
         </div>
       </div>
 

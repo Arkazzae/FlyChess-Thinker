@@ -9,7 +9,6 @@ export function Sidebar() {
   const setView = useUiStore((s) => s.setView);
   const setSettingsOpen = useUiStore((s) => s.setSettingsOpen);
   const status = useFlyStore((s) => s.status);
-  const anatomy = useFlyStore((s) => s.anatomy);
   const { t, locale, setLocale } = useTranslation();
 
   return (
@@ -29,12 +28,6 @@ export function Sidebar() {
         </li>
       </ul>
       <div className="sidebar__bottom">
-        {anatomy && (
-          <p className="sidebar__model">
-            <i className={`sidebar__dot sidebar__dot--${status}`} />
-            <span><b>{anatomy.label}</b><small>{t("model.by")}</small></span>
-          </p>
-        )}
         <div className="sidebar__tools">
           <button type="button" className="sidebar__lang" aria-label={t("nav.language")} title={t("nav.language")} onClick={() => setLocale(locale === "en" ? "pl" : "en")}>
             {locale === "en" ? "EN" : "PL"}
