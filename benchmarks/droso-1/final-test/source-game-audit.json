@@ -1,0 +1,54 @@
+{
+  "stage": "passed",
+  "created_at": "2026-09-23T07:10:37.690715+00:00",
+  "report_sha256": "b3c3bdca12c967d6eb018bc52d1f8877f64843fbf038c87f8def16377750765e",
+  "pgn_sha256": "915fa3375ebeb738fd6d5d1f6b0cc67c4fe7afb2e6b2a7313fae2e88a79c3dcc",
+  "openings_sha256": "b19668fb8bd6dca346f4bb534671fdeac408c30d13eb31009409ea6f0bdcc2e1",
+  "analysis_code_sha256": "ab912516e0b1eeb0470850207d5d238ad1171430ab688087b529bfabfd85a052",
+  "games": 64,
+  "distinct_start_positions": 32,
+  "starts_per_source_game": {
+    "3bbf4b5f96fd354939ce35425573df35": 2,
+    "8731b0bb7c403aba04ee8035ec6bfa52": 1,
+    "ade5132df1197d2a22a4c8d0e6918e47": 2,
+    "87bdfc673588490fe4219d683c6e2a79": 3,
+    "35ab2ac8c317ca83ebba7187b7a21a9e": 2,
+    "939af13c6cad6cbf44fc2d43cbb76ed3": 2,
+    "01785ea4b5ba3eab6bb7ae6ef990adc4": 1,
+    "322bcb522d9178f1a272f4d49d3ea293": 4,
+    "434ed9b1d56888b0c98a6648ae3bca7e": 1,
+    "8dba5b38b7ccf712f1e352f2bbec1f72": 2,
+    "f6eb24b8571a42279ed9827e15b8edc7": 2,
+    "343509d551078af6f02551d8dd050027": 1,
+    "6f6216a302ebb23de91c0af0946bba52": 2,
+    "3cd01e5261ae26f2121683676e1f80e7": 1,
+    "9337c1ad67b0228b759b45bf762e60d1": 2,
+    "ae612d662e163c5c8dcb7ea155a5290a": 1,
+    "2e3a7c75f2c71c6ddeb75a47df69416a": 1,
+    "d1f2c943aab008477fc303b4ef2b8033": 1,
+    "d94d4b80b4d3eacbe7c5a54913d274a8": 1
+  },
+  "paired_colors_verified": true,
+  "legal_pgn_verified": true,
+  "score": 0.65625,
+  "source_game_clusters": 19,
+  "source_game_cluster_95": [
+    0.5645103686635945,
+    0.75
+  ],
+  "unit": "Known source game, including both colors and all sampled starts from that game.",
+  "uncertainty": "Null interval means insufficient or constant cluster observations, not certainty.",
+  "opening_pairs_with_transpositions_first_16_plies": [
+    {
+      "opening_a": 10,
+      "opening_b": 13,
+      "shared_canonical_positions": 15,
+      "same_source_game": true
+    }
+  ],
+  "limitations": [
+    "Canonical overlaps ignore clocks and mirror side to move; they flag related positions rather than prove identical games.",
+    "Imported game IDs are not used here: all match starts come from generated games with known groups.",
+    "Single seed and a small selected opening sample; no Elo estimate."
+  ]
+}

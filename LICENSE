@@ -22,3 +22,8 @@ SOFTWARE.
 
 The fly connectome in public/data/mcns/ is MaleCNS v1.0 data, licensed under
 CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); see docs/data.md.
+
+The connectome in artifacts/droso-1/graph.npz is derived from FlyWire v783,
+also licensed under CC BY 4.0; see docs/data.md and the bundled graph provenance.
+Imported Python source retains the Stellar contributors' MIT notice in
+training/LICENSE and artifacts/droso-1/LICENSE.

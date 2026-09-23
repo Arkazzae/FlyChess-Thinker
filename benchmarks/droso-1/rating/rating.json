@@ -1,0 +1,142 @@
+{
+  "stage": "completed",
+  "created_at": "2026-09-23T07:43:33.307382+00:00",
+  "performance_rating": {
+    "value": 1498.5380142290787,
+    "boundary": null
+  },
+  "performance_family_bootstrap_95": {
+    "lower": {
+      "value": 1410.0,
+      "boundary": null
+    },
+    "upper": {
+      "value": 1603.3282658962862,
+      "boundary": null
+    },
+    "reason": null
+  },
+  "games": 64,
+  "points": 39.5,
+  "families": 13,
+  "family_names": [
+    "caro_kann",
+    "english",
+    "french",
+    "grunfeld",
+    "kings_indian",
+    "nimzo_indian",
+    "open_games",
+    "pirc",
+    "queens_gambit",
+    "reti",
+    "scandinavian",
+    "sicilian",
+    "slav"
+  ],
+  "opponents": [
+    {
+      "opponent_uci_elo": 1320,
+      "games": 32,
+      "wins": 21,
+      "draws": 5,
+      "losses": 6,
+      "score": 0.734375,
+      "score_family_bootstrap_95": {
+        "lower": {
+          "value": 0.6166666666666667,
+          "boundary": null
+        },
+        "upper": {
+          "value": 0.8461538461538461,
+          "boundary": null
+        },
+        "reason": null
+      },
+      "performance": {
+        "value": 1496.6595746229773,
+        "boundary": null
+      },
+      "performance_family_bootstrap_95": {
+        "lower": {
+          "value": 1402.5895552197608,
+          "boundary": null
+        },
+        "upper": {
+          "value": 1616.1450757976972,
+          "boundary": null
+        },
+        "reason": null
+      },
+      "natural_games": 32,
+      "unique_trajectories": 32
+    },
+    {
+      "opponent_uci_elo": 1500,
+      "games": 32,
+      "wins": 12,
+      "draws": 8,
+      "losses": 12,
+      "score": 0.5,
+      "score_family_bootstrap_95": {
+        "lower": {
+          "value": 0.34375,
+          "boundary": null
+        },
+        "upper": {
+          "value": 0.6607142857142857,
+          "boundary": null
+        },
+        "reason": null
+      },
+      "performance": {
+        "value": 1500.0,
+        "boundary": null
+      },
+      "performance_family_bootstrap_95": {
+        "lower": {
+          "value": 1387.6693561697225,
+          "boundary": null
+        },
+        "upper": {
+          "value": 1615.7792492456665,
+          "boundary": null
+        },
+        "reason": null
+      },
+      "natural_games": 32,
+      "unique_trajectories": 32
+    }
+  ],
+  "checkpoint": {
+    "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+    "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+    "arm": "B",
+    "seen": 26000128,
+    "step": 101563,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3"
+  },
+  "simulations": 64,
+  "stockfish_depth": 8,
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 2026092312,
+    "unit": "Entire opening family, both colours and all opponent levels together",
+    "negative_infinite_samples": 0,
+    "positive_infinite_samples": 0
+  },
+  "files_sha256": {
+    "benchmarks/2026-09-23/v10-rating/sf1320/report.json": "12c592f5a6b2e7e1e7c2a5519619e75ae156f5cb322437a6860a3cdaf91f75e8",
+    "benchmarks/2026-09-23/v10-rating/sf1500/report.json": "961edd864f74aee40d3e18f0a3ddeb8c4fe356a1d639568de0d3caab49d0a1bd",
+    "source/v10/rating_summary.py": "51e8e72801c65e2f81e05951dfcb3e5c4d8214e0dc89bacd7d279b81c9a9ff73"
+  },
+  "limitations": [
+    "Conditional performance on SF19 UCI_Elo settings at depth 8; not FIDE, Chess.com or Lichess rating.",
+    "Intervals cover sampled opening-family variation only, not systematic error in opponent calibration.",
+    "Stockfish official UCI_Elo calibration uses 120s+1s and CCRL40/4; the depth-limited protocol differs.",
+    "A single model seed; Stockfish internal handicap randomness is not externally seed-controlled.",
+    "A logistic performance model assumes a consistent rating scale across the two opponent settings."
+  ]
+}

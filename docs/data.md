@@ -26,6 +26,21 @@ checksums.
 
 ## Trained weights
 
+`artifacts/droso-1/` contains the DROSO-1 weights and its FlyWire v783 graph.
+The graph comes from the FlyWire Consortium's
+[connectivity release](https://zenodo.org/records/10676866), under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its upstream files,
+citations, threshold and transformations are recorded in
+[graph provenance](../artifacts/droso-1/graph-provenance.json).
+The model remaps visual neurons to cover all 64 chessboard squares.
+The weights use the repository MIT license; imported Python source preserves
+the original [MIT notice](../training/LICENSE).
+
+Training uses generated Stockfish labels, recorded model mistakes and the
+[Lichess evaluation database](https://database.lichess.org/#evals), published
+under CC0. The historical training corpus is not bundled. Evaluation subsets,
+PGNs and results are included in [benchmarks/droso-1](../benchmarks/droso-1/README.md).
+
 `public/data/flybrain/` holds the trained fly-v6 synapse gains, input layer
 and readout. They are covered by the repository licence.
 

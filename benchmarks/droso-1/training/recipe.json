@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-09-23T00:03:53.385365+00:00",
+  "fresh_initialization": true,
+  "transferred_learned_weights": false,
+  "arms": [
+    "A",
+    "B"
+  ],
+  "active_arms": [
+    "A",
+    "B"
+  ],
+  "model_config": {
+    "steps": 10,
+    "hidden": 512,
+    "central_sample": 2048,
+    "seed": 2026092301
+  },
+  "batch": 256,
+  "bptt": 4,
+  "edge_samples": 96,
+  "gain_and_bias_lr": 2e-05,
+  "other_lr": 6e-05,
+  "warmup_steps": 400,
+  "betas": [
+    0.9,
+    0.98
+  ],
+  "clip": 1,
+  "current_cp_coefficient": "2 / reference valid value head count, identical for A/B",
+  "temporal_supervision": "A only: actual +8 CP, outcome, consistency; B masks the package",
+  "value_in_search": "tanh CP now",
+  "source_probabilities": {
+    "lichess": 0.604960496049605,
+    "dagger": 0.32393239323932393,
+    "generated": 0.0711071107110711
+  },
+  "calibration_sha256": "bfdb48c1dd124a58852dd5c9f3932c20b7a366f5b41c027d733ba9ef40a05d2c",
+  "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+  "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+  "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+  "code_hashes": {
+    "v10/train.py": "70f6e6726fc44e106a0672dfd08c3b10a4cae55a2ae3668683a09a40463596cf",
+    "v10/model.py": "1cfcd715830506cc856926dcdadce0a12dfb42a1c3e6f83bd718b9b07ebcc5ce",
+    "v10/loss.py": "b8957cb94442e0e7ea1fa1d8eb961c3e5a2823f63763ad9165df78dbf73274b1",
+    "v10/data.py": "3a566522086f2af4b4c47bb791753990f1aec859673187bcec3594f89fe2af10",
+    "v10/common.py": "64f94e66f758a7de961674227a5b340b4437d3a5ca4e347436df4c53b258e93b",
+    "model.py": "3be64ffb6ebee101618dfc5349ffa002aed8fca5dacf43ffd561e68f665d7d09",
+    "flychess.py": "0fbc2adddbe839d4575cd912b0bcb89449bb887b44c21ce34c5472ab47f4dfef",
+    "training_state.py": "86c230eb9ab3f38634b88758adb8f1ff678be6007f32ff85b091c8dd9c9b47d5",
+    "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+    "v6_replay/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d"
+  }
+}

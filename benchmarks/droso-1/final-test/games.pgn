@@ -1,0 +1,960 @@
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "1"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r2q1rk1/p1n3pp/2bbpp2/1p6/1PnPN3/P1B2NPB/5P1P/R1RQ2K1 w - - 1 19"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "4250991ef436430d717d6136d9ad4886"]
+[Search "PUCT 64"]
+
+19. Qe2 Nd5 20. Bxe6+ Kh8 21. Qd3 Be7 22. Nh4 Nxc3 23. Rxc3 Bd5 24. Bxd5 Qxd5 25. Re1 Rad8 26. Qf3 f5 27. Nxf5 Qxf5 28. Qxf5 Rxf5 29. d5 Rfxd5 30. Kg2 a5 31. bxa5 Nxa5 32. Rc7 Bxa3 33. Nc3 Rd2 34. Nxb5 Bb4 35. Re4 Bf8 36. Nc3 Rc2 37. Rh4 h6 38. Re4 Rb2 39. Ra4 Bd6 40. Ra7 Nc6 41. R7a6 Ne5 42. Rd4 Bc7 43. Rxd8+ Bxd8 44. Ra8 Nd3 45. Rxd8+ Kh7 46. Rxd3 Rb3 47. h4 h5 48. Rf3 Rb4 49. Nd5 Rb5 50. Nc3 Rb4 51. Nd5 Rb5 52. Nf4 Rb4 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "2"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r2q1rk1/p1n3pp/2bbpp2/1p6/1PnPN3/P1B2NPB/5P1P/R1RQ2K1 w - - 1 19"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "4250991ef436430d717d6136d9ad4886"]
+[Search "PUCT 64"]
+
+19. Nxd6 Qxd6 20. Qe2 Qd5 21. a4 bxa4 22. b5 Bxb5 23. Bb4 Rae8 24. Bxf8 Rxf8 25. Nd2 Bc6 26. Nf3 Nb6 27. Ra3 e5 28. Qa2 Qxa2 29. Rxa2 Bxf3 30. Rxc7 exd4 31. Rxa7 Re8 32. Ra6 Nc4 33. Be6+ Kf8 34. Bxc4 Re1+ 35. Bf1 d3 36. R6xa4 Rd1 37. Ra8+ Bxa8 38. Rxa8+ Ke7 39. Ra7+ Kd6 40. Rxg7 d2 41. Rg8 Rxf1+ 42. Kg2 d1=Q 43. Rd8+ Ke7 44. Rxd1 Rxd1 45. Kf3 Rd2 46. Ke3 Rd8 47. Ke4 Rd7 48. Ke3 h5 49. Ke4 Rd1 50. Ke3 Re1+ 51. Kf4 Rf1 52. Ke3 Re1+ 53. Kf4 Re2 54. Kf3 Ra2 55. Ke3 Kd6 56. Kf3 Rb2 57. Ke3 Rb4 58. Kf3 f5 59. Ke3 Rb1 60. Kf4 Rb4+ 61. Kxf5 h4 62. gxh4 Rxh4 63. f4 Rh5+ 64. Kg6 Rh8 65. f5 Rxh2 66. f6 Rg2+ 67. Kf7 Rg3 68. Kf8 Rf3 69. f7 Ke6 70. Kg8 Rxf7 71. Kh8 Rc7 72. Kg8 Kf6 73. Kh8 Kg6 74. Kg8 Rc8# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "3"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r3k2r/pp3ppp/2n1bn2/2b5/8/2N5/PP2PPPP/R1B1KBNR w KQkq - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "b965ed3ff9a1b02b53d39895008060df"]
+[Search "PUCT 64"]
+
+9. e3 Nb4 10. Bb5+ Ke7 11. Nf3 Nc2+ 12. Ke2 Nxa1 13. Bd3 Rhd8 14. Ng5 Rxd3 15. Kxd3 Rd8+ 16. Ke2 Bc4+ 17. Kf3 Nc2 18. Rd1 Rxd1 19. Nxd1 Bd6 20. Bd2 Bd5+ 21. Ke2 h6 22. Nh3 Bxg2 23. Nf4 Bc6 24. Nc3 Bxf4 25. exf4 Nd4+ 26. Kd3 Ne6 27. Be3 Kd6 28. b4 a6 29. Kc2 Nd5 30. Nxd5 Bxd5 31. a3 g6 32. Kc3 h5 33. Bb6 Nxf4 34. Be3 Ne6 35. Bb6 Bc6 36. Be3 Bd5 37. Bb6 h4 38. Be3 h3 39. Bh6 b5 40. Be3 f5 41. f4 a5 42. bxa5 Bc6 43. a6 Nc7 44. a7 Nd5+ 45. Kd4 Nxe3 46. Kxe3 Kc5 47. Kf2 Ba8 48. Kg3 Be4 49. Kxh3 Kd4 50. Kh4 Bd5 51. Kg5 Ke3 52. h3 Be4 53. h4 Bf3 54. Kxg6 Kxf4 55. h5 Be4 56. h6 Ke3 57. h7 f4+ 58. Kg7 Bxh7 59. a8=Q f3 60. Qe8+ Kd3 61. Qxb5+ Ke3 62. Qc5+ Ke2 63. Qe5+ Kd3 64. Kf6 f2 65. Qg3+ Ke2 66. Qg4+ Kf1 67. Qf3 Kg1 68. Qg3+ Kf1 69. Kf7 Ke2 70. Qe5+ Kf3 71. Qh5+ Ke3 72. Qe5+ Kf3 73. Qh5+ Kg3 74. Qe2 f1=R+ 75. Qxf1 Bd3 76. Qxd3+ Kf2 77. Kg6 Kg2 78. a4 Kg1 79. Qg3+ Kh1 80. Qh3+ Kg1 81. Qf3 Kh2 82. a5 Kg1 83. Kg7 Kh2 84. a6 Kg1 85. a7 Kh2 86. a8=Q Kg1 87. Qg2# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "4"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "r3k2r/pp3ppp/2n1bn2/2b5/8/2N5/PP2PPPP/R1B1KBNR w KQkq - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "b965ed3ff9a1b02b53d39895008060df"]
+[Search "PUCT 64"]
+
+9. e3 Nb4 10. Bb5+ Kf8 11. Kd1 Rd8+ 12. Bd2 a6 13. Be2 Ng4 14. Nh3 Nf6 15. Na4 Be7 16. Nf4 b5 17. Nc3 Bc4 18. b3 Bxe2+ 19. Kxe2 g5 20. Nh3 h6 21. Rad1 Kg7 22. a3 Nc6 23. Rc1 Bxa3 24. Ra1 Bb2 25. Ra2 Bxc3 26. Bxc3 a5 27. Rc1 Rc8 28. f3 b4 29. Bb2 Rhd8 30. Nf2 Ne7 31. Rxc8 Rxc8 32. Bxf6+ Kxf6 33. Ne4+ Kg7 34. Nd6 Rc3 35. Rxa5 Rc2+ 36. Kd3 Rb2 37. Rc5 Rxg2 38. Rc7 Nd5 39. Rxf7+ Kg6 40. Rf8 Rxh2 41. Rg8+ Kf6 42. Ne4+ Ke5 43. Rxg5+ Ke6 44. Rg4 Kf7 45. Nd6+ Ke6 46. Nc4 Nc3 47. Rg7 Nd5 48. Rg6+ Kf5 49. Rg8 Nf4+ 50. exf4 Rh3 51. Rf8+ Ke6 52. Ke4 Rh4 53. Re8+ Kf7 54. Rb8 Rh3 55. Ne5+ Kg7 56. Rxb4 Rh2 57. Rb7+ Kh8 58. Ng6+ Kg8 59. Ne7+ Kh7 60. b4 Rh4 61. Nf5+ Kg6 62. Nxh4+ Kf6 63. b5 Ke6 64. f5+ Kf6 65. b6 Kg5 66. Ke5 Kxh4 67. f6 Kh3 68. f7 Kg3 69. f4 Kg2 70. Rb8 Kg3 71. b7 Kg2 72. f8=Q Kg3 73. Qg8+ Kf3 74. Qd5+ Ke2 75. Qe4+ Kf2 76. Rg8 Kf1 77. Qe3 h5 78. Rg1# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "5"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r1b1k2r/pp1nnpb1/1q1Bp1p1/2pp2Pp/3PP3/2P2N1P/PP1N1P2/R2QKB1R w KQkq - 2 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ba5c712a7eebea4f9c39384ae1ccd072"]
+[Search "PUCT 64"]
+
+11. Bxe7 Kxe7 12. exd5 exd5 13. Qb3 Qxb3 14. axb3 cxd4 15. cxd4 Nb6 16. Bg2 a5 17. O-O a4 18. Rfe1+ Kf8 19. bxa4 Bf5 20. a5 Nc8 21. Nb3 Nd6 22. Nc5 Nb5 23. Nxb7 Be4 24. Nc5 Bxf3 25. Bxf3 Bxd4 26. Nb3 Bxb2 27. Bxd5 Rd8 28. Bc4 Nd6 29. Rad1 Nxc4 30. Rxd8+ Kg7 31. Rdd1 Ne5 32. Kg2 Nc4 33. Rd7 Ne5 34. Re7 Nd3 35. R1e3 Nf4+ 36. Kg3 Nd5 37. Re2 Nxe7 38. Rxe7 Kf8 39. Ra7 Be5+ 40. Kg2 Kg7 41. a6 h4 42. Re7 Bb8 43. a7 Bf4 44. Re4 Bxg5 45. f4 Bh6 46. Nd4 Ra8 47. Nc6 Kf8 48. f5 gxf5 49. Rxh4 Bg7 50. Rh5 f4 51. Ra5 Bf6 52. Rf5 Bg7 53. Rxf4 Bc3 54. Re4 Bd2 55. Rg4 Be3 56. Rh4 Rxa7 57. Nxa7 Bxa7 58. Re4 Kg7 59. Rg4+ Kf6 60. Re4 Kf5 61. Re7 Bd4 62. Rxf7+ Ke6 63. Rf3 Be5 64. h4 Bb2 65. h5 Bd4 66. h6 Be5 67. h7 Bb2 68. Re3+ Kd6 69. Rd3+ Kc7 70. Rf3 Kd6 71. Rf8 Ke6 72. Re8+ Kd6 73. Rd8+ Kc7 74. Rd3 Bf6 75. Rf3 Bb2 76. Rf7+ Kc6 77. Rf8 Kc5 78. Rf5+ Kc6 79. Rf2 Be5 80. Rc2+ Kd5 81. Rc8 Ke6 82. Re8+ Kd5 83. Rd8+ Ke4 84. Re8 Kf4 85. Rxe5 Kxe5 86. h8=Q+ Kd5 87. Kf3 Ke6 88. Ke4 Kd7 89. Kf5 Kc6 90. Qc8+ Kd5 91. Qd8+ Kc4 92. Qc7+ Kd3 93. Kf4 Kd4 94. Qd6+ Kc4 95. Ke3 Kb5 96. Qd5+ Kb4 97. Kd3 Ka3 98. Qb5 Ka2 99. Kc3 Ka1 100. Qb2# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "6"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r1b1k2r/pp1nnpb1/1q1Bp1p1/2pp2Pp/3PP3/2P2N1P/PP1N1P2/R2QKB1R w KQkq - 2 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ba5c712a7eebea4f9c39384ae1ccd072"]
+[Search "PUCT 64"]
+
+11. e5 Qxb2 12. Rb1 Qxa2 13. Ra1 Qb2 14. Qc1 Qxc1+ 15. Rxc1 b6 16. Bb5 a6 17. Bxd7+ Bxd7 18. dxc5 bxc5 19. c4 Rc8 20. O-O d4 21. Ne4 Bc6 22. Nf6+ Kd8 23. Nh4 Bxf6 24. gxf6 Nf5 25. Nxf5 gxf5 26. Bxc5 h4 27. Bxd4 Kd7 28. Rfd1 Rhg8+ 29. Kh2 Rg2+ 30. Kh1 Rxf2+ 31. Kg1 Rg2+ 32. Kf1 Rh2 33. Be3+ Kc7 34. Bf4 Rxh3 35. Ke2 Bb7 36. Rg1 Rf3 37. Bd2 Rh3 38. Rg7 Rh2+ 39. Kd3 Rd8+ 40. Kc3 Rdxd2 41. Rxf7+ Kc8 42. Rb1 Rhg2 43. Rfxb7 h3 44. f7 Rd8 45. f8=B Rxf8 46. Ra7 Rg3+ 47. Kb4 Kb8 48. Re7 h2 49. Rxe6 f4 50. Rh1 Kb7 51. c5 f3 52. Rxh2 f2 53. c6+ Kc8 54. Re7 f1=Q 55. Rb7 Rd3 56. Rh8 Rxh8 57. Kc5 Rdd8 58. Rd7 Qf5 59. Kd6 Qb1 60. e6 Qb6 61. e7 Rde8 62. Rc7+ Kb8 63. Rb7+ Qxb7 64. cxb7 Kxb7 65. Kd7 Rxe7+ 66. Kxe7 Kc6 67. Ke6 a5 68. Ke5 Re8+ 69. Kd4 Kd6 70. Kd3 Re5 71. Kd2 Rg5 72. Kd3 Rd5+ 73. Ke3 a4 74. Ke4 a3 75. Ke3 a2 76. Kf4 a1=Q 77. Ke3 Qe5+ 78. Kf3 Rd3+ 79. Kf2 Kc5 80. Kg1 Rd2 81. Kh1 Qa1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "7"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rn2qrk1/pb3pbp/1p2p3/2pn1p2/2BP4/NP3N2/PBPP2PP/R3QRK1 w - - 0 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "26b389f808ce0e0f08fb11a4c4e48aab"]
+[Search "PUCT 64"]
+
+14. c3 Nc6 15. Bxd5 exd5 16. Qg3 f4 17. Qxf4 Qe4 18. Qxe4 dxe4 19. Ng5 f5 20. d5 Ne5 21. Ne6 Bh6 22. Nc4 Nxc4 23. bxc4 Rf7 24. Rae1 Bxd2 25. Re2 e3 26. Ng5 Rf6 27. Nf3 Rg6 28. Nxd2 Re8 29. Kh1 Rxg2 30. Kxg2 Ba6 31. Rfe1 f4 32. Nf3 Bxc4 33. Bc1 Bxd5 34. Bb2 Rd8 35. c4 Bxc4 36. Be5 Bxe2 37. Rxe2 Rd1 38. Bxf4 h6 39. Rxe3 c4 40. Bxh6 Rc1 41. Re8+ Kf7 42. Bxc1 Kxe8 43. Kf2 c3 44. Be3 c2 45. Bc1 Kf7 46. Ne5+ Ke6 47. Ng4 Kf5 48. Ne3+ Ke4 49. Nxc2 Kd3 50. Ne3 Ke4 51. Bd2 Kd4 52. Kf3 Kd3 53. Bb4 a5 54. Ba3 a4 55. Bb2 b5 56. Nd5 Kc4 57. Ne3+ Kc5 58. h4 b4 59. h5 b3 60. a3 Kd6 61. h6 Kc5 62. h7 Kd6 63. h8=Q Kc5 64. Qc3+ Kb6 65. Qb4+ Ka6 66. Qxa4+ Kb6 67. Qb4+ Ka6 68. Ke4 Ka7 69. Qd6 Kb7 70. Qd7+ Kb6 71. Qd6+ Ka7 72. Qc5+ Ka6 73. Kd3 Kb7 74. Qb5+ Kc8 75. Qa6+ Kd7 76. Qb7+ Ke6 77. Qe4+ Kd7 78. a4 Kd6 79. Kc4 Kd7 80. Kc5 Kc8 81. Nd5 Kb7 82. Qb4+ Kc8 83. Kd6 Kd8 84. Qb8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "8"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1/2-1/2"]
+[FEN "rn2qrk1/pb3pbp/1p2p3/2pn1p2/2BP4/NP3N2/PBPP2PP/R3QRK1 w - - 0 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "26b389f808ce0e0f08fb11a4c4e48aab"]
+[Search "PUCT 64"]
+
+14. dxc5 Bxb2 15. Nb5 Bg7 16. Nd6 Qd7 17. Ne5 Qc7 18. Nexf7 Rxf7 19. Qxe6 Qxc5+ 20. Kh1 Nd7 21. Qxf7+ Kh8 22. Nxf5 Bxa1 23. Rxa1 Rg8 24. d4 Qf8 25. Qxf8 Nxf8 26. Bxd5 Bxd5 27. Ne3 Bb7 28. d5 Ng6 29. d6 Re8 30. Nf5 Re5 31. d7 Kg8 32. d8=Q+ Kf7 33. Qc7+ Kf6 34. Nd4 Bxg2+ 35. Kg1 Be4 36. Rf1+ Kg5 37. Qg7 Rc5 38. h4+ Kh5 39. Re1 Bd5 40. Re8 Rc8 41. Rh8 Rxh8 42. Kf2 Rf8+ 43. Kg3 Rf7 44. Qg8 Rf3+ 45. Kh2 Bxg8 46. Nxf3 Bf7 47. Ng5 Be8 48. Nxh7 Kxh4 49. Nf6 Bc6 50. Ng8 Kg4 51. Kg1 Kf3 52. Kh2 Kf2 53. Kh3 Kf3 54. Nh6 Be4 55. Nf7 Bd5 56. Ng5+ Kf4 57. Nh7 Be6+ 58. Kg2 Nh4+ 59. Kf2 Nf5 60. Nf8 Bf7 61. Nd7 Bd5 62. Nf6 Bc6 63. Ke2 Ke5 64. Ng4+ Kf4 65. Nf6 Kg5 66. Nh7+ Kg6 67. Nf8+ Kf7 68. Nh7 Kg6 69. Nf8+ Kf6 70. Nh7+ 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "9"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rnb2rk1/p1q2pbp/1ppp1np1/4p3/3PP3/1PP2NP1/P4PBP/RNBQR1K1 w - - 1 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "da8e99d5ce0a5b0da60879e72f01eeda"]
+[Search "PUCT 64"]
+
+10. Na3 Bg4 11. Nc4 Nbd7 12. a4 d5 13. dxe5 Nxe4 14. Nd6 Nxe5 15. Nxe4 dxe4 16. Rxe4 Rad8 17. Qe2 Nxf3+ 18. Bxf3 Bxf3 19. Qxf3 h5 20. Bg5 Rd5 21. Bh4 f5 22. Re2 Qf7 23. Rae1 Rd7 24. Qxc6 Rc8 25. Qxc8+ Bf8 26. Re8 Rd8 27. Qxd8 Qxe8 28. Rxe8 Kf7 29. Rxf8+ Ke6 30. Re8+ Kf7 31. Re7# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "10"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "rnb2rk1/p1q2pbp/1ppp1np1/4p3/3PP3/1PP2NP1/P4PBP/RNBQR1K1 w - - 1 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "da8e99d5ce0a5b0da60879e72f01eeda"]
+[Search "PUCT 64"]
+
+10. Nbd2 Nbd7 11. Nc4 Ba6 12. Ne3 Nxe4 13. Qc2 f5 14. Ba3 Bb7 15. Rac1 Rae8 16. Bb2 exd4 17. cxd4 d5 18. Nxd5 Qd8 19. Nf4 Nd6 20. d5 Rxe1+ 21. Rxe1 cxd5 22. Bxg7 Kxg7 23. Ne6+ Kg8 24. Nxd8 Rxd8 25. Re7 h6 26. Qc7 Rc8 27. Qxd7 Rc1+ 28. Bf1 Kf8 29. Qd8+ Ne8 30. Qxe8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "11"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rn2qrk1/pb2ppbp/1p6/2pn1p2/2Bp4/NP2PN2/PBPP2PP/R3QRK1 w - - 0 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ff7077bf7e3dfcb1521ef995a16552bf"]
+[Search "PUCT 64"]
+
+13. Qg3 e6 14. exd4 cxd4 15. Bxd4 f6 16. Rfe1 Nc6 17. Bxd5 Nxd4 18. Bxb7 Nxf3+ 19. Bxf3 Rd8 20. Nc4 f4 21. Qxf4 e5 22. Qg3 Qf7 23. Ne3 Qg6 24. Qxg6 hxg6 25. Nf1 Rd4 26. c3 Rdd8 27. Bg4 f5 28. Be2 e4 29. Bc4+ Kh7 30. Rad1 Be5 31. g3 f4 32. Rxe4 fxg3 33. Nxg3 Bxg3 34. hxg3 Rc8 35. Re7+ Rf7 36. Rxf7+ Kh6 37. d4 g5 38. Be6 Rxc3 39. Rf8 Rxg3+ 40. Kh2 Rg2+ 41. Kxg2 Kh5 42. Rg8 g4 43. Rh1# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "12"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "rn2qrk1/pb2ppbp/1p6/2pn1p2/2Bp4/NP2PN2/PBPP2PP/R3QRK1 w - - 0 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ff7077bf7e3dfcb1521ef995a16552bf"]
+[Search "PUCT 64"]
+
+13. exd4 Nd7 14. dxc5 Bxb2 15. Nb5 Nxc5 16. Nfd4 Qd7 17. Nxf5 Bxa1 18. Qxa1 f6 19. d4 Ne4 20. Nh6+ Kg7 21. Nf5+ Kh8 22. h4 a6 23. Qe1 axb5 24. Qxe4 bxc4 25. Qg4 e5 26. bxc4 Rg8 27. Qh5 Nf4 28. Rxf4 exf4 29. c5 Be4 30. Qh6 Qxf5 31. cxb6 Rg6 32. Qxf4 Qxf4 33. g3 Qxg3+ 34. Kf1 Qf3+ 35. Ke1 Qe3+ 36. Kd1 Rg1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "13"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rn1qk2r/pp1nppbp/3p2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQkq - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "cabe6ef9c2e1202a53eb71ccfff445bd"]
+[Search "PUCT 64"]
+
+9. O-O Nc6 10. Nxc6 bxc6 11. h3 Qa5 12. Rb1 O-O 13. Ne2 Ne5 14. Ng3 Nc4 15. Qd3 Nxe3 16. Qxe3 Qb6 17. Qxb6 axb6 18. a3 Rfb8 19. Ne2 b5 20. c3 c5 21. Rfd1 b4 22. axb4 cxb4 23. cxb4 Rxb4 24. f3 Bxb2 25. Rd2 Ba3 26. Ra1 Bb2 27. Rxa8+ Kg7 28. Ra7 Rb3 29. Rxb2 Rxb2 30. Nc3 h5 31. Rxe7 h4 32. Rd7 Rc2 33. Nd5 Rc1+ 34. Kh2 Rc2 35. Rxd6 Rd2 36. f4 f6 37. Rd7+ Kf8 38. Nxf6 Re2 39. e5 Rxg2+ 40. Kxg2 g5 41. e6 gxf4 42. Rf7# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "14"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "rn1qk2r/pp1nppbp/3p2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQkq - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "cabe6ef9c2e1202a53eb71ccfff445bd"]
+[Search "PUCT 64"]
+
+9. Qd2 O-O 10. h4 Nc6 11. h5 Bxd4 12. Bxd4 Nxd4 13. Qxd4 Qa5 14. h6 Nf6 15. O-O-O Rfe8 16. Nd5 Qxa2 17. Nxf6+ exf6 18. Qxf6 Qa1+ 19. Kd2 Qa5+ 20. Kd3 Qe5 21. Qxe5 Rxe5 22. Kd4 Rg5 23. g3 Rb5 24. b3 a5 25. Kc4 Rb4+ 26. Kc3 Rxe4 27. Rxd6 Ree8 28. Rhd1 a4 29. bxa4 Rxa4 30. Kb3 Rae4 31. Rd7 R4e6 32. Rxb7 Re2 33. Rf1 R8e6 34. c4 R2e4 35. c5 Re8 36. c6 R8e6 37. c7 Re8 38. Rd1 Re2 39. Rd7 Ra8 40. Kb4 Rb2+ 41. Kc3 Re2 42. Rd6 Re7 43. Kb4 Kf8 44. Rd8+ Re8 45. Rxe8+ Rxe8 46. Kc5 Re5+ 47. Kd6 Re8 48. Rb8 f5 49. Rxe8+ Kf7 50. c8=Q Kf6 51. Rf8+ Kg5 52. f4+ Kxh6 53. Rh8 Kh5 54. Rxh7+ Kg4 55. Qg8 g5 56. Qd5 Kxg3 57. Qxf5 gxf4 58. Qd3+ Kg2 59. Qd2+ Kf3 60. Ke6 Kg3 61. Kf5 f3 62. Qh2# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "15"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r2qk2r/ppnbb1pp/4pp2/3p1n2/1P1P4/PQ3NPB/1B2PP1P/RN3RK1 b kq - 7 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "5808af9fc44b1ca7aabbdef9d7e37544"]
+[Search "PUCT 64"]
+
+12... O-O 13. Nc3 a5 14. Bxf5 exf5 15. Nxd5 Nxd5 16. Qxd5+ Kh8 17. Qxb7 Qc8 18. Qxc8 Rfxc8 19. Rfc1 axb4 20. axb4 Rxa1 21. Rxa1 Bxb4 22. e3 Rc2 23. Rb1 Ba4 24. Ba1 Ba3 25. Rb8+ Rc8 26. Rxc8+ Be8 27. Rxe8+ Bf8 28. Rxf8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "16"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r2qk2r/ppnbb1pp/4pp2/3p1n2/1P1P4/PQ3NPB/1B2PP1P/RN3RK1 b kq - 7 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "5808af9fc44b1ca7aabbdef9d7e37544"]
+[Search "PUCT 64"]
+
+12... O-O 13. Rc1 a5 14. bxa5 Rxa5 15. a4 Bxa4 16. Rxa4 Rxa4 17. Qxa4 Nd6 18. Nbd2 Ndb5 19. Nb3 Nd6 20. Nc5 Nc4 21. Rxc4 dxc4 22. Nxe6 b5 23. Qd1 Qd7 24. Nxf8 Qxh3 25. Nxh7 Kxh7 26. Qc2+ Kg8 27. Nd2 Bb4 28. Ne4 Nd5 29. Bc1 f5 30. Ng5 Qg4 31. e4 fxe4 32. Qxe4 Qxe4 33. Nxe4 c3 34. Nxc3 Nxc3 35. Kg2 Nd5 36. Kf3 Bc3 37. Ke4 Nf6+ 38. Kd3 Ba5 39. f3 Bc7 40. Bg5 Ba5 41. Bxf6 gxf6 42. d5 Kf7 43. Kd4 Bb6+ 44. Ke4 b4 45. g4 b3 46. Kf5 b2 47. d6 b1=Q+ 48. Kf4 Qd3 49. Kg3 Be3 50. d7 Qxd7 51. h4 Qd3 52. h5 Qe2 53. f4 Qf2+ 54. Kh3 Bxf4 55. g5 Qg3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "17"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "r1br1k2/pp1n1pb1/3q2p1/2pp2Pp/3P4/Q1P2N1P/PP1N1PB1/R4RK1 w - - 4 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "6903dafe53a92ba7fe93382121a827c0"]
+[Search "PUCT 64"]
+
+17. Rae1 Qc7 18. Nb3 b6 19. Nc1 Bb7 20. Nd3 a5 21. Re3 a4 22. Rfe1 Bc8 23. Re7 Bb7 24. Rxd7 Qxd7 25. Nxc5 bxc5 26. Qxc5+ Qd6 27. Qxd6+ Rxd6 28. a3 Bc8 29. Nh4 Rd8 30. f4 Bd7 31. Bxd5 Rac8 32. Re5 Bxh3 33. Bb7 Rb8 34. Be4 Rxb2 35. Ra5 Re8 36. Bg2 Bxg2 37. Rc5 Re1+ 38. Kh2 Rh1+ 39. Kg3 Rh3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "18"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1/2-1/2"]
+[FEN "r1br1k2/pp1n1pb1/3q2p1/2pp2Pp/3P4/Q1P2N1P/PP1N1PB1/R4RK1 w - - 4 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "6903dafe53a92ba7fe93382121a827c0"]
+[Search "PUCT 64"]
+
+17. Rfe1 b6 18. c4 dxc4 19. Nxc4 Qc7 20. Nfe5 Nxe5 21. Nxe5 Rb8 22. Qf3 Rxd4 23. Nxg6+ Kg8 24. Re8+ Bf8 25. Nxf8 Bb7 26. Qxh5 Rxe8 27. Ng6 fxg6 28. Qxg6+ Kf8 29. Qf6+ Kg8 30. Qg6+ Kf8 31. Qf6+ Kg8 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "19"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r3k1nr/pbpp1ppp/1pn5/4q3/6P1/3P3N/PP2P1BP/R1BQ1RK1 w kq - 0 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "7091b8de1a80861c892ba368ddd73d32"]
+[Search "PUCT 64"]
+
+12. d4 Qe7 13. Bg5 f6 14. Bf4 g5 15. Bg3 O-O-O 16. d5 Na5 17. d6 Qe6 18. dxc7 Ne7 19. cxd8=Q+ Rxd8 20. Bxb7+ Kxb7 21. Nf2 Nc4 22. Re1 h5 23. e4 h4 24. b3 hxg3 25. hxg3 Ne5 26. Rc1 Rh8 27. Rc3 N7c6 28. Kg2 b5 29. a3 a5 30. Nd3 b4 31. Nc5+ Kb8 32. axb4 Qxg4 33. Qxg4 Nxg4 34. bxa5 Nce5 35. Rd1 Ka8 36. a6 Rh2+ 37. Kg1 Rg2+ 38. Kxg2 Kb8 39. a7+ Kxa7 40. Rd2 Kb6 41. Nxd7+ Kb7 42. Nc5+ Kc8 43. Rd5 Ne3+ 44. Kf2 Nd1+ 45. Ke2 Nxc3+ 46. Kd2 Nxd5 47. exd5 Kc7 48. Ke3 Kd6 49. Ne4+ Kxd5 50. Nxf6+ Ke6 51. Ne4 Ng4+ 52. Kf3 Ne5+ 53. Ke3 Ng4+ 54. Kd4 Ne5 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "20"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r3k1nr/pbpp1ppp/1pn5/4q3/6P1/3P3N/PP2P1BP/R1BQ1RK1 w kq - 0 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "7091b8de1a80861c892ba368ddd73d32"]
+[Search "PUCT 64"]
+
+12. Bf4 Qe6 13. Qd2 h6 14. Bxc7 Nge7 15. Bf4 O-O 16. Bg3 Qxg4 17. Nf2 Qg6 18. e4 d6 19. d4 Rad8 20. Rae1 Ba8 21. d5 Ne5 22. Qc3 Rfe8 23. Re3 b5 24. Bxe5 dxe5 25. Qxe5 Nxd5 26. Rg3 Rxe5 27. Rxg6 fxg6 28. exd5 Bxd5 29. Bxd5+ Rdxd5 30. Rc1 a5 31. Rc8+ Kh7 32. Rc7 g5 33. Kf1 Re6 34. h4 gxh4 35. Kg1 Rg5+ 36. Kh2 h3 37. Nxh3 Rh5 38. Kg3 Rg6+ 39. Kf3 Rxh3+ 40. Ke4 Rhg3 41. Ra7 R3g4+ 42. Ke3 Re6+ 43. Kf3 Rgg6 44. Rxa5 Rg1 45. Rxb5 Rf6+ 46. Ke4 Re6+ 47. Kf3 Rf6+ 48. Ke4 Re1+ 49. Kd5 Rg6 50. Rb4 Rg5+ 51. Kc6 Ree5 52. Rh4 Re7 53. Kd6 Re2 54. Rh3 Rxb2 55. a4 Rb4 56. a5 Rf4 57. Ke6 Re4+ 58. Kd7 Rge5 59. Kd6 Rxa5 60. Rf3 Ra6+ 61. Kd5 Re1 62. Rf7 Kg6 63. Rb7 Rd1+ 64. Kc4 Rc6+ 65. Kb5 Rcd6 66. Kc4 Ra6 67. Rb1 Rxb1 68. Kd3 Rb3+ 69. Kc2 Rg3 70. Kb2 Kg5 71. Kc1 Ra1+ 72. Kc2 Ra2+ 73. Kb1 Re2 74. Kc1 Rg1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "21"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "rnbqk2r/p2p1p2/1p2p2p/2p3p1/1bPPn3/2N2NB1/PPQ1PPPP/R3KB1R b KQkq - 3 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "3b4e54630795d27792d2de7fc96a86fa"]
+[Search "PUCT 64"]
+
+9... cxd4 10. Nxd4 Bxc3+ 11. bxc3 Bb7 12. e3 Qf6 13. Bd3 Nxg3 14. fxg3 Nc6 15. Nxc6 Bxc6 16. Rf1 Qe7 17. e4 Rg8 18. a4 g4 19. Qe2 f5 20. exf5 exf5 21. Qxe7+ Kxe7 22. Kf2 Kf6 23. Kg1 d6 24. Rfe1 Rae8 25. Red1 Re3 26. a5 bxa5 27. Bf1 Ke6 28. Rxa5 Rxc3 29. Rxa7 Rc2 30. h3 gxh3 31. Re1+ Kf6 32. Ra6 Bxg2 33. Rxd6+ Kg5 34. Re7 Rc1 35. Ree6 Rxf1+ 36. Kh2 Rh1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "22"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "rnbqk2r/p2p1p2/1p2p2p/2p3p1/1bPPn3/2N2NB1/PPQ1PPPP/R3KB1R b KQkq - 3 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "3b4e54630795d27792d2de7fc96a86fa"]
+[Search "PUCT 64"]
+
+9... Bxc3+ 10. bxc3 Nxg3 11. hxg3 Bb7 12. d5 Qf6 13. Nd2 exd5 14. cxd5 Bxd5 15. e4 Be6 16. Nc4 O-O 17. e5 Qg7 18. Ne3 Nc6 19. f4 Rad8 20. Bd3 c4 21. Be4 Ne7 22. O-O-O gxf4 23. gxf4 f5 24. exf6 Rxf6 25. Rh5 Rxf4 26. Rxh6 Qxh6 27. Bh7+ Kf8 28. Be4 Qg5 29. Bb7 Rf7 30. Qe4 Nd5 31. Rf1 Nxe3 32. Rxf7+ Kxf7 33. Qh7+ Kf8 34. Qh8+ Kf7 35. Qh7+ Ke8 36. Qh8+ Ke7 37. Qh7+ Kd6 38. Be4 Nf1+ 39. Kb2 Nd2 40. Bb7 Kc7 41. Qg7 Qxg7 42. Kc2 Kxb7 43. Kxd2 Qxg2+ 44. Kc1 Qxa2 45. Kd1 Qb1+ 46. Kd2 Qb2+ 47. Ke3 Qxc3+ 48. Ke4 Qf6 49. Ke3 Qe5+ 50. Kd2 Qb2+ 51. Kd1 Qf2 52. Kc1 c3 53. Kb1 Qb2# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "23"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r1bqnrk1/7p/pp1p3Q/1BpPp1p1/P3P3/2N2P1P/1P4P1/R4RK1 w - - 0 20"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ae2fd7dccacdc679445b6ddf02d51908"]
+[Search "PUCT 64"]
+
+20. Bc4 Ng7 21. Rf2 b5 22. axb5 axb5 23. Rxa8 bxc4 24. Ra7 Qf6 25. Qxf6 Rxf6 26. Rc7 Bxh3 27. gxh3 Rg6 28. Rc8+ Kf7 29. Kf1 Rf6 30. Ke2 Rg6 31. Rc6 Nh5 32. Ke3 Nf4 33. h4 gxh4 34. Rc7+ Kf6 35. Rh2 Rg5 36. Rh1 Rg2 37. Rxh4 h5 38. Rxf4+ exf4+ 39. Kxf4 h4 40. Ke3 h3 41. Rh7 h2 42. f4 Rg1 43. Rxh2 Kg6 44. e5 dxe5 45. fxe5 Re1+ 46. Kf3 Rxe5 47. d6 Re1 48. d7 Rf1+ 49. Ke2 Rc1 50. d8=Q Rc2+ 51. Ke3 Rxh2 52. Qd5 Rh3+ 53. Kf2 Rh4 54. Qd6+ Kf7 55. Qd5+ Kg6 56. Qe6+ Kg5 57. Ne4+ Kf4 58. Nxc5 Rh2+ 59. Kg1 Rh6 60. Qxh6+ Ke5 61. Qg5+ Kd6 62. Ne4+ Kc6 63. Qe3 Kb5 64. Qc3 Kc6 65. Kf2 Kb5 66. Nd6+ Kc6 67. Nxc4 Kd5 68. Ne3+ Ke6 69. Qc6+ Kf7 70. Qd5+ Kf6 71. Ng4+ Ke7 72. Qe5+ Kf7 73. Qf5+ Ke8 74. Qg6+ Kd7 75. Qf5+ Kc6 76. b4 Kd6 77. Ne3 Kc6 78. Qc8+ Kd6 79. Qd8+ Ke6 80. Qg5 Kd6 81. Nc4+ Kc6 82. Qe5 Kb7 83. Qd5+ Kc7 84. Qc5+ Kb7 85. Nd6+ Ka8 86. Qc8+ Ka7 87. Qb7# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "24"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r1bqnrk1/7p/pp1p3Q/1BpPp1p1/P3P3/2N2P1P/1P4P1/R4RK1 w - - 0 20"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ae2fd7dccacdc679445b6ddf02d51908"]
+[Search "PUCT 64"]
+
+20. Bxe8 Rxe8 21. Kh1 Bd7 22. Qxd6 Rc8 23. Rfe1 h5 24. Qg6+ Kh8 25. Qxh5+ Kg7 26. Qg6+ Kxg6 27. a5 b5 28. g4 c4 29. Rf1 b4 30. Nd1 c3 31. bxc3 bxc3 32. Nxc3 Rxc3 33. Rfb1 Rxf3 34. Rc1 Rxh3+ 35. Kg1 Rg3+ 36. Kf2 Rxg4 37. Rg1 Rf4+ 38. Ke3 Bb5 39. Rgb1 Qc8 40. Rc1 Qh3+ 41. Kd2 Rf2+ 42. Kd1 Qh1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "25"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rnb1k2r/pp2ppn1/1qp4p/3pP1p1/4P2B/2N5/PPP1BPPP/1R1Q1RK1 w kq - 0 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "249019917626744fc43089c90e026284"]
+[Search "PUCT 64"]
+
+14. Bg3 Be6 15. exd5 cxd5 16. Nxd5 Bxd5 17. Qxd5 e6 18. Qe4 Nd7 19. b4 a5 20. bxa5 Qxa5 21. Rxb7 Nc5 22. Qc6+ Kf8 23. Rb5 Qa3 24. Qxc5+ Qxc5 25. Rxc5 Nf5 26. Rd1 Nxg3 27. hxg3 Kg7 28. Rc7 Rab8 29. c3 Rb2 30. Bf3 Rxa2 31. Bb7 Rb8 32. Bf3 Rc2 33. Bh5 Rb1 34. Rxb1 Rd2 35. Rxf7+ Kg8 36. Rb8+ Rd8 37. Rxd8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "26"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "rnb1k2r/pp2ppn1/1qp4p/3pP1p1/4P2B/2N5/PPP1BPPP/1R1Q1RK1 w kq - 0 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "249019917626744fc43089c90e026284"]
+[Search "PUCT 64"]
+
+14. Bg3 dxe4 15. Nxe4 Nf5 16. Bg4 Nxg3 17. hxg3 Bxg4 18. Qxg4 Nd7 19. e6 Ne5 20. Qf5 f6 21. Nxf6+ exf6 22. Qxf6 Rf8 23. Qxe5 Qd8 24. Rbe1 Qe7 25. Re2 Rf6 26. Rd1 Rxe6 27. Qxe6 Qxe6 28. Rxe6+ Kf7 29. Re5 Re8 30. Rd7+ Kg6 31. Rxe8 b6 32. Rg8+ Kf6 33. Rf8+ Ke5 34. Rxa7 Ke6 35. Ra6 b5 36. Rxc6+ Ke7 37. Rxh6 Kxf8 38. Rh8+ Ke7 39. Rh7+ Ke6 40. a4 bxa4 41. Rh6+ Kf7 42. g4 Kg7 43. Ra6 Kf7 44. Rxa4 Ke7 45. Ra5 Kf6 46. Ra6+ Kg7 47. Ra7+ Kh8 48. Ra8+ Kg7 49. Ra6 Kh7 50. Ra7+ Kh6 51. Ra6+ Kh7 52. f3 Kg7 53. Ra7+ Kh8 54. Ra8+ Kg7 55. Ra7+ Kh6 56. Kf2 Kg6 57. Ra6+ Kh7 58. Ra7+ Kg6 59. Ra8 Kf7 60. Ra6 Kg7 61. b4 Kf8 62. Ra8+ Ke7 63. Ra6 Kf7 64. Ra7+ Kg6 65. b5 Kh6 66. b6 Kg6 67. b7 Kf6 68. Ra8 Ke7 69. Ra6 Kf7 70. Ra7 Ke7 71. Ra8 Kd7 72. Ra6 Kc7 73. Ra7 Kb8 74. Ra8+ Kxb7 75. Rd8 Kc7 76. Rg8 Kd6 77. Rxg5 Kd7 78. Rg7+ Kc6 79. g5 Kc5 80. g6 Kc4 81. Rf7 Kd4 82. g7 Kc4 83. g8=Q Kd4 84. Rd7+ Ke5 85. Qg6 Kf4 86. Qf6# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "27"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "rnbqk2r/p2p1p2/1p2p2p/2p3p1/2PPn3/2P2NB1/P1Q1PPPP/R3KB1R b KQkq - 0 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "9be6f909982067e0506319a1bd167607"]
+[Search "PUCT 64"]
+
+10... f5 11. d5 d6 12. dxe6 Bxe6 13. Nd2 Nxd2 14. Qxd2 Nc6 15. e3 Qd7 16. Be2 O-O 17. Bxd6 Rad8 18. O-O Qxd6 19. Qxd6 Rxd6 20. Rad1 Rd7 21. Rxd7 Bxd7 22. Rd1 Be6 23. Rd6 Nd8 24. f3 Kf7 25. a4 Ke7 26. Rd1 Nf7 27. f4 gxf4 28. exf4 Kf6 29. h3 Ke7 30. a5 bxa5 31. Bd3 Kd6 32. Re1 a4 33. Rxe6+ Kxe6 34. Bc2 Nd6 35. Bxa4 Nxc4 36. Bb3 Kd5 37. Bxc4+ Kxc4 38. Kh2 Kb3 39. g4 fxg4 40. hxg4 Rxf4 41. Kg3 Rf1 42. Kg2 Ra1 43. Kf3 c4 44. Kf4 Kxc3 45. Kf5 Rf1+ 46. Ke4 a5 47. Ke5 a4 48. g5 hxg5 49. Kd5 Kd3 50. Ke5 c3 51. Kd5 c2 52. Ke5 a3 53. Ke6 c1=Q 54. Kd6 Rf6+ 55. Ke7 Qc7+ 56. Kxf6 Qf4+ 57. Ke7 Qe5+ 58. Kd7 Qe4 59. Kc7 Qe7+ 60. Kc6 Qe6+ 61. Kc5 g4 62. Kb4 Qd6+ 63. Kb3 g3 64. Ka4 Kc4 65. Ka5 g2 66. Ka4 Qa6# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "28"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "rnbqk2r/p2p1p2/1p2p2p/2p3p1/2PPn3/2P2NB1/P1Q1PPPP/R3KB1R b KQkq - 0 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "9be6f909982067e0506319a1bd167607"]
+[Search "PUCT 64"]
+
+10... Nxg3 11. hxg3 Bb7 12. d5 Qf6 13. Nd2 exd5 14. cxd5 Bxd5 15. e4 Be6 16. Nc4 O-O 17. e5 Qg7 18. Ne3 Nc6 19. f4 Rad8 20. Bd3 c4 21. Be4 Ne7 22. O-O-O gxf4 23. gxf4 f5 24. exf6 Rxf6 25. Rh5 Rxf4 26. Rxh6 Qxh6 27. Bh7+ Kf8 28. Be4 Qg5 29. Bb7 Rf7 30. Qe4 Nd5 31. Rf1 Nxe3 32. Rxf7+ Kxf7 33. Qh7+ Kf8 34. Qh8+ Kf7 35. Qh7+ Ke8 36. Qh8+ Ke7 37. Qh7+ Kd6 38. Be4 Nf1+ 39. Kb2 Nd2 40. Bb7 Kc7 41. Qg7 Qxg7 42. Kc2 Kxb7 43. Kxd2 Qxg2+ 44. Kc1 Qxa2 45. Kd1 Qb1+ 46. Kd2 Qb2+ 47. Ke3 Qxc3+ 48. Ke4 Qf6 49. Ke3 Qe5+ 50. Kd2 Qb2+ 51. Kd1 Qf2 52. Kc1 c3 53. Kb1 Qb2# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "29"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r2qkbr1/ppp2p2/4b3/1P1nP1pp/8/P3P2P/5PP1/RNBQKB1R w KQq - 1 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "2ce529229a4efbb1fcd948506014a49a"]
+[Search "PUCT 64"]
+
+13. Qxh5 Bg7 14. Bb2 Qe7 15. Nd2 O-O-O 16. Rc1 g4 17. hxg4 Nxe3 18. fxe3 Rxd2 19. Kxd2 Rd8+ 20. Ke1 Bd5 21. Rh3 Be4 22. Rf3 Qd7 23. Bc4 Bh6 24. Qxh6 Qxg4 25. Qf6 Qxg2 26. Bxf7 Qxf3 27. Be6+ Rd7 28. Qh8+ Qf8 29. Qxf8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "30"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r2qkbr1/ppp2p2/4b3/1P1nP1pp/8/P3P2P/5PP1/RNBQKB1R w KQq - 1 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "2ce529229a4efbb1fcd948506014a49a"]
+[Search "PUCT 64"]
+
+13. Bc4 Nb6 14. Bxe6 Qxd1+ 15. Kxd1 fxe6 16. Nd2 O-O-O 17. Kc2 Rd5 18. Nb3 Rxb5 19. a4 Rxe5 20. Bb2 Rf5 21. Bd4 Rxf2+ 22. Kc3 Rxg2 23. a5 Nd5+ 24. Kd3 Bb4 25. Ke4 Nf4 26. exf4 gxf4 27. Ra4 Bd6 28. Nc5 e5 29. Rc4 exd4 30. Re1 Re8+ 31. Kxd4 Rxe1 32. Nd3 Rd1 33. Rc1 Rxd3+ 34. Kxd3 Rg3+ 35. Ke2 Rg2+ 36. Kf3 Rg5 37. Ke4 Rb5 38. Rc4 Rxa5 39. Rd4 Rc5 40. Rd3 Re5+ 41. Kf3 Rg5 42. Ke4 a5 43. Kf3 a4 44. Ke4 a3 45. Kf3 a2 46. Ra3 Bxa3 47. Kxf4 Rb5 48. Ke4 a1=Q 49. h4 Qe1+ 50. Kf3 Qxh4 51. Kg2 Rg5+ 52. Kf3 Rg3+ 53. Ke2 Qh2+ 54. Kf1 Rg1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "31"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r3kbn1/2pp1pp1/p3q3/1p5r/3PP3/2P2Q2/PPN1P3/R1BK2R1 b q - 5 18"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "a72b20ac4a5d5e6518474a76d236c6d2"]
+[Search "PUCT 64"]
+
+18... Rh3 19. Qg2 Ne7 20. Bg5 f6 21. Bd2 c6 22. d5 cxd5 23. exd5 Qd6 24. Qxh3 Qc5 25. Re1 Qxd5 26. e4 Qd6 27. Nd4 O-O-O 28. e5 Qd5 29. exf6 gxf6 30. Re6 b4 31. Rxf6 bxc3 32. Bxc3 Kb8 33. Rxa6 Qb7 34. Rf6 Qh1+ 35. Qxh1 Ng8 36. Rb6+ Kc7 37. Qb7# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "32"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r3kbn1/2pp1pp1/p3q3/1p5r/3PP3/2P2Q2/PPN1P3/R1BK2R1 b q - 5 18"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "a72b20ac4a5d5e6518474a76d236c6d2"]
+[Search "PUCT 64"]
+
+18... Rh4 19. Rg3 O-O-O 20. Ne3 f6 21. d5 Qe5 22. Rh3 Bc5 23. Nf5 Rxh3 24. Qxh3 Qxe4 25. d6 Bxd6 26. Nxd6+ cxd6 27. Qh2 Ne7 28. Bf4 Nd5 29. Bxd6 Ne3+ 30. Kd2 Nc4+ 31. Kd1 Nxb2+ 32. Kc1 Nd3+ 33. exd3 Qxd3 34. Kb2 Re8 35. Bf4 Re2+ 36. Kb3 Rxh2 37. Rd1 Qc4+ 38. Ka3 Qxc3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "33"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r1b1kb1r/ppp1qp1p/6p1/P2pP3/3pn3/1NPQ1N2/1P3PPP/R1B2RK1 b kq - 0 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "73d9bb59b5dcdf0ae7f193a03fa8ed16"]
+[Search "PUCT 64"]
+
+12... dxc3 13. bxc3 c6 14. Nbd4 Nc5 15. Qe3 Ne6 16. Ba3 c5 17. Nb5 a6 18. Nd6+ Kd8 19. Rfd1 d4 20. cxd4 cxd4 21. Nxd4 Nxd4 22. Qxd4 Be6 23. Qb6+ Qc7 24. Nxf7+ Kc8 25. Qxe6+ Kb8 26. Bd6 Qxd6 27. Rxd6 Bg7 28. Nxh8 Kc7 29. Rd7+ Kb8 30. Rd8+ Kc7 31. Qb6# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "34"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "r1b1kb1r/ppp1qp1p/6p1/P2pP3/3pn3/1NPQ1N2/1P3PPP/R1B2RK1 b kq - 0 12"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "73d9bb59b5dcdf0ae7f193a03fa8ed16"]
+[Search "PUCT 64"]
+
+12... dxc3 13. Qxd5 f5 14. Bg5 Nxg5 15. Nxg5 cxb2 16. Rab1 Qxg5 17. g3 a6 18. e6 Bxe6 19. Qxe6+ Be7 20. Rxb2 c6 21. Nd4 Rb8 22. Nxc6 Ra8 23. Rxb7 Kf8 24. Nxe7 Re8 25. h4 Qxe7 26. Rxe7 Rxe7 27. Qf6+ Kg8 28. Qxe7 f4 29. Rc1 fxg3 30. Rc8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "35"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r1bq1r1k/ppp3pp/2nb4/4pp2/4B3/1QP2N2/PP1P1PPP/R1B2RK1 w - - 2 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "23c141c9a8987c67c45e004d12e9e28a"]
+[Search "PUCT 64"]
+
+11. Bxc6 bxc6 12. d4 e4 13. Ne5 Bxe5 14. dxe5 Ba6 15. Re1 Qd3 16. Be3 f4 17. Rad1 fxe3 18. Rxe3 Bc4 19. Qa4 Rad8 20. Rexd3 Rxd3 21. Re1 Bd5 22. e6 Rd2 23. e7 Re8 24. Qb4 e3 25. fxe3 a5 26. Qxa5 Rxg2+ 27. Kf1 Rxh2 28. Qxc7 Rh1+ 29. Ke2 Bc4+ 30. Kd1 h5 31. Rxh1 Bd5 32. Rxh5+ Kg8 33. Re5 Bc4 34. b3 Bf7 35. Rg5 Rxe7 36. Qxe7 g6 37. Qf6 Kf8 38. Qh8+ Ke7 39. Qe5+ Kf8 40. Qh8+ Ke7 41. Qd4 Kf8 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "36"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "r1bq1r1k/ppp3pp/2nb4/4pp2/4B3/1QP2N2/PP1P1PPP/R1B2RK1 w - - 2 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "23c141c9a8987c67c45e004d12e9e28a"]
+[Search "PUCT 64"]
+
+11. Bxc6 bxc6 12. d4 e4 13. Ne5 a5 14. Nf7+ Rxf7 15. Qxf7 a4 16. Bh6 gxh6 17. Rfe1 Rb8 18. c4 Rb4 19. Rad1 Rxb2 20. Rc1 Rb4 21. c5 Bf8 22. d5 cxd5 23. a3 Rb8 24. c6 Bd6 25. g3 f4 26. Qxd5 Ba6 27. Rxe4 Bxa3 28. Qe5+ Kg8 29. Rce1 Bd6 30. Qe6+ Kh8 31. Qxh6 Qg8 32. Rxa4 fxg3 33. fxg3 Qg6 34. Qxg6 hxg6 35. Rxa6 Bc5+ 36. Kg2 Rf8 37. Re2 g5 38. g4 Kg8 39. Kg3 Kg7 40. Rd2 Rf1 41. Rd7+ Kh6 42. Kg2 Re1 43. Rxc7 Re2+ 44. Kf3 Re1 45. Rd7 Rf1+ 46. Ke4 Re1+ 47. Kd5 Rf1 48. Kxc5 Rf6 49. Raa7 Rf2 50. Rd6+ Rf6 51. Rxf6# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "37"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "r3r1k1/pbqn1pbp/1ppp1np1/8/P1PNP3/1P4P1/R4PBP/1NBQR1K1 w - - 1 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "e1d0c8b6b0582a8e07f2272b5fcafa92"]
+[Search "PUCT 64"]
+
+14. Nc3 Nc5 15. Ba3 a5 16. e5 dxe5 17. Ndb5 cxb5 18. Nxb5 Qc8 19. Nd6 Qg4 20. Nxe8 Rxe8 21. Qxg4 Nxg4 22. Bxc5 Bxg2 23. Bxb6 Bf3 24. h3 Nf6 25. Bxa5 e4 26. Rd2 Bf8 27. Re3 Bc5 28. Rxf3 exf3 29. b4 Bf8 30. b5 Bc5 31. Rd3 Re2 32. Bc3 Ne4 33. Rxf3 Rxf2 34. Rxf2 Bxf2+ 35. Kg2 Nxc3 36. Kxf2 Nxa4 37. g4 Kg7 38. Ke3 Kf6 39. Kd4 Ke6 40. c5 f5 41. c6 Kd6 42. h4 fxg4 43. c7 Kxc7 44. h5 g3 45. h6 g2 46. b6+ Kxb6 47. Kd3 g1=Q 48. Kc2 Nc5 49. Kc3 Qc1+ 50. Kb4 Qc2 51. Ka3 Qb3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "38"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r3r1k1/pbqn1pbp/1ppp1np1/8/P1PNP3/1P4P1/R4PBP/1NBQR1K1 w - - 1 14"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "e1d0c8b6b0582a8e07f2272b5fcafa92"]
+[Search "PUCT 64"]
+
+14. Nc3 a5 15. Ndb5 Qd8 16. Nxd6 Ne5 17. Nxe8 Qxd1 18. Rxd1 Rxe8 19. Bf4 Nh5 20. Be3 Ng4 21. Bd2 Bd4 22. Nb5 Bxf2+ 23. Kf1 Ne3+ 24. Kxf2 Nxd1+ 25. Ke1 cxb5 26. Kxd1 b4 27. Ke2 Bxe4 28. Bxe4 Rxe4+ 29. Kf3 Re8 30. Ra1 Nf6 31. Be3 Nd7 32. Rd1 Ne5+ 33. Ke2 Ng4 34. Rd7 Nxe3 35. Kf3 Nf5 36. g4 Ne7 37. Rb7 Nc6 38. Rxb6 Ne5+ 39. Kg3 Nd3 40. Rb7 Re3+ 41. Kg2 Nf4+ 42. Kf2 Rxb3 43. c5 Nd3+ 44. Kf1 Nxc5 45. Rb5 Ra3 46. Rxc5 Rxa4 47. Ke2 b3 48. Rb5 Ra2+ 49. Kf3 b2 50. Rb8+ Kg7 51. Rxb2 Rxb2 52. g5 Rb4 53. Ke3 a4 54. Kf3 a3 55. Ke3 a2 56. Kd2 Rb2+ 57. Kc3 Rxh2 58. Kb4 Rb2+ 59. Kc3 Rb8 60. Kc2 Rb1 61. Kc3 a1=Q+ 62. Kc4 Rc1+ 63. Kb3 Qd4 64. Ka2 Qd2+ 65. Ka3 Rb1 66. Ka4 Qa2# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "39"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rn1k2nr/ppp1qB1p/5p2/3p2p1/3P4/1PN5/P2QNPPP/R3K2R b KQ - 0 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "964e0a50e27f58537e63ae4bc8668dc5"]
+[Search "PUCT 64"]
+
+13... Qxf7 14. h4 Ne7 15. hxg5 fxg5 16. Qxg5 Rf8 17. Rxh7 Qf6 18. Qxf6 Rxf6 19. Rc1 Nbc6 20. Rh8+ Kd7 21. Rxa8 Rg6 22. Nf4 Rg5 23. Nce2 Rg8 24. Rxg8 Kd6 25. Rd8+ Nxd8 26. Kd2 c6 27. Rc3 Ne6 28. Nd3 Nf5 29. g4 Nh4 30. Ke3 Ng6 31. Ng3 Nh4 32. f4 Ng6 33. f5 Nh4 34. Kf2 Nxd4 35. Nf4 a5 36. Ngh5 Ndxf5 37. gxf5 Nxf5 38. Rd3 Ke5 39. Ne2 Ke4 40. Rd1 d4 41. Neg3+ Ke5 42. Nxf5 Kxf5 43. Rxd4 c5 44. Rd6 a4 45. bxa4 c4 46. a5 c3 47. a6 c2 48. Rd5+ Ke4 49. Rd2 bxa6 50. Rxc2 Kf5 51. Kf3 Kg5 52. Ng3 Kg6 53. Rc6+ Kg7 54. Rc7+ Kf6 55. Rc6+ Ke5 56. Rg6 a5 57. Rg4 a4 58. Rg8 a3 59. Re8+ Kf6 60. Rf8+ Ke7 61. Rb8 Kd6 62. Rd8+ Kc7 63. Ra8 Kd7 64. Ra7+ Ke6 65. Rxa3 Kd5 66. Ra6 Kc5 67. Ne4+ Kd4 68. Rd6+ Ke5 69. Rd1 Ke6 70. a3 Kf5 71. Rd5+ Ke6 72. Rg5 Kf7 73. Kf4 Ke7 74. Rg7+ Ke6 75. Rg6+ Kd5 76. Rg7 Ke6 77. Ng5+ Kd5 78. Rf7 Kd6 79. a4 Kd5 80. Rf5+ Kd4 81. Rb5 Kc3 82. Kf5 Kc4 83. Ke4 Kc3 84. Nf3 Kc4 85. Re5 Kc3 86. Rd5 Kc4 87. Rd1 Kc3 88. a5 Kb4 89. a6 Kc5 90. Ne5 Kb6 91. Rd6+ Kc7 92. Rd5 Kb6 93. Rb5+ Kxb5 94. a7 Ka6 95. a8=Q+ Kb6 96. Kd5 Kb5 97. Qb7+ Ka5 98. Nc6+ Ka4 99. Qb4# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "40"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "rn1k2nr/ppp1qB1p/5p2/3p2p1/3P4/1PN5/P2QNPPP/R3K2R b KQ - 0 13"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "964e0a50e27f58537e63ae4bc8668dc5"]
+[Search "PUCT 64"]
+
+13... Qxf7 14. h4 Ne7 15. hxg5 Qg6 16. gxf6 Re8 17. fxe7+ Kxe7 18. Nf4 Kf7+ 19. Kf1 Qf5 20. Ncxd5 Nc6 21. Nxc7 Rad8 22. Nxe8 Rxe8 23. Rd1 Re4 24. Nh5 Rxd4 25. Ng3 Rxd2 26. Rxd2 Qg6 27. Rd7+ Ke8 28. Rdxh7 Qb1+ 29. Ke2 Qxa2+ 30. Kf1 Qxb3 31. Kg1 Qb1+ 32. Nf1 Ne5 33. Rc7 Qb4 34. Rh8+ Qf8 35. Rxf8+ Kxf8 36. f4 Ng6 37. f5 Nf4 38. f6 Nd5 39. Rxb7 Nxf6 40. Rxa7 Nd5 41. Ra8+ Kf7 42. Ra7+ Kg6 43. Ra6+ Kf7 44. Rd6 Nf6 45. Rxf6+ Kxf6 46. Kf2 Ke5 47. Ke3 Kd6 48. Ke4 Ke6 49. Ne3 Kf6 50. Nd5+ Ke6 51. Nf4+ Kf6 52. Nd5+ Ke6 53. Kd4 Kd6 54. Ne3 Ke6 55. g4 Kf6 56. Ke4 Ke6 57. g5 Kf7 58. Kf5 Kg7 59. g6 Kh8 60. Kf6 Kg8 61. Nf5 Kh8 62. g7+ Kh7 63. Ne7 Kh6 64. g8=Q Kh5 65. Qg5# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "41"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "rnbq1rk1/pp2ppbp/6p1/2pn4/3p1P2/NP2PN2/PBPPB1PP/R2QK2R w KQ - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "b5d66e3e2d863b7a9d44760fe2e87166"]
+[Search "PUCT 64"]
+
+9. Nc4 Nc6 10. O-O b5 11. Nce5 Qc7 12. Bxb5 Bb7 13. Bxc6 Bxc6 14. Nxc6 Qxc6 15. Ne5 Qc7 16. exd4 cxd4 17. Bxd4 f6 18. Nd3 Rad8 19. Re1 Nxf4 20. Nxf4 Qxf4 21. Be3 Qc7 22. c3 e5 23. Qe2 f5 24. Rac1 f4 25. Bf2 e4 26. h3 f3 27. Qxe4 fxg2 28. Kxg2 Rxd2 29. Qe6+ Kh8 30. Qc4 Rfxf2+ 31. Kh1 Qh2# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "42"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1/2-1/2"]
+[FEN "rnbq1rk1/pp2ppbp/6p1/2pn4/3p1P2/NP2PN2/PBPPB1PP/R2QK2R w KQ - 2 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "b5d66e3e2d863b7a9d44760fe2e87166"]
+[Search "PUCT 64"]
+
+9. Nc4 dxe3 10. Bxg7 Kxg7 11. dxe3 Nc3 12. Qd2 Qxd2+ 13. Kxd2 Nd5 14. Nfe5 Nd7 15. Nxd7 Bxd7 16. a4 Rfd8 17. g4 Rac8 18. Ne5 Be6 19. a5 f6 20. Nd3 c4 21. bxc4 Rxc4 22. Rhb1 Nxf4 23. exf4 b6 24. Ke3 Rxc2 25. axb6 axb6 26. Rxb6 Bc4 27. Nb4 Rxe2+ 28. Kf3 Red2 29. Ra7 R2d3+ 30. Nxd3 Rxd3+ 31. Kg2 Rd2+ 32. Kf3 Rd3+ 33. Kg2 Rd2+ 34. Kf3 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "43"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "r1bqkbr1/ppp2p2/2n5/3np1pp/1P6/P2PPN1P/5PP1/RNBQKB1R w KQq - 1 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ae8d77c74ffc65de5a0d606b3ab8cfa0"]
+[Search "PUCT 64"]
+
+9. b5 Nce7 10. e4 Nb6 11. Nxe5 Ng6 12. Nxg6 Rxg6 13. d4 Be6 14. Nc3 Bg7 15. Be3 g4 16. hxg4 hxg4 17. Rc1 g3 18. fxg3 Rxg3 19. Kf2 Rxe3 20. Kxe3 Qg5+ 21. Kf3 O-O-O 22. Ne2 Bg4+ 23. Kg3 Bxe2+ 24. Kf2 Bxd1 25. Rxd1 Rxd4 26. Rxd4 Bxd4+ 27. Kf3 Qe3+ 28. Kg4 Qxe4+ 29. Kh3 Bf2 30. g3 Qxh1+ 31. Kg4 Qxf1 32. Kg5 Qg1 33. g4 Qg3 34. Kf5 Be3 35. Ke4 Qxg4+ 36. Kxe3 Nc4+ 37. Kd3 Qf3+ 38. Kxc4 Qe4+ 39. Kc3 Qe3+ 40. Kc4 Qe4+ 41. Kc3 a6 42. bxa6 bxa6 43. Kb2 Qd3 44. a4 Kd7 45. Kc1 Qc3+ 46. Kd1 Qb2 47. a5 Qb5 48. Kd2 Qxa5+ 49. Kc2 Qa2+ 50. Kd1 Kd6 51. Kc1 a5 52. Kd1 a4 53. Kc1 Qa1+ 54. Kd2 Qd4+ 55. Kc2 Qc4+ 56. Kd1 Qc3 57. Ke2 Qc2+ 58. Kf3 Kd5 59. Kg4 Qg6+ 60. Kf3 Kd4 61. Ke2 c5 62. Kf3 c4 63. Kf4 c3 64. Kf3 c2 65. Ke2 Qg2+ 66. Ke1 c1=Q# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "44"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r1bqkbr1/ppp2p2/2n5/3np1pp/1P6/P2PPN1P/5PP1/RNBQKB1R w KQq - 1 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "ae8d77c74ffc65de5a0d606b3ab8cfa0"]
+[Search "PUCT 64"]
+
+9. b5 Nce7 10. Nxe5 Bg7 11. d4 Bxe5 12. dxe5 Bf5 13. Bb2 c6 14. Be2 Ng6 15. Bxh5 Nh4 16. g4 Bxb1 17. Rxb1 Qa5+ 18. Kf1 Qxb5+ 19. Kg1 O-O-O 20. Bxf7 Nxe3 21. Be6+ Kb8 22. fxe3 Rxd1+ 23. Rxd1 Qxb2 24. Rh2 Re8 25. Bf7 Qxe5 26. Bxe8 Qxe8 27. Rd3 Qe4 28. Rd8+ Kc7 29. Rf8 Qxe3+ 30. Kf1 Qd3+ 31. Kg1 Qe3+ 32. Kf1 Kb6 33. Rd8 Qf3+ 34. Ke1 Qe3+ 35. Kf1 Qf4+ 36. Ke1 Qxh2 37. Rg8 Qg1+ 38. Kd2 Qa1 39. Rxg5 Qd4+ 40. Kc2 Qe4+ 41. Kb2 Qd4+ 42. Ka2 Qd2+ 43. Kb1 Qxg5 44. a4 Qe5 45. Kc2 Qc5+ 46. Kb3 Qd5+ 47. Kb4 c5+ 48. Ka3 Ka5 49. Kb2 Kb4 50. Kc1 Qg2 51. Kb1 Kc3 52. a5 Qb2# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "45"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r5qr/p2bkp2/1p1p1n1p/2pPp1p1/2P1P3/P1PBNPP1/2Q3P1/3RK2R b K - 2 20"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "e52b1a4e9ba348872e0339d31e6897a4"]
+[Search "PUCT 64"]
+
+20... h5 21. a4 g4 22. Nf5+ Kf8 23. Nxd6 gxf3 24. Qf2 Ng4 25. Qxf3 h4 26. Nxf7 Qxf7 27. Qe2 Qf6 28. Rf1 Qxf1+ 29. Qxf1+ Kg8 30. gxh4 Rf8 31. Qe2 Rxh4 32. g3 Rh2 33. Qxh2 Nxh2 34. Bc2 Rf3 35. Rd3 Rxd3 36. Bxd3 Nf3+ 37. Kf2 Ng5 38. Bc2 Kg7 39. Ke2 Bh3 40. d6 Kf6 41. Bd3 Ke6 42. a5 bxa5 43. d7 Kxd7 44. Ke3 Kd6 45. Bc2 Bf1 46. Ba4 Bxc4 47. Bc2 Ke7 48. g4 Kd6 49. Ba4 Ke7 50. Bc2 Nf7 51. Ba4 Nd6 52. Kf3 Nf7 53. Ke3 Be6 54. g5 Nxg5 55. Bb5 Kd6 56. Ba6 c4 57. Bb5 Kc5 58. Ba4 Nf7 59. Bc2 Nd6 60. Ba4 Nxe4 61. Kxe4 Kd6 62. Bb5 a6 63. Ba4 Kc5 64. Kxe5 Bc8 65. Bc2 Bb7 66. Ba4 Bf3 67. Bd7 Be2 68. Ke4 a4 69. Bxa4 a5 70. Bc2 Bf1 71. Ke3 Bh3 72. Ba4 Bf5 73. Kf3 Bd3 74. Ke3 Bf5 75. Kf3 Bd3 76. Ke3 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "46"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r5qr/p2bkp2/1p1p1n1p/2pPp1p1/2P1P3/P1PBNPP1/2Q3P1/3RK2R b K - 2 20"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "e52b1a4e9ba348872e0339d31e6897a4"]
+[Search "PUCT 64"]
+
+20... Qg6 21. g4 h5 22. Nf5+ Kf8 23. Qd2 h4 24. Nxd6 h3 25. Be2 hxg2 26. Rxh8+ Ke7 27. Rxa8 g1=Q+ 28. Bf1 Kxd6 29. Rh8 Nh7 30. Rxh7 Qxh7 31. Qxg5 Qg3+ 32. Ke2 Qhh2+ 33. Kd3 Qxf3+ 34. Qe3 Qxd1+ 35. Qd2 Qg3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "47"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r2q1rk1/pp1nppbp/2np2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQ - 6 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "04bd02cdeef6a3c6e3c3370978e3a262"]
+[Search "PUCT 64"]
+
+11. Nxc6 bxc6 12. O-O Qa5 13. Qd2 Ne5 14. Rad1 Nc4 15. Qc1 Nxb2 16. Qxb2 Bxc3 17. Qb1 Rfb8 18. Qc1 Qxa2 19. Rd3 Ba5 20. Bh6 Rb4 21. Qg5 Rxe4 22. Rf3 Bb6 23. Rc3 Bd4 24. Rxc6 Bf6 25. Qb5 Re8 26. Qb7 Re2 27. h3 Rxc2 28. Rc7 Rxc7 29. Qxc7 Qd5 30. Qxa7 Be5 31. Qd7 Rb8 32. Qxe7 Bd4 33. Re1 Bc5 34. Qf6 Bd4 35. Qh4 Rc8 36. Rd1 Bxf2+ 37. Qxf2 Qxd1+ 38. Kh2 Qh5 39. Bf4 d5 40. Qd4 Rc4 41. Qd2 Qf5 42. Bh6 Rc8 43. Qb2 f6 44. Qb7 Qe5+ 45. Kg1 Rc1+ 46. Bxc1 Qe1+ 47. Kh2 Qe5+ 48. Kh1 Qe1+ 49. Kh2 Qe5+ 50. g3 Qe2+ 51. Kg1 Qe1+ 52. Kh2 Qe2+ 53. Kg1 Qe1+ 54. Kh2 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "48"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r2q1rk1/pp1nppbp/2np2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQ - 6 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "04bd02cdeef6a3c6e3c3370978e3a262"]
+[Search "PUCT 64"]
+
+11. O-O Rc8 12. Nxc6 bxc6 13. Qd2 Qa5 14. a4 Bxc3 15. Qxc3 Qxc3 16. bxc3 a5 17. Rfb1 c5 18. Rb7 Nf6 19. Rxe7 Ng4 20. Bf4 Rfe8 21. Rxe8+ Rxe8 22. f3 Ne5 23. Bxe5 Rxe5 24. Kf2 f6 25. c4 f5 26. exf5 Rxf5 27. Re1 Rf4 28. Re8+ Kf7 29. Rd8 Rxc4 30. Rd7+ Ke6 31. Rxh7 Rxc2+ 32. Kg3 c4 33. h4 c3 34. Rc7 Rd2 35. Rxc3 Rd4 36. Re3+ Kf6 37. Ra3 g5 38. hxg5+ Kxg5 39. Ra1 Rc4 40. Rd1 Rxa4 41. Rxd6 Ra3 42. Rd5+ Kf6 43. Kf4 Ra1 44. Rd1 Rxd1 45. Ke3 a4 46. Ke4 a3 47. Kf4 a2 48. Ke3 a1=Q 49. Kf4 Qd4+ 50. Kg3 Rg1 51. Kh2 Kf5 52. g4+ Kg5 53. f4+ Kxf4 54. g5 Rxg5 55. Kh3 Qh8# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "49"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "r1bq3r/p2nkp2/1p1p3p/2pPp1p1/2P1P3/2PB2P1/P1QN1PP1/3RK2R w K - 3 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "5a69ca963e9da87144aa463bfefab733"]
+[Search "PUCT 64"]
+
+17. Nf1 Nf6 18. Ne3 h5 19. Nf5+ Kf8 20. Ne3 h4 21. gxh4 gxh4 22. Qd2 Ng4 23. Nxg4 Bxg4 24. f3 Bd7 25. Qe3 h3 26. gxh3 Qh4+ 27. Kd2 Bxh3 28. Rdg1 Re8 29. Ke2 Re7 30. Qd2 Re8 31. Qc2 f5 32. exf5 e4 33. Bxe4 Bxf5 34. Rxh4 Rxh4 35. Qd2 Bxe4 36. fxe4 Rh2+ 37. Kd3 Rxd2+ 38. Kxd2 Rxe4 39. Rg3 Rxc4 40. Rg6 Ke7 41. Rg7+ Kf6 42. Rxa7 b5 43. Rb7 Ra4 44. Rxb5 Rxa2+ 45. Kd3 Ke5 46. c4 Ra3+ 47. Kd2 Kd4 48. Rb6 Kxc4 49. Rxd6 Kd4 50. Kc2 c4 51. Kd2 Ra2+ 52. Kd1 Kd3 53. Ke1 c3 54. Rc6 c2 55. Rc8 Ra1+ 56. Kf2 Rh1 57. Kg2 Ra1 58. Kg3 Rg1+ 59. Kh3 Rd1 60. Kg4 Rf1 61. Kg5 c1=B+ 62. Kg4 Rg1+ 63. Kh5 Be3 64. d6 Rg5+ 65. Kh4 Rd5 66. Rd8 Bg5+ 67. Kh3 Bxd8 68. d7 Rxd7 69. Kg4 Rd4+ 70. Kf3 Bf6 71. Kg3 Ke4 72. Kg2 Rd2+ 73. Kh3 Kf5 74. Kg3 Be5+ 75. Kf3 Rh2 76. Ke3 Rh3+ 77. Kf2 Kf4 78. Kg2 Rc3 79. Kf2 Rc2+ 80. Ke1 Ke3 81. Kf1 Bh2 82. Ke1 Rc1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "50"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "r1bq3r/p2nkp2/1p1p3p/2pPp1p1/2P1P3/2PB2P1/P1QN1PP1/3RK2R w K - 3 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "5a69ca963e9da87144aa463bfefab733"]
+[Search "PUCT 64"]
+
+17. Qa4 Nf6 18. f3 Bd7 19. Qc2 Rb8 20. g4 Ne8 21. Nf1 f6 22. Ne3 Rg8 23. Qd2 Rh8 24. Nf5+ Kf8 25. O-O Rg8 26. Nxh6 Rg6 27. Nf5 Kf7 28. Rde1 Rg8 29. Nh6+ Kg7 30. Nxg8 Kxg8 31. Re3 Ng7 32. Kh2 Qe7 33. Bc2 b5 34. cxb5 Bxb5 35. Rb1 c4 36. Ree1 Qc7 37. Qe3 Qa5 38. Ra1 Be8 39. Qd2 Qa3 40. Reb1 Rxb1 41. Rxb1 Qxa2 42. Rb2 Qxb2 43. g3 Kf8 44. f4 exf4 45. gxf4 Kf7 46. fxg5 fxg5 47. e5 dxe5 48. Bg6+ Kxg6 49. Qxb2 Nf5 50. gxf5+ Kxf5 51. Qb7 e4 52. Qe7 Bg6 53. d6 e3 54. d7 e2 55. d8=Q Kg4 56. Qxe2+ Kh4 57. Qd4+ Be4 58. Qdf2# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "51"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r1b2k1r/p1p2p1p/p5p1/P2pP3/3pn3/1NP2N2/1P3PPP/R4RK1 w - - 0 16"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "7620a0e6f46235a847606871a5e02781"]
+[Search "PUCT 64"]
+
+16. cxd4 Rb8 17. Nc5 Bf5 18. b3 Nxc5 19. dxc5 Rxb3 20. Nd4 Rc3 21. c6 Kg7 22. Nxf5+ gxf5 23. Rac1 Ra3 24. f4 Rxa5 25. Rfd1 Rb8 26. h3 Rb2 27. Rd3 Ra4 28. Rxd5 Kg6 29. Rdd1 Rxf4 30. Rd7 Re2 31. Rxc7 Re3 32. Rxa7 Rxe5 33. c7 Re8 34. c8=Q Rxc8 35. Rxc8 Rd4 36. Rg8+ Kf6 37. Rxa6+ Ke5 38. Re8+ Kd5 39. Ra7 Rd1+ 40. Kh2 Rh1+ 41. Kxh1 Kd4 42. Rxf7 h6 43. Rd8+ Ke3 44. Rxf5 Ke4 45. Rf1 Ke5 46. Rfd1 Ke6 47. Re8+ Kf7 48. Rh8 Ke7 49. Rh7+ Ke6 50. Re1+ Kd6 51. Rxh6+ Kc5 52. Ra1 Kc4 53. Rh7 Kd5 54. Rh5+ Kd4 55. Rf5 Ke4 56. Raf1 Kd4 57. Rf6 Kd5 58. Rf7 Kc4 59. g4 Kd5 60. R1f6 Ke5 61. Rb6 Kd4 62. Kg2 Ke5 63. Rb5+ Ke6 64. Rf3 Kd7 65. Rb7+ Kc6 66. Rbf7 Kd5 67. R3f5+ Kd4 68. Kf2 Ke4 69. Re7+ Kd4 70. h4 Kd3 71. Rf3+ Kc4 72. Ra7 Kb5 73. Rc3 Kb6 74. Rf7 Kb5 75. h5 Kb4 76. Rc8 Kb5 77. Rb7+ Ka6 78. Rb2 Ka7 79. Kf3 Ka6 80. Ra8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "52"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r1b2k1r/p1p2p1p/p5p1/P2pP3/3pn3/1NP2N2/1P3PPP/R4RK1 w - - 0 16"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "7620a0e6f46235a847606871a5e02781"]
+[Search "PUCT 64"]
+
+16. Nfxd4 Bd7 17. f3 Ng5 18. h4 Ne6 19. Nxe6+ Bxe6 20. Nd4 Bd7 21. b4 Kg7 22. Rfd1 Rhe8 23. f4 Rab8 24. Re1 h5 25. Kf2 Rbc8 26. Re3 c5 27. bxc5 Rxc5 28. g3 Rb8 29. e6 Rb2+ 30. Kf3 fxe6 31. Nxe6+ Kf7 32. Ra2 Rxa2 33. Ng5+ Kf6 34. g4 Raxa5 35. f5 Ra3 36. fxg6 Kxg6 37. gxh5+ Kxh5 38. Kg3 Kh6 39. Rf3 Rcxc3 40. Rxc3 Rxc3+ 41. Kf4 Rc4+ 42. Kf3 Kg6 43. Kg3 Bf5 44. Nf3 Re4 45. h5+ Kxh5 46. Nh4 Kg5 47. Nxf5 Kxf5 48. Kf3 Rb4 49. Ke3 a5 50. Kf3 a4 51. Ke3 a3 52. Kf3 a2 53. Ke3 a1=Q 54. Kf3 Qd4 55. Kg3 Qe3+ 56. Kg2 Rb2+ 57. Kh1 Qe1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "53"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "0-1"]
+[FEN "r1b1kb1r/pp1n1ppp/1qn1p3/3pP3/3p4/1NP2N2/PP2BPPP/R1BQK2R w KQkq - 0 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "3a867163838a1409da03417fad1f8964"]
+[Search "PUCT 64"]
+
+9. cxd4 Bb4+ 10. Bd2 a5 11. a3 Bxd2+ 12. Nbxd2 Nxd4 13. Nxd4 Qxd4 14. Nf3 Qb6 15. Rc1 O-O 16. O-O Nc5 17. b4 axb4 18. axb4 Qxb4 19. Qd2 Qxd2 20. Nxd2 b6 21. Rfd1 Bd7 22. Rb1 Rfc8 23. Rxb6 Ra2 24. Rbb1 Ba4 25. Rbc1 h6 26. h3 g6 27. Rc3 h5 28. g3 Kg7 29. Rcc1 Kh6 30. Rc3 Kg7 31. Rcc1 Kh6 32. Kg2 Kg5 33. Nf3+ Kh6 34. Rd2 Rxd2 35. Nxd2 d4 36. Nf3 d3 37. Bxd3 Nxd3 38. Rxc8 Bb5 39. Rh8+ Kg7 40. Ra8 Bc6 41. Ra7 Kf8 42. Rc7 Bd5 43. Rc8+ Kg7 44. Rc7 Ne1+ 45. Kf1 Nxf3 46. Rc8 g5 47. Ke2 g4 48. hxg4 hxg4 49. Rc5 Nxe5 50. Ra5 Kf6 51. Rc5 Kf5 52. Ra5 Ke4 53. Ra4+ Kf5 54. Ra5 Ke4 55. Ra4+ Bc4+ 56. Kd2 Kf3 57. Ra5 f6 58. Kc3 Bd5 59. Rc5 Kxf2 60. Kc2 Kf3 61. Rc8 Kxg3 62. Rg8 Kf3 63. Rg7 g3 64. Rxg3+ Kxg3 65. Kc3 Kf3 66. Kd4 Kf4 67. Kc5 Ke4 68. Kd6 Nd3 69. Ke7 Ne5 70. Kxf6 Nd7+ 71. Ke7 Ne5 72. Kf6 Nd3 73. Kg5 e5 74. Kf6 Kf4 75. Ke7 Kf3 76. Kf6 e4 77. Kg5 e3 78. Kf5 e2 79. Kg6 e1=Q 80. Kg5 Qg3+ 81. Kf5 Qf2 82. Kg6 Qg2+ 83. Kf5 Qf2 84. Kg6 Ke4 85. Kg7 Qd4+ 86. Kg6 Qe5 87. Kh6 Qf6+ 88. Kh5 Qf7+ 89. Kg5 Ne5 90. Kh4 Kf4 91. Kh3 Qh5# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "54"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1-0"]
+[FEN "r1b1kb1r/pp1n1ppp/1qn1p3/3pP3/3p4/1NP2N2/PP2BPPP/R1BQK2R w KQkq - 0 9"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "3a867163838a1409da03417fad1f8964"]
+[Search "PUCT 64"]
+
+9. cxd4 a5 10. Be3 a4 11. Rc1 axb3 12. axb3 Qa5+ 13. Bd2 Qb6 14. O-O Be7 15. b4 O-O 16. Bd3 Nxb4 17. Bxh7+ Kxh7 18. Ng5+ Kg6 19. Qg4 Bxg5 20. Bxg5 f6 21. Bxf6+ Kh6 22. Qg5+ Kh7 23. Qxg7# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "55"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1/2-1/2"]
+[FEN "r1bq1bnr/5kpp/ppn1p3/3p1p2/3QP3/2N5/PPP1BPPP/R1B1K1NR w KQ - 2 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "585a52d3b5c29cbea9f819df396ff4af"]
+[Search "PUCT 64"]
+
+10. Qa4 b5 11. Qb3 fxe4 12. Be3 Nf6 13. Nh3 d4 14. Ng5+ Kg8 15. O-O-O Na5 16. Bxd4 Nxb3+ 17. axb3 Bb7 18. Nxe6 Qe7 19. Nxf8 b4 20. Bxf6 Qxf6 21. Nxe4 Bxe4 22. Ne6 Bc6 23. Nc7 Rc8 24. Nxa6 Bxg2 25. Rhe1 Qxf2 26. c4 bxc3 27. bxc3 Be4 28. Bc4+ Rxc4 29. Rd8+ Kf7 30. Rd7+ Kg6 31. Rxe4 Rxe4 32. Rd6+ Qf6 33. Rxf6+ Kxf6 34. Nc5 Re2 35. Kd1 Rxh2 36. Ne4+ Ke5 37. Nd2 Ra8 38. Nf3+ Ke4 39. Nxh2 Ra2 40. Nf1 Kd3 41. Kc1 Kxc3 42. Kd1 Kxb3 43. Nd2+ Kc3 44. Nf3 Ra1+ 45. Ke2 Ra6 46. Ke3 h6 47. Nd4 Kc4 48. Nf5 Re6+ 49. Kf3 g6 50. Ne3+ Kd3 51. Ng4 h5 52. Nf2+ Kd4 53. Nh3 Re3+ 54. Kg2 Ke4 55. Ng5+ Kf4 56. Nf7 g5 57. Nxg5 Kxg5 58. Kf2 Ra3 59. Kg2 Ra2+ 60. Kg3 h4+ 61. Kf3 h3 62. Kg3 h2 63. Kf3 h1=R 64. Ke3 Re1+ 65. Kd3 Kg4 66. Kc4 Rc2+ 67. Kd3 Ra2 68. Kc4 Rc1+ 69. Kd3 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "56"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r1bq1bnr/5kpp/ppn1p3/3p1p2/3QP3/2N5/PPP1BPPP/R1B1K1NR w KQ - 2 10"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "585a52d3b5c29cbea9f819df396ff4af"]
+[Search "PUCT 64"]
+
+10. Qa4 b5 11. exd5 bxa4 12. dxc6 a3 13. Nf3 Nf6 14. O-O Bd6 15. Rd1 Re8 16. b4 Qc7 17. b5 e5 18. Rxd6 Qxd6 19. Bxa3 Qxa3 20. Nb1 Qb2 21. Nbd2 Qxa1+ 22. Ne1 Be6 23. Nf3 e4 24. Ng5+ Ke7 25. Nxe6 Kxe6 26. Bc4+ Kd6 27. g3 Qd4 28. Bb3 axb5 29. c7 e3 30. Nf3 Qd1+ 31. Kg2 e2 32. Nh4 e1=Q 33. Nxf5+ Kxc7 34. Bc4 Qe4+ 35. f3 Qexc2+ 36. Kh3 Qxf5+ 37. Kg2 bxc4 38. g4 Qfxf3# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "57"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "2kr3r/ppn2p2/2ppp2P/5n2/2PP1R2/2P2N1P/P3P2P/R3KB2 b Q - 4 18"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "73014d38f41b99e26f0c2704bffe8793"]
+[Search "PUCT 64"]
+
+18... d5 19. e4 dxe4 20. Rxe4 c5 21. Be2 cxd4 22. Nxd4 Nxd4 23. cxd4 f5 24. Rh4 Rhg8 25. Kf1 Rg1+ 26. Kxg1 Rg8+ 27. Kh1 Kd7 28. h7 Kc6 29. Rg1 Rxg1+ 30. Kxg1 b6 31. Rh6 Kb7 32. Bf3+ Ka6 33. Rg6 Ka5 34. h8=Q Ne8 35. Rg8 Ng7 36. Qxg7 a6 37. Qc7 Ka4 38. Ra8 b5 39. Qc5 bxc4 40. Rxa6# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "58"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "1/2-1/2"]
+[FEN "2kr3r/ppn2p2/2ppp2P/5n2/2PP1R2/2P2N1P/P3P2P/R3KB2 b Q - 4 18"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "73014d38f41b99e26f0c2704bffe8793"]
+[Search "PUCT 64"]
+
+18... Nxh6 19. e4 f5 20. exf5 Nxf5 21. Bd3 Ne7 22. Rb1 Rxh3 23. Be4 Rg8 24. a4 Rh6 25. a5 d5 26. cxd5 Ncxd5 27. Rh4 Rxh4 28. Nxh4 Nxc3 29. Bd3 Nxb1 30. Bxb1 Rg1+ 31. Kd2 Rxb1 32. Nf3 Nd5 33. Kc2 Ra1 34. Ne5 Rxa5 35. Kb3 Rb5+ 36. Kc2 Nb4+ 37. Kc3 Nd5+ 38. Kd2 Kc7 39. Nf7 a5 40. Ne5 a4 41. Nd3 a3 42. Nc1 a2 43. Nxa2 Rb3 44. Nc1 Ra3 45. Ne2 Ra2+ 46. Kd3 Rb2 47. Nc3 Rxh2 48. Ne4 b6 49. Ng5 Kd7 50. Nf3 Rh3 51. Ke4 Nf6+ 52. Ke3 Nd5+ 53. Ke4 Nf6+ 54. Ke3 c5 55. dxc5 bxc5 56. Kf4 Nd5+ 57. Ke4 Nf6+ 58. Ke5 Ng4+ 59. Kf4 Nf2 60. Ne5+ Kd6 61. Nc4+ Kd5 62. Ne3+ Kd6 63. Nc4+ Kd5 64. Nb6+ Kd4 65. Nc4 1/2-1/2
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "59"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "r2k2nr/ppp2q2/2n2p2/3p2p1/3P4/1PN5/P2QN1PP/R4RK1 w - - 0 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "96d67ce80e08724833743b88f65c104a"]
+[Search "PUCT 64"]
+
+17. Rae1 Nge7 18. Nc1 Rxh2 19. Kxh2 g4 20. Re3 Qh5+ 21. Kg1 g3 22. Rxg3 Nf5 23. Rg8+ Kd7 24. Rxa8 Ng3 25. Rxf6 Qh1+ 26. Kf2 Qh2 27. Raf8 Qh4 28. Qf4 Ne4+ 29. Kf1 Qh1+ 30. Ke2 Qxg2+ 31. Kd3 Nb4+ 32. Ke3 Qg1+ 33. Ke2 Qg2+ 34. Qf2 Nxc3+ 35. Ke3 Qh3+ 36. Rf3 Nc2+ 37. Kd2 Ne4+ 38. Kxc2 Nxf2 39. Rxh3 Nxh3 40. Rg8 Nf4 41. Kd2 c6 42. Rg7+ Kd6 43. Nd3 Ne6 44. Rg6 c5 45. dxc5+ Ke7 46. Rg4 Kf6 47. Rg8 b6 48. c6 d4 49. c7 Nxc7 50. Nf4 Kf5 51. Nh3 d3 52. Ng5 Kf4 53. Kxd3 Ke5 54. Rg6 Nd5 55. Rg7 Nf4+ 56. Ke3 Nd5+ 57. Kd2 Kf6 58. Rd7 Kxg5 59. Rxd5+ Kf6 60. Ke3 Ke6 61. Rg5 Kf6 62. Rg4 Ke5 63. Rg8 b5 64. Ra8 a6 65. Rxa6 Kd5 66. Rh6 Ke5 67. Kf3 b4 68. Rg6 Kf5 69. Rd6 Ke5 70. Rd1 Ke6 71. Rd4 Ke5 72. Rxb4 Ke6 73. Rb6+ Ke5 74. Rb5+ Ke6 75. Kf4 Kf6 76. Rb6+ Ke7 77. a4 Kd7 78. Ke5 Kc7 79. Rf6 Kd7 80. Rf7+ Kc6 81. Ke6 Kc5 82. Rf5+ Kc6 83. Rf1 Kc5 84. Rc1+ Kb4 85. Kd5 Ka3 86. Ke6 Kxb3 87. a5 Ka4 88. a6 Kb3 89. a7 Kb2 90. Rc8 Kb3 91. a8=Q Kb4 92. Qb7+ Ka3 93. Ra8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "60"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "r2k2nr/ppp2q2/2n2p2/3p2p1/3P4/1PN5/P2QN1PP/R4RK1 w - - 0 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "96d67ce80e08724833743b88f65c104a"]
+[Search "PUCT 64"]
+
+17. Rae1 Nge7 18. Ng3 Kd7 19. Na4 Rae8 20. Nc5+ Kc8 21. Nh5 Rxh5 22. Qf2 b6 23. Qxf6 Qxf6 24. Rxf6 Nxd4 25. Ne6 Nxe6 26. Rfxe6 Kd8 27. g4 Rhh8 28. b4 Kd7 29. R1e5 Ng6 30. Rxe8 Rxe8 31. Rxd5+ Ke6 32. Rxg5 Nf4 33. Kf2 Nd3+ 34. Kf3 Kf6 35. Rd5 Nxb4 36. Rd1 Nxa2 37. Rd7 Nb4 38. Rxc7 a5 39. Rb7 Nd5 40. Ra7 Ne7 41. Ra6 Nd5 42. Kg2 Re2+ 43. Kf3 Rxh2 44. Ke4 Ke6 45. g5 Rg2 46. g6 Rxg6 47. Kf3 Kf6 48. Ke4 Ne7 49. Rxb6+ Kf7 50. Rb7 Rg4+ 51. Kf3 Rd4 52. Ra7 a4 53. Ke3 Rg4 54. Rxa4 Rxa4 55. Kd3 Ra3+ 56. Kc4 Kf6 57. Kb4 Ra8 58. Kc5 Ra5+ 59. Kb4 Rd5 60. Kc3 Ke5 61. Kc4 Rd8 62. Kc5 Ng6 63. Kb6 Ne7 64. Kb5 Nd5 65. Kc4 Ne3+ 66. Kc5 Ra8 67. Kb6 Nc4+ 68. Kc6 Ra3 69. Kc5 Ne3 70. Kb4 Ra8 71. Kc5 Ra5+ 72. Kb6 Ra8 73. Kb7 Ra5 74. Kb6 Rd5 75. Kc6 Rd8 76. Kc5 Rc8+ 77. Kb6 Nc4+ 78. Kb5 Kd5 79. Ka4 Ra8+ 80. Kb4 Rb8+ 81. Ka4 Ra8+ 82. Kb3 Ne3 83. Kc3 Ra3+ 84. Kd2 Nc4+ 85. Ke2 Ke4 86. Kf2 Ra2+ 87. Kg3 Ne3 88. Kh4 Rh2+ 89. Kg5 Rg2+ 90. Kf6 Kf4 91. Ke6 Ke4 92. Kf7 Kf5 93. Ke8 Ke6 94. Kd8 Rc2 95. Ke8 Rc8# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "61"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "3rk2r/pp2qppp/8/2PB4/P1P5/6Pb/4PP1P/R2Q1RK1 b k - 0 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "a6bb2d62dfe751eaa6d66eb4ae4f1b97"]
+[Search "PUCT 64"]
+
+17... Bxf1 18. Qxf1 O-O 19. c6 bxc6 20. Bxc6 Qb4 21. Qc1 Qe7 22. Bf3 Rfe8 23. c5 g6 24. h4 Qe5 25. Rb1 Qe6 26. c6 Rc8 27. Rb7 Qd6 28. Rxa7 Qb8 29. Rd7 Qe5 30. c7 Qe6 31. Rd1 Qe5 32. e4 Qxc7 33. Qxc7 Rxc7 34. Kg2 Rb8 35. a5 Ra8 36. Ra1 Rc2 37. a6 Rb2 38. h5 Rxa6 39. Rxa6 Kg7 40. h6+ Kxh6 41. e5 Rb1 42. Ra7 Rb2 43. Rxf7 Rb1 44. e6 Rb2 45. e7 Rxf2+ 46. Kxf2 Kg5 47. e8=Q Kh6 48. Qe5 g5 49. Qf6# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "62"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "3rk2r/pp2qppp/8/2PB4/P1P5/6Pb/4PP1P/R2Q1RK1 b k - 0 17"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "a6bb2d62dfe751eaa6d66eb4ae4f1b97"]
+[Search "PUCT 64"]
+
+17... Bxf1 18. c6 Bxe2 19. c7 Bxd1 20. Rxd1 Qxc7 21. Re1+ Kf8 22. a5 Qxa5 23. Rd1 Qc7 24. c5 Qa5 25. Bc4 Rxd1+ 26. Kg2 Qe1 27. g4 Qe4+ 28. f3 Qxc4 29. h3 Qc2+ 30. Kg3 Qxc5 31. f4 Rg1+ 32. Kf3 Qc6+ 33. Kf2 Rg2+ 34. Ke3 Rg3+ 35. Ke2 Qc2+ 36. Kf1 Rd3 37. Ke1 Rd1# 0-1
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "63"]
+[White "fresh_B"]
+[Black "historical_v6"]
+[Result "1-0"]
+[FEN "rnb1k2r/pp2ppb1/1qp3pp/3p3n/3P3B/2N1PN2/PPP1BPPP/1R1Q1RK1 w kq - 4 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "cdb40c30c2a9801b8b4f56806fe01d11"]
+[Search "PUCT 64"]
+
+11. a4 g5 12. Bg3 Nxg3 13. hxg3 Nd7 14. a5 Qxa5 15. b4 Qd8 16. b5 e6 17. bxc6 bxc6 18. Bd3 g4 19. Nh2 h5 20. Rb4 Nf6 21. Na4 a5 22. Nb6 axb4 23. Nxa8 Bd7 24. Qa1 Ne4 25. Rb1 Ke7 26. Rxb4 Qxa8 27. Rb1 Qxa1 28. Rxa1 Rb8 29. Nf1 Kd6 30. c4 Rb2 31. c5+ Kc7 32. Bxe4 dxe4 33. Nd2 Rxd2 34. Ra8 Rd1+ 35. Kh2 Kb7 36. Rd8 Bc8 37. Rg8 Bf6 38. Rf8 Be7 39. Rxf7 Kc7 40. Rxe7+ Kd8 41. Rg7 Rd2 42. Kg1 Ra2 43. Rg8+ Kc7 44. Rg7+ Kb8 45. Rg8 Ra1+ 46. Kh2 Ra2 47. Kg1 Ra1+ 48. Kh2 Kb7 49. Rg7+ Ka6 50. Rc7 Rc1 51. Rxc8 Kb5 52. Rb8+ Ka6 53. Ra8+ Kb5 54. Rb8+ Ka6 55. Rb6+ Ka7 56. Rxc6 Rc2 57. Rc8 Rxf2 58. c6 Kb6 59. c7 Kb7 60. Rh8 Kxc7 61. Rxh5 Kd6 62. Re5 Rb2 63. Rxe4 Kd5 64. Rxg4 e5 65. dxe5 Kxe5 66. Kh3 Kf5 67. Rh4 Rxg2 68. Kxg2 Ke6 69. Rh6+ Kd5 70. Rf6 Ke5 71. Rb6 Kd5 72. g4 Kc5 73. Rb1 Kd5 74. Rd1+ Ke5 75. Kf3 Kf6 76. Kf4 Ke6 77. e4 Kf6 78. Rh1 Ke6 79. Rh6+ Ke7 80. e5 Kf8 81. Rf6+ Ke7 82. Rb6 Kd8 83. e6 Ke7 84. Rb7+ Kxe6 85. Rb6+ Kd5 86. Rb5+ Ke6 87. Rc5 Kf6 88. Ra5 Ke6 89. Ra6+ Kf7 90. Ke5 Kg7 91. Kf5 Kf7 92. Ra7+ Ke8 93. Kg6 Kd8 94. Kf6 Kc8 95. Re7 Kb8 96. Ke5 Kc8 97. Ke6 Kb8 98. Kd6 Kc8 99. Kc6 Kd8 100. Re5 Kc8 101. Re8# 1-0
+
+[Event "Fresh FlyWire controlled comparison"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "64"]
+[White "historical_v6"]
+[Black "fresh_B"]
+[Result "0-1"]
+[FEN "rnb1k2r/pp2ppb1/1qp3pp/3p3n/3P3B/2N1PN2/PPP1BPPP/1R1Q1RK1 w kq - 4 11"]
+[SetUp "1"]
+[Termination "normal"]
+[OpeningID "cdb40c30c2a9801b8b4f56806fe01d11"]
+[Search "PUCT 64"]
+
+11. Na4 Qd8 12. c4 Bf5 13. cxd5 Bxb1 14. dxc6 bxc6 15. Qxb1 O-O 16. Rd1 Nd7 17. Qc1 Rc8 18. Nc5 Nxc5 19. dxc5 Qa5 20. Bxe7 Rfe8 21. Bd6 Nf6 22. Qc2 Ne4 23. a3 Nxd6 24. cxd6 Red8 25. d7 Rb8 26. Bc4 Rb6 27. h3 Rbb8 28. b4 Qc7 29. Qb3 Rxd7 30. Rxd7 Qxd7 31. e4 Rd8 32. e5 Kh8 33. Bxf7 Qd1+ 34. Qxd1 Rxd1+ 35. Kh2 g5 36. e6 Bf6 37. g3 Kg7 38. a4 Rd6 39. g4 Rd5 40. Kg3 a5 41. e7 Kxf7 42. e8=R Kxe8 43. bxa5 Rxa5 44. h4 Rd5 45. hxg5 hxg5 46. a5 Rxa5 47. Nd2 Rd5 48. Ne4 Be7 49. f4 gxf4+ 50. Kxf4 Kd7 51. Ke3 Rb5 52. Kd4 Rd5+ 53. Kc3 Ke6 54. Kb3 Rd8 55. Kc4 Ke5 56. Ng3 Kf4 57. Nf5 Bf6 58. Nh6 Bh4 59. Nf7 Rd1 60. g5 Kg3 61. g6 Kg2 62. Ne5 Kf2 63. Nxc6 Bf6 64. Kb4 Ke3 65. Kb5 Rg1 66. Kc5 Rxg6 67. Kd5 Kd3 68. Ne5+ Bxe5 69. Kxe5 Kc4 70. Kf4 Kd4 71. Kf5 Rh6 72. Kg5 Rh1 73. Kf6 Kd5 74. Kf5 Rf1+ 75. Kg5 Rg1+ 76. Kf6 Rg8 77. Kf5 Rg3 78. Kf4 Rg1 79. Kf3 Re1 80. Kf2 Ra1 81. Kg3 Rg1+ 82. Kf3 Rf1+ 83. Kg4 Ke4 84. Kh5 Kf5 85. Kh4 Rf4+ 86. Kg3 Rg4+ 87. Kf3 Ra4 88. Ke3 Ra3+ 89. Kd4 Rh3 90. Kc4 Ke5 91. Kc5 Rh6 92. Kb5 Kd5 93. Kb4 Rh3 94. Kb5 Rb3+ 95. Ka4 Rb6 96. Ka5 Rb8 97. Ka4 Ra8+ 98. Kb3 Rg8 99. Kc3 Rg3+ 100. Kd2 Ke4 101. Kc2 Kd4 102. Kd2 Rg2+ 103. Kd1 Ke3 104. Kc1 Kd3 105. Kb1 Kc3 106. Ka1 Kb3 107. Kb1 Rg1# 0-1
+

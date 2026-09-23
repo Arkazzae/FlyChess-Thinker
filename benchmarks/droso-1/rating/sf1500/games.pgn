@@ -1,0 +1,416 @@
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "1"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1/2-1/2"]
+[Opening "ruy_lopez"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. Nxe5 Qh4 6. Qf3 Be6 7. d4 Nf6 8. Nd3 Nxe4 9. g3 Qg4 10. Qxg4 Bxg4 11. O-O Nf6 12. Re1+ Be7 13. Nc3 Be6 14. b3 O-O-O 15. Be3 Bf5 16. Ne5 Rdf8 17. g4 Nxg4 18. Nxg4 Bb4 19. Ne5 Bxc3 20. Rad1 Bxc2 21. Rc1 Bxe1 22. Rxc2 f6 23. Nd3 Ba5 24. Nc5 Rf7 25. b4 Bxb4 26. h4 Bxc5 27. Rxc5 Rff8 28. h5 Rd8 29. h6 gxh6 30. Kf1 Rhe8 31. Bxh6 b6 32. Rxc6 Kb7 33. Rc1 a5 34. Be3 Rd6 35. Kg2 f5 36. d5 Rd7 37. d6 Rxd6 38. Rh1 Rd7 39. Rxh7 Rd1 40. Rg7 Rc8 41. Rg5 f4 42. Bxf4 c5 43. Be3 a4 44. Rg7+ Ka8 45. Rg6 Kb7 46. Rg5 Rd3 47. Rg7+ Kc6 48. Bh6 a3 49. Bc1 Ra8 50. Bh6 Re8 51. Bc1 Rd4 52. Rg6+ Kb7 53. Bxa3 Rd2 54. Bc1 Rd3 55. a4 Ka6 56. Bh6 Re2 57. Bg7 Re4 58. Rg5 Ka5 59. Bf6 Kxa4 60. Rg7 Re6 61. Bb2 c4 62. Rc7 Kb5 63. Rg7 Ka4 64. Rg8 Rc6 65. Rg7 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "2"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "ruy_lopez"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. O-O Bd6 6. Na3 Qe7 7. Nc4 Nf6 8. Qe2 Bg4 9. Rd1 O-O 10. Ne3 Bxf3 11. Qxf3 a5 12. Nf5 Qd7 13. Qg3 g6 14. Qh4 Qe6 15. Nh6+ Kg7 16. d3 Ne8 17. Ng4 h5 18. Ne3 Kg8 19. Nc4 Be7 20. Qg3 h4 21. Qf3 a4 22. Bd2 b5 23. Ne3 Nd6 24. Bb4 Rad8 25. h3 Kh7 26. Re1 Bg5 27. Qe2 Rfe8 28. b3 Qf6 29. Bc3 axb3 30. Ng4 Qg7 31. Bd2 b2 32. Bxg5 bxa1=Q 33. c4 Qd4 34. Qf3 Ra8 35. Bxh4 Re6 36. Rf1 Ra3 37. Bg5 Ra7 38. Be3 Qb2 39. Bg5 Rxa2 40. Bc1 Qb1 41. Bh6 Qc2 42. d4 exd4 43. cxb5 Qxh6 44. g3 Qg7 45. b6 Rxe4 46. b7 Re6 47. h4 Rb2 48. b8=R Rxb8 49. Kg2 d3 50. Ne3 Qc5 51. Qd1 Re4 52. Kg1 Ree8 53. Ng4 Qf5 54. Qa1 Qxa1 55. Ne3 Qd4 56. Kh2 Qfe5 57. Rh1 Qh5 58. Rc1 Qxe3 59. Rc2 dxc2 60. fxe3 Rb1 61. g4 Qxg4 62. h5 c1=Q 63. hxg6+ Kxg6 64. e4 Qcf4# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "3"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "italian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. O-O Nf6 5. d4 Bxd4 6. Nxd4 exd4 7. Re1 O-O 8. e5 Ne8 9. Qh5 d5 10. Bd3 g6 11. Qd1 Nb4 12. Bh6 a5 13. Bxf8 Nxd3 14. cxd3 Kxf8 15. Nd2 Ng7 16. Nf3 c5 17. h3 a4 18. Qd2 Ne6 19. a3 b6 20. Rad1 g5 21. Nh2 h6 22. Nf3 Kg8 23. Nh2 Nf4 24. Ng4 Kg7 25. Nh2 Qg8 26. Ng4 Bxg4 27. hxg4 Qh7 28. e6 fxe6 29. f3 Re8 30. Qc2 Re7 31. Qxa4 Nxd3 32. Qa8 Nxe1 33. Rxe1 h5 34. Re5 Kf6 35. Re1 Kf7 36. gxh5 Qxh5 37. g4 Qh3 38. Re5 Qg3+ 39. Kh1 Qxe5 40. Kg2 c4 41. f4 Qxf4 42. Qc6 Qe4+ 43. Kf2 Qxg4 44. Qxb6 Qf4+ 45. Ke1 Qc1+ 46. Kf2 Qd2+ 47. Kg3 Qf4+ 48. Kg2 Qe4+ 49. Kg1 Qd3 50. Qc6 Qb1+ 51. Kh2 Qe4 52. Kg1 Qe3+ 53. Kg2 Qe4+ 54. Kf2 Qe3+ 55. Kg2 Qe5 56. Kf2 Qh2+ 57. Ke1 d3 58. Kf1 Kg6 59. Qa8 Qf4+ 60. Kg2 Qg4+ 61. Kf1 Qf3+ 62. Kg1 Qg4+ 63. Kf2 Rf7+ 64. Ke1 Qe2# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "4"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "italian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. d3 Nf6 5. a4 d6 6. a5 O-O 7. c3 Nxa5 8. Rxa5 Bb6 9. Ra3 Ng4 10. O-O c6 11. Ba2 h6 12. Qc2 Be6 13. h3 Bxa2 14. Nbd2 Be6 15. hxg4 a5 16. Nh2 d5 17. Ra1 Re8 18. Qd1 a4 19. Rxa4 Qh4 20. Ndf3 Qd8 21. exd5 Bxd5 22. Nd2 Qh4 23. Qc2 Rxa4 24. c4 Ra1 25. Qb3 Bxf2+ 26. Rxf2 Rxc1+ 27. Nhf1 Be6 28. Qxb7 Qd8 29. Kh2 Qd6 30. g5 e4+ 31. Ng3 e3 32. Nb3 exf2 33. Qxc6 Qxc6 34. Nd4 Qd6 35. Nb5 Qxd3 36. Nc7 Bxc4 37. Nxe8 hxg5 38. Nf1 Qxf1 39. Nf6+ gxf6 40. Kg3 Qxg2+ 41. Kxg2 f1=Q+ 42. Kg3 Qg1+ 43. Kf3 Rf1+ 44. Ke4 Rf4# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "5"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "scotch"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 bxc6 6. e5 Ng8 7. Nc3 d5 8. exd6 cxd6 9. Bd3 d5 10. O-O Bb4 11. Re1+ Ne7 12. Qh5 Bc5 13. Bg5 Qd7 14. Rad1 Qg4 15. Qxg4 Bxg4 16. Na4 Bd6 17. Nc3 a5 18. Rd2 a4 19. h3 Bd7 20. Bh4 Kd8 21. Bxe7+ Bxe7 22. Nd1 g6 23. Ne3 Re8 24. Nf1 Rb8 25. c3 Kc7 26. Bc2 a3 27. b3 h5 28. Ne3 f5 29. Red1 Bg5 30. b4 Bxe3 31. fxe3 Rxe3 32. Bb3 Rxc3 33. b5 Rxb5 34. Rf2 Rb4 35. Rc2 d4 36. Rcd2 c5 37. Kh2 Bb5 38. Bd5 f4 39. Be6 Ba4 40. Re1 d3 41. Bd5 g5 42. Re6 Bd7 43. Re5 Rb2 44. Rxb2 Kd6 45. Rb8 Kxe5 46. Bf3 h4 47. Ra8 Kd6 48. Ra7 d2 49. Bg4 Bxg4 50. Rxa3 Rxa3 51. g3 hxg3+ 52. Kg2 Rxa2 53. hxg4 d1=Q+ 54. Kh3 g2 55. Kh2 g1=R+ 56. Kh3 Qb3# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "6"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "scotch"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. c3 dxc3 5. Nxc3 Bb4 6. Bb5 Bxc3+ 7. bxc3 Nge7 8. O-O O-O 9. Rb1 d6 10. Rb2 Ng6 11. Ba4 h6 12. Kh1 Re8 13. Re1 Nge5 14. Nxe5 Rxe5 15. Bb3 Be6 16. Bxe6 fxe6 17. f4 Rc5 18. Rxb7 Rxc3 19. Bb2 Rc5 20. Qg4 Qd7 21. h3 Rf8 22. Kh2 Qf7 23. Kg1 e5 24. f5 a5 25. Rb3 Nd4 26. Bxd4 exd4 27. Rf1 Re5 28. Rg3 d3 29. Qh4 d2 30. Kh2 a4 31. Qxh6 Qf6 32. Qf4 a3 33. Rg6 Qxg6 34. Qe3 Qf6 35. Qxd2 Qh4 36. Qd3 Qf6 37. Qd1 Qh4 38. f6 Rxf6 39. g3 Qxe4 40. Qb1 Qe2+ 41. Kh1 Rxf1+ 42. Qxf1 Qxf1+ 43. Kh2 Re2# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "7"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1/2-1/2"]
+[Opening "sicilian_open"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Nxc6 bxc6 7. Bd3 e5 8. O-O Be7 9. h3 O-O 10. Re1 Qc7 11. a4 Be6 12. a5 Nd7 13. Be3 Rfb8 14. b3 Nf6 15. a6 d5 16. exd5 Bxd5 17. Nxd5 cxd5 18. Rc1 Ba3 19. Rb1 h6 20. Ra1 Bb4 21. c3 Be7 22. Rc1 Re8 23. c4 d4 24. Bd2 Ba3 25. Ra1 Qe7 26. b4 Bxb4 27. Bxb4 Qxb4 28. Qb1 Qc3 29. Qd1 Rad8 30. Rc1 Qb4 31. c5 Rc8 32. Rc2 Rxc5 33. Rxc5 Qxc5 34. Qb1 Nd5 35. Qb7 g6 36. Be4 Nf6 37. Bd3 Re7 38. Qb8+ Re8 39. Qb7 Qc3 40. Rd1 Qc5 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "8"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "sicilian_open"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Bb5+ Bd7 6. f3 e5 7. Bxd7+ Qxd7 8. Ne2 Be7 9. c4 Nc6 10. Nbc3 O-O 11. Be3 a5 12. h3 Rad8 13. Qb3 h6 14. Rc1 Qe6 15. Nd5 Nxd5 16. exd5 a4 17. Qxb7 Qd7 18. Qxd7 Rxd7 19. O-O Nb8 20. Rc3 f5 21. Rc2 Na6 22. Rd1 Nb4 23. Rcc1 f4 24. a3 fxe3 25. axb4 Rb8 26. b5 Ra7 27. Kf1 a3 28. Rc2 a2 29. Ra1 Rbb7 30. b3 e4 31. f4 Bf6 32. Raxa2 Rxa2 33. Rxa2 Be7 34. g4 Kf7 35. Nd4 Bf6 36. Nf5 e2+ 37. Ke1 Bc3+ 38. Kxe2 Kg6 39. Ra6 Bb4 40. Ke3 Bc5+ 41. Kxe4 Kf6 42. h4 g6 43. g5+ hxg5 44. hxg5+ Kf7 45. Nxd6+ Kg7 46. Nxb7 Be7 47. Ra1 Kf7 48. b4 Kf8 49. Ke5 Kf7 50. Rb1 Kf8 51. Rg1 Kf7 52. d6 Bf8 53. c5 Kg8 54. Rh1 Bg7+ 55. Ke4 Kf8 56. c6 Bc3 57. Rd1 Bxb4 58. d7 Be7 59. Kd5 Kg7 60. Ra1 Kf7 61. c7 Kf8 62. c8=Q+ Kg7 63. Rh1 Ba3 64. Qc3+ Kg8 65. Qc8+ Kg7 66. Qe8 Bb4 67. d8=Q Bc3 68. Qed7# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "9"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "sicilian_closed"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c5 2. Nc3 Nc6 3. g3 g6 4. Bg2 d6 5. Nge2 Bg7 6. O-O e5 7. d3 h5 8. a4 h4 9. Nd5 Bh6 10. Bxh6 Rxh6 11. f4 hxg3 12. Nxg3 Qh4 13. Nc7+ Kd8 14. Nxa8 Qxh2+ 15. Kf2 Bh3 16. Qf3 Nd4 17. Qd1 exf4 18. Ra3 Qxg3+ 19. Kg1 Qxg2# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "10"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "sicilian_closed"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c5 2. Nc3 Nc6 3. g3 g6 4. d3 Bg7 5. Nf3 d6 6. Bg2 Nf6 7. h3 O-O 8. a4 a6 9. O-O Rb8 10. Ne2 b5 11. c3 b4 12. Nd2 a5 13. Re1 Ba6 14. c4 Nd7 15. Rb1 Nce5 16. Nb3 Qb6 17. Rf1 e6 18. g4 Qc7 19. f4 Nxc4 20. Kh1 Nxb2 21. Bxb2 c4 22. dxc4 Bxb2 23. Rxb2 Bxc4 24. Qc1 Rfc8 25. Rc2 Bxb3 26. Rxc7 Nc5 27. e5 Rxc7 28. f5 dxe5 29. Kh2 Bxa4 30. Qe3 e4 31. Ng3 Rd8 32. Qf4 Rcd7 33. fxg6 hxg6 34. Nh5 gxh5 35. Qg5+ Kf8 36. Qxc5+ Kg8 37. Bxe4 Rd5 38. Qc1 Re5 39. Qf4 Rb5 40. gxh5 b3 41. Qxf7+ Kh8 42. Qh7# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "11"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "french"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. e5 Nfd7 5. Nf3 a6 6. Bd3 c5 7. Bg5 Qb6 8. Na4 Qc6 9. Nxc5 Nxc5 10. dxc5 Qxc5 11. O-O Be7 12. Bxe7 Qxe7 13. c3 h6 14. Re1 Qd8 15. Nd4 Qb6 16. Qg4 O-O 17. h3 Bd7 18. b4 Qd8 19. Bc2 Nc6 20. Bb3 Qe7 21. Nf3 Qe8 22. c4 Nxb4 23. cxd5 a5 24. d6 Rc8 25. Re3 Qd8 26. Rae1 b6 27. a3 a4 28. Qxb4 axb3 29. Qxb3 Rc5 30. Nd4 Qh4 31. Nf3 Qa4 32. Qxa4 Bxa4 33. Rd3 Rfc8 34. d7 Rf8 35. d8=Q Bc2 36. Qxb6 Rb5 37. Qxb5 h5 38. Ng5 h4 39. Rd7 Bg6 40. Qb7 Bd3 41. Rxd3 g6 42. Rd6 Kh8 43. Qxf7 Rxf7 44. Rd8+ Kg7 45. Nxe6+ Kh6 46. Ng5 Kxg5 47. e6 Rg7 48. e7 Kh5 49. e8=Q Kh6 50. Qh8+ Rh7 51. Qf8+ Kh5 52. Qh8 Rxh8 53. Rxh8+ Kg5 54. Re5+ Kf6 55. Ree8 Kg7 56. Re7+ Kf6 57. Ra7 Ke5 58. Ra5+ Kf6 59. Ra6+ Kg5 60. f4+ Kxf4 61. Rxg6 Kf5 62. Rgh6 Ke4 63. Rxh4+ Kd5 64. R4h5+ Ke4 65. R5h6 Kf4 66. Rf8+ Ke3 67. Rhf6 Kd3 68. Rd8+ Ke4 69. Re8+ Kd4 70. Rd8+ Kc3 71. Rd1 Kc2 72. Rdf1 Kd3 73. R1f3+ Kc2 74. g4 Kb2 75. Kg2 Kb1 76. Rf7 Kb2 77. Rb7+ Kc1 78. Rf2 Kd1 79. Rb1# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "12"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "french"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. f3 dxe4 5. Nxe4 Be7 6. c3 Nxe4 7. fxe4 O-O 8. Bd3 c5 9. Be3 cxd4 10. Bxd4 Nc6 11. Bc2 e5 12. Be3 Bh4+ 13. Ke2 Bg4+ 14. Nf3 Qf6 15. Qg1 Rad8 16. Qf1 b6 17. h3 Bh5 18. g4 Bg6 19. g5 Qf4 20. Bxf4 exf4 21. Rg1 Bxe4 22. Bxe4 Rfe8 23. Nxh4 Rxe4+ 24. Kf3 Re5 25. Kg4 h6 26. Nf3 Re4 27. h4 Ne5+ 28. Nxe5 Rxe5 29. gxh6 g6 30. h7+ Kh8 31. h5 Rxh5 32. Rd1 Re8 33. Rh1 Rg5+ 34. Kxg5 Re5+ 35. Kg4 Rh5 36. Rxh5 gxh5+ 37. Kxf4 Kxh7 38. Qf3 Kg6 39. Qe4+ Kg7 40. Qg2+ Kh6 41. Qg5+ Kh7 42. Rg1 Kh8 43. Qg7# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "13"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "caro_kann"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 5. Ng3 Be6 6. Nf3 g6 7. Bd3 Bg4 8. O-O Nf6 9. h3 Bc8 10. Re1 a5 11. Bg5 Bg7 12. c3 a4 13. Qe2 O-O 14. Rad1 Nbd7 15. Bc2 Qc7 16. Qxe7 h6 17. Bxf6 a3 18. Bxg7 Kxg7 19. bxa3 Ra5 20. Bb3 Rb5 21. Ne4 Rf5 22. Nd6 Qxd6 23. Qxd6 Rxf3 24. gxf3 Nf6 25. Qxf8+ Kxf8 26. f4 Be6 27. Bxe6 Nh7 28. Bc4 Ng5 29. h4 Nh3+ 30. Kf1 b6 31. f5 Nxf2 32. Kxf2 gxf5 33. d5 cxd5 34. Bxd5 b5 35. Re5 Kg8 36. Bxf7+ Kg7 37. Bd5 f4 38. Rg1+ Kf6 39. Re6+ Kf5 40. Re7 h5 41. Rf7+ Ke5 42. Bf3 Kd6 43. Rd1+ Kc5 44. Rf8 Kb6 45. Rfd8 Kc7 46. Ra8 Kb6 47. Rb8+ Ka7 48. Rxb5 Ka6 49. Rb8 Ka7 50. Rf8 Ka6 51. Ra8+ Kb5 52. Rd5+ Kb6 53. Rg5 Kc7 54. Ra7+ Kd6 55. Rxh5 Ke6 56. Rh6+ Ke5 57. Ra5# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "14"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "caro_kann"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 5. Ng5 h6 6. N5f3 Nd7 7. Bd3 Bxd3 8. cxd3 e6 9. Ne2 Bd6 10. Bd2 Ne7 11. Nc3 O-O 12. Qe2 Re8 13. g4 Nd5 14. O-O-O Nxc3 15. bxc3 Nf6 16. Rdg1 c5 17. g5 hxg5 18. dxc5 Bxc5 19. Rxg5 Bd6 20. h4 Rc8 21. h5 Nd5 22. h6 Ba3+ 23. Kc2 g6 24. c4 Nb4+ 25. Kb3 Nxd3 26. Qe4 Nc5+ 27. Rxc5 Bxc5 28. Kc2 Bxf2 29. Qe5 f6 30. Qf4 g5 31. Qe4 Qb6 32. Bxg5 f5 33. Qe2 Kh7 34. Rb1 Qa6 35. Kd1 Bg3 36. Qb2 e5 37. Qxb7+ Qxb7 38. Rxb7+ Kg6 39. Rg7+ Kh5 40. Bd2 e4 41. Rg5+ Kxh6 42. Rxg3+ Kh7 43. Ng5+ Kg6 44. Nxe4+ Kh7 45. Nf6+ Kh8 46. Nxe8 Rxe8 47. Bc3+ Kh7 48. Rg7+ Kh6 49. Kd2 Re4 50. Kd3 Rf4 51. Rg1 Rf3+ 52. Kc2 Rf2+ 53. Kd3 Rxa2 54. c5 Ra3 55. c6 Rxc3+ 56. Kxc3 f4 57. Rh1+ Kg7 58. c7 f3 59. c8=Q f2 60. Qd7+ Kg6 61. Qe6+ Kg7 62. Qc8 a5 63. Qh8+ Kf7 64. Qh5+ Kg7 65. Qg4+ Kf8 66. Rh8+ Ke7 67. Qg5+ Kd7 68. Qf5+ Kc6 69. Qf3+ Kd6 70. Qf8+ Kd7 71. Qf5+ Kc6 72. Rh6+ Kb7 73. Qd7+ Kb8 74. Qd8+ Kb7 75. Qe7+ Kc8 76. Qe8+ Kb7 77. Qd7+ Kb8 78. Rh1 f1=Q 79. Rh8+ Qf8 80. Rxf8# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "15"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "pirc"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Nf3 a6 5. h3 b5 6. e5 Nfd7 7. e6 Nf6 8. exf7+ Kxf7 9. Bd3 Bb7 10. Ng5+ Ke8 11. O-O Qd7 12. Re1 Qc6 13. d5 Nxd5 14. Nxh7 Ne3 15. Bxg6+ Kd7 16. Nxf8+ Rxf8 17. Qd5 Qxd5 18. Nxd5 Nxd5 19. Be4 e6 20. Rd1 Rh8 21. Bg5 Kc8 22. a4 Nd7 23. axb5 axb5 24. Rxa8+ Bxa8 25. Bxd5 Bxd5 26. Be7 Rh7 27. Bg5 Bb7 28. Rd4 Rh8 29. c3 Bc6 30. b4 e5 31. Rd1 Rg8 32. Be3 Bxg2 33. Ra1 Bf3+ 34. Kh2 Rf8 35. Rg1 Be2 36. Bh6 Re8 37. Rg3 Bc4 38. Rg7 Rd8 39. Re7 c5 40. Bg5 Rh8 41. f4 exf4 42. Bxf4 Bd5 43. Bxd6 Rh6 44. Bxc5 Rg6 45. Bf2 Kd8 46. Bh4 Bc6 47. Re6+ Nf6 48. Rxc6 Kd7 49. Rxf6 Rh6 50. Rxh6 Ke8 51. Bg3 Kd7 52. Rf6 Kd8 53. Rc6 Ke7 54. Bf4 Ke8 55. Rc8+ Kf7 56. Rc7+ Kg8 57. Kg3 Kh8 58. Kg4 Kg8 59. Kg5 Kh8 60. Kg6 Kg8 61. Rc8# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "16"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "pirc"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Nge2 Bg7 5. Ng3 O-O 6. Bg5 h6 7. Bh4 g5 8. e5 gxh4 9. exf6 Bxf6 10. Nge4 Bg7 11. Bd3 Nc6 12. Ne2 d5 13. N4g3 Nxd4 14. Nh5 Nxe2 15. Bxe2 Bxb2 16. Qd2 Bxa1 17. O-O Bg7 18. h3 e5 19. c3 e4 20. Qf4 Qe7 21. a3 Be6 22. g3 Bxh3 23. Bg4 Bxf1 24. Bd7 Qxd7 25. Nf6+ Bxf6 26. Qxh6 Bg7 27. Qe3 Bh3 28. Qd2 Bg4 29. Qf4 h3 30. Kh2 Rfe8 31. Qe3 d4 32. cxd4 Qxd4 33. Qxd4 Bxd4 34. f4 exf3 35. Kh1 Re2 36. a4 f2 37. Kh2 f1=Q# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "17"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1/2-1/2"]
+[Opening "scandinavian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. Nf3 c6 5. d4 Bf5 6. Bd3 e6 7. O-O Nf6 8. Re1 Bg4 9. h3 Bh5 10. Qe2 Bxf3 11. Qxf3 Nbd7 12. Bd2 Be7 13. Ne4 Qb6 14. c3 a5 15. b3 O-O 16. Bg5 a4 17. Nxf6+ Nxf6 18. bxa4 Qa5 19. Bd2 Rfd8 20. Rab1 Rd7 21. Qe2 g6 22. c4 Qd8 23. Bh6 Bf8 24. Be3 Rxa4 25. Rb3 Qa8 26. g3 Rxa2 27. Qc2 Rxc2 28. Bxc2 Be7 29. Reb1 Qa6 30. Bd1 h6 31. Kg2 Qxc4 32. Bf3 Qc2 33. Rxb7 Rxb7 34. Rxb7 Bf8 35. Kg1 Bd6 36. Bxh6 g5 37. Bxg5 Ne4 38. Be3 Nc3 39. Bh6 Qd3 40. Bxc6 Qg6 41. Be3 Qf5 42. Kg2 Qa5 43. Bd2 Qa1 44. Bf3 Na4 45. Ra7 Kg7 46. Rxa4 Qxa4 47. Be3 e5 48. dxe5 Ba3 49. h4 Qa5 50. h5 Kg8 51. h6 Bb2 52. e6 Kf8 53. h7 Qf5 54. exf7 Ba1 55. h8=Q+ Bxh8 56. Bh6+ Kxf7 57. Bf4 Qb1 58. Be3 Qc2 59. Bd5+ Kf8 60. Bh6+ Bg7 61. Bxg7+ Ke7 62. Bf3 Qc1 63. Be4 Kf7 64. Be5 Kg8 65. g4 Qd2 66. Kg3 Qa5 67. f4 Qa4 68. Bg6 Qd1 69. f5 Qe2 70. Bc3 Qc4 71. Be5 Qd3+ 72. Kf4 Qd2+ 73. Ke4 Qc2+ 74. Kd5 Qa2+ 75. Kc5 Qa7+ 76. Kd6 Qa6+ 77. Ke7 Qxg6 78. fxg6 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "18"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "scandinavian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. h3 Nc6 5. Nf3 e5 6. Bb5 Ne7 7. Nxe5 a6 8. b4 Qxb4 9. Rb1 Qxb1 10. Nxb1 axb5 11. Nd3 Bf5 12. Nc3 O-O-O 13. Nxb5 Bxd3 14. cxd3 Rxd3 15. Qc2 Rd5 16. a4 Rd8 17. Qc4 Nd5 18. O-O Rd7 19. Kh1 Nb6 20. Qc2 Rd5 21. d4 Bb4 22. g3 Rh5 23. Kg1 Rxh3 24. Qe4 Rh5 25. Qg4+ Kd8 26. Qxh5 f6 27. Qf7 Rf8 28. Qxc7+ Ke8 29. Bf4 Nd5 30. Qxb7 Nce7 31. Bd6 Kf7 32. f3 Bxd6 33. Nxd6+ Ke6 34. Re1+ Kxd6 35. f4 Nf5 36. Kf2 Nxd4 37. Qa6+ Kd7 38. Ra1 Nc2 39. Rc1 Ncb4 40. Qb7+ Ke6 41. Rh1 Nd3+ 42. Kf1 N5xf4 43. Qb6+ Kf7 44. Qa7+ Kg8 45. Qc7 h6 46. gxf4 Nxf4 47. Qxf4 Ra8 48. Kf2 g5 49. Qf5 Kg7 50. Qe4 Rd8 51. Qe7+ Kg6 52. Qa3 Rd2+ 53. Ke3 Rd5 54. Qc1 Re5+ 55. Kd3 Rf5 56. Qb1 Ra5 57. Kd4+ Kg7 58. Qb7+ Kg6 59. Qb3 f5 60. Qe6+ Kg7 61. Qd7+ Kg8 62. Qe6+ Kg7 63. Qd7+ Kg6 64. Ra1 Ra6 65. Kc5 f4 66. Qh3 Rc6+ 67. Kb5 Rc7 68. Qd3+ Kg7 69. Qf1 Rc3 70. Rc1 Rxc1 71. Qxc1 f3 72. Qd1 f2 73. Kc6 Kg6 74. Qf1 h5 75. Qxf2 h4 76. Kd7 h3 77. Qh2 Kf6 78. Qg3 Kf7 79. Qxh3 Kg6 80. Qe6+ Kh7 81. Qb6 g4 82. Kd8 g3 83. Qc7+ Kg6 84. Qc1 g2 85. Qd1 g1=Q 86. Qxg1+ Kf7 87. Qa7+ Kf6 88. Ke8 Ke6 89. a5 Kd5 90. Kd8 Kc6 91. Qd7+ Kc5 92. a6 Kb6 93. a7 Ka6 94. a8=Q+ Kb6 95. Qdc6# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "19"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "queens_gambit"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 Nxd5 5. e4 Ne7 6. Nf3 a6 7. Be3 b5 8. h4 Bb7 9. h5 h6 10. d5 Nd7 11. dxe6 fxe6 12. a3 Nf6 13. Qxd8+ Kxd8 14. Rd1+ Kc8 15. Rh4 g6 16. e5 Nxh5 17. Be2 Nf5 18. Rh3 Nxe3 19. fxe3 b4 20. axb4 Ng7 21. Nh4 g5 22. Ng6 Bxg2 23. Rh2 Rg8 24. Rxg2 c6 25. Nxf8 Nf5 26. Nxe6 Re8 27. Nc5 Nxe3 28. Rf2 a5 29. Rd6 a4 30. Rxc6+ Kd8 31. Rd6+ Kc7 32. Rd7+ Kc8 33. e6 Nd1 34. Kxd1 a3 35. e7 axb2 36. Rf7 Ra3 37. Nd5 Ra1+ 38. Kc2 b1=Q+ 39. Kc3 Ra3+ 40. Kd2 Qb2+ 41. Ke1 Qa1+ 42. Kf2 g4 43. Nb6+ Kb8 44. Rb7# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "20"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1-0"]
+[Opening "queens_gambit"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bf4 Bb4 5. Nf3 dxc4 6. e3 b5 7. a4 Nd5 8. Qc2 Nxf4 9. exf4 c6 10. g3 O-O 11. Ng5 Bxc3+ 12. bxc3 g6 13. Nf3 Nd7 14. h4 Bb7 15. Bg2 c5 16. axb5 cxd4 17. O-O d3 18. Qa4 Nb6 19. Qa5 Qd5 20. Rfe1 d2 21. Reb1 Rfe8 22. Rd1 h6 23. Qa3 Red8 24. Qb4 a5 25. bxa6 Bxa6 26. Qxb6 Bb7 27. Rxa8 Bxa8 28. h5 gxh5 29. Rxd2 Qd6 30. Rxd6 Rxd6 31. Qxd6 Kh7 32. Ng5+ Kg6 33. Nf3 Kg7 34. Qd4+ Kg8 35. Qd8+ Kg7 36. Qa5 Bc6 37. Qe5+ Kg8 38. Qd6 Bxf3 39. Qa3 Bd1 40. Qd6 Bg4 41. Qd8+ Kh7 42. Qf8 Bf5 43. Qxf7+ Kh8 44. Qxh5 Kg7 45. Bh1 Bb1 46. g4 Bd3 47. Ba8 Be2 48. f3 Kh7 49. Qe5 Bxf3 50. Qc7+ Kg8 51. Qb8+ Kg7 52. Qe5+ Kg8 53. Qxe6+ Kh8 54. Qe5+ Kg8 55. Bxf3 Kf7 56. Be4 Kg8 57. Qe6+ Kf8 58. Bd5 Kg7 59. Qe7+ Kh8 60. Qe5+ Kh7 61. Qe4+ Kg7 62. Qe6 h5 63. Qf7+ Kh8 64. g5 h4 65. Bxc4 h3 66. Qh5+ Kg7 67. Kf1 h2 68. Qh6# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "21"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "slav"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. cxd5 Qxd5 5. Nc3 Qe6 6. e3 a5 7. Be2 g6 8. O-O Bh6 9. e4 Ng8 10. e5 b6 11. Re1 Qd7 12. Bxh6 Qg4 13. Bc1 Qxf3 14. Bxf3 Kd8 15. d5 Ba6 16. Bg5 h6 17. e6 fxe6 18. dxe6+ Ke8 19. Bf4 b5 20. Bxc6+ Nxc6 21. Nxb5 Kf8 22. Nc7 Nd4 23. Qxd4 Bb7 24. Qd7 Bc6 25. Qxc6 Rb8 26. Be5 Nf6 27. Bxf6 Rc8 28. Bxh8 Kg8 29. Be5 g5 30. Rad1 Rf8 31. Qd5 a4 32. Qd7 h5 33. Qxe7 Re8 34. Qg7# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "22"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "slav"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nbd2 e6 5. e3 c5 6. dxc5 Bxc5 7. Be2 O-O 8. b3 Nc6 9. cxd5 Nxd5 10. Nc4 Nc3 11. Qxd8 Rxd8 12. a4 Nb4 13. Nd4 Bxd4 14. Bb2 Nxe2 15. Rd1 Nc3 16. Rd2 e5 17. f3 Be6 18. Kf2 Nxa4 19. Ba3 Bxe3+ 20. Kxe3 Rxd2 21. Nxd2 Nc3 22. Ne4 Nxe4 23. Kxe4 a5 24. Bxb4 axb4 25. Ke3 h6 26. Rb1 Ra2 27. Rc1 Rb2 28. Rb1 Rxb1 29. f4 Rxb3+ 30. Kf2 Rb2+ 31. Ke3 exf4+ 32. Kf3 b3 33. Kxf4 Rxg2 34. Kf3 Rxh2 35. Kg3 Rc2 36. Kf4 b2 37. Kf3 b1=Q 38. Ke3 Qe1+ 39. Kf4 Qe2 40. Kg3 Qf2# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "23"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1/2-1/2"]
+[Opening "kings_indian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 Nbd7 6. h3 b6 7. e5 dxe5 8. dxe5 Ng8 9. Bf4 a6 10. Qd5 Rb8 11. e6 fxe6 12. Qxe6 Nc5 13. Qe3 Qd7 14. Rd1 Qc6 15. b4 Qe6 16. Qxe6 Bxc3+ 17. Rd2 Bxe6 18. bxc5 Bxd2+ 19. Bxd2 bxc5 20. Ng5 Rb1+ 21. Ke2 Bxc4+ 22. Kf3 Bxa2 23. Bxa6 Rb8 24. Re1 Nh6 25. Be3 O-O+ 26. Ke2 Nf5 27. Bxc5 Rf6 28. Bd3 Bd5 29. g4 Rb2+ 30. Kf1 Nd6 31. Bd4 Rb4 32. Be5 Rf8 33. Bxd6 exd6 34. Kg1 c6 35. Re7 Rb3 36. Bc2 Rbb8 37. Nxh7 Rf7 38. Nf6+ Kg7 39. Rxf7+ Bxf7 40. Ne4 d5 41. Ng5 c5 42. Nxf7 Rb2 43. Bxg6 Kxg6 44. Ne5+ Kg7 45. Nd3 Rb5 46. Kg2 Kf6 47. Nf4 c4 48. Nxd5+ Rxd5 49. f4 Kf7 50. Kf2 Rd3 51. Ke2 Rc3 52. f5 Kf8 53. Kf2 Rxh3 54. Kg2 Rb3 55. f6 Ke8 56. Kf2 Kd7 57. f7 Ke7 58. f8=Q+ Kxf8 59. Ke2 Rd3 60. Kf2 Rd1 61. Ke2 Rd7 62. Kf3 Ke8 63. Ke4 Rf7 64. Kd5 c3 65. Ke6 c2 66. Kd6 Ra7 67. Ke6 Rf7 68. g5 c1=Q 69. g6 Qb2 70. gxf7+ Kf8 71. Kd5 Qb7+ 72. Kc5 Qb1 73. Kd6 Qh1 74. Ke6 Qd1 75. Kf6 Qh5 76. Ke6 Qh1 77. Kd6 Qh5 78. Ke6 Qd1 79. Kf6 Qd6+ 80. Kf5 Qd2 81. Ke6 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "24"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1/2-1/2"]
+[Opening "kings_indian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Bg5 h6 7. Be3 Ng4 8. Be2 Nxe3 9. fxe3 c5 10. Qd3 cxd4 11. exd4 Nc6 12. h3 Qa5 13. a3 Bd7 14. Rd1 Rae8 15. Qe3 e5 16. d5 Nd4 17. Rd2 Nxf3+ 18. Qxf3 Qb6 19. g4 a5 20. Qf2 Qd8 21. Rf1 a4 22. Bd3 b6 23. Rc2 f5 24. exf5 gxf5 25. Bxf5 Rxf5 26. gxf5 e4 27. Rg1 e3 28. Qg3 Qf6 29. Nb5 Bxf5 30. Re2 Bd3 31. Nxd6 Rd8 32. Rxe3 Bg6 33. Qxg6 Qxb2 34. Re8+ Rxe8+ 35. Qxe8+ Kh7 36. Rxg7+ Qxg7 37. Nb5 Qg3+ 38. Kf1 Qxh3+ 39. Kg1 Qg4+ 40. Kf1 Qf4+ 41. Kg1 Qg3+ 42. Kh1 Qh3+ 43. Kg1 Qg3+ 44. Kh1 Qh3+ 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "25"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "grunfeld"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 e5 7. Nf3 Bg7 8. dxe5 Nc6 9. Qxd8+ Nxd8 10. Be3 O-O 11. h4 h5 12. a4 Nc6 13. Bc4 Re8 14. Bb5 Bd7 15. O-O-O Bg4 16. Bxc6 bxc6 17. Rd4 Bxe5 18. Nxe5 Rxe5 19. f3 Be6 20. Rhd1 Ra5 21. Rb4 Re8 22. Rbd4 f5 23. f4 Kg7 24. e5 Rc8 25. R1d2 Kg8 26. g3 Kf7 27. Kb2 c5 28. R4d3 Rb8+ 29. Kc2 Ke7 30. Rd6 cxd6 31. exd6+ Kd8 32. d7 Bb3+ 33. Kb2 Rxa4 34. Bxc5 Bd5+ 35. Kc1 Ra1+ 36. Kc2 Ra2+ 37. Kd1 Rxd2+ 38. Kxd2 Rb7 39. c4 Bg2 40. Bd6 Be4 41. Ke3 Rxd7 42. Be5 Kc8 43. c5 a6 44. c6 Rd3+ 45. Kf2 Rf3+ 46. Ke2 Bxc6 47. Bd6 Rc3 48. Be5 Rxg3 49. Kf2 Rf3+ 50. Ke1 Kb7 51. Ke2 Ka8 52. Bd4 a5 53. Be5 Kb7 54. Bd6 Rb3 55. Be7 Rh3 56. Kf2 Rh1 57. Bc5 Bb5 58. Kg3 Bc6 59. Bf2 a4 60. Bd4 Ka6 61. Bc3 Kb5 62. Be5 Rg1+ 63. Kf2 Rd1 64. Ke2 Rb1 65. Ke3 Kc4 66. Bg7 a3 67. Bd4 a2 68. Bb2 g5 69. fxg5 Rxb2 70. g6 a1=Q 71. Kf4 Rf2+ 72. Kg5 Qh8 73. g7 Qxg7+ 74. Kxh5 Bf3# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "26"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1/2-1/2"]
+[Opening "grunfeld"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 c6 5. cxd5 cxd5 6. Qb3 Nc6 7. Bf4 Bg7 8. e3 O-O 9. h3 a6 10. Rc1 b5 11. Bh2 Na5 12. Qb4 Nc4 13. b3 Ne4 14. a4 Nxc3 15. Rxc3 a5 16. Qc5 b4 17. Rc2 Bf5 18. Rxc4 dxc4 19. Bc7 Qxc7 20. Qxc7 c3 21. g4 Be4 22. Bg2 c2 23. Kd2 Rac8 24. Qxe7 Bd5 25. Qd7 Bxb3 26. Qb5 c1=Q+ 27. Rxc1 Rxc1 28. Kxc1 Ba2 29. Kb2 Be6 30. Kb1 b3 31. Ne1 h5 32. Bf3 hxg4 33. Bxg4 Bh6 34. Bxe6 Bxe3 35. Bxf7+ Kg7 36. f3 Bxd4 37. Bxb3 Be3 38. Qxa5 Rc8 39. Qe5+ Kh7 40. Qxe3 Rb8 41. Qa7+ Kh6 42. Qe3+ Kg7 43. Qa7+ Kh6 44. Qe3+ Kg7 45. Qe7+ Kh6 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "27"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "1-0"]
+[Opening "nimzo_indian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Ba5 5. b4 Bb6 6. c5 Nd5 7. Nxd5 Bxc5 8. bxc5 exd5 9. e3 c6 10. Nf3 h6 11. Bd3 h5 12. O-O O-O 13. e4 dxe4 14. Bxe4 f5 15. Bc2 d6 16. cxd6 Be6 17. Ng5 Qe8 18. Nxe6 Qxe6 19. Bg5 Qg6 20. Bf4 Na6 21. Re1 Rae8 22. Rxe8 Qg4 23. Rxf8+ Kxf8 24. Qxg4 hxg4 25. Bxf5 g3 26. hxg3 Nb8 27. Bc8 g6 28. Bxb7 c5 29. dxc5 g5 30. Bxg5 Kg7 31. Be7 Kg8 32. c6 Nxc6 33. Bxc6 a6 34. d7 a5 35. d8=Q+ Kh7 36. Qd7 Kg7 37. Qe6 a4 38. Qf5 Kg8 39. Qg6+ Kh8 40. Bf6# 1-0
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "28"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "0-1"]
+[Opening "nimzo_indian"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 d5 5. a3 Bxc3+ 6. bxc3 O-O 7. a4 b6 8. Ne2 dxc4 9. Nf4 Bb7 10. Ba3 c5 11. Bxc4 Nc6 12. dxc5 Qxd1+ 13. Rxd1 Na5 14. Bb5 bxc5 15. Bxc5 Rfc8 16. Be7 a6 17. Bf1 Be4 18. Bb4 Nc6 19. Bd3 Bxd3 20. Rxd3 Nxb4 21. cxb4 Rc1+ 22. Rd1 Rxd1+ 23. Kxd1 a5 24. Ke2 axb4 25. Nd3 Rxa4 26. Rb1 h6 27. Ke1 Nd5 28. g3 Ra8 29. h4 Nc3 30. Rb2 Ra4 31. Rxb4 Rxb4 32. Nxb4 Kf8 33. h5 Ke7 34. f4 Ne4 35. Nc6+ Kd6 36. Ne5 f6 37. Nf3 Nxg3 38. Nd4 Nxh5 39. Kf2 g6 40. Nf3 g5 41. Nd2 gxf4 42. Ne4+ Kd5 43. Kf3 f5 44. Nd2 fxe3 45. Nf1 Kd4 46. Nxe3 f4 47. Nc2+ Kd3 48. Ne1+ Kd4 49. Kg4 Nf6+ 50. Kxf4 Nd5+ 51. Kg4 Ke3 52. Ng2+ Ke4 53. Kh4 e5 54. Kh3 Nf4+ 55. Kh2 Nd3 56. Nh4 Nf4 57. Kg1 Ne6 58. Kh1 Nd4 59. Kg2 Ke3 60. Kg3 e4 61. Kg4 Kf2 62. Ng6 e3 63. Ne5 e2 64. Kf4 e1=Q 65. Ng4+ Ke2 66. Nxh6 Qh4+ 67. Ke5 Qxh6 68. Ke4 Qh4+ 69. Ke5 Nf3+ 70. Kf5 Qh3+ 71. Kf6 Qd7 72. Kg6 Qg4+ 73. Kh7 Qe4+ 74. Kg8 Qe6+ 75. Kf8 Qf6+ 76. Ke8 Qc6+ 77. Kd8 Qd6+ 78. Kc8 Qc6+ 79. Kd8 Qd6+ 80. Kc8 Qe7 81. Kb8 Qd7 82. Ka8 Ne5 83. Kb8 Nc6+ 84. Ka8 Qc8# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "29"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "english"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. c4 e5 2. Nc3 Nf6 3. g3 d5 4. cxd5 Bg4 5. h3 Bf5 6. e4 Nxe4 7. Qa4+ c6 8. Nxe4 Be7 9. Nc3 b5 10. Qd1 b4 11. g4 Bg6 12. Na4 Qxd5 13. Nf3 Nd7 14. d3 f5 15. Be3 f4 16. Bd2 c5 17. Rc1 h5 18. gxh5 Bxh5 19. Bg2 e4 20. dxe4 Qxe4+ 21. Qe2 Qc6 22. Bxf4 Rf8 23. Bg5 Rf7 24. b3 Bxf3 25. Bxf3 Qxf3 26. Qxf3 Rxf3 27. Bxe7 Kxe7 28. Nxc5 a5 29. Ke2 Rf6 30. Rhd1 Ra7 31. Nxd7 Rxd7 32. Rxd7+ Kxd7 33. Rd1+ Ke6 34. Rd3 Rh6 35. Kd2 g5 36. Rg3 Kf6 37. Rf3+ Ke5 38. Ke3 Rh7 39. Rg3 Rg7 40. h4 g4 41. h5 Kf5 42. h6 Rh7 43. Kd2 Rh8 44. h7 Kf4 45. Kd3 Rxh7 46. Rg2 Rh6 47. Kd4 Rh8 48. Kd3 Rh5 49. Kd4 Rh3 50. Rg1 Rh2 51. Rf1 Kf3 52. Re1 Rh8 53. Re5 Rf8 54. Rxa5 Kxf2 55. Re5 Rf4+ 56. Kd5 g3 57. Re4 Rf5+ 58. Ke6 Rg5 59. Rf4+ Ke3 60. Rxb4 g2 61. Rg4 Rxg4 62. Kd5 g1=Q 63. Ke5 Qh2+ 64. Ke6 Rg2 65. a3 Qh3+ 66. Kf7 Qh7+ 67. Kf6 Qh6+ 68. Kf7 Rg7+ 69. Ke8 Rg5 70. Kd7 Rg7+ 71. Kc8 Qh3+ 72. Kb8 Re7 73. b4 Rf7 74. a4 Kf3 75. Ka8 Qh8# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "30"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1/2-1/2"]
+[Opening "english"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. c4 e5 2. Nc3 Nf6 3. g3 d5 4. Nxd5 Nxd5 5. cxd5 Qxd5 6. Qa4+ Bd7 7. e4 Qc6 8. b3 Qxa4 9. bxa4 Nc6 10. Rb1 Nb4 11. Nf3 Nxa2 12. Bc4 Nxc1 13. O-O Nd3 14. Bxd3 f6 15. Bb5 c6 16. Bc4 b6 17. Rfd1 Bc5 18. d4 exd4 19. e5 O-O-O 20. e6 Bxe6 21. Bxe6+ Kb8 22. Ne1 Rhe8 23. Bf7 Re7 24. Bc4 h5 25. Ba6 g5 26. Kf1 g4 27. Nd3 Bd6 28. Rd2 Bc7 29. Re2 Rxe2 30. Kxe2 h4 31. Nb4 Rd6 32. Nd3 Rd5 33. Ra1 Ra5 34. Nb4 hxg3 35. Nxc6+ Ka8 36. Bb5 gxh2 37. Rd1 h1=Q 38. Rxh1 a6 39. Rh7 axb5 40. Nxa5 bxa5 41. Rxc7 bxa4 42. Kd2 a3 43. Rc4 a2 44. Rc1 Kb7 45. Rd1 Kc7 46. Ra1 g3 47. fxg3 Kd6 48. Ke2 Kc5 49. Kd2 Kc4 50. Kc2 d3+ 51. Kb2 d2 52. Kc2 d1=Q+ 53. Rxd1 a4 54. Ra1 Kd4 55. Rxa2 Ke3 56. g4 Ke4 57. Rb2 Kf4 58. Rb4+ Ke3 59. Kc3 a3 60. Rd4 a2 61. Rd1 Kf3 62. Kd3 Kxg4 63. Ke4 f5+ 64. Kd4 f4 65. Rf1 Kg3 66. Ra1 f3 67. Kd3 f2 68. Ke2 Kg2 69. Rd1 Kg3 70. Rf1 Kg2 71. Ra1 f1=Q+ 72. Rxf1 Kg3 73. Ke3 Kg2 74. Ra1 Kg3 75. Rg1+ Kh2 76. Kf2 Kh3 77. Re1 Kg4 78. Ra1 Kg5 79. Kg3 Kf5 80. Rf1+ Ke5 81. Ra1 Ke4 82. Kh4 Ke5 83. Kg3 Ke6 84. Kf4 Kf6 85. Rxa2 Ke6 86. Ra8 Kf6 87. Ra2 Kg6 88. Ra6+ Kg7 89. Kf3 Kf7 90. Ke3 Kg7 91. Kd3 Kf7 92. Kc4 Kg7 93. Ra4 Kf7 94. Ra2 Kg6 95. Kb3 Kf5 96. Kb2 Ke5 97. Ka3 Kd6 98. Ra1 Kc5 99. Kb2 Kd4 100. Ra3 Kc4 101. Ka2 Kd4 102. Ra6 Ke3 103. Rh6 Kd3 104. Rh1 Kc2 105. Rh3 Kc1 106. Rh6 Kc2 107. Rg6 Kd2 108. Rg4 Kc1 109. Rg8 Kc2 110. Rg1 Kd3 111. Rg7 Ke3 112. Rg1 Kd3 113. Rg3+ Kc2 114. Ra3 Kc1 115. Rg3 Kc2 116. Rb3 Kd2 117. Kb1 Ke1 118. Kc1 Kf2 119. Kd2 Kg1 120. Ke1 Kg2 121. Ke2 Kg1 122. Ke3 Kg2 123. Rb7 Kg3 124. Re7 Kg4 125. Ke4 Kg5 126. Kd5 Kf6 127. Ra7 Kg5 128. Kc6 Kf6 129. Kc7 Kf5 130. Ra6 Ke5 131. Kb8 Kd5 132. Ra2 Kc6 133. Rd2 Kb6 134. Rd1 Kc6 1/2-1/2
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "31"]
+[White "FlyWire v10 B26M"]
+[Black "SF19 UCI_Elo 1500"]
+[Result "0-1"]
+[Opening "reti"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. Nf3 d5 2. c4 e6 3. g3 Nf6 4. cxd5 Nxd5 5. Bg2 c5 6. O-O Nc6 7. e4 Ndb4 8. Nc3 Nd3 9. Qe2 Rb8 10. b3 h5 11. e5 b5 12. Ne1 Ncxe5 13. Ne4 Qd4 14. Nxd3 Nxd3 15. Ba3 h4 16. Bxc5 Nxc5 17. Rfd1 Nd3 18. h3 Rh6 19. Qxd3 Qxd3 20. Rac1 Qd8 21. Rxc8 Rxc8 22. g4 Bc5 23. Nxc5 Qc7 24. Ne4 Rg6 25. Nd6+ Qxd6 26. Bf1 Qd7 27. Bg2 Qd8 28. Bf1 a6 29. Kg2 Rg5 30. d4 Rb8 31. Be2 Rd5 32. Bf3 a5 33. Be4 Rd6 34. d5 Rbb6 35. dxe6 Ke7 36. Rxd6 Kxd6 37. exf7 Qf8 38. a4 Qxf7 39. axb5 g6 40. g5 Rxb5 41. Bd3 Qd5+ 42. Kh2 Qxd3 43. f4 a4 44. b4 Qg3+ 45. Kh1 Qe1+ 46. Kg2 Rxb4 47. Kf3 Qd2 48. Kg4 Rxf4# 0-1
+
+[Event "FlyWire v10 rating probe"]
+[Site "?"]
+[Date "2026.09.23"]
+[Round "32"]
+[White "SF19 UCI_Elo 1500"]
+[Black "FlyWire v10 B26M"]
+[Result "1/2-1/2"]
+[Opening "reti"]
+[Termination "normal"]
+[Search "FlyWire PUCT 64; Stockfish depth 8"]
+
+1. Nf3 d5 2. c4 e6 3. g3 Nf6 4. Bg2 dxc4 5. Qa4+ Bd7 6. Qxc4 c5 7. Nc3 Nc6 8. a3 Rc8 9. d3 Be7 10. Bg5 h6 11. Bxf6 Bxf6 12. Rb1 Nd4 13. e3 b5 14. Qa2 Nxf3+ 15. Bxf3 Bxc3+ 16. bxc3 Qf6 17. Bg2 Qxc3+ 18. Ke2 c4 19. Be4 cxd3+ 20. Bxd3 O-O 21. Qb2 Qxb2+ 22. Rxb2 e5 23. Rd1 Rfd8 24. Rbd2 Be6 25. Bh7+ Kxh7 26. Rxd8 Rxd8 27. Rxd8 a5 28. Rb8 b4 29. axb4 axb4 30. Kd3 b3 31. Ke4 f6 32. Kd3 Bd5 33. Rb6 f5 34. Kd2 b2 35. Kc3 b1=Q 36. Rxb1 Bc6 37. Rc1 f4 38. gxf4 exf4 39. Kd2 fxe3+ 40. Ke2 Be4 41. fxe3 Kg6 42. Rg1+ Kf6 43. Ra1 Ke5 44. Ra4 Bc2 45. Ra5+ Kf6 46. Rc5 Be4 47. Ra5 Bb7 48. Ra4 Bc6 49. Rb4 Bg2 50. h4 Bh3 51. Kf2 Bc8 52. Kg3 Be6 53. Rd4 Kf5 54. Ra4 Ke5 55. Kf2 Bb3 56. Ra3 Bc4 57. Ra5+ Ke6 58. Kf3 Kf6 59. e4 g5 60. Rc5 Bf7 61. Rf5+ Kg6 62. hxg5 hxg5 63. Ke2 Be6 64. Ra5 Bc4+ 65. Kd2 g4 66. Rc5 g3 67. Rxc4 g2 68. Rc1 Kf6 69. Ke3 Ke6 70. Rd1 Ke5 71. Ra1 g1=Q+ 72. Rxg1 Ke6 73. Kf4 Kf6 74. Rg2 Ke6 75. Rd2 Kf6 76. Rg2 Ke6 77. Rb2 Kf6 1/2-1/2
+

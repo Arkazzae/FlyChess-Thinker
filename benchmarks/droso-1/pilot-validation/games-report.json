@@ -1,0 +1,563 @@
+{
+  "identity": {
+    "subject": {
+      "checkpoint": "source/runs/v10-fresh-20260923/snapshots/A1048576-B1048576.pt",
+      "sha256": "69356613c10ca50ae9fe7827f820b5e53f7853cf4f40b78a1d830ca257997e56",
+      "arm": "A",
+      "seen": 1048576,
+      "step": 4096,
+      "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+      "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+      "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+      "name": "fresh_A",
+      "player": "current_CP_PUCT"
+    },
+    "opponent": {
+      "checkpoint": "source/runs/v10-fresh-20260923/snapshots/A1048576-B1048576.pt",
+      "sha256": "69356613c10ca50ae9fe7827f820b5e53f7853cf4f40b78a1d830ca257997e56",
+      "arm": "B",
+      "seen": 1048576,
+      "step": 4096,
+      "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+      "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+      "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+      "name": "fresh_B",
+      "player": "current_CP_PUCT"
+    },
+    "simulations": 64,
+    "c_puct": 1.5,
+    "openings_sha256": "b19668fb8bd6dca346f4bb534671fdeac408c30d13eb31009409ea6f0bdcc2e1",
+    "split": "validation",
+    "opening_count": 16,
+    "teacher_nodes": 200000,
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "evaluation_code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7"
+    }
+  },
+  "games": 32,
+  "wins": 13,
+  "draws": 7,
+  "losses": 12,
+  "score": 0.515625,
+  "opening_cluster_95": [
+    0.34375,
+    0.6875
+  ],
+  "uncertainty": "empirical opening-cluster bootstrap",
+  "adjudicated": 6,
+  "unique_trajectories": 32,
+  "legal_pgn_verified": true,
+  "seconds": 709.2284484139964,
+  "details": [
+    {
+      "game": 0,
+      "opening": 0,
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "8/6K1/7p/7P/8/3k4/8/8 w - - 4 109",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": 625,
+        "mate": null,
+        "depth": 21,
+        "actual_nodes": 200162,
+        "pv": [
+          "g7h6",
+          "d3c3",
+          "h6g6",
+          "c3c4",
+          "h5h6",
+          "c4d5",
+          "g6f5",
+          "d5c6",
+          "f5e5",
+          "c6c5",
+          "h6h7",
+          "c5c6",
+          "e5e6",
+          "c6c5",
+          "e6f5"
+        ],
+        "wdl": [
+          1000,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "game": 1,
+      "opening": 0,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 188,
+      "analysis": null
+    },
+    {
+      "game": 2,
+      "opening": 1,
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 47,
+      "analysis": null
+    },
+    {
+      "game": 3,
+      "opening": 1,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 72,
+      "analysis": null
+    },
+    {
+      "game": 4,
+      "opening": 2,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 56,
+      "analysis": null
+    },
+    {
+      "game": 5,
+      "opening": 2,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 42,
+      "analysis": null
+    },
+    {
+      "game": 6,
+      "opening": 3,
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 52,
+      "analysis": null
+    },
+    {
+      "game": 7,
+      "opening": 3,
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "8/8/1K6/1Q6/8/1k6/8/8 b - - 94 111",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": -6,
+        "mate": null,
+        "depth": 10,
+        "actual_nodes": 200050,
+        "pv": [
+          "b3c2",
+          "b6c7"
+        ],
+        "wdl": [
+          3,
+          992,
+          5
+        ]
+      }
+    },
+    {
+      "game": 8,
+      "opening": 4,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 82,
+      "analysis": null
+    },
+    {
+      "game": 9,
+      "opening": 4,
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 63,
+      "analysis": null
+    },
+    {
+      "game": 10,
+      "opening": 5,
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 33,
+      "analysis": null
+    },
+    {
+      "game": 11,
+      "opening": 5,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 150,
+      "analysis": null
+    },
+    {
+      "game": 12,
+      "opening": 6,
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": false,
+      "plies": 162,
+      "analysis": null
+    },
+    {
+      "game": 13,
+      "opening": 6,
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": false,
+      "plies": 185,
+      "analysis": null
+    },
+    {
+      "game": 14,
+      "opening": 7,
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 40,
+      "analysis": null
+    },
+    {
+      "game": 15,
+      "opening": 7,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "8/8/7p/3K3k/1q6/2p5/8/8 b - - 1 109",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": null,
+        "mate": 5,
+        "depth": 38,
+        "actual_nodes": 200006,
+        "pv": [
+          "c3c2",
+          "d5e6",
+          "c2c1q",
+          "e6d7",
+          "c1c4",
+          "d7d8",
+          "b4d6",
+          "d8e8",
+          "c4e6"
+        ],
+        "wdl": [
+          1000,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "game": 16,
+      "opening": 8,
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": false,
+      "plies": 136,
+      "analysis": null
+    },
+    {
+      "game": 17,
+      "opening": 8,
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "K7/7p/4k2P/8/8/4Q3/8/8 b - - 62 115",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": null,
+        "mate": -8,
+        "depth": 22,
+        "actual_nodes": 200188,
+        "pv": [
+          "e6f6",
+          "e3d3",
+          "f6e6",
+          "d3h7",
+          "e6e5",
+          "h7g7",
+          "e5d5",
+          "h6h7",
+          "d5e4",
+          "h7h8q",
+          "e4f3",
+          "g7e5",
+          "f3g2",
+          "h8h2",
+          "g2f1",
+          "e5e2"
+        ],
+        "wdl": [
+          0,
+          0,
+          1000
+        ]
+      }
+    },
+    {
+      "game": 18,
+      "opening": 9,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 41,
+      "analysis": null
+    },
+    {
+      "game": 19,
+      "opening": 9,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 57,
+      "analysis": null
+    },
+    {
+      "game": 20,
+      "opening": 10,
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": false,
+      "plies": 60,
+      "analysis": null
+    },
+    {
+      "game": 21,
+      "opening": 10,
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "3K4/8/8/8/8/1Q6/8/2k5 w - - 27 111",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": null,
+        "mate": 8,
+        "depth": 22,
+        "actual_nodes": 200079,
+        "pv": [
+          "b3a2",
+          "c1d1",
+          "a2g2",
+          "d1e1",
+          "d8d7",
+          "e1d1",
+          "d7c6",
+          "d1c1",
+          "c6d5",
+          "c1b1",
+          "d5d4",
+          "b1c1",
+          "d4c3",
+          "c1b1",
+          "g2b2"
+        ],
+        "wdl": [
+          1000,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "game": 22,
+      "opening": 11,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 107,
+      "analysis": null
+    },
+    {
+      "game": 23,
+      "opening": 11,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 33,
+      "analysis": null
+    },
+    {
+      "game": 24,
+      "opening": 12,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 51,
+      "analysis": null
+    },
+    {
+      "game": 25,
+      "opening": 12,
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": true,
+      "plies": 200,
+      "analysis": {
+        "fen": "8/8/6k1/8/3K4/6Q1/8/8 b - - 94 111",
+        "move": null,
+        "nodes": 200000,
+        "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+        "threads": 1,
+        "hash_mb": 32,
+        "clear_hash_per_query": true,
+        "cp": 0,
+        "mate": null,
+        "depth": 12,
+        "actual_nodes": 200202,
+        "pv": [
+          "g6f6",
+          "g3g8",
+          "f6e7",
+          "d4c4",
+          "e7d7",
+          "g8d5"
+        ],
+        "wdl": [
+          4,
+          992,
+          4
+        ]
+      }
+    },
+    {
+      "game": 26,
+      "opening": 13,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 125,
+      "analysis": null
+    },
+    {
+      "game": 27,
+      "opening": 13,
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 112,
+      "analysis": null
+    },
+    {
+      "game": 28,
+      "opening": 14,
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "adjudicated": false,
+      "plies": 109,
+      "analysis": null
+    },
+    {
+      "game": 29,
+      "opening": 14,
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 96,
+      "analysis": null
+    },
+    {
+      "game": 30,
+      "opening": 15,
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "adjudicated": false,
+      "plies": 77,
+      "analysis": null
+    },
+    {
+      "game": 31,
+      "opening": 15,
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "adjudicated": false,
+      "plies": 126,
+      "analysis": null
+    }
+  ],
+  "limitations": [
+    "Single seed; paired openings are the sampling unit.",
+    "No Elo estimate.",
+    "Capped games adjudicated by Stockfish at fixed node budget and +/-300cp."
+  ]
+}

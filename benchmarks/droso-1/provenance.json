@@ -1,0 +1,211 @@
+{
+  "model": "DROSO-1",
+  "source_experiment": "v10 fresh B, 26,000,128 presentations",
+  "note": "Historical machine identifiers and hashes retained. Absolute workspace paths replaced by source/ or source-workspace/. These refer to original experiment files, not runnable local paths.",
+  "files": [
+    {
+      "file": "benchmarks/droso-1/final-test/report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/report.json",
+      "source_sha256": "b3c3bdca12c967d6eb018bc52d1f8877f64843fbf038c87f8def16377750765e",
+      "sha256": "7eef5c2912ab1724ceab4cbda2797649543916914db3710b87474a3cddf5bb80"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/paired-v6.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/paired-v6.json",
+      "source_sha256": "03fce4f5b0136574ad1f2df2f47b6f83f2db6e9390b2330fb4058dd05506542c",
+      "sha256": "c5282fcff760b88520be741f98cb7d7d10630c964483723342aa8b2c6a30daf9"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/source-game-audit.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/source-game-audit.json",
+      "source_sha256": "55c70394f2038b06caf7e0c9508498627f4fb345f40bad04984f3b16f094bb41",
+      "sha256": "55c70394f2038b06caf7e0c9508498627f4fb345f40bad04984f3b16f094bb41"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/games.pgn",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/games.pgn",
+      "source_sha256": "915fa3375ebeb738fd6d5d1f6b0cc67c4fe7afb2e6b2a7313fae2e88a79c3dcc",
+      "sha256": "915fa3375ebeb738fd6d5d1f6b0cc67c4fe7afb2e6b2a7313fae2e88a79c3dcc"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/common-teacher/report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/common-teacher/report.json",
+      "source_sha256": "98d6ea277a8b8602b74a2f2e6ec0dd5f77b08ede5b77858e030f9115ebe474c4",
+      "sha256": "daa1fc18beeda0c33a7060a30441b83875e5a7cd631f613066ba3046b80d2484"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/common-teacher/fresh_B-regret.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/common-teacher/fresh_B-regret.json",
+      "source_sha256": "54af1229d39a88ccb4a8ae5bcd2d15b4dcd367a70809ffa241896a435e9b923a",
+      "sha256": "1b7ed877d0b5214570db9d14e670efe722ac326623e631f3fcb2069a0d3e5408"
+    },
+    {
+      "file": "benchmarks/droso-1/final-test/common-teacher/historical_v6-regret.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/final-test/common-teacher/historical_v6-regret.json",
+      "source_sha256": "00447fa746e9a3a27944488d691433b5f60165fee74f5e4a08a455773335078b",
+      "sha256": "b45e5026402f4db552cd7bed814712ed9c9fee479f380e793edd0ddcda7f53cb"
+    },
+    {
+      "file": "benchmarks/droso-1/validation-final-common-teacher/report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/report.json",
+      "source_sha256": "1e3c06c47145c89377344bfeb5a9d241116ed079736f09625ab49f0a5f472461",
+      "sha256": "4dc12d6835f7b88ae6febc509cc661fba79067bb05b46b59003ca9f47778cfae"
+    },
+    {
+      "file": "benchmarks/droso-1/validation-final-common-teacher/paired-16m-26m.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/paired-16m-26m.json",
+      "source_sha256": "543e9caa7da2f2259480c24c7c8d115c321246c631ef2c6775e680fef942d5f6",
+      "sha256": "0b26f3a56be2af20febb9cc51be6a25c2476ef9a0adab598f847673515115139"
+    },
+    {
+      "file": "benchmarks/droso-1/validation-common-teacher/report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/validation-common-teacher/report.json",
+      "source_sha256": "2b543b104486676c1694649f328a201fcb853d1c5667f05c7eeedd358a7ada8b",
+      "sha256": "8eb008b71274339736c3e6b32b8de591b10d7634b058d32beb3ab733872ac8d8"
+    },
+    {
+      "file": "benchmarks/droso-1/pilot-validation/games-report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/pilot-validation/games-report.json",
+      "source_sha256": "e1be2ba91175307e2e4f0dc071f510ab85e763f0653a7ea2c51a2dd56c740816",
+      "sha256": "b3dd3396985c1b67dee528dbd057fe5a6897ac77291a8ae2c72f7bfb76f4e2d3"
+    },
+    {
+      "file": "benchmarks/droso-1/pilot-validation/games.pgn",
+      "source": "benchmarks/2026-09-23/v10-fresh/pilot-validation/games.pgn",
+      "source_sha256": "2a2a4983f8b6c3d2bb1b769aa723d31b4cf4d95e6840249674a11db41b55daf6",
+      "sha256": "2a2a4983f8b6c3d2bb1b769aa723d31b4cf4d95e6840249674a11db41b55daf6"
+    },
+    {
+      "file": "benchmarks/droso-1/growth-B-26000128/common-teacher/report.json",
+      "source": "benchmarks/2026-09-23/v10-fresh/growth-B-26000128/common-teacher/report.json",
+      "source_sha256": "50d4b3f022b5f7e83d9b3f69f0a5582f10a493fbc019d3f413f175a639a766ff",
+      "sha256": "e353b451c10e92e02f1861e1181f4c873af3a06cf29ad1376d93d940c1e34381"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/rating.json",
+      "source": "benchmarks/2026-09-23/v10-rating/rating.json",
+      "source_sha256": "8a5b320a139af56054c589a234808766499d85e707893fc2ba2f8be06db9995d",
+      "sha256": "76108414f566933dcb80ae6df13df6973e9eb1faaa8ccd486cee30496165cde9"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/protocol.json",
+      "source": "benchmarks/2026-09-23/v10-rating/protocol.json",
+      "source_sha256": "b8e7535fef6dbad36377b71f841312f011742d662baa1798d2fd9e81d59df2df",
+      "sha256": "b8e7535fef6dbad36377b71f841312f011742d662baa1798d2fd9e81d59df2df"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/audit.json",
+      "source": "benchmarks/2026-09-23/v10-rating/audit.json",
+      "source_sha256": "76747aeee066715753f2f98dbffdfb08155306876b5cd6a04f504b1ff80f677e",
+      "sha256": "76747aeee066715753f2f98dbffdfb08155306876b5cd6a04f504b1ff80f677e"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/sf1320/report.json",
+      "source": "benchmarks/2026-09-23/v10-rating/sf1320/report.json",
+      "source_sha256": "12c592f5a6b2e7e1e7c2a5519619e75ae156f5cb322437a6860a3cdaf91f75e8",
+      "sha256": "dfc8c99e76622ed547ff9ff91e97bfb8e990a6bd0e1ed81f2297449c73666924"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/sf1320/games.pgn",
+      "source": "benchmarks/2026-09-23/v10-rating/sf1320/games.pgn",
+      "source_sha256": "17bc5a1dde2b65a7136455d95110c35d48f9ff8da622c7cf8127d0d0a900e62b",
+      "sha256": "17bc5a1dde2b65a7136455d95110c35d48f9ff8da622c7cf8127d0d0a900e62b"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/sf1500/report.json",
+      "source": "benchmarks/2026-09-23/v10-rating/sf1500/report.json",
+      "source_sha256": "961edd864f74aee40d3e18f0a3ddeb8c4fe356a1d639568de0d3caab49d0a1bd",
+      "sha256": "191fdc5c71319d8ce492a694aa476042cc51ea7e31017312d4c310cfa146fd34"
+    },
+    {
+      "file": "benchmarks/droso-1/rating/sf1500/games.pgn",
+      "source": "benchmarks/2026-09-23/v10-rating/sf1500/games.pgn",
+      "source_sha256": "5f1552701b94ce99e1f2233ea9973acfc1fb69da8767d48c588855e66d31c6d5",
+      "sha256": "5f1552701b94ce99e1f2233ea9973acfc1fb69da8767d48c588855e66d31c6d5"
+    },
+    {
+      "file": "benchmarks/droso-1/data/dev.npy",
+      "source": "data/v10-fresh-20260923/dev.npy",
+      "source_sha256": "c3c31cb2ed79a1e2805089d4b4f3cf5ecb1af014968bd6d67e1afbbde2c9797b",
+      "sha256": "c3c31cb2ed79a1e2805089d4b4f3cf5ecb1af014968bd6d67e1afbbde2c9797b"
+    },
+    {
+      "file": "benchmarks/droso-1/data/validation.npy",
+      "source": "data/v10-fresh-20260923/validation.npy",
+      "source_sha256": "76f63d6ca846937e4ea9573b6370357c47d57a6b0192efc9d639419b887e6ba9",
+      "sha256": "76f63d6ca846937e4ea9573b6370357c47d57a6b0192efc9d639419b887e6ba9"
+    },
+    {
+      "file": "benchmarks/droso-1/data/test.npy",
+      "source": "data/v10-fresh-20260923/test.npy",
+      "source_sha256": "bfc443a73524a1e56a1d55ac48da7b695461bbd5e37837a98a717304367f4f9a",
+      "sha256": "bfc443a73524a1e56a1d55ac48da7b695461bbd5e37837a98a717304367f4f9a"
+    },
+    {
+      "file": "benchmarks/droso-1/data/openings.json",
+      "source": "data/v10-fresh-20260923/openings.json",
+      "source_sha256": "b19668fb8bd6dca346f4bb534671fdeac408c30d13eb31009409ea6f0bdcc2e1",
+      "sha256": "b19668fb8bd6dca346f4bb534671fdeac408c30d13eb31009409ea6f0bdcc2e1"
+    },
+    {
+      "file": "benchmarks/droso-1/data/held-out.json",
+      "source": "data/v10-fresh-20260923/held-out.json",
+      "source_sha256": "96d76d86b745e0b8bf4b2a8875b455a0e9f3e52634f1575ea4aade9c9f06a5ae",
+      "sha256": "96d76d86b745e0b8bf4b2a8875b455a0e9f3e52634f1575ea4aade9c9f06a5ae"
+    },
+    {
+      "file": "benchmarks/droso-1/data/manifest.json",
+      "source": "data/v10-fresh-20260923/manifest.json",
+      "source_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+      "sha256": "ffa35b4dd332500f6a089acf879dd2c29be6d95b2f7d387202999e70eac93c5d"
+    },
+    {
+      "file": "benchmarks/droso-1/data/audit.json",
+      "source": "data/v10-fresh-20260923/audit.json",
+      "source_sha256": "a4abe0dfd9839fd7a292b92e617fbca93db08409fe5b78dad4c0ce243f0d984c",
+      "sha256": "a4abe0dfd9839fd7a292b92e617fbca93db08409fe5b78dad4c0ce243f0d984c"
+    },
+    {
+      "file": "benchmarks/droso-1/training/recipe.json",
+      "source": "runs/v10-fresh-20260923/recipe.json",
+      "source_sha256": "d340b5a4f925694d1ba3e19ccdaf8cd469d91df00bc4d3c12687a57b83d9255c",
+      "sha256": "d340b5a4f925694d1ba3e19ccdaf8cd469d91df00bc4d3c12687a57b83d9255c"
+    },
+    {
+      "file": "benchmarks/droso-1/training/training-result.json",
+      "source": "runs/v10-fresh-20260923/training-result.json",
+      "source_sha256": "3a6c3a1cd45ea316fd26b6ea30fcb8cbeff3ddc7bdcbb56adf3b6b3bfdf7acb5",
+      "sha256": "3a6c3a1cd45ea316fd26b6ea30fcb8cbeff3ddc7bdcbb56adf3b6b3bfdf7acb5"
+    },
+    {
+      "file": "benchmarks/droso-1/training/post-26m-audit.json",
+      "source": "runs/v10-fresh-20260923/post-26m-audit.json",
+      "source_sha256": "5df1d4ceaff8ab36e62475392aeb367ab04985a5a72c56ab14f1a23659fd097f",
+      "sha256": "5df1d4ceaff8ab36e62475392aeb367ab04985a5a72c56ab14f1a23659fd097f"
+    },
+    {
+      "file": "benchmarks/droso-1/training/final-candidate.json",
+      "source": "runs/v10-night-20260923/final-candidate.json",
+      "source_sha256": "61c84d1c03e3bc662f30fda7e531e98d59d396c299a91177818b7f8ea56f3a26",
+      "sha256": "8ac72c6aedf19759daff0c5f32f727a9b51445b0cc785593591f9c38c73f20ca"
+    },
+    {
+      "file": "benchmarks/droso-1/training/final-selection-protocol.json",
+      "source": "runs/v10-night-20260923/final-selection-protocol.json",
+      "source_sha256": "197ad0de05600ff9d91c5088659da3820fb9a066dc7657c8e294eef838971e5f",
+      "sha256": "197ad0de05600ff9d91c5088659da3820fb9a066dc7657c8e294eef838971e5f"
+    },
+    {
+      "file": "benchmarks/droso-1/training/original-export-verification.json",
+      "source": "exports/v10-fresh-B-26000128-20260923/verification.json",
+      "source_sha256": "a397b040ee10c6e8c1ea1a5beadc739ed44a082e2e42ed9815c1d9efadbddc68",
+      "sha256": "a397b040ee10c6e8c1ea1a5beadc739ed44a082e2e42ed9815c1d9efadbddc68"
+    },
+    {
+      "file": "benchmarks/droso-1/training/original-export-manifest.json",
+      "source": "exports/v10-fresh-B-26000128-20260923/manifest.json",
+      "source_sha256": "c9e72d8de3a1efd04dcd640f8f68e78611269368e1def64173a29f0b5a70bd04",
+      "sha256": "1bc10108fefea3e3a9ae2baf29a06d1c1bcf3d55c77cf852cdf6ca556f962ac0"
+    }
+  ]
+}

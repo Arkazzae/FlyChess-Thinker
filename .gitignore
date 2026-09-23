@@ -31,3 +31,14 @@ pnpm-debug.log*
 *.swp
 .DS_Store
 Thumbs.db
+.playwright-mcp/
+training/droso1/__pycache__/*
+training/core/__pycache__/*
+
+# Local Python training environments, generated corpora and checkpoints
+.venv/
+__pycache__/
+*.py[cod]
+training/data/
+training/runs/
+training/exports/

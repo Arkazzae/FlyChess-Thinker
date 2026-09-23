@@ -1,5 +1,18 @@
 # Trained fly brains
 
+## DROSO-1
+
+[DROSO-1](droso-1/README.md) is the new research release: a standalone Python
+model trained from scratch on FlyWire v783 for 26,000,128 presentations.
+The bundle includes lossless weights, anatomy, inference code, checksums and
+reference outputs. It scored approximately 1500 conditional Elo in the
+[Stockfish benchmark](../benchmarks/droso-1/README.md).
+
+Follow the [training recipe](../docs/droso-1/recipe.md) to train your own model.
+DROSO-1 uses 4,168 actions and requires a separate browser integration.
+
+## Browser models
+
 Browser-ready exports of two trained versions of the fly, both trained by Arkazzae. Both run on the same
 connectome (`public/data/mcns/`, MaleCNS v1.0) and have the same architecture,
 so either can be dropped into the app.

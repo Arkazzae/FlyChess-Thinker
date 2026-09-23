@@ -1,0 +1,29 @@
+{
+  "stage": "completed",
+  "seen": {
+    "A": 1048576,
+    "B": 26000128
+  },
+  "steps": {
+    "A": 4096,
+    "B": 101563
+  },
+  "active_arms": [
+    "B"
+  ],
+  "diagnostics": {
+    "B": {
+      "positions": 256,
+      "cp_mse": 0.0987619198858738,
+      "policy_top1": 0.25,
+      "raw_legal": 0.93359375,
+      "legal_mass": 0.690597802400589,
+      "reply_positions": 255,
+      "reply_top1": 0.11372549019607843
+    }
+  },
+  "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+  "stop_reason": "target_reached",
+  "checkpoint_sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+  "updated_at": "2026-09-23T06:41:05.145523+00:00"
+}

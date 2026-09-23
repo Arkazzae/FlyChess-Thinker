@@ -1,0 +1,116 @@
+{
+  "stage": "passed",
+  "created_at": "2026-09-23T00:03:36.846276+00:00",
+  "manifest_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+  "train_records": 10263924,
+  "globally_unique_canonical_positions": true,
+  "train_heldout_root_or_child_overlap": 0,
+  "train_heldout_group_overlap": 0,
+  "cross_split_roots_vs_children": 0,
+  "cross_split_group_overlap": 0,
+  "sources": {
+    "dagger": 965712,
+    "generated": 1763564,
+    "lichess": 7534648
+  },
+  "sampled_original_record_reconstructions": 5478,
+  "every_packed_policy_and_pain_target_legal": true,
+  "sampler_indices_verified": true,
+  "split_positions": {
+    "dev": 256,
+    "validation": 512,
+    "test": 512
+  },
+  "seconds": 36.48646604100213,
+  "source_profiles": {
+    "lichess": {
+      "phases": {
+        "endgame": 1218017,
+        "tactical": 1106158,
+        "quiet": 5210473
+      },
+      "weighted_phases": {
+        "endgame": 1280620.5,
+        "tactical": 1283987.0,
+        "quiet": 5986785.0
+      },
+      "valid_value_head_count": {
+        "1": 7534648,
+        "2": 0,
+        "3": 0
+      },
+      "pain_cost_cp": {
+        "100-199": 0,
+        "200-299": 0,
+        "300-599": 0,
+        "600-or-more": 0
+      },
+      "weighted_records": 8551392.5,
+      "reply": 7300291,
+      "pain": 0
+    },
+    "dagger": {
+      "phases": {
+        "endgame": 153008,
+        "tactical": 365746,
+        "quiet": 446958
+      },
+      "weighted_phases": {
+        "endgame": 156784.5,
+        "tactical": 410044.0,
+        "quiet": 500284.5
+      },
+      "valid_value_head_count": {
+        "1": 965712,
+        "2": 0,
+        "3": 0
+      },
+      "pain_cost_cp": {
+        "100-199": 103238,
+        "200-299": 45063,
+        "300-599": 47482,
+        "600-or-more": 68553
+      },
+      "weighted_records": 1067113.0,
+      "reply": 925062,
+      "pain": 264336
+    },
+    "generated": {
+      "phases": {
+        "endgame": 179254,
+        "tactical": 359267,
+        "quiet": 1225043
+      },
+      "weighted_phases": {
+        "endgame": 184483.0,
+        "tactical": 392747.5,
+        "quiet": 1381508.0
+      },
+      "valid_value_head_count": {
+        "1": 0,
+        "2": 151080,
+        "3": 1612484
+      },
+      "pain_cost_cp": {
+        "100-199": 0,
+        "200-299": 0,
+        "300-599": 0,
+        "600-or-more": 0
+      },
+      "weighted_records": 1958738.5,
+      "reply": 1731829,
+      "pain": 0
+    }
+  },
+  "expected_source_share_after_example_weighting": {
+    "lichess": 0.6111122340119561,
+    "dagger": 0.31859374989508993,
+    "generated": 0.07029401609295396
+  },
+  "weighting_scope": "Policy and value use example weights; reply and pain have their separately documented denominators.",
+  "limitations": [
+    "Imported original-game identity and some teacher metadata were irretrievably lost.",
+    "Legacy CP already collapsed mates at generation time; new benchmark preserves native mate scores.",
+    "Global dedup selects explicit pain/context first; this does not identify the deepest teacher label."
+  ]
+}

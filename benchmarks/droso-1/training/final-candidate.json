@@ -1,0 +1,54 @@
+{
+  "stage": "frozen_before_final_test",
+  "created_at": "2026-09-23T06:47:31.288659+00:00",
+  "arm": "B",
+  "seen": 26000128,
+  "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+  "checkpoint_sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+  "data_manifest_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+  "rule": "Previously recorded validation severe-error criterion: 53/512 at 26M versus 56/512 at 16M. Tie-break not needed.",
+  "validation_severe_counts": {
+    "B8000000": 68,
+    "B16000000": 56,
+    "B26000128": 53
+  },
+  "paired_validation": {
+    "severe": {
+      "b_minus_a_severe_rate": -0.005859375,
+      "cluster_bootstrap_95": [
+        -0.025975716991341994,
+        0.012824675324675263
+      ],
+      "clusters": 35,
+      "positions": 512,
+      "unit": "known game or source shard; imported game IDs unavailable",
+      "uncertainty": "empirical cluster bootstrap"
+    },
+    "cp_common_subset": {
+      "positions": 458,
+      "excluded_mate_or_non_cp": 54,
+      "mean_a": 89.01965065502183,
+      "mean_b": 86.20524017467248,
+      "b_minus_a_mean": -2.814410480349345,
+      "cluster_bootstrap_95": [
+        -17.863052452646915,
+        3.1917646189103257
+      ],
+      "clusters": 29
+    }
+  },
+  "supporting_development": "12 wins, 1 draw, 3 losses vs v6, source-game clustered 95% score interval [0.535714,0.95]; 26M severe 26/256 vs 16M 29/256 at latest common teacher budgets. Development mean CP regret worsened, so evidence is not uniformly favorable.",
+  "limitations": [
+    "Selection reuses validation; paired intervals include no improvement.",
+    "Small development game sample, single seed; no Elo claim.",
+    "Retain 16M but do not reselect based on final test."
+  ],
+  "evidence_sha256": {
+    "runs/v10-night-20260923/final-selection-protocol.json": "197ad0de05600ff9d91c5088659da3820fb9a066dc7657c8e294eef838971e5f",
+    "benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/report.json": "1e3c06c47145c89377344bfeb5a9d241116ed079736f09625ab49f0a5f472461",
+    "benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/paired-16m-26m.json": "543e9caa7da2f2259480c24c7c8d115c321246c631ef2c6775e680fef942d5f6",
+    "benchmarks/2026-09-23/v10-fresh/growth-B-26000128/paired-16m.json": "b4f687e93f14820144929cdbd432f9281ae1f20fc7ba88afd8b343c1ae916d13",
+    "benchmarks/2026-09-23/v10-fresh/growth-B-26000128/source-game-audit.json": "7e4a7f211e5773faf035fcabcbfe0a1f51400035fb81de214e8dea95aab9591d",
+    "runs/v10-fresh-20260923/post-26m-audit.json": "5df1d4ceaff8ab36e62475392aeb367ab04985a5a72c56ab14f1a23659fd097f"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "created_at": "2026-09-23T07:10:34.837203+00:00",
+  "a": {
+    "split": "test",
+    "positions": 512,
+    "data_file_sha256": "bfc443a73524a1e56a1d55ac48da7b695461bbd5e37837a98a717304367f4f9a",
+    "simulations": 64,
+    "c_puct": 1.5,
+    "teacher_nodes": 200000,
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "evaluation_code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7"
+    },
+    "path": "source/runs/fly-v6-local/last.pt",
+    "sha256": "17ff69a47fd7b4b022f0b84ab652e7b3a4d25111f349815051b37bb729ba4320",
+    "seen": 15735040,
+    "step": 61465,
+    "format_version": 6,
+    "global_features": 20,
+    "name": "historical_v6",
+    "player": "native_v6_value_mix_PUCT",
+    "historical_exposure": "possibly saw some corpus positions",
+    "original_name": "historical_v6",
+    "common_teacher_budgets_sha256": "ce40b8d135f314ac404ffa86580fd80880f79c00bad84cd1b9df26054a3f5810",
+    "harmonization_code_sha256": "573c4909caedfad07e245e5a87c4107a9d7660f6d49afc5c1f53bff742685a70"
+  },
+  "b": {
+    "split": "test",
+    "positions": 512,
+    "data_file_sha256": "bfc443a73524a1e56a1d55ac48da7b695461bbd5e37837a98a717304367f4f9a",
+    "simulations": 64,
+    "c_puct": 1.5,
+    "teacher_nodes": 200000,
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "evaluation_code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7"
+    },
+    "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+    "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+    "arm": "B",
+    "seen": 26000128,
+    "step": 101563,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+    "name": "fresh_B",
+    "player": "current_CP_PUCT",
+    "original_name": "fresh_B",
+    "common_teacher_budgets_sha256": "ce40b8d135f314ac404ffa86580fd80880f79c00bad84cd1b9df26054a3f5810",
+    "harmonization_code_sha256": "573c4909caedfad07e245e5a87c4107a9d7660f6d49afc5c1f53bff742685a70"
+  },
+  "severe": {
+    "b_minus_a_severe_rate": 0.009765625,
+    "cluster_bootstrap_95": [
+      -0.05333333333333334,
+      0.02072681378821083
+    ],
+    "clusters": 35,
+    "positions": 512,
+    "unit": "known game or source shard; imported game IDs unavailable",
+    "uncertainty": "empirical cluster bootstrap"
+  },
+  "cp_common_subset": {
+    "positions": 448,
+    "excluded_mate_or_non_cp": 64,
+    "mean_a": 82.28794642857143,
+    "mean_b": 85.9375,
+    "b_minus_a_mean": 3.6495535714285716,
+    "cluster_bootstrap_95": [
+      -46.00241935483871,
+      14.044823948732718
+    ],
+    "clusters": 29
+  },
+  "limitations": [
+    "CP comparison excludes every position with a mate score in either evaluation; mate mistakes remain in the primary severe metric.",
+    "Known games or source shards are the bootstrap units; missing imported game IDs remain a limitation.",
+    "Null intervals mean insufficient/constant cluster information, not proven equality."
+  ],
+  "files_sha256": {
+    "source/benchmarks/2026-09-23/v10-fresh/final-test/common-teacher/historical_v6-regret.json": "00447fa746e9a3a27944488d691433b5f60165fee74f5e4a08a455773335078b",
+    "source/benchmarks/2026-09-23/v10-fresh/final-test/common-teacher/fresh_B-regret.json": "54af1229d39a88ccb4a8ae5bcd2d15b4dcd367a70809ffa241896a435e9b923a",
+    "source/v10/comparison.py": "15743a99c2e5ad31b0e6c68c1982d5040787447c05e541240f1d259003d1be65"
+  }
+}

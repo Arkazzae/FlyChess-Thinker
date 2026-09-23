@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-09-23T06:46:55.995374+00:00",
+  "a": {
+    "split": "validation",
+    "positions": 512,
+    "data_file_sha256": "76f63d6ca846937e4ea9573b6370357c47d57a6b0192efc9d639419b887e6ba9",
+    "simulations": 64,
+    "c_puct": 1.5,
+    "teacher_nodes": 200000,
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "evaluation_code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7"
+    },
+    "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B16000000.pt",
+    "sha256": "f74e3b2f4d18202de9dce1e36e8a5959d93f1d25defd1d4c2d4e7cfa34d4e0fd",
+    "arm": "B",
+    "seen": 16000000,
+    "step": 62500,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+    "name": "B16000000",
+    "player": "current_CP_PUCT",
+    "original_name": "fresh_B",
+    "common_teacher_budgets_sha256": "e4116f547a9738ddc39a20bfd57a4c3dd8c91343078a8707c8c401decd09705c",
+    "harmonization_code_sha256": "573c4909caedfad07e245e5a87c4107a9d7660f6d49afc5c1f53bff742685a70"
+  },
+  "b": {
+    "split": "validation",
+    "positions": 512,
+    "data_file_sha256": "76f63d6ca846937e4ea9573b6370357c47d57a6b0192efc9d639419b887e6ba9",
+    "simulations": 64,
+    "c_puct": 1.5,
+    "teacher_nodes": 200000,
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "evaluation_code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7"
+    },
+    "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+    "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+    "arm": "B",
+    "seen": 26000128,
+    "step": 101563,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3",
+    "name": "B26000128",
+    "player": "current_CP_PUCT",
+    "original_name": "fresh_B",
+    "common_teacher_budgets_sha256": "e4116f547a9738ddc39a20bfd57a4c3dd8c91343078a8707c8c401decd09705c",
+    "harmonization_code_sha256": "573c4909caedfad07e245e5a87c4107a9d7660f6d49afc5c1f53bff742685a70"
+  },
+  "severe": {
+    "b_minus_a_severe_rate": -0.005859375,
+    "cluster_bootstrap_95": [
+      -0.025975716991341994,
+      0.012824675324675263
+    ],
+    "clusters": 35,
+    "positions": 512,
+    "unit": "known game or source shard; imported game IDs unavailable",
+    "uncertainty": "empirical cluster bootstrap"
+  },
+  "cp_common_subset": {
+    "positions": 458,
+    "excluded_mate_or_non_cp": 54,
+    "mean_a": 89.01965065502183,
+    "mean_b": 86.20524017467248,
+    "b_minus_a_mean": -2.814410480349345,
+    "cluster_bootstrap_95": [
+      -17.863052452646915,
+      3.1917646189103257
+    ],
+    "clusters": 29
+  },
+  "limitations": [
+    "CP comparison excludes every position with a mate score in either evaluation; mate mistakes remain in the primary severe metric.",
+    "Known games or source shards are the bootstrap units; missing imported game IDs remain a limitation.",
+    "Null intervals mean insufficient/constant cluster information, not proven equality."
+  ],
+  "files_sha256": {
+    "source/benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/B16000000-regret.json": "f5f6c5a89fb195dead3a8aeb821a9878923a015b97d5547efa25d39f7d581251",
+    "source/benchmarks/2026-09-23/v10-fresh/validation-final-common-teacher/B26000128-regret.json": "760e191faf45413f86cc3fdb2f7ef8672586f12b28e5baeb175bc9372148aa08",
+    "source/v10/comparison.py": "15743a99c2e5ad31b0e6c68c1982d5040787447c05e541240f1d259003d1be65"
+  }
+}

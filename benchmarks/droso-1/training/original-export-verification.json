@@ -1,0 +1,62 @@
+{
+  "stage": "passed",
+  "tensor_roundtrip_exact": true,
+  "forward_max_absolute_errors": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "auxiliary_reply_rounding": {
+    "differing_logits": 0,
+    "maximum_absolute_difference": 0.0,
+    "maximum_bfloat16_steps": 0.0,
+    "tolerance": "One BF16 representable step for the auxiliary reply head only; policy/value retain strict tolerance."
+  },
+  "fp32_cpu_forward_exact": true,
+  "fp32_cpu_max_absolute_errors": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "fixtures": [
+    {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "halfmove_known": true,
+      "move": "d2d4"
+    },
+    {
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "halfmove_known": true,
+      "move": "e7e5"
+    },
+    {
+      "fen": "4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 20",
+      "halfmove_known": true,
+      "move": "e5d6"
+    },
+    {
+      "fen": "4k3/8/8/8/3Pp3/8/8/4K3 b - d3 0 20",
+      "halfmove_known": true,
+      "move": "e4d3"
+    },
+    {
+      "fen": "7k/4P3/8/8/8/8/8/K7 w - - 0 40",
+      "halfmove_known": true,
+      "move": "e7e8q"
+    },
+    {
+      "fen": "k7/8/8/8/8/8/4p3/7K b - - 0 40",
+      "halfmove_known": true,
+      "move": "e2e1q"
+    },
+    {
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "halfmove_known": false,
+      "move": "e7e5"
+    }
+  ],
+  "standalone_runtime_verified": true,
+  "all_promotions_both_colors": true,
+  "manifest_sha256": "c9e72d8de3a1efd04dcd640f8f68e78611269368e1def64173a29f0b5a70bd04",
+  "finished_at": "2026-09-23T07:14:30.717762+00:00"
+}

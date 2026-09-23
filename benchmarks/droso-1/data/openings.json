@@ -1,0 +1,400 @@
+{
+  "dev": [
+    {
+      "fen": "r1bq1rk1/1p2bp2/2p1p2p/p2pP1p1/2P2Bn1/2N2BP1/PPQ1PP1P/R2R2K1 b - - 1 13",
+      "key": "ea214255c17fd48252e349dc87c279fc",
+      "group": "a7a5c3d11bd1895c2f85eab085ee9b2b",
+      "original_id": "0918162440d10-w05-00003.npz:1247",
+      "cp": 56
+    },
+    {
+      "fen": "r1b1kb1r/4ppp1/n1p3q1/1p1pP3/p2P1Pn1/P1PNBBPp/1P2Q2P/K3R1NR b kq - 10 19",
+      "key": "94d3d0ee891500f956ff847143fc071a",
+      "group": "49845132e7ea076c8702494d52035541",
+      "original_id": "0918162440d10-w05-00003.npz:340",
+      "cp": -100
+    },
+    {
+      "fen": "r1bqkbnr/1p3p2/2n1p2p/3p2p1/p1PP4/2NQ1N1P/PP3PP1/R1B1KB1R w KQk - 0 12",
+      "key": "fba44b896ba136ee3d4a0aced10b2c42",
+      "group": "d698e3611ae40ff4e40e1753d67fee15",
+      "original_id": "0918162440d10-w05-00003.npz:3248",
+      "cp": 17
+    },
+    {
+      "fen": "r1bqkb1r/pp4pp/2N2p2/1Q1n4/3Pp3/8/PPPB1PPP/R3KB1R b KQkq - 0 11",
+      "key": "8209ea1bb27cd93e8dc9568cc645c886",
+      "group": "26fdc9350d62ad17dc763f1b5fda8bdb",
+      "original_id": "0918162440d10-w05-00003.npz:21",
+      "cp": -55
+    },
+    {
+      "fen": "1rb2rk1/p1p1qppp/2pp1n2/8/1b2P3/2NQ4/PPPB1PPP/2K1RB1R w - - 4 11",
+      "key": "59b49d514a9ab01197f906e9098fbe2b",
+      "group": "68bb93d5f627f0fea41eaf67ca1842ce",
+      "original_id": "0918162440d10-w05-00003.npz:1612",
+      "cp": 34
+    },
+    {
+      "fen": "r1q2rk1/2p1bpp1/2np3p/1N2pb2/p1PPn3/4PBBN/PP2QPPP/R2R2K1 w - - 2 15",
+      "key": "4641a26724cd584f9814c9e56744fbdb",
+      "group": "84a105e947d23a86b123225a3f9b5e1b",
+      "original_id": "0918162440d10-w05-00003.npz:445",
+      "cp": 82
+    },
+    {
+      "fen": "r1b2rk1/1p2qpb1/2n1p2p/1NQ1Nn2/3P1BpP/P7/P4PP1/3RKB1R w K - 5 20",
+      "key": "cdae0327fb6b1bd7e44b0a4619545c1e",
+      "group": "d698e3611ae40ff4e40e1753d67fee15",
+      "original_id": "0918162440d10-w05-00003.npz:3264",
+      "cp": -8
+    },
+    {
+      "fen": "r1b1kb1r/1ppn1ppp/2q1p3/3n4/3Q4/p3NN2/PPPB1PPP/2KR1B1R w kq - 0 13",
+      "key": "0fe157cfc5b219b4dd752fe5b74be710",
+      "group": "dd4bc8cc9593b488909e4326d5443c4d",
+      "original_id": "0918162440d10-w05-00003.npz:682",
+      "cp": -77
+    }
+  ],
+  "validation": [
+    {
+      "fen": "rnbqk2r/2p1n1pp/p2bpp2/3p4/Pp1PP3/1N2BP1P/1PP3P1/R2QKBNR w KQkq - 3 9",
+      "key": "1a14855bb7b2d24cd4907ec24b71a428",
+      "group": "2be900774434f1e8d5c663d51cd509cb",
+      "original_id": "0918162440d10-w06-00003.npz:512",
+      "cp": 50
+    },
+    {
+      "fen": "r4bk1/1bq3pp/1p2pn1r/p1pp1p2/3P1P2/2PBPNP1/PP1N2RP/R2Q2K1 w - - 4 17",
+      "key": "d5bee9de043f60b486b6504a21b1d872",
+      "group": "9a6716a69d1c5b1822b97ad723b229c8",
+      "original_id": "0918162440d10-w06-00003.npz:1291",
+      "cp": 96
+    },
+    {
+      "fen": "r1br2k1/1p4np/1q1b1ppB/p2pn3/7N/4P3/PPN1BPPP/1R1Q1RK1 w - - 8 19",
+      "key": "0dd932f9cdba580ad013ec5d7a76aa9a",
+      "group": "60a0fef76908c283e8a4538206777d77",
+      "original_id": "0918162440d10-w06-00003.npz:906",
+      "cp": -3
+    },
+    {
+      "fen": "rn1qk2r/pp4pp/2p1p3/5p2/1bpPB2N/6P1/PP2PP1P/R1BQ1K1R b kq - 0 11",
+      "key": "a74561f5eba848218eb48deed0faeee5",
+      "group": "d7804b39456636c25f56a424c82ac87b",
+      "original_id": "0918162440d10-w06-00003.npz:3288",
+      "cp": 81
+    },
+    {
+      "fen": "3q3r/p3pk2/3p1bpp/1r1p4/3P4/P6P/1P3PP1/R1BQ1RK1 w - - 0 18",
+      "key": "3efa0faa301342e93fbbd90c53b59f17",
+      "group": "dceabbd8d8215acd8eaeb21a2fb1ae55",
+      "original_id": "0918162440d10-w06-00003.npz:2545",
+      "cp": 39
+    },
+    {
+      "fen": "3q3r/p2bpk2/Br1p1bpp/1p1p4/2PP4/P6P/1P3PP1/R1BQ1RK1 w - - 1 16",
+      "key": "5a15437667fdc7155c9f80bdabd252af",
+      "group": "dceabbd8d8215acd8eaeb21a2fb1ae55",
+      "original_id": "0918162440d10-w06-00003.npz:2541",
+      "cp": 40
+    },
+    {
+      "fen": "rn1q1rk1/1bp1n1pp/p2bpp2/8/Pp1PP3/1N1QB2P/1PP1N1P1/R3KB1R b KQ - 2 12",
+      "key": "5e99d866894fd7e318778906b3899bde",
+      "group": "2be900774434f1e8d5c663d51cd509cb",
+      "original_id": "0918162440d10-w06-00003.npz:519",
+      "cp": -27
+    },
+    {
+      "fen": "r2qk2r/pbpn1ppp/1p2p2n/2b5/4PP2/1NP2N2/PP2Q1PP/R1B1KB1R b KQkq - 5 9",
+      "key": "9558c27bc3af5bc8ffcab1ab2db1c286",
+      "group": "10d667905e6159c6f0e0726fdd3f0401",
+      "original_id": "0918162440d10-w06-00003.npz:15",
+      "cp": 89
+    },
+    {
+      "fen": "r3k2r/1p4bp/n4ppn/pN1p4/3P4/4BN1P/PP3PP1/R4RK1 b kq - 2 15",
+      "key": "a6eea99dd3ce4f124ceb7d0e5163fd0f",
+      "group": "b3d43ae780baa6cd7ca265a29a90d1a6",
+      "original_id": "0918162440d10-w06-00003.npz:3561",
+      "cp": -81
+    },
+    {
+      "fen": "2bqkb1r/1p1n1ppp/r1P2n2/1N6/1p2p3/P3P3/1BQP1PPP/RN2KB1R b KQk - 0 11",
+      "key": "90e51361edcd85faf4c2e4e6347ff6d9",
+      "group": "02d7090cca23e7ccb74145efd340b1f9",
+      "original_id": "0918162440d10-w06-00003.npz:796",
+      "cp": -53
+    },
+    {
+      "fen": "r2q1rk1/3nbppp/bpp1pn2/p2p4/2PP4/1PN2NP1/PB2PPBP/R2Q1R1K w - - 4 11",
+      "key": "85f044b30d1084ada1b2e1140d7d90d2",
+      "group": "db73e8e06bcc36a29817cc7575943e17",
+      "original_id": "0918162440d10-w06-00003.npz:1073",
+      "cp": -43
+    },
+    {
+      "fen": "rnbqk2r/1pppppb1/p7/3nP2p/1P5R/N4N2/PBPP1PP1/R2QKB2 b Qkq - 0 9",
+      "key": "32afbc48d50cadefa06f95e45203f48b",
+      "group": "e0803918a1c7e723a2504a3620ad3d93",
+      "original_id": "0918162440d10-w06-00003.npz:2847",
+      "cp": -41
+    },
+    {
+      "fen": "r1b2rk1/1p3ppp/1qn1p3/p1bp2Bn/2P5/3BPN2/PP1N1PPP/1R1Q1RK1 b - - 2 11",
+      "key": "500e112909240335ecc07af174dace17",
+      "group": "60a0fef76908c283e8a4538206777d77",
+      "original_id": "0918162440d10-w06-00003.npz:891",
+      "cp": -14
+    },
+    {
+      "fen": "rnb2rk1/1p2ppbp/1qp3p1/p2p3n/3P4/2P2NP1/PP2PPBP/RNBQ1RK1 b - - 1 10",
+      "key": "584d9c956bb3e5087b24207bc786e980",
+      "group": "ce0be26492de5da9fca641a3fc4e8ead",
+      "original_id": "0918162440d10-w06-00003.npz:2934",
+      "cp": 36
+    },
+    {
+      "fen": "1k1r3r/1bpnqpp1/1p3n1p/p1b1pPB1/P3P3/1NP2Q1P/1P1N2P1/R3KB1R w KQ - 0 17",
+      "key": "414770cf52cc26be8d89f99367973756",
+      "group": "10d667905e6159c6f0e0726fdd3f0401",
+      "original_id": "0918162440d10-w06-00003.npz:30",
+      "cp": -78
+    },
+    {
+      "fen": "rnbq1rk1/4bppp/p3pn2/1p6/3P4/PB3N1P/1P3PP1/RNBQR1K1 b - - 0 11",
+      "key": "ceaab6ceaa86d054ab246341ab02c664",
+      "group": "6c1f02dacd3fbe226e0985cb6a919c0c",
+      "original_id": "0918162440d10-w06-00003.npz:2342",
+      "cp": 7
+    }
+  ],
+  "test": [
+    {
+      "fen": "r2q1rk1/p1n3pp/2bbpp2/1p6/1PnPN3/P1B2NPB/5P1P/R1RQ2K1 w - - 1 19",
+      "key": "4250991ef436430d717d6136d9ad4886",
+      "group": "3bbf4b5f96fd354939ce35425573df35",
+      "original_id": "0918162440d10-w14-00008.npz:3340",
+      "cp": -7
+    },
+    {
+      "fen": "r3k2r/pp3ppp/2n1bn2/2b5/8/2N5/PP2PPPP/R1B1KBNR w KQkq - 2 9",
+      "key": "b965ed3ff9a1b02b53d39895008060df",
+      "group": "8731b0bb7c403aba04ee8035ec6bfa52",
+      "original_id": "0918162440d10-w14-00008.npz:1121",
+      "cp": 4
+    },
+    {
+      "fen": "r1b1k2r/pp1nnpb1/1q1Bp1p1/2pp2Pp/3PP3/2P2N1P/PP1N1P2/R2QKB1R w KQkq - 2 11",
+      "key": "ba5c712a7eebea4f9c39384ae1ccd072",
+      "group": "ade5132df1197d2a22a4c8d0e6918e47",
+      "original_id": "0918162440d10-w14-00008.npz:1905",
+      "cp": -29
+    },
+    {
+      "fen": "rn2qrk1/pb3pbp/1p2p3/2pn1p2/2BP4/NP3N2/PBPP2PP/R3QRK1 w - - 0 14",
+      "key": "26b389f808ce0e0f08fb11a4c4e48aab",
+      "group": "87bdfc673588490fe4219d683c6e2a79",
+      "original_id": "0918162440d10-w14-00008.npz:3777",
+      "cp": 92
+    },
+    {
+      "fen": "rnb2rk1/p1q2pbp/1ppp1np1/4p3/3PP3/1PP2NP1/P4PBP/RNBQR1K1 w - - 1 10",
+      "key": "da8e99d5ce0a5b0da60879e72f01eeda",
+      "group": "35ab2ac8c317ca83ebba7187b7a21a9e",
+      "original_id": "0918162440d10-w14-00008.npz:2653",
+      "cp": 44
+    },
+    {
+      "fen": "rn2qrk1/pb2ppbp/1p6/2pn1p2/2Bp4/NP2PN2/PBPP2PP/R3QRK1 w - - 0 13",
+      "key": "ff7077bf7e3dfcb1521ef995a16552bf",
+      "group": "87bdfc673588490fe4219d683c6e2a79",
+      "original_id": "0918162440d10-w14-00008.npz:3775",
+      "cp": 59
+    },
+    {
+      "fen": "rn1qk2r/pp1nppbp/3p2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQkq - 2 9",
+      "key": "cabe6ef9c2e1202a53eb71ccfff445bd",
+      "group": "939af13c6cad6cbf44fc2d43cbb76ed3",
+      "original_id": "0918162440d10-w14-00008.npz:1843",
+      "cp": 14
+    },
+    {
+      "fen": "r2qk2r/ppnbb1pp/4pp2/3p1n2/1P1P4/PQ3NPB/1B2PP1P/RN3RK1 b kq - 7 12",
+      "key": "5808af9fc44b1ca7aabbdef9d7e37544",
+      "group": "3bbf4b5f96fd354939ce35425573df35",
+      "original_id": "0918162440d10-w14-00008.npz:3327",
+      "cp": 6
+    },
+    {
+      "fen": "r1br1k2/pp1n1pb1/3q2p1/2pp2Pp/3P4/Q1P2N1P/PP1N1PB1/R4RK1 w - - 4 17",
+      "key": "6903dafe53a92ba7fe93382121a827c0",
+      "group": "ade5132df1197d2a22a4c8d0e6918e47",
+      "original_id": "0918162440d10-w14-00008.npz:1917",
+      "cp": -39
+    },
+    {
+      "fen": "r3k1nr/pbpp1ppp/1pn5/4q3/6P1/3P3N/PP2P1BP/R1BQ1RK1 w kq - 0 12",
+      "key": "7091b8de1a80861c892ba368ddd73d32",
+      "group": "01785ea4b5ba3eab6bb7ae6ef990adc4",
+      "original_id": "0918162440d10-w14-00008.npz:3177",
+      "cp": 88
+    },
+    {
+      "fen": "rnbqk2r/p2p1p2/1p2p2p/2p3p1/1bPPn3/2N2NB1/PPQ1PPPP/R3KB1R b KQkq - 3 9",
+      "key": "3b4e54630795d27792d2de7fc96a86fa",
+      "group": "322bcb522d9178f1a272f4d49d3ea293",
+      "original_id": "0918162440d10-w14-00008.npz:2979",
+      "cp": 15
+    },
+    {
+      "fen": "r1bqnrk1/7p/pp1p3Q/1BpPp1p1/P3P3/2N2P1P/1P4P1/R4RK1 w - - 0 20",
+      "key": "ae2fd7dccacdc679445b6ddf02d51908",
+      "group": "434ed9b1d56888b0c98a6648ae3bca7e",
+      "original_id": "0918162440d10-w14-00008.npz:2137",
+      "cp": 44
+    },
+    {
+      "fen": "rnb1k2r/pp2ppn1/1qp4p/3pP1p1/4P2B/2N5/PPP1BPPP/1R1Q1RK1 w kq - 0 14",
+      "key": "249019917626744fc43089c90e026284",
+      "group": "8dba5b38b7ccf712f1e352f2bbec1f72",
+      "original_id": "0918162440d10-w14-00008.npz:428",
+      "cp": 67
+    },
+    {
+      "fen": "rnbqk2r/p2p1p2/1p2p2p/2p3p1/2PPn3/2P2NB1/P1Q1PPPP/R3KB1R b KQkq - 0 10",
+      "key": "9be6f909982067e0506319a1bd167607",
+      "group": "322bcb522d9178f1a272f4d49d3ea293",
+      "original_id": "0918162440d10-w14-00008.npz:2981",
+      "cp": 10
+    },
+    {
+      "fen": "r2qkbr1/ppp2p2/4b3/1P1nP1pp/8/P3P2P/5PP1/RNBQKB1R w KQq - 1 13",
+      "key": "2ce529229a4efbb1fcd948506014a49a",
+      "group": "f6eb24b8571a42279ed9827e15b8edc7",
+      "original_id": "0918162440d10-w14-00008.npz:2085",
+      "cp": 90
+    },
+    {
+      "fen": "r3kbn1/2pp1pp1/p3q3/1p5r/3PP3/2P2Q2/PPN1P3/R1BK2R1 b q - 5 18",
+      "key": "a72b20ac4a5d5e6518474a76d236c6d2",
+      "group": "343509d551078af6f02551d8dd050027",
+      "original_id": "0918162440d10-w14-00008.npz:882",
+      "cp": -67
+    },
+    {
+      "fen": "r1b1kb1r/ppp1qp1p/6p1/P2pP3/3pn3/1NPQ1N2/1P3PPP/R1B2RK1 b kq - 0 12",
+      "key": "73d9bb59b5dcdf0ae7f193a03fa8ed16",
+      "group": "6f6216a302ebb23de91c0af0946bba52",
+      "original_id": "0918162440d10-w14-00008.npz:480",
+      "cp": -23
+    },
+    {
+      "fen": "r1bq1r1k/ppp3pp/2nb4/4pp2/4B3/1QP2N2/PP1P1PPP/R1B2RK1 w - - 2 11",
+      "key": "23c141c9a8987c67c45e004d12e9e28a",
+      "group": "3cd01e5261ae26f2121683676e1f80e7",
+      "original_id": "0918162440d10-w14-00008.npz:1452",
+      "cp": -77
+    },
+    {
+      "fen": "r3r1k1/pbqn1pbp/1ppp1np1/8/P1PNP3/1P4P1/R4PBP/1NBQR1K1 w - - 1 14",
+      "key": "e1d0c8b6b0582a8e07f2272b5fcafa92",
+      "group": "35ab2ac8c317ca83ebba7187b7a21a9e",
+      "original_id": "0918162440d10-w14-00008.npz:2661",
+      "cp": 32
+    },
+    {
+      "fen": "rn1k2nr/ppp1qB1p/5p2/3p2p1/3P4/1PN5/P2QNPPP/R3K2R b KQ - 0 13",
+      "key": "964e0a50e27f58537e63ae4bc8668dc5",
+      "group": "9337c1ad67b0228b759b45bf762e60d1",
+      "original_id": "0918162440d10-w14-00008.npz:1223",
+      "cp": -42
+    },
+    {
+      "fen": "rnbq1rk1/pp2ppbp/6p1/2pn4/3p1P2/NP2PN2/PBPPB1PP/R2QK2R w KQ - 2 9",
+      "key": "b5d66e3e2d863b7a9d44760fe2e87166",
+      "group": "87bdfc673588490fe4219d683c6e2a79",
+      "original_id": "0918162440d10-w14-00008.npz:3767",
+      "cp": -90
+    },
+    {
+      "fen": "r1bqkbr1/ppp2p2/2n5/3np1pp/1P6/P2PPN1P/5PP1/RNBQKB1R w KQq - 1 9",
+      "key": "ae8d77c74ffc65de5a0d606b3ab8cfa0",
+      "group": "f6eb24b8571a42279ed9827e15b8edc7",
+      "original_id": "0918162440d10-w14-00008.npz:2077",
+      "cp": 82
+    },
+    {
+      "fen": "r5qr/p2bkp2/1p1p1n1p/2pPp1p1/2P1P3/P1PBNPP1/2Q3P1/3RK2R b K - 2 20",
+      "key": "e52b1a4e9ba348872e0339d31e6897a4",
+      "group": "322bcb522d9178f1a272f4d49d3ea293",
+      "original_id": "0918162440d10-w14-00008.npz:3001",
+      "cp": 70
+    },
+    {
+      "fen": "r2q1rk1/pp1nppbp/2np2p1/8/3NP3/2N1B3/PPP2PPP/R2QK2R w KQ - 6 11",
+      "key": "04bd02cdeef6a3c6e3c3370978e3a262",
+      "group": "939af13c6cad6cbf44fc2d43cbb76ed3",
+      "original_id": "0918162440d10-w14-00008.npz:1847",
+      "cp": -39
+    },
+    {
+      "fen": "r1bq3r/p2nkp2/1p1p3p/2pPp1p1/2P1P3/2PB2P1/P1QN1PP1/3RK2R w K - 3 17",
+      "key": "5a69ca963e9da87144aa463bfefab733",
+      "group": "322bcb522d9178f1a272f4d49d3ea293",
+      "original_id": "0918162440d10-w14-00008.npz:2994",
+      "cp": -3
+    },
+    {
+      "fen": "r1b2k1r/p1p2p1p/p5p1/P2pP3/3pn3/1NP2N2/1P3PPP/R4RK1 w - - 0 16",
+      "key": "7620a0e6f46235a847606871a5e02781",
+      "group": "6f6216a302ebb23de91c0af0946bba52",
+      "original_id": "0918162440d10-w14-00008.npz:487",
+      "cp": 88
+    },
+    {
+      "fen": "r1b1kb1r/pp1n1ppp/1qn1p3/3pP3/3p4/1NP2N2/PP2BPPP/R1BQK2R w KQkq - 0 9",
+      "key": "3a867163838a1409da03417fad1f8964",
+      "group": "ae612d662e163c5c8dcb7ea155a5290a",
+      "original_id": "0918162440d10-w14-00008.npz:3915",
+      "cp": 13
+    },
+    {
+      "fen": "r1bq1bnr/5kpp/ppn1p3/3p1p2/3QP3/2N5/PPP1BPPP/R1B1K1NR w KQ - 2 10",
+      "key": "585a52d3b5c29cbea9f819df396ff4af",
+      "group": "2e3a7c75f2c71c6ddeb75a47df69416a",
+      "original_id": "0918162440d10-w14-00008.npz:1656",
+      "cp": 17
+    },
+    {
+      "fen": "2kr3r/ppn2p2/2ppp2P/5n2/2PP1R2/2P2N1P/P3P2P/R3KB2 b Q - 4 18",
+      "key": "73014d38f41b99e26f0c2704bffe8793",
+      "group": "d1f2c943aab008477fc303b4ef2b8033",
+      "original_id": "0918162440d10-w14-00008.npz:1724",
+      "cp": -23
+    },
+    {
+      "fen": "r2k2nr/ppp2q2/2n2p2/3p2p1/3P4/1PN5/P2QN1PP/R4RK1 w - - 0 17",
+      "key": "96d67ce80e08724833743b88f65c104a",
+      "group": "9337c1ad67b0228b759b45bf762e60d1",
+      "original_id": "0918162440d10-w14-00008.npz:1230",
+      "cp": 64
+    },
+    {
+      "fen": "3rk2r/pp2qppp/8/2PB4/P1P5/6Pb/4PP1P/R2Q1RK1 b k - 0 17",
+      "key": "a6bb2d62dfe751eaa6d66eb4ae4f1b97",
+      "group": "d94d4b80b4d3eacbe7c5a54913d274a8",
+      "original_id": "0918162440d10-w14-00008.npz:29",
+      "cp": -18
+    },
+    {
+      "fen": "rnb1k2r/pp2ppb1/1qp3pp/3p3n/3P3B/2N1PN2/PPP1BPPP/1R1Q1RK1 w kq - 4 11",
+      "key": "cdb40c30c2a9801b8b4f56806fe01d11",
+      "group": "8dba5b38b7ccf712f1e352f2bbec1f72",
+      "original_id": "0918162440d10-w14-00008.npz:422",
+      "cp": 73
+    }
+  ]
+}

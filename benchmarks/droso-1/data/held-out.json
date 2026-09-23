@@ -1,0 +1,91 @@
+{
+  "reserved_shards": {
+    "dev": [
+      "0918162652lichess-00067.npz",
+      "0919204929dagger-00207.npz",
+      "0918172845dagger-00033.npz",
+      "0919204929dagger-00031.npz",
+      "0919204929dagger-00196.npz",
+      "0918162440d10-w05-00003.npz",
+      "0918162440d10-w15-00019.npz"
+    ],
+    "validation": [
+      "0918162652lichess-00064.npz",
+      "0919184332dagger-00050.npz",
+      "0918172845dagger-00010.npz",
+      "0919204929dagger-00093.npz",
+      "0919204929dagger-00009.npz",
+      "0918162440d10-w06-00003.npz",
+      "0918162440d10-w04-00027.npz"
+    ],
+    "test": [
+      "0918162652lichess-00046.npz",
+      "0919204929dagger-00002.npz",
+      "0919204929dagger-00140.npz",
+      "0918172845dagger-00012.npz",
+      "0919204929dagger-00124.npz",
+      "0918162440d10-w14-00008.npz",
+      "0918162440d10-w13-00004.npz"
+    ]
+  },
+  "counts": {
+    "dev": {
+      "lichess/quiet": 77,
+      "lichess/endgame": 38,
+      "lichess/tactical": 38,
+      "dagger/tactical": 16,
+      "dagger/quiet": 32,
+      "dagger/endgame": 16,
+      "generated/quiet": 21,
+      "generated/endgame": 9,
+      "generated/tactical": 9
+    },
+    "validation": {
+      "lichess/tactical": 76,
+      "lichess/quiet": 155,
+      "lichess/endgame": 76,
+      "dagger/tactical": 32,
+      "dagger/quiet": 64,
+      "dagger/endgame": 32,
+      "generated/quiet": 39,
+      "generated/endgame": 19,
+      "generated/tactical": 19
+    },
+    "test": {
+      "lichess/quiet": 155,
+      "lichess/endgame": 76,
+      "lichess/tactical": 76,
+      "dagger/quiet": 64,
+      "dagger/tactical": 32,
+      "dagger/endgame": 32,
+      "generated/endgame": 19,
+      "generated/tactical": 19,
+      "generated/quiet": 39
+    }
+  },
+  "splits": {
+    "dev": [
+      {
+        "file": "dev.npy",
+        "records": 256,
+        "sha256": "c3c31cb2ed79a1e2805089d4b4f3cf5ecb1af014968bd6d67e1afbbde2c9797b"
+      }
+    ],
+    "validation": [
+      {
+        "file": "validation.npy",
+        "records": 512,
+        "sha256": "76f63d6ca846937e4ea9573b6370357c47d57a6b0192efc9d639419b887e6ba9"
+      }
+    ],
+    "test": [
+      {
+        "file": "test.npy",
+        "records": 512,
+        "sha256": "bfc443a73524a1e56a1d55ac48da7b695461bbd5e37837a98a717304367f4f9a"
+      }
+    ]
+  },
+  "source_group_limitation": "Import game IDs were lost; whole-shard and canonical-position isolation do not prove source-game isolation.",
+  "old_diagnostic_roots": 32334
+}

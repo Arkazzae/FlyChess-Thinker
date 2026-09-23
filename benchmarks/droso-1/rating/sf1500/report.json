@@ -1,0 +1,464 @@
+{
+  "stage": "completed",
+  "identity": {
+    "checkpoint": {
+      "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+      "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+      "arm": "B",
+      "seen": 26000128,
+      "step": 101563,
+      "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+      "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+      "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3"
+    },
+    "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+    "engine": "Stockfish 19",
+    "UCI_Elo": 1500,
+    "UCI_LimitStrength": true,
+    "stockfish_threads": 1,
+    "stockfish_hash_mb": 16,
+    "stockfish_depth": 8,
+    "minimum_handicap_selection_depth": 2,
+    "separate_engine_per_game": true,
+    "concurrent_stockfish_searches": 2,
+    "simulations": 64,
+    "c_puct": 1.5,
+    "model_move_clock": null,
+    "wave_size": 16,
+    "max_additional_plies": 512,
+    "openings": [
+      [
+        "ruy_lopez",
+        "open_games",
+        "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6"
+      ],
+      [
+        "italian",
+        "open_games",
+        "e2e4 e7e5 g1f3 b8c6 f1c4 f8c5"
+      ],
+      [
+        "scotch",
+        "open_games",
+        "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4"
+      ],
+      [
+        "sicilian_open",
+        "sicilian",
+        "e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6"
+      ],
+      [
+        "sicilian_closed",
+        "sicilian",
+        "e2e4 c7c5 b1c3 b8c6 g2g3 g7g6"
+      ],
+      [
+        "french",
+        "french",
+        "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6"
+      ],
+      [
+        "caro_kann",
+        "caro_kann",
+        "e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 c8f5"
+      ],
+      [
+        "pirc",
+        "pirc",
+        "e2e4 d7d6 d2d4 g8f6 b1c3 g7g6"
+      ],
+      [
+        "scandinavian",
+        "scandinavian",
+        "e2e4 d7d5 e4d5 d8d5 b1c3 d5a5"
+      ],
+      [
+        "queens_gambit",
+        "queens_gambit",
+        "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6"
+      ],
+      [
+        "slav",
+        "slav",
+        "d2d4 d7d5 c2c4 c7c6 g1f3 g8f6"
+      ],
+      [
+        "kings_indian",
+        "kings_indian",
+        "d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6"
+      ],
+      [
+        "grunfeld",
+        "grunfeld",
+        "d2d4 g8f6 c2c4 g7g6 b1c3 d7d5"
+      ],
+      [
+        "nimzo_indian",
+        "nimzo_indian",
+        "d2d4 g8f6 c2c4 e7e6 b1c3 f8b4"
+      ],
+      [
+        "english",
+        "english",
+        "c2c4 e7e5 b1c3 g8f6 g2g3 d7d5"
+      ],
+      [
+        "reti",
+        "reti",
+        "g1f3 d7d5 c2c4 e7e6 g2g3 g8f6"
+      ]
+    ],
+    "opening_count": 16,
+    "code_sha256": {
+      "v10/evaluate.py": "c4b6d7bc236374ad19bec9ac43286b6a7c7c4eeed0c57fd472e9962e928cb2f5",
+      "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+      "v10/teacher.py": "5adca630089f6c88806fee2afe5c7efa3614ccc41898f44b01ab80730ea28e0b",
+      "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+      "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+      "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+      "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+      "research/compare_models.py": "97881a71e78ab381a76cf42d32db467cf95e12f978158823195ca9661e7a28f7",
+      "v10/rating_match.py": "55b478375eecdce5bda92a5046e4e23c53662c159803f75198bc351f6c8d2904"
+    },
+    "rating_scale": "Conditional on SF19 UCI_Elo, depth-limited protocol; not human/online Elo."
+  },
+  "finished_at": "2026-09-23T07:43:16.095228+00:00",
+  "games": 32,
+  "wins": 12,
+  "draws": 8,
+  "losses": 12,
+  "unresolved": 0,
+  "score": 0.5,
+  "details": [
+    {
+      "game": 0,
+      "opening": 0,
+      "family": "open_games",
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 123,
+      "termination": "THREEFOLD_REPETITION"
+    },
+    {
+      "game": 1,
+      "opening": 0,
+      "family": "open_games",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 122,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 2,
+      "opening": 1,
+      "family": "open_games",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 122,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 3,
+      "opening": 1,
+      "family": "open_games",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 82,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 4,
+      "opening": 2,
+      "family": "open_games",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 106,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 5,
+      "opening": 2,
+      "family": "open_games",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 80,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 6,
+      "opening": 3,
+      "family": "sicilian",
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 72,
+      "termination": "THREEFOLD_REPETITION"
+    },
+    {
+      "game": 7,
+      "opening": 3,
+      "family": "sicilian",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 127,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 8,
+      "opening": 4,
+      "family": "sicilian",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 32,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 9,
+      "opening": 4,
+      "family": "sicilian",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 77,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 10,
+      "opening": 5,
+      "family": "french",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 151,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 11,
+      "opening": 5,
+      "family": "french",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 79,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 12,
+      "opening": 6,
+      "family": "caro_kann",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 105,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 13,
+      "opening": 6,
+      "family": "caro_kann",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 151,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 14,
+      "opening": 7,
+      "family": "pirc",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 115,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 15,
+      "opening": 7,
+      "family": "pirc",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 68,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 16,
+      "opening": 8,
+      "family": "scandinavian",
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 149,
+      "termination": "STALEMATE"
+    },
+    {
+      "game": 17,
+      "opening": 8,
+      "family": "scandinavian",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 183,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 18,
+      "opening": 9,
+      "family": "queens_gambit",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 81,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 19,
+      "opening": 9,
+      "family": "queens_gambit",
+      "subject_white": false,
+      "score": 0.0,
+      "result": "1-0",
+      "additional_plies": 129,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 20,
+      "opening": 10,
+      "family": "slav",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 61,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 21,
+      "opening": 10,
+      "family": "slav",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 74,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 22,
+      "opening": 11,
+      "family": "kings_indian",
+      "subject_white": true,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 153,
+      "termination": "THREEFOLD_REPETITION"
+    },
+    {
+      "game": 23,
+      "opening": 11,
+      "family": "kings_indian",
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 80,
+      "termination": "THREEFOLD_REPETITION"
+    },
+    {
+      "game": 24,
+      "opening": 12,
+      "family": "grunfeld",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 142,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 25,
+      "opening": 12,
+      "family": "grunfeld",
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 84,
+      "termination": "THREEFOLD_REPETITION"
+    },
+    {
+      "game": 26,
+      "opening": 13,
+      "family": "nimzo_indian",
+      "subject_white": true,
+      "score": 1.0,
+      "result": "1-0",
+      "additional_plies": 73,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 27,
+      "opening": 13,
+      "family": "nimzo_indian",
+      "subject_white": false,
+      "score": 1.0,
+      "result": "0-1",
+      "additional_plies": 162,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 28,
+      "opening": 14,
+      "family": "english",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 144,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 29,
+      "opening": 14,
+      "family": "english",
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 262,
+      "termination": "FIFTY_MOVES"
+    },
+    {
+      "game": 30,
+      "opening": 15,
+      "family": "reti",
+      "subject_white": true,
+      "score": 0.0,
+      "result": "0-1",
+      "additional_plies": 90,
+      "termination": "CHECKMATE"
+    },
+    {
+      "game": 31,
+      "opening": 15,
+      "family": "reti",
+      "subject_white": false,
+      "score": 0.5,
+      "result": "1/2-1/2",
+      "additional_plies": 148,
+      "termination": "THREEFOLD_REPETITION"
+    }
+  ],
+  "seconds": 448.4385074640013,
+  "resume_count": 0,
+  "unique_trajectories": 32,
+  "legal_pgn_verified": true,
+  "limitations": [
+    "SF19 handicap RNG is internal and not seed-controllable; resume restores game history, not its RNG or transposition table.",
+    "Stockfish calibration uses 120s+1s; this experiment uses depth 8 and an unlimited model clock with a fixed simulation budget.",
+    "No fabricated ratings for weak opponents; unresolved games are reported separately, never silently counted as draws.",
+    "Book positions are ordinary chess openings and may have occurred in historical training. No weight updates during this evaluation."
+  ]
+}

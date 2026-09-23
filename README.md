@@ -26,17 +26,17 @@ Safari; phones work too, they just think a little slower.
     imagines your replies first, **Thinker** (~1310) keeps thinking deeper while it has time.
   - fly-v4, the older brain: **Rookie** (~1030), **Scribe** (~1330) and **Elder** (~1340),
     the same three ways of playing.
-- **The fly's brain, live**: a 3D cloud of its real neurons lighting up
-  step by step, the signal flowing between brain regions, the moves it
-  is weighing, and what the board looks like through its eyes.
-
-  <img src="docs/media/brain.gif" width="800" alt="The brain view: activity spreading through 163,903 neurons, step by step">
-
 - **Game review**: after the game, Stockfish rates every move and gives
   both players an accuracy score. You can replay the game with the fly's
   brain activity and its thoughts at every move.
 
-  <img src="docs/media/review.png" alt="Game review with accuracy, evaluation graph and move classes" width="640">
+## The fly's brain, live
+
+A 3D cloud of its real neurons lighting up step by step, the signal flowing
+between brain regions, the moves it is weighing, and what the board looks like
+through its eyes.
+
+<img src="docs/media/brain.gif" width="800" alt="The brain view: activity spreading through 163,903 neurons, step by step">
 
 ## How good is it?
 
@@ -45,6 +45,33 @@ Thinker won about half its games (96 games per level, so treat the ratings
 as ±65). That's a fair result for something
 with a brain smaller than a poppy seed that had to learn from scratch
 what a legal move is.
+
+## Train your own model: DROSO-1
+
+**DROSO-1** is our new research model, trained from scratch on the FlyWire
+v783 connectome: 134,181 neurons, 2.7 million connections and 26 million
+position presentations. It scored about **1500 Elo in our Stockfish test**
+(95% interval 1410–1603) and beat fly-v6 37–10–17 in a held-out match.
+These ratings depend on the [benchmark conditions](benchmarks/droso-1/README.md).
+
+The repository includes the **[ready-to-run trained model](artifacts/droso-1/README.md)**,
+the **[training recipe](docs/droso-1/recipe.md)** and the
+[Python training pipeline](training/README.md), plus
+[research notes](docs/droso-1/research.md) and benchmark JSON/PGN files.
+Use the recipe to prepare your own data, train, evaluate and export a model.
+
+To run the pretrained model with Python 3.12 in a virtual environment:
+
+```bash
+pip install -r artifacts/droso-1/requirements.txt
+cd artifacts/droso-1
+python -m droso1.bundle --device cpu --moves e2e4 c7c5
+```
+
+CUDA accelerates inference and is required for training. The pretrained
+bundle includes weights and anatomy; the original training corpus and
+optimizer state are not included. DROSO-1 currently runs in Python, while
+the browser game uses fly-v6 and fly-v4 with their existing format.
 
 ## Want the details?
 
@@ -55,7 +82,7 @@ what a legal move is.
 - [Development](docs/development.md): running it locally, project layout,
   tests, and swapping in a new model.
 - [Data and licences](docs/data.md)
-- [Trained brains](artifacts/): the exported fly-v6 and fly-v4 models, with notes.
+- [Trained brains](artifacts/): DROSO-1 for Python and fly-v6/fly-v4 for the browser.
 
-Code: [MIT](LICENSE). Connectome: MaleCNS v1.0, CC BY 4.0. The evaluation bar
+Code: [MIT](LICENSE). Connectomes: MaleCNS v1.0 and FlyWire v783, CC BY 4.0. The evaluation bar
 uses Stockfish (GPL-3.0).

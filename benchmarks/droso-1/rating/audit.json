@@ -1,0 +1,30 @@
+{
+  "stage": "passed",
+  "created_at": "2026-09-23T07:44:48.138622+00:00",
+  "games": 64,
+  "unique_trajectories_across_both_levels": 64,
+  "checks": {
+    "1320": {
+      "games": 32,
+      "legal_and_natural": true,
+      "colors_and_histories_verified": true,
+      "stockfish_moves": 1404,
+      "recorded_min_depth": 7,
+      "code_hashes_valid": true,
+      "pgn_sha256": "17bc5a1dde2b65a7136455d95110c35d48f9ff8da622c7cf8127d0d0a900e62b"
+    },
+    "1500": {
+      "games": 32,
+      "legal_and_natural": true,
+      "colors_and_histories_verified": true,
+      "stockfish_moves": 1812,
+      "recorded_min_depth": 7,
+      "code_hashes_valid": true,
+      "pgn_sha256": "5f1552701b94ce99e1f2233ea9973acfc1fb69da8767d48c588855e66d31c6d5"
+    }
+  },
+  "checkpoint_unchanged": true,
+  "stockfish_binary_unchanged": true,
+  "statistical_contract_tests_passed": 5,
+  "summary_sha256": "8a5b320a139af56054c589a234808766499d85e707893fc2ba2f8be06db9995d"
+}

@@ -1,0 +1,110 @@
+{
+  "created_at": "2026-09-23T07:29:27.140831+00:00",
+  "checkpoint": "runs/v10-fresh-20260923/snapshots/B26000128.pt",
+  "checkpoint_sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+  "engine_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+  "arms": [
+    1320,
+    1500
+  ],
+  "games_per_level": 32,
+  "openings": [
+    [
+      "ruy_lopez",
+      "open_games",
+      "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6"
+    ],
+    [
+      "italian",
+      "open_games",
+      "e2e4 e7e5 g1f3 b8c6 f1c4 f8c5"
+    ],
+    [
+      "scotch",
+      "open_games",
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4"
+    ],
+    [
+      "sicilian_open",
+      "sicilian",
+      "e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6"
+    ],
+    [
+      "sicilian_closed",
+      "sicilian",
+      "e2e4 c7c5 b1c3 b8c6 g2g3 g7g6"
+    ],
+    [
+      "french",
+      "french",
+      "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6"
+    ],
+    [
+      "caro_kann",
+      "caro_kann",
+      "e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 c8f5"
+    ],
+    [
+      "pirc",
+      "pirc",
+      "e2e4 d7d6 d2d4 g8f6 b1c3 g7g6"
+    ],
+    [
+      "scandinavian",
+      "scandinavian",
+      "e2e4 d7d5 e4d5 d8d5 b1c3 d5a5"
+    ],
+    [
+      "queens_gambit",
+      "queens_gambit",
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6"
+    ],
+    [
+      "slav",
+      "slav",
+      "d2d4 d7d5 c2c4 c7c6 g1f3 g8f6"
+    ],
+    [
+      "kings_indian",
+      "kings_indian",
+      "d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6"
+    ],
+    [
+      "grunfeld",
+      "grunfeld",
+      "d2d4 g8f6 c2c4 g7g6 b1c3 d7d5"
+    ],
+    [
+      "nimzo_indian",
+      "nimzo_indian",
+      "d2d4 g8f6 c2c4 e7e6 b1c3 f8b4"
+    ],
+    [
+      "english",
+      "english",
+      "c2c4 e7e5 b1c3 g8f6 g2g3 d7d5"
+    ],
+    [
+      "reti",
+      "reti",
+      "g1f3 d7d5 c2c4 e7e6 g2g3 g8f6"
+    ]
+  ],
+  "search": {
+    "flywire": "PUCT64 c=1.5, CUDA, no clock",
+    "stockfish": "SF19 UCI_LimitStrength true, depth8, Threads1 Hash16; dedicated engine per game, at most two concurrent CPU searches"
+  },
+  "primary_estimator": "Common logistic performance rating R solving sum(1/(1+10**((opponent-R)/400))) = total score. Explicitly conditional on Stockfish UCI_Elo settings in this protocol.",
+  "uncertainty": "Bootstrap entire opening families jointly across both levels, including both colours. Report score and rating intervals; infinite rating samples remain unbounded, never replaced with a fake finite Elo.",
+  "terminal_policy": "Natural outcomes with legal automatic draw claims. A 512-additional-ply cap marks unresolved games; no silent draw/adjudication in the rating.",
+  "boundary": "All-loss/all-win results produce a bound, not an invented finite rating. If a weaker anchor is needed, its rating must be measured rather than borrowed from old default values.",
+  "references": [
+    "https://official-stockfish.github.io/docs/stockfish-wiki/UCI-Protocol-and-Stockfish-Commands.html#uci_elo",
+    "https://official-stockfish.github.io/docs/stockfish-wiki/Stockfish-FAQ.html#the-elo-rating-of-stockfish"
+  ],
+  "limitations": [
+    "Not FIDE, Chess.com or Lichess rating. Official handicap calibration is 120s+1s/CCRL40/4, not this depth8 protocol.",
+    "13 opening families, one model seed; SF19 internal randomized handicap has no exposed seed.",
+    "No training or checkpoint selection."
+  ]
+}

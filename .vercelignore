@@ -4,3 +4,6 @@ reports
 artifacts
 docs
 *.tsbuildinfo
+training
+benchmarks
+.venv

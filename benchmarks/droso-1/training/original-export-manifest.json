@@ -1,0 +1,67 @@
+{
+  "format": "flywire-fresh-10-numpy",
+  "created_at": "2026-09-23T07:14:26.561613+00:00",
+  "provenance": {
+    "checkpoint": "source/runs/v10-fresh-20260923/snapshots/B26000128.pt",
+    "sha256": "8202717b7aad0d81238d34440d662048b4a0e74bdf69e50651328def35d101b6",
+    "arm": "B",
+    "seen": 26000128,
+    "step": 101563,
+    "graph_sha256": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "initial_parameter_sha256": "35c5319b4524573773fa364201162b2139be02d79982c1985947b0337677373e",
+    "data_sha256": "b18ef7aa68859141c95f8882cd967143d2d6a9f33a899663fc92dd3bf4d9b5d3"
+  },
+  "model_config": {
+    "steps": 10,
+    "hidden": 512,
+    "central_sample": 2048,
+    "seed": 2026092301
+  },
+  "training_code_sha256": {
+    "v10/train.py": "70f6e6726fc44e106a0672dfd08c3b10a4cae55a2ae3668683a09a40463596cf",
+    "v10/model.py": "1cfcd715830506cc856926dcdadce0a12dfb42a1c3e6f83bd718b9b07ebcc5ce",
+    "v10/loss.py": "b8957cb94442e0e7ea1fa1d8eb961c3e5a2823f63763ad9165df78dbf73274b1",
+    "v10/data.py": "3a566522086f2af4b4c47bb791753990f1aec859673187bcec3594f89fe2af10",
+    "v10/common.py": "64f94e66f758a7de961674227a5b340b4437d3a5ca4e347436df4c53b258e93b",
+    "model.py": "3be64ffb6ebee101618dfc5349ffa002aed8fca5dacf43ffd561e68f665d7d09",
+    "flychess.py": "0fbc2adddbe839d4575cd912b0bcb89449bb887b44c21ce34c5472ab47f4dfef",
+    "training_state.py": "86c230eb9ab3f38634b88758adb8f1ff678be6007f32ff85b091c8dd9c9b47d5",
+    "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+    "v6_replay/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d"
+  },
+  "contract": {
+    "square_features": 15,
+    "global_features": 22,
+    "move_space": 4168,
+    "value": "tanh(current_CP/600), side to move",
+    "auxiliary_outputs_used_for_search": false,
+    "promotions": [
+      "queen",
+      "rook",
+      "bishop",
+      "knight"
+    ],
+    "search": "PUCT",
+    "simulations": 64,
+    "c_puct": 1.5
+  },
+  "files": {
+    "model.py": "3be64ffb6ebee101618dfc5349ffa002aed8fca5dacf43ffd561e68f665d7d09",
+    "flychess.py": "0fbc2adddbe839d4575cd912b0bcb89449bb887b44c21ce34c5472ab47f4dfef",
+    "player.py": "70b2b25e601ab8d1d04af72fc30822e5403adfe04082eaae768cc3560fe6c19a",
+    "v6_replay/__init__.py": "bc722b0f7c6178a9c1f70bcdad867198f966fdda9f31bddf4f1783856f3a5ef6",
+    "v6_replay/input_map.py": "1e76bae496a7bc50d669970174e9d120a9293c574b3d92efdaa287b4422e276d",
+    "v7/__init__.py": "6cc12d69884633bcfe26ac1edacb0d051deafc73927990c715a6eaa755ecd4c5",
+    "v7/encoding.py": "b8b4c9b5e59c5ab71bb4c567b9053af6e552af73ed4a1c5008d410b73ba5abe7",
+    "v7/player.py": "ab70ac1b6b20859b2742c0b4a8e3f5fb4b286fa668136f65d5fbeed854ef4afe",
+    "v7/puct.py": "0a7fe731287ca1334799f6de3e5fe096a5d0662b3e10ee3b0fe60f007ef66163",
+    "v10/__init__.py": "70c753c5aec60ca3e288048730aa6902aa3bd115f935b0bd76e86a0ee817a4b0",
+    "v10/model.py": "1cfcd715830506cc856926dcdadce0a12dfb42a1c3e6f83bd718b9b07ebcc5ce",
+    "v10/player.py": "6a4e79eaea36f78ae0a4f486f897cf82c4e37f819932b05b6c440e0a6c4ee645",
+    "v10/bundle.py": "70ec792599168114217517af00e49d502e78199549133bb69cf7540a40be5e29",
+    "graph.npz": "9d154f9c68faea2e7e8b18ff835ebbb15a18ad92d13e1608923d8f3473574ea4",
+    "weights.npz": "a781f6c75446b8e5ae56196b239299e8bc26bfbe19a9f8a29899132a00766fad",
+    "requirements.txt": "13455f8bc275674f9ade482fdf0b4e173cf821380168d8acc0c6dec0b65c05f3",
+    "README.md": "fcff3395cfc0052153199c961cc09710cb05e173b58614bcc523871de57730af"
+  }
+}
