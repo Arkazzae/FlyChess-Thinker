@@ -29,7 +29,7 @@ vertically with colours swapped. All 64 squares have visual inputs.
 Each square has **15 channels**: six own piece types, six opposing types,
 both attack maps and the legal en passant target. **22 global features**
 represent castling rights, check, legal en passant, material, phase, halfmove
-clock and knowledge flags. Unknown clocks are masked until a pawn move or
+clock, a constant input and two knowledge flags. Unknown clocks are masked until a pawn move or
 capture establishes the count. The history input is always false, matching
 the trained search adapter; repetition history is handled by the chess rules.
 
@@ -45,12 +45,11 @@ activity_i ← (1 − α) · activity_i + α · drive_i / (1 + drive_i)
 A readout of 7,526 neurons feeds two 512-unit layers with a residual connection.
 The **4,168-action policy** represents normal moves and queen promotions with
 from/to indices, plus 72 dedicated knight, bishop and rook promotion actions.
-Legal-move masking prevents illegal moves. Search uses only the current
-position value, `tanh(centipawns / 600)`. The reply head was supervised in both
-training arms, including the released B checkpoint. The future-value and
-outcome heads were supervised only in arm A. All three auxiliary outputs are
-preserved for checkpoint parity but are unused by search and the interface;
-the replies shown in the interface come from the search tree.
+Legal-move masking prevents illegal moves. Search uses the policy and the
+current position value, `tanh(centipawns / 600)`. The network also has
+reply, future-value and outcome outputs; they are kept so the browser matches
+the Python checkpoint, but neither search nor the interface uses them. The
+replies shown in the interface come from the search tree.
 
 ## Search
 

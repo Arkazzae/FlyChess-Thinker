@@ -1,6 +1,7 @@
 import { FlyMascot } from "@/components/FlyMascot";
 import { useGameStore } from "@/state/game";
 import { useChatStore } from "@/state/chat";
+import { useSettingsStore } from "@/state/settings";
 import { useFlyStore } from "@/state/fly";
 import { useUiStore } from "@/state/ui";
 import { getFlyLevel } from "@/ai/bots/levels";
@@ -43,6 +44,7 @@ export function GameTab() {
   const takeback = useGameStore((s) => s.takeback);
   const flipBoard = useGameStore((s) => s.flipBoard);
   const log = useChatStore((s) => s.log);
+  const flyChat = useSettingsStore((s) => s.flyChat);
   const hintLoading = useUiStore((s) => s.hintLoading);
   const setSettingsOpen = useUiStore((s) => s.setSettingsOpen);
   const showToast = useUiStore((s) => s.showToast);
@@ -64,7 +66,9 @@ export function GameTab() {
     <div className="game-tab">
       <div className="bot-chat">
         <div className="bot-chat__portrait" style={{ background: level.tint }}><FlyMascot thinking={flyThinking} still variant={level.id} /></div>
-        <div className="speech" key={log.at(-1)?.timestamp ?? 0}><p>{message}</p></div>
+        {flyChat
+          ? <div className="speech" key={log.at(-1)?.timestamp ?? 0}><p>{message}</p></div>
+          : <div className="bot-hero__name"><strong>{level.name}</strong> <span>{level.short}</span></div>}
       </div>
       <BrainStrip />
       <div className="opening-row">

@@ -101,7 +101,7 @@ const CHAT_PL: ChatMessages = {
     "Mniej dopaminy…",
     "Bzz… robi się gorąco.",
     "Odleciałabym, ale obiecałam dokończyć partię.",
-    "Chwila, kalibruję 34 153 566 synapsy.",
+    "Chwila, kalibruję 34 153 566 synaps.",
     "Jest dobrze. Wszystko jest dobrze. Bzz.",
   ],
   brilliantMove: [
@@ -130,7 +130,7 @@ const CHAT_PL: ChatMessages = {
     "Nie spiesz się. Żyję jakieś 50 dni, żadnej presji.",
     "*zaciera przednie nóżki w zamyśleniu*",
     "Czy to miska z owocami? Nie, skup się. Szachy.",
-    "Mam 134 181 neurony i wszystkie czekają na ciebie.",
+    "Mam 134 181 neuronów i wszystkie czekają na ciebie.",
     "Wiesz, że widzę ultrafiolet? Twój ruch wygląda teraz bardzo UV.",
     "",
   ],

@@ -38,6 +38,11 @@ export function SettingsDialog() {
           </div>
         </section>
         <section>
+          <h3>{t("settings.fly")}</h3>
+          <Toggle label={t("settings.flyChat")} checked={settings.flyChat} onChange={settings.setFlyChat} />
+          <Toggle label={t("select.thoughts")} checked={ui.showThoughts} onChange={ui.setShowThoughts} />
+        </section>
+        <section>
           <h3>{t("settings.sound")}</h3>
           <Toggle label={t("settings.sounds")} checked={settings.sound} onChange={settings.setSound} />
           <label className="range">
@@ -52,7 +57,7 @@ export function SettingsDialog() {
           <Toggle label={t("settings.legal")} checked={settings.showLegalMoves} onChange={settings.setShowLegalMoves} />
           <Toggle label={t("settings.animation")} checked={settings.moveAnimation} onChange={settings.setMoveAnimation} />
           <Toggle label={t("settings.premove")} checked={settings.premoveEnabled} onChange={settings.setPremoveEnabled} />
-          <Toggle label={t("select.thoughts")} checked={ui.showThoughts} onChange={ui.setShowThoughts} />
+          <Toggle label={t("settings.autoQueen")} checked={settings.autoQueen} onChange={settings.setAutoQueen} />
           <Toggle label={t("settings.evalBar")} checked={ui.showEval} onChange={ui.setShowEval} />
         </section>
         <p className="modal__note">{t("settings.shortcuts")}</p>

@@ -4,6 +4,7 @@ import { useTranslation } from "@/i18n";
 import { FLY_LEVELS, getFlyLevel, type FlyLevelId } from "@/ai/bots/levels";
 import { getFlyEngine } from "@/ai/fly/engine";
 import { useFlyStore } from "@/state/fly";
+import { useSettingsStore } from "@/state/settings";
 import { TIME_OPTIONS, useUiStore, type SideChoice } from "@/state/ui";
 import { startGame } from "@/game/session";
 
@@ -33,6 +34,7 @@ export function BotSelect() {
   const setShowThoughts = useUiStore((s) => s.setShowThoughts);
   const showEval = useUiStore((s) => s.showEval);
   const setShowEval = useUiStore((s) => s.setShowEval);
+  const flyChat = useSettingsStore((s) => s.flyChat);
   const status = useFlyStore((s) => s.status);
   const level = getFlyLevel(levelId);
   const { t } = useTranslation();
@@ -53,12 +55,14 @@ export function BotSelect() {
         <div className="bot-hero__text">
           <div className="bot-hero__name"><strong>{level.name}</strong> <span>{level.short}</span></div>
           {/* Every line sits invisibly in the same cell, so the bubble keeps the height of the longest one. */}
-          <div className="speech speech--stack">
-            <p>{t(`select.speech.${level.id}.${speech}`)}</p>
-            {FLY_LEVELS.flatMap((fly) => [0, 1, 2].map((i) => (
-              <p key={`${fly.id}.${i}`} className="speech__ghost" aria-hidden="true">{t(`select.speech.${fly.id}.${i}`)}</p>
-            )))}
-          </div>
+          {flyChat && (
+            <div className="speech speech--stack">
+              <p>{t(`select.speech.${level.id}.${speech}`)}</p>
+              {FLY_LEVELS.flatMap((fly) => [0, 1, 2].map((i) => (
+                <p key={`${fly.id}.${i}`} className="speech__ghost" aria-hidden="true">{t(`select.speech.${fly.id}.${i}`)}</p>
+              )))}
+            </div>
+          )}
         </div>
       </div>
 

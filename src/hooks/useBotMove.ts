@@ -185,7 +185,7 @@ export function useBotMove() {
           decision.selectedEvaluation ??
           decision.positionEvaluation ??
           lastEvalRef.current;
-        // The fly judges the position itself; that is what the eval bar shows.
+        // Keep the fly's own judgement of the position; the eval bar shows Stockfish.
         useGameStore.getState().setEvaluation(lastEvalRef.current);
 
         playMoveSound(result);

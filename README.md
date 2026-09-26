@@ -19,6 +19,9 @@ The first visit downloads the fly's brain (about 51 MB), and then everything
 runs in your browser. It works best on a computer with a recent Chrome, Edge or
 Safari; phones work too, they just think a little slower.
 
+The gear icon opens the settings: language, sound, board options, and
+whether the fly chats during the game.
+
 ## The fly's brain, live
 
 A 3D cloud of its real neurons lighting up step by step, the signal flowing
@@ -29,19 +32,19 @@ through its eyes.
 
 ## How good is it?
 
-The Thinker (64 search visits) scored about **1500 Elo** against Stockfish in
-our test (95% interval 1410–1603); Scout and Tactician have not been rated
-yet. The model learned move preferences and position values from scratch;
-the chess rules and legal-move filter are supplied by the software.
+All three flies share one model and differ only in how many positions they
+look at before moving: Scout 8, Tactician 32, Thinker 64. The Thinker scored
+about **1500** in 64 games against Stockfish 19 limited to 1320 and 1500
+(95% interval 1410–1603). That is a result for [this test](benchmarks/droso-1/README.md),
+not a FIDE or Lichess rating; Scout and Tactician have not been rated. The
+model learned move preferences and position values from scratch; the chess
+rules and the legal-move filter come from ordinary code.
 
-## Train your own model: DROSO-1
+## The model: DROSO-1
 
-**DROSO-1** is our new research model, trained from scratch on the FlyWire
-v783 connectome: 134,181 neurons, 2.7 million connections and 26 million
-position presentations. It scored about **1500 Elo in our Stockfish test**
-(95% interval 1410–1603) and beat our legacy prototype, fly-v6, 37–10–17 in a
-held-out match.
-These ratings depend on the [benchmark conditions](benchmarks/droso-1/README.md).
+**DROSO-1** is the model the game runs. It was trained from scratch on the
+FlyWire v783 connectome for 26 million position presentations (repeats
+included) and beat the earlier prototype, fly-v6, 37–10–17 in a held-out match.
 
 The repository includes the **[ready-to-run trained model](artifacts/droso-1/README.md)**,
 the **[training recipe](docs/droso-1/recipe.md)** and the
@@ -59,10 +62,10 @@ cd artifacts/droso-1
 python -m droso1.bundle --device cpu --moves e2e4 c7c5
 ```
 
-CUDA accelerates inference and is required for training. The pretrained
-bundle includes weights and anatomy; the original training corpus and
-optimizer state are not included. The browser game runs the same model from
-`public/data/droso-1/`.
+Inference runs on CPU; a CUDA GPU makes it faster and is required for
+training. The pretrained bundle includes weights and anatomy; the original
+training corpus and optimizer state are not included. The browser game runs
+the same model from `public/data/droso-1/`.
 
 The earlier prototypes, fly-v6 and fly-v4, were trained on a different
 connectome (MaleCNS v1.0) and are kept for reference in
@@ -72,7 +75,8 @@ connectome (MaleCNS v1.0) and are kept for reference in
 
 - [How the fly plays](docs/how-it-works.md): the neuron model, how it sees
   the board, and how it decides.
-- [How it was trained](docs/training.md): the recipe, data, losses, measurements and limitations.
+- [How it was trained](docs/training.md): an overview with links to the
+  recipe, research notes and benchmarks.
 - [Development](docs/development.md): running it locally, project layout,
   tests, and swapping in a new model.
 - [Data and licences](docs/data.md)

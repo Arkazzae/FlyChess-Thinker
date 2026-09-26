@@ -130,7 +130,11 @@ export function Board({ children, interactive = true }: { children?: ReactNode; 
     const state = useGameStore.getState();
     const result = state.tryMove(from, to);
 
-    if (result === "promotion") return; // Picker will appear
+    if (result === "promotion") {
+      // Picker will appear, unless the player always promotes to a queen.
+      if (useSettingsStore.getState().autoQueen) handlePromotionConfirm("q");
+      return;
+    }
 
     if (result && typeof result === "object") {
       handlePostMove({ flags: result.flags, captured: result.captured, san: result.san });

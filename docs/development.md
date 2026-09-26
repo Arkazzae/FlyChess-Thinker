@@ -5,10 +5,8 @@ This page is for running and changing the code.
 
 ## Run locally
 
-Use Node.js 24.12+ and pnpm 10.14.0 (pinned in `package.json`). The locked
-dependencies also support Node.js 22.20+ on the 22.x line; Node.js 23 is outside
-Vitest's supported range. The scripts run JavaScript in Node and load the
-application's TypeScript through Vite in the browser.
+Use Node.js 22.20+ or 24.12+ and pnpm 10.14.0 (pinned as `packageManager` in
+`package.json`). Node.js 23 is outside Vitest's supported range.
 
 ```bash
 pnpm install --frozen-lockfile
@@ -77,6 +75,7 @@ Screenshots go to `reports/`.
 | `src/brain/` | Brain-view playback clock, recording statistics, the 3D cloud (WebGL), the flow diagram |
 | `src/components/` | App shell and preloader (`shell/`), game screen (`play/`), brain views (`brain/`), board (`Board/`), the fly mascot |
 | `src/game/session.ts` | Starting, rematching and ending games; PGN export |
+| `src/state/` | Zustand stores: game, settings, interface choices, the fly's engine status and chat. Settings and interface choices are saved in `localStorage` |
 | `src/i18n/` | English and Polish strings (English is the default) |
 | `public/data/` | FlyWire connectome (`flywire/`) and DROSO-1 browser weights (`droso-1/`) |
 | `scripts/` | Browser tests and README media capture |
@@ -122,11 +121,9 @@ them quickly and at the same size.
 The media script records only the application views; it does not touch the
 illustrated README banner, `docs/media/banner-illustrated.png`.
 
-## Mascot
+## Fly portraits
 
-The three portraits in `public/avatars/flies/` are `scout`, `tactician`
-and `thinker`. They share the same DROSO-1 checkpoint. Old saved selections
-migrate to the corresponding new style.
-
-The favicon uses the same character and illustration style. The app ships
-optimised assets only. Old portraits and the obsolete SVG mascot are removed.
+`public/avatars/flies/` holds one portrait per play style: `scout`,
+`tactician` and `thinker`. All three styles use the same DROSO-1 checkpoint
+and differ only in search budget (`src/ai/bots/levels.ts`). The favicon and
+`apple-touch-icon.png` in `public/` use the same illustration.

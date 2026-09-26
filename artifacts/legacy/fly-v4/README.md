@@ -37,5 +37,5 @@ It learned from:
 | Thinker | 45 / 12 / 39 | 1342 |
 
 The first probe (32 games) had the Planner at 1397. The larger sample puts it
-near 1330. With search, v4 is level with v6. Without search, v6 is about 90
-points better.
+near 1330. With search, v4 scored slightly higher than v6, but within the
+±65 margin. Without search, v6 is about 90 points better.

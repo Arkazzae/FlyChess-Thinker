@@ -222,7 +222,9 @@ def main():
     args=parser.parse_args()
     if not 1320<=args.elo<=3190 or not 1<=args.openings<=len(OPENINGS) or min(args.depth,args.simulations,args.wave_size,args.max_plies)<1:
         parser.error('invalid rating protocol parameters')
-    args.out=args.out.resolve();args.checkpoint=args.checkpoint.resolve()
+    args.out=args.out.resolve()
+    if args.checkpoint:args.checkpoint=args.checkpoint.resolve()
+    if args.bundle:args.bundle=args.bundle.resolve()
     for i in range(args.openings):opening_board(i)
     with RunControl(args.out) as control:play(args,control)
 

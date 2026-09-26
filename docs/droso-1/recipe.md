@@ -207,7 +207,13 @@ and root evaluation. Select using validation, freeze the candidate, then run
 one final evaluation with `--split test --final` and a fresh output directory.
 The evaluator caps paired games at 200 plies and reports any Stockfish
 adjudications separately. For a rating probe, use `droso1.rating_match`, whose
-512-ply limit leaves unfinished games unresolved instead of assigning results.
+limit of 512 plies after the opening leaves unfinished games unresolved
+instead of assigning results:
+
+```bash
+python -m droso1.rating_match --bundle exports/my-droso-1 --elo 1500 \
+  --out runs/my-droso-1-rating-1500
+```
 
 ```bash
 python -m droso1.export --checkpoint runs/my-droso-1/last.pt --arm B \

@@ -6,6 +6,7 @@
 
 import type { BotDefinition, ChatMessages } from "./bots/types";
 import { useChatStore } from "@/state/chat";
+import { useSettingsStore } from "@/state/settings";
 
 export type ChatEvent =
   | "start"
@@ -62,6 +63,9 @@ export function triggerChat(
   event: ChatEvent,
   bot: BotDefinition
 ): ChatMessage | null {
+  // The player can silence the fly in the settings.
+  if (!useSettingsStore.getState().flyChat) return null;
+
   // Rate-limit idle messages
   if (event === "idle") {
     if (Date.now() - lastIdleTime < IDLE_COOLDOWN) return null;

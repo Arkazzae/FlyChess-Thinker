@@ -17,7 +17,8 @@ The 95% bootstrap interval is **1410.00–1603.33**, resampling 13 opening
 families across both colours and opponent levels. Stockfish used requested
 depth 8, one thread and 16 MB hash. Sixteen openings were each played with
 both colours against both levels. All 64 games ended naturally, had legal
-PGNs and distinct trajectories. None reached the 512-ply technical limit.
+PGNs and distinct trajectories. None reached the technical limit of 512
+plies after the opening moves.
 
 This is a rating relative to those Stockfish settings, not a FIDE, Lichess or
 Chess.com rating. Stockfish documents UCI_Elo calibration at 120 seconds plus
